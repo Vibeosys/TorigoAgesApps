@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -186,10 +187,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
             startActivity(i);
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 
@@ -375,7 +372,21 @@ public class MainActivity extends AppCompatActivity
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_problem);
         dialog.setTitle("Report Problem");
-        //Spinner spinner=dialog.
+        Spinner spinner = (Spinner) dialog.findViewById(R.id.spiner);
+        ArrayAdapter<String> adapter;
+        List<String> list;
+
+        list = new ArrayList<String>();
+        list.add("Tyre Puncher");
+        list.add("Fuel Leakage");
+        list.add("Wheel Alignment");
+        list.add("Servicing");
+        list.add("Break Down");
+        list.add("Other...");
+        adapter = new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         dialog.show();
     }
 }
