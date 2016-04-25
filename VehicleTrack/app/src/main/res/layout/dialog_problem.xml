@@ -15,23 +15,47 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@color/black_overlay"
-            android:drawSelectorOnTop="true"></Spinner>
+            android:drawSelectorOnTop="true" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp" />
 
-        <Button
-            android:id="@+id/email_sign_in_button"
-            style="@style/button_custom_new"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:background="@color/colorPrimary"
-            android:text="Submit"
-            android:textColor="@color/white_color"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="@style/button_custom_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="Cancel"
+                android:textColor="@color/white_color"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/cancel"
+                style="@style/button_custom_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="Submit"
+                android:textColor="@color/white_color"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

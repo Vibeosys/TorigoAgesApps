@@ -14,7 +14,7 @@
     <com.vibeosys.vehicletrack.RoundedImageView
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:src="@drawable/driver" />
+        android:src="@drawable/driver_new" />
 
     <TextView
         android:layout_width="match_parent"
