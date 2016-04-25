@@ -364,8 +364,7 @@ public class MainActivity extends AppCompatActivity
 
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_call);
-        dialog.setTitle("Emergency Call");
-
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.WRAP_CONTENT);
         dialog.show();
     }
 
@@ -373,11 +372,11 @@ public class MainActivity extends AppCompatActivity
 
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_problem);
-        dialog.setTitle("Report Problem");
+
         Spinner spinner = (Spinner) dialog.findViewById(R.id.spiner);
         ArrayAdapter<String> adapter;
         List<String> list;
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.WRAP_CONTENT);
+
         list = new ArrayList<String>();
         list.add("Tyre Puncher");
         list.add("Fuel Leakage");
@@ -389,6 +388,7 @@ public class MainActivity extends AppCompatActivity
                 android.R.layout.simple_spinner_dropdown_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.WRAP_CONTENT);
         dialog.show();
     }
 }

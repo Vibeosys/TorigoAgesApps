@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/me"
-                android:text="No sir. we will reach on time. just waite for\n 15 minutes " />
+                android:text="No sir. we will reach on time. just wait for\n 15 minutes " />
         </LinearLayout>
 
         <LinearLayout
