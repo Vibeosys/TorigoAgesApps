@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sender"
-                android:text="Yes XXXXXXXXX XXXXXXX XXXXXXXX\nXXXXXXXX XXXXXXX XXXXX\n No Problem" />
+                android:text="Yes Jack, I am waiting on link road\n Where are you? is there any \n problem with car?" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/me"
-                android:text="XXXXXXXXX XXXXXXX XXXXXXXX\nXXXXXXXX XXXXXXX XXXXX\n Thanks" />
+                android:text="No No. I stuck in the traffic on M.G. Road\n I will be there within 15 minutes. " />
         </LinearLayout>
 
         <LinearLayout
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sender"
-                android:text="Yes XXXXXXXXX XXXXXXX XXXXXXXX\nXXXXXXXX XXXXXXX XXXXX\n Good" />
+                android:text="Ok, But be fast because my flight  \nis on 12.30 PM and i doesn't\n want to go late. Or i will pick another\n car?" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/me"
-                android:text="Thanks XXXXXXXXX XXXXXXX XXXXXXXX\nXXXXXXXX XXXXXXX XXXXX\n" />
+                android:text="No sir. we will reach on time. just waite for\n 15 minutes " />
         </LinearLayout>
 
         <LinearLayout

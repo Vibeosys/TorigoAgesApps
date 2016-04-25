@@ -17,7 +17,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.GridLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -375,7 +377,7 @@ public class MainActivity extends AppCompatActivity
         Spinner spinner = (Spinner) dialog.findViewById(R.id.spiner);
         ArrayAdapter<String> adapter;
         List<String> list;
-
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.WRAP_CONTENT);
         list = new ArrayList<String>();
         list.add("Tyre Puncher");
         list.add("Fuel Leakage");
