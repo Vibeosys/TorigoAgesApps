@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
+import com.vibeosys.lawyerdiary.activities.CasesActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.my_clients) {
 
         } else if (id == R.id.my_cases) {
+            Intent i = new Intent(getApplicationContext(), CasesActivity.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_manage) {
 

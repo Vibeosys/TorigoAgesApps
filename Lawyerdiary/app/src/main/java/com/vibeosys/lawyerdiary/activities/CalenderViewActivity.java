@@ -15,6 +15,7 @@ import com.alamkanak.weekview.WeekViewEvent;
 import com.vibeosys.lawyerdiary.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /*Copyright 2014 Raquib-ul-Alam
@@ -37,22 +38,21 @@ public class CalenderViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setTitle("Calendar");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent iNewEvent = new Intent(getApplicationContext(), NewEventActivity.class);
+                startActivity(iNewEvent);
             }
         });
         mWeekView = (WeekView) findViewById(R.id.weekView);
         mWeekView.setOnEventClickListener(new WeekView.EventClickListener() {
             @Override
             public void onEventClick(WeekViewEvent event, RectF eventRect) {
-                Intent iSchedule = new Intent(getApplicationContext(), SheduleActivity.class);
+                Intent iSchedule = new Intent(getApplicationContext(), EventDetailsActivity.class);
                 startActivity(iSchedule);
             }
         });
@@ -62,19 +62,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
             public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-                List<WeekViewEvent> week = new ArrayList<WeekViewEvent>();
-                week.add(new WeekViewEvent(1, "Hearing of case 2", 2016, 4, 27, 11, 00, 2016, 4, 27, 12, 00));
-                week.add(new WeekViewEvent(2, "Result of case 1", 2016, 4, 27, 14, 00, 2016, 4, 27, 15, 00));
-                week.add(new WeekViewEvent(3, "Meeting With Bhosale", 2016, 4, 27, 16, 00, 2016, 4, 27, 17, 00));
-                week.add(new WeekViewEvent(4, "Meeting with Vinod", 2016, 4, 27, 17, 00, 2016, 4, 27, 18, 00));
-
-                week.add(new WeekViewEvent(5, "Hearing of case 3", 2016, 4, 28, 9, 00, 2016, 4, 27, 11, 00));
-                week.add(new WeekViewEvent(6, "Result of case 6", 2016, 4, 28, 12, 00, 2016, 4, 27, 15, 00));
-                week.add(new WeekViewEvent(7, "Meeting With Khan", 2016, 4, 28, 16, 00, 2016, 4, 27, 17, 00));
-
-                week.add(new WeekViewEvent(9, "Hearing of case 6", 2016, 4, 29, 10, 00, 2016, 4, 27, 12, 00));
-                week.add(new WeekViewEvent(11, "Meeting With Khan", 2016, 4, 29, 13, 00, 2016, 4, 27, 14, 00));
-                week.add(new WeekViewEvent(12, "Meeting with Bonde", 2016, 4, 29, 14, 00, 2016, 4, 27, 15, 00));
+                List<WeekViewEvent> week = getEvents(newYear, newMonth);
                 return week;
             }
         });
@@ -86,6 +74,116 @@ public class CalenderViewActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private List<WeekViewEvent> getEvents(int newYear, int newMonth) {
+        List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 10);
+        startTime.set(Calendar.MINUTE, 0);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+
+        Calendar endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 11);
+        endTime.set(Calendar.MINUTE, 30);
+        endTime.set(Calendar.MONTH, newMonth - 1);
+
+        WeekViewEvent event = new WeekViewEvent(1, "Hearing of case 2", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_01));
+        events.add(event);
+
+        startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 13);
+        startTime.set(Calendar.MINUTE, 00);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+
+        endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 14);
+        endTime.set(Calendar.MINUTE, 30);
+        endTime.set(Calendar.MONTH, newMonth - 1);
+
+        event = new WeekViewEvent(2, "Meeting With Bhosale", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_02));
+        events.add(event);
+
+        startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 15);
+        startTime.set(Calendar.MINUTE, 0);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+
+        endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 16);
+        endTime.set(Calendar.MINUTE, 30);
+        event = new WeekViewEvent(10, "Meeting with Vinod", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_03));
+        events.add(event);
+
+
+        startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 9);
+        startTime.set(Calendar.MINUTE, 0);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+        startTime.add(Calendar.DATE, 1);
+
+        endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 12);
+        endTime.set(Calendar.MINUTE, 30);
+        event = new WeekViewEvent(3, "Hearing of Case 3", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_04));
+        events.add(event);
+
+        startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 13);
+        startTime.set(Calendar.MINUTE, 0);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+        startTime.add(Calendar.DATE, 1);
+
+        endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 14);
+        endTime.set(Calendar.MINUTE, 30);
+        event = new WeekViewEvent(3, "Meeting With Khan", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_03));
+        events.add(event);
+
+        startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 11);
+        startTime.set(Calendar.MINUTE, 0);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+        startTime.add(Calendar.DATE, 2);
+
+        endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 12);
+        endTime.set(Calendar.MINUTE, 30);
+        event = new WeekViewEvent(3, "Hearing of Case 2", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_02));
+        events.add(event);
+
+        startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 13);
+        startTime.set(Calendar.MINUTE, 30);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+        startTime.add(Calendar.DATE, 2);
+
+        endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 15);
+        endTime.set(Calendar.MINUTE, 00);
+        event = new WeekViewEvent(3, "Meeting With Bonde", startTime, endTime);
+        event.setColor(getResources().getColor(R.color.event_color_01));
+        events.add(event);
+
+
+        return events;
+    }
+
+    protected String getEventTitle(Calendar time) {
+        return String.format("Event of %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));
     }
 }
 

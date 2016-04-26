@@ -5,12 +5,12 @@ import android.os.Bundle;
 
 import com.vibeosys.lawyerdiary.R;
 
-public class EventDetailsActivity extends AppCompatActivity {
+public class NewEventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_details);
-        setTitle("Event Details");
+        setContentView(R.layout.activity_new_event);
+        setTitle("Add Reminder");
     }
 }
