@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_today"
+        android:orderInCategory="100"
+        android:title="Go Today"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_day_view"
+        android:orderInCategory="100"
+        android:title="1 Day View"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_three_day_view"
+        android:orderInCategory="100"
+        android:title="3 Day View"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_week_view"
+        android:orderInCategory="100"
+        android:title="Week View"
+        app:showAsAction="never" />
+</menu>

@@ -48,7 +48,6 @@ public class CalenderViewActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
         mWeekView = (WeekView) findViewById(R.id.weekView);
         mWeekView.setOnEventClickListener(new WeekView.EventClickListener() {
             @Override
@@ -64,10 +63,10 @@ public class CalenderViewActivity extends AppCompatActivity {
             @Override
             public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
                 List<WeekViewEvent> week = new ArrayList<WeekViewEvent>();
-                week.add(new WeekViewEvent(1, "Hearing of case 2", 2016, 4, 27, 11, 00, 2016, 4, 27, 13, 00));
+                week.add(new WeekViewEvent(1, "Hearing of case 2", 2016, 4, 27, 11, 00, 2016, 4, 27, 12, 00));
                 week.add(new WeekViewEvent(2, "Result of case 1", 2016, 4, 27, 14, 00, 2016, 4, 27, 15, 00));
                 week.add(new WeekViewEvent(3, "Meeting With Bhosale", 2016, 4, 27, 16, 00, 2016, 4, 27, 17, 00));
-                week.add(new WeekViewEvent(4, "Meeting with Vinod", 2016, 4, 27, 14, 00, 2016, 4, 27, 15, 00));
+                week.add(new WeekViewEvent(4, "Meeting with Vinod", 2016, 4, 27, 17, 00, 2016, 4, 27, 18, 00));
 
                 week.add(new WeekViewEvent(5, "Hearing of case 3", 2016, 4, 28, 9, 00, 2016, 4, 27, 11, 00));
                 week.add(new WeekViewEvent(6, "Result of case 6", 2016, 4, 28, 12, 00, 2016, 4, 27, 15, 00));
