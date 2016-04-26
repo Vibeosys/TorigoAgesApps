@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/instrctions_exercies"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/images_chest_exerices" />
+
+        <View
+            android:id="@+id/SplitLine_hor5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/instrctions_exercies"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/excersieName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SplitLine_hor5"
+            android:layout_centerHorizontal="true"
+            android:text="Incline Dumbbell"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/SplitLine_hor6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/excersieName"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/information_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/SplitLine_hor6"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Information"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ex_info_1"
+            android:paddingTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/information_title"
+            android:layout_below="@+id/information_title"
+            android:layout_marginTop="5dp"
+            android:text="This exercise works the upper pectorals,anterior deltoids,triceps and anterior.You can use weight rack to perform this movement. "
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Contrary to belief ,the incline press does not firm women's  breast nor does it prevent them from dropping in any way.Breast are made up of fact,which holds the mammary glands.The entire structure, held together in connective tissue framework,rest on the pectoralis majors.   "
+            android:layout_marginTop="10dp"
+            android:id="@+id/ex_info_2"
+            android:layout_below="@+id/ex_info_1"
+            android:layout_alignStart="@+id/ex_info_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Exercise execution"
+            android:id="@+id/exectionTextview"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/ex_info_2"
+            android:textStyle="bold"
+            android:layout_alignStart="@+id/information_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="With the dumbbells hanging straight down, flex your lats and drive your elbows back.
+
+ Keep your shoulders down as you raise the dumbbells as high as possible.
+
+ Control the weight throughout the lift, pulling smoothly. At the top position, squeeze your shoulder blades together.
+
+ Lower the dumbbells while continuing to keep tension art your lats at all times.
+
+ If the exercise hurts your chest, use lighter dumbbells and focus on the feel of driving your elbows back and pinching your shoulder blades together as you squeeze for a peak contraction. "
+            android:id="@+id/execution_details"
+            android:layout_below="@+id/exectionTextview"
+            android:layout_alignStart="@+id/exectionTextview" />
+    </RelativeLayout>
+</ScrollView>

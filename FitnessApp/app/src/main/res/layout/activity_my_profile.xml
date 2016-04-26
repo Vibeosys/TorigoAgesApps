@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context=".MainActivity">
+
+        <!--<ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Hello"
+            android:layout_marginTop="24dp" />-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/profile_new_test"
+            android:id="@+id/circleView"
+            />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name :"
+        android:id="@+id/nameTitle"
+        android:layout_alignTop="@+id/circleView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="johnson williams"
+        android:id="@+id/nameTv"
+        android:layout_alignBottom="@+id/nameTitle"
+        android:layout_toEndOf="@+id/nameTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Age :"
+        android:id="@+id/AgeTextView"
+        android:layout_below="@+id/nameTitle"
+        android:layout_alignStart="@+id/nameTitle"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingLeft="4dp"
+        android:text="29"
+        android:id="@+id/ageTv"
+        android:layout_alignTop="@+id/AgeTextView"
+        android:layout_toEndOf="@+id/nameTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="6.1 inches"
+        android:id="@+id/heightTv"
+        android:layout_below="@+id/circleView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Height ."
+        android:id="@+id/heightTitle"
+        android:layout_below="@+id/heightTv"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:id="@+id/SplitLine_hor1"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/heightTitle"
+        android:layout_height= "1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="76.3 Kg."
+        android:id="@+id/weightTv"
+        android:layout_below="@+id/SplitLine_hor1"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Weight ."
+        android:id="@+id/weightTilte"
+        android:layout_below="@+id/weightTv"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:id="@+id/SplitLine_hor2"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/weightTilte"
+        android:layout_height= "1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="34 inches"
+        android:id="@+id/chestTv"
+        android:layout_below="@+id/SplitLine_hor2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Chest ."
+        android:id="@+id/chestTitle"
+        android:layout_below="@+id/chestTv"
+        android:layout_alignParentStart="true" />
+    <View
+        android:id="@+id/SplitLine_hor3"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/chestTitle"
+        android:layout_height= "1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="AB +"
+        android:id="@+id/bloodGroupsTv"
+        android:layout_alignTop="@+id/SplitLine_hor3"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Blood group ."
+        android:id="@+id/bloogGroupTitle"
+        android:layout_below="@+id/bloodGroupsTv"
+        android:layout_alignParentStart="true" />
+    <View
+        android:id="@+id/SplitLine_hor4"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/bloogGroupTitle"
+        android:layout_height= "1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="110-129 mg/dL"
+        android:id="@+id/cholesterolTv"
+        android:layout_alignTop="@+id/SplitLine_hor4"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="cholesterols"
+        android:id="@+id/cholesterolTitle"
+        android:layout_below="@+id/cholesterolTv"
+        android:layout_alignParentStart="true" />
+    <View
+        android:id="@+id/SplitLine_hor5"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/cholesterolTitle"
+        android:layout_height= "1dp"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>
+
+
+

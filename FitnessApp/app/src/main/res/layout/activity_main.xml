@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.shrinivas.fitnessapp.MainActivity">
+
+
+    <!--<ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"/>-->
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="Hello"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/editTextusername"
+        android:layout_below="@+id/imageButton"
+        android:layout_width="match_parent"
+        android:drawableLeft="@drawable/ic_person"
+        android:hint="   user name"
+        android:layout_height="48dp" />
+    <EditText
+        android:id="@+id/editTextuserpassword"
+        android:layout_below="@+id/editTextusername"
+        android:drawableLeft="@drawable/ic_password_new"
+        android:hint="   password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/editTextuserpassword"
+        android:background="@color/amber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Login"/>
+
+
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:textStyle="italic|bold"
+        android:text="forgot password"/>
+</RelativeLayout>

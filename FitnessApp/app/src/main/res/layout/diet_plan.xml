@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/diat_image" />
+
+        <TextView
+            android:id="@+id/diat_day_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Day 1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/SplitLine_hor5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/diat_day_title"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/breakfast_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/SplitLine_hor5"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Breakfast :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/breakfast_detials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/breakfast_text"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/breakfast_text"
+            android:text="1 cup of milk,1 apple and 1-2 glass of water"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/snaks_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/breakfast_detials"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Snacks :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/snaks_detials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/breakfast_detials"
+            android:layout_alignTop="@+id/snaks_textview"
+            android:text="1 protien 1 bowl of papaya and 1-2 glass of water."
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/lunch_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/snaks_textview"
+            android:layout_below="@+id/snaks_detials"
+            android:layout_marginTop="20dp"
+            android:text="Lunch :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lunch_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/snaks_detials"
+            android:layout_alignTop="@+id/lunch_textview"
+            android:text="1 bowl of Leafy greens and handful of Roasted Soyabean and Almonds.1 chick soup.2 bananas. 600 calories ,74 gm proteins 30 g fats . "
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Mid snaks:"
+            android:id="@+id/afternoon_textview"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/lunch_details"
+            android:layout_alignStart="@+id/lunch_textview" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="1 cup of vanilla yogurt,1 cup of blueberries,1 TBS honey.600 calories, 38 g protein, 80 g carbs."
+            android:id="@+id/mid_details"
+            android:layout_alignTop="@+id/afternoon_textview"
+            android:layout_alignStart="@+id/lunch_details" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Dinner :"
+            android:id="@+id/dinner_textview"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/mid_details"
+            android:layout_alignStart="@+id/afternoon_textview" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="1 cup of milk ,handful almonds, 1 large sweet potato ,2 bananas.600 calories, 30 g protein, 35 carbs, 16 fat."
+            android:id="@+id/dinner_details"
+            android:layout_alignTop="@+id/dinner_textview"
+            android:layout_alignStart="@+id/mid_details" />
+
+
+    </RelativeLayout>
+</ScrollView>
