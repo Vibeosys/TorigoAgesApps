@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="4dp"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/ic_custmer_icon"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="william smith"
+        android:id="@+id/custmer_name"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/black"
+        android:layout_margin="15dp"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Public Interest Litigation"
+        android:textColor="@android:color/black"
+        android:id="@+id/type_of_ligitation"
+        android:layout_below="@+id/custmer_name"
+        android:layout_alignLeft="@+id/custmer_name"
+        android:layout_alignStart="@+id/custmer_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/category_of_ligitation"
+        android:textColor="@android:color/darker_gray"
+        android:layout_alignBottom="@+id/type_of_ligitation"
+        android:paddingRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

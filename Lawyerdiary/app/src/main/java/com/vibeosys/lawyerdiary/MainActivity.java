@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
+import com.vibeosys.lawyerdiary.activities.ClientActivity;
 import com.vibeosys.lawyerdiary.activities.LoginActivity;
 import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
@@ -93,7 +94,9 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
             Intent i = new Intent(getApplicationContext(), CalenderViewActivity.class);
             startActivity(i);
-        } else if (id == R.id.my_clients) {
+        } else if (id == R.id.clients) {
+            Intent client_intent = new Intent(getApplicationContext(), ClientActivity.class);
+            startActivity(client_intent);
 
         } else if (id == R.id.my_cases) {
             Intent i = new Intent(getApplicationContext(), CasesActivity.class);

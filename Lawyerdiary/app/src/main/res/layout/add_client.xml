@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Client name :"
+        android:id="@+id/customer_name_textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="6dp"
+        android:layout_marginTop="51dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/customer_name_textView"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:paddingRight="6dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Petitioner * :"
+        android:layout_marginTop="30dp"
+        android:id="@+id/petitioner_textView2"
+        android:paddingLeft="6dp"
+        android:layout_below="@+id/customer_name_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/petitioner_editText"
+        android:layout_alignBottom="@+id/petitioner_textView2"
+        android:paddingRight="6dp"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Defendant * :"
+        android:id="@+id/defendar_textView"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="6dp"
+        android:layout_below="@+id/petitioner_textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/defendar_editText"
+        android:layout_alignBottom="@+id/defendar_textView"
+        android:paddingRight="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Court Name *:"
+        android:id="@+id/court_name_textView"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="6dp"
+        android:layout_below="@+id/defendar_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/court_name_editText"
+        android:paddingRight="6dp"
+        android:layout_alignBottom="@+id/court_name_textView"
+        android:layout_alignLeft="@+id/defendar_editText"
+        android:layout_alignStart="@+id/defendar_editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Client address:"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="6dp"
+        android:id="@+id/custmer_address_textView"
+        android:layout_below="@+id/court_name_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:paddingRight="6dp"
+        android:id="@+id/custmer_address_editText"
+        android:layout_alignBottom="@+id/custmer_address_textView"
+        android:layout_alignLeft="@+id/court_name_editText"
+        android:layout_alignStart="@+id/court_name_editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Phone Number *:"
+        android:id="@+id/phone_textView"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="6dp"
+        android:layout_below="@+id/custmer_address_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/Phone_editText"
+        android:layout_alignBottom="@+id/phone_textView"
+        android:layout_alignLeft="@+id/custmer_address_editText"
+        android:layout_alignStart="@+id/custmer_address_editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Case stage:"
+        android:id="@+id/case_stage_textView"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="6dp"
+        android:layout_below="@+id/phone_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_case_stage"
+        android:spinnerMode="dropdown"
+        android:layout_alignTop="@+id/case_stage_textView"
+        android:layout_alignLeft="@+id/Phone_editText"
+        android:layout_alignStart="@+id/Phone_editText" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/submit_btn_layout"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="45dp"
+        android:background="@android:color/darker_gray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Submit"
+            android:background="@drawable/back"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Cancel"
+                android:layout_weight="1"
+                android:background="@drawable/cancel_btn"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>
