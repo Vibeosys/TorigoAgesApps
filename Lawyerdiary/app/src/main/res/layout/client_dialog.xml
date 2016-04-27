@@ -32,91 +32,6 @@
         android:layout_alignParentLeft="true"
           />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="322"
-        android:id="@+id/textView2"
-        android:paddingLeft="8dp"
-        android:layout_alignTop="@+id/case_no"
-        android:layout_toRightOf="@+id/case_no"
-        android:layout_toEndOf="@+id/case_no" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Representing :"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/case_no"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/case_no"
-        android:layout_alignStart="@+id/case_no" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Petitioner"
-        android:layout_marginTop="8dp"
-        android:id="@+id/radioButton"
-        android:checked="true"
-        android:textStyle="normal"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Defendant"
-        android:id="@+id/radioButton2"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignLeft="@+id/radioButton"
-        android:layout_alignStart="@+id/radioButton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Fee settled :"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/radioButton2"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="540000"
-        android:id="@+id/textView5"
-        android:layout_alignTop="@+id/textView4"
-        android:layout_alignLeft="@+id/radioButton2"
-        android:layout_alignStart="@+id/radioButton2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Fee paid :"
-        android:id="@+id/textView6"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="25000"
-        android:id="@+id/textView7"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
 
     <RelativeLayout
         android:id="@+id/submit_btn_layout"
@@ -132,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="OK"
-                android:background="@drawable/back"
+                android:background="@drawable/cancel_btn"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_gravity="center"/>
@@ -141,4 +56,80 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Fee settled :"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/case_no"
+        android:layout_alignStart="@+id/case_no" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Fee paid :"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Representing :"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView4"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="322"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/case_no"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="5400"
+        android:id="@+id/textView6"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_above="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="2500"
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="petitioner"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:checked="true"
+        android:id="@+id/radioButton"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Defendant"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/radioButton2"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignStart="@+id/radioButton" />
 </RelativeLayout>

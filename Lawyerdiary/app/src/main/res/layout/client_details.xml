@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:id="@+id/imageView2"
         android:src="@drawable/ic_custmer_icon"
         android:layout_alignParentTop="true"
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Public Interest Litigation"
+        android:text="Public "
         android:textColor="@android:color/black"
         android:id="@+id/type_of_ligitation"
         android:layout_below="@+id/custmer_name"
@@ -46,6 +46,17 @@
         android:layout_alignBottom="@+id/type_of_ligitation"
         android:paddingRight="15dp"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/case_date"
+        android:textColor="@android:color/darker_gray"
+        android:paddingRight="15dp"
+        android:layout_alignBottom="@+id/custmer_name"
         android:layout_alignParentEnd="true" />
 
 

@@ -178,16 +178,20 @@
             <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Submit"
+            android:text="Cancel"
+                android:textColor="@android:color/white"
             android:background="@drawable/back"
             android:layout_weight="1"
             android:gravity="center"
             android:layout_gravity="center"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Cancel"
+
+                android:text="Submit"
                 android:layout_weight="1"
+                android:textColor="@android:color/white"
                 android:background="@drawable/cancel_btn"
                 android:gravity="center"
                 android:layout_gravity="center"/>

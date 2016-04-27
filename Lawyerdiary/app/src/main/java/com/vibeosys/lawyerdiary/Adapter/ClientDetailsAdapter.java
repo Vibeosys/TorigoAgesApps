@@ -52,6 +52,7 @@ public class ClientDetailsAdapter extends BaseAdapter {
             holder.custmerName = (TextView)convertView.findViewById(R.id.custmer_name);
             holder.TypeOfLitigation = (TextView)convertView.findViewById(R.id.type_of_ligitation);
             holder.categoryOfLigitation =(TextView)convertView.findViewById(R.id.category_of_ligitation);
+            holder.caseDate = (TextView)convertView.findViewById(R.id.case_date);
             convertView.setTag(holder);
 
         }else
@@ -61,7 +62,9 @@ public class ClientDetailsAdapter extends BaseAdapter {
         holder.custmerName.setText(clientData.get(position).getCustmerName());
         holder.TypeOfLitigation.setText(clientData.get(position).getTypeOfLigitation());
         holder.categoryOfLigitation.setText(clientData.get(position).getCategoryOfLegitation());
+        holder.caseDate.setText(clientData.get(position).getCaseDate());
         holder.imgView.setImageResource(clientData.get(position).getIcon());
+
         return convertView;
     }
     public class Holder
@@ -70,5 +73,6 @@ public class ClientDetailsAdapter extends BaseAdapter {
         TextView custmerName;
         TextView TypeOfLitigation;
         TextView categoryOfLigitation;
+        TextView caseDate;
     }
 }

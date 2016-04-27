@@ -7,13 +7,15 @@ public class ClientData {
     String custmerName;
     String typeOfLigitation;
     String categoryOfLegitation;
+    String caseDate;
     int icon;
-    public ClientData(String custmerName ,String typeOfLigitation ,String categoryOfLegitation,int icon)
+    public ClientData(String custmerName ,String typeOfLigitation ,String categoryOfLegitation,int icon ,String caseDate)
     {
         this.custmerName = custmerName;
         this.typeOfLigitation = typeOfLigitation;
         this.categoryOfLegitation = categoryOfLegitation;
         this.icon = icon;
+        this.caseDate = caseDate;
     }
     public String getCustmerName() {
         return custmerName;
@@ -45,6 +47,15 @@ public class ClientData {
 
     public void setIcon(int icon) {
         this.icon = icon;
+    }
+
+
+    public String getCaseDate() {
+        return caseDate;
+    }
+
+    public void setCaseDate(String caseDate) {
+        this.caseDate = caseDate;
     }
 
 
