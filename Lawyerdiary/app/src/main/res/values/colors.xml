@@ -2,6 +2,8 @@
 <resources>
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryDark">#00695C</color>
+    <color name="colorPrimaryLight">#4DB6AC</color>
+    <color name="gray">#757575</color>
     <color name="colorAccent">#FF8A80</color>
     <color name="event_color_01">#EA80FC</color>
     <color name="event_color_02">#FF4081</color>

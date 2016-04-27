@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:onClick="viewCase"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -62,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:padding="4dp"
-                        android:text="Description XXXXXXXXXXXXXX XXX XXX XXX\n XXXXXXXXXXXX XXXXXXXXX"
+                        android:text="Client was charged with ramming his car into a shop in suburban Kothrud on September 28..."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -77,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:onClick="viewCase"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -118,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:padding="4dp"
-                        android:text="Description XXXXXXXXXXXXXX XXX XXX XXX\n XXXXXXXXXXXX XXXXXXXXX"
+                        android:text="Rock Day concert and a parade were scheduled without authorization from City Council. Two diverse groups were formed."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -133,6 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:onClick="viewCase"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -174,7 +177,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:padding="4dp"
-                        android:text="Description XXXXXXXXXXXXXX XXX XXX XXX\n XXXXXXXXXXXX XXXXXXXXX"
+                        android:text="A car is involved in an accident that had just been reported stolen. The occupants ran from the car. Police officer arrests a suspect."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -189,6 +192,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:onClick="viewCase"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -230,7 +234,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:padding="4dp"
-                        android:text="Description XXXXXXXXXXXXXX XXX XXX XXX\n XXXXXXXXXXXX XXXXXXXXX"
+                        android:text="A high school student is banned from wearing an anti-abortion button to school."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -245,6 +249,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:onClick="viewCase"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -286,7 +291,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:padding="4dp"
-                        android:text="Description XXXXXXXXXXXXXX XXX XXX XXX\n XXXXXXXXXXXX XXXXXXXXX"
+                        android:text="A student's possessions are searched in a classroom based on suspicion of theft of a plaque."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -301,6 +306,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:onClick="viewCase"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -342,7 +348,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:padding="4dp"
-                        android:text="Description XXXXXXXXXXXXXX XXX XXX XXX\n XXXXXXXXXXXX XXXXXXXXX"
+                        android:text="An individual working at a fast food restaurant gets into an argument with a customer. As a result of the employee's attitude."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="13sp" />
                 </LinearLayout>

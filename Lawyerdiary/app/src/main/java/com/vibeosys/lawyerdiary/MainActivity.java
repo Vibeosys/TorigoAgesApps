@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
+import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -96,6 +97,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.nav_manage) {
+            Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(i);
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -33,7 +33,16 @@
         <activity
             android:name=".activities.CasesActivity"
             android:label="@string/title_activity_cases"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.CaseDetailsActivity"
+            android:parentActivityName=".activities.CasesActivity" />
+        <activity
+            android:name=".activities.NewCaseActivity"
+            android:parentActivityName=".activities.CasesActivity" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>
