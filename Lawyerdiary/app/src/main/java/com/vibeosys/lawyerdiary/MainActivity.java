@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
+import com.vibeosys.lawyerdiary.activities.LoginActivity;
 import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
 
@@ -73,7 +74,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_log_out) {
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
             return true;
         }
 
