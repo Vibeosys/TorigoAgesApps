@@ -9,4 +9,6 @@
     <color name="event_color_02">#FF4081</color>
     <color name="event_color_03">#87d288</color>
     <color name="event_color_04">#f8b552</color>
+
+    <color name="transperent">#80000000</color>
 </resources>

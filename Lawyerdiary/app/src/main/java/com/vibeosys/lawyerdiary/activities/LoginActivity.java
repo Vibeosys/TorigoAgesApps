@@ -1,6 +1,8 @@
 package com.vibeosys.lawyerdiary.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,4 +22,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(iMain);
     }
+
 }

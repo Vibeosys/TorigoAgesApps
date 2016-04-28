@@ -89,7 +89,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime.set(Calendar.MINUTE, 30);
         endTime.set(Calendar.MONTH, newMonth - 1);
 
-        WeekViewEvent event = new WeekViewEvent(1, "Hearing of case 2", startTime, endTime);
+        WeekViewEvent event = new WeekViewEvent(1, "Hearing of case 2 " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_01));
         events.add(event);
 
@@ -104,7 +104,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime.set(Calendar.MINUTE, 30);
         endTime.set(Calendar.MONTH, newMonth - 1);
 
-        event = new WeekViewEvent(2, "Meeting With Bhosale", startTime, endTime);
+        event = new WeekViewEvent(2, "Meeting With Bhosale " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_02));
         events.add(event);
 
@@ -117,7 +117,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY, 16);
         endTime.set(Calendar.MINUTE, 30);
-        event = new WeekViewEvent(10, "Meeting with Vinod", startTime, endTime);
+        event = new WeekViewEvent(10, "Meeting with Vinod " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_03));
         events.add(event);
 
@@ -132,7 +132,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY, 12);
         endTime.set(Calendar.MINUTE, 30);
-        event = new WeekViewEvent(3, "Hearing of Case 3", startTime, endTime);
+        event = new WeekViewEvent(3, "Hearing of Case 3 " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_04));
         events.add(event);
 
@@ -146,7 +146,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY, 14);
         endTime.set(Calendar.MINUTE, 30);
-        event = new WeekViewEvent(3, "Meeting With Khan", startTime, endTime);
+        event = new WeekViewEvent(3, "Meeting With Khan " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_03));
         events.add(event);
 
@@ -160,7 +160,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY, 12);
         endTime.set(Calendar.MINUTE, 30);
-        event = new WeekViewEvent(3, "Hearing of Case 2", startTime, endTime);
+        event = new WeekViewEvent(3, "Hearing of Case 2 " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_02));
         events.add(event);
 
@@ -174,7 +174,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY, 15);
         endTime.set(Calendar.MINUTE, 00);
-        event = new WeekViewEvent(3, "Meeting With Bonde", startTime, endTime);
+        event = new WeekViewEvent(3, "Meeting With Bonde " + getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_01));
         events.add(event);
 
@@ -183,7 +183,7 @@ public class CalenderViewActivity extends AppCompatActivity {
     }
 
     protected String getEventTitle(Calendar time) {
-        return String.format("Event of %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));
+        return String.format("On %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));
     }
 }
 
