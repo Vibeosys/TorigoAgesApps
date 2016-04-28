@@ -3,27 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_back"
+    android:background="@color/transperent"
     android:gravity="center"
     tools:context="com.vibeosys.vehicletrack.LoginActivity">
 
     <LinearLayout
-        android:id="@+id/lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:gravity="center|top"
-        android:orientation="vertical">
+        android:layout_width="550dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_back"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:translationZ="5dp">
 
         <ImageView
             android:layout_width="170dp"
             android:layout_height="170dp"
+            android:layout_marginTop="80dp"
             android:src="@drawable/vehicle_maps" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <EditText
                 android:id="@+id/email"
@@ -76,18 +78,19 @@
                 android:textSize="18sp" />
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:background="@color/transperent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Demo Version"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lay"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="20dp"
-        android:background="@color/transperent"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Demo Version"
-        android:textColor="@android:color/white"
-        android:textSize="16dp" />
 </RelativeLayout>
