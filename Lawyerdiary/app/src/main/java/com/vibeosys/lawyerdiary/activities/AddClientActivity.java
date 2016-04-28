@@ -19,6 +19,7 @@ public class AddClientActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_client);
+      //  setContentView(R.layout.add_client_custom_edit);
         getSupportActionBar().setTitle("Add Client");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         arraySpinner =  new String[]{"Filing Date","Open","Writting statment/Say","Evidence"};

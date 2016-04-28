@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
+        android:hint="Client name"
+        android:textColorHint="@android:color/darker_gray"
         android:id="@+id/editText"
         android:layout_alignBottom="@+id/customer_name_textView"
         android:layout_alignParentRight="true"
@@ -45,6 +47,8 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
+        android:hint="Petitioner"
+        android:textColorHint="@android:color/darker_gray"
         android:id="@+id/petitioner_editText"
         android:layout_alignBottom="@+id/petitioner_textView2"
         android:paddingRight="6dp"
@@ -68,6 +72,8 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
+        android:hint="Defendant"
+        android:textColorHint="@android:color/darker_gray"
         android:id="@+id/defendar_editText"
         android:layout_alignBottom="@+id/defendar_textView"
         android:paddingRight="6dp"
@@ -91,6 +97,8 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
+        android:hint="Court name"
+        android:textColorHint="@android:color/darker_gray"
         android:id="@+id/court_name_editText"
         android:paddingRight="6dp"
         android:layout_alignBottom="@+id/court_name_textView"
@@ -114,6 +122,8 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
+        android:hint="Client address"
+        android:textColorHint="@android:color/darker_gray"
         android:paddingRight="6dp"
         android:id="@+id/custmer_address_editText"
         android:layout_alignBottom="@+id/custmer_address_textView"
@@ -137,6 +147,8 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:hint="Phone number"
+        android:textColorHint="@android:color/darker_gray"
         android:id="@+id/Phone_editText"
         android:layout_alignBottom="@+id/phone_textView"
         android:layout_alignLeft="@+id/custmer_address_editText"
@@ -176,15 +188,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/cancel_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save"
-                android:layout_margin="4dp"
-                android:textColor="@android:color/white"
-                android:background="@drawable/cancel_btn"
-                android:layout_weight="1"/>
+
 
 
             <Button
@@ -195,6 +199,15 @@
                 android:textColor="@android:color/white"
                 android:layout_margin="4dp"
                 android:background="@drawable/back"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_margin="4dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/cancel_btn"
                 android:layout_weight="1"/>
 
         </LinearLayout>

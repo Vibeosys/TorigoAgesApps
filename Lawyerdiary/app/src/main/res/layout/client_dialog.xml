@@ -45,14 +45,24 @@
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/save_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/ok_btn"
+                android:text="Cancel"
+                android:textColor="@android:color/white"
+                android:layout_margin="4dp"
+                android:background="@drawable/back"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OK"
                 android:layout_margin="4dp"
                 android:textColor="@android:color/white"
                 android:background="@drawable/cancel_btn"
-                android:text="OK"/>
+                android:layout_weight="1"/>
 
 
         </LinearLayout>
