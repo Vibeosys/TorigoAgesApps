@@ -23,13 +23,13 @@
             android:layout_below="@+id/imageButton"
             android:layout_width="match_parent"
             android:drawableLeft="@drawable/ic_person"
-            android:hint="   user name large"
+            android:hint="User Name "
             android:layout_height="55dp" />
         <EditText
             android:id="@+id/editTextuserpassword"
             android:layout_below="@+id/editTextusername"
             android:drawableLeft="@drawable/ic_password_new"
-            android:hint="   password"
+            android:hint="Password"
             android:layout_width="match_parent"
             android:layout_height="55dp" />
 
