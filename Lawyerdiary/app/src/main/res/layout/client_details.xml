@@ -34,19 +34,8 @@
         android:id="@+id/type_of_ligitation"
         android:layout_below="@+id/custmer_name"
         android:layout_alignLeft="@+id/custmer_name"
+        android:layout_alignRight="@+id/category_of_ligitation"
         android:layout_alignStart="@+id/custmer_name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/category_of_ligitation"
-        android:textColor="@android:color/darker_gray"
-        android:layout_alignBottom="@+id/type_of_ligitation"
-        android:paddingRight="15dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,8 +44,20 @@
         android:text="Small Text"
         android:id="@+id/case_date"
         android:textColor="@android:color/darker_gray"
-        android:paddingRight="15dp"
-        android:layout_alignBottom="@+id/custmer_name"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="120dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/category_of_ligitation"
+        android:layout_alignTop="@+id/case_date"
+        android:layout_alignRight="@+id/case_date"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginRight="6dp"
         android:layout_alignParentEnd="true" />
 
 

@@ -38,19 +38,22 @@
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_height="45dp"
-        android:background="@android:color/darker_gray">
+        android:background="@android:color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
+
+            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="OK"
-                android:background="@drawable/cancel_btn"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:layout_gravity="center"/>
+                android:id="@+id/ok_btn"
+                android:layout_margin="4dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/cancel_btn"
+                android:text="OK"/>
+
 
         </LinearLayout>
 
@@ -86,50 +89,51 @@
         android:layout_alignStart="@+id/textView3"
         android:layout_below="@+id/textView3" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="322"
-        android:id="@+id/textView5"
-        android:layout_alignTop="@+id/case_no"
-        android:layout_toEndOf="@+id/textView4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="5400"
-        android:id="@+id/textView6"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_above="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="2500"
-        android:id="@+id/textView7"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_toEndOf="@+id/textView4" />
-
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="petitioner"
+        android:id="@+id/radioButton"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:checked="true"
-        android:id="@+id/radioButton"
         android:layout_alignTop="@+id/textView4"
         android:layout_toEndOf="@+id/textView4" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Defendant"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="defendant"
         android:id="@+id/radioButton2"
         android:layout_below="@+id/radioButton"
         android:layout_alignStart="@+id/radioButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="24000"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="322"
+        android:id="@+id/textView6"
+        android:layout_alignTop="@+id/case_no"
+        android:layout_alignStart="@+id/textView5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="54000"
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignStart="@+id/textView5" />
+
+
 </RelativeLayout>

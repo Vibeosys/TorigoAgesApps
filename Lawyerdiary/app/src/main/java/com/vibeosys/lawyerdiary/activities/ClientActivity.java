@@ -36,7 +36,7 @@ public class ClientActivity  extends AppCompatActivity{
         fab  = (FloatingActionButton)findViewById(R.id.fab_client);
         client = (ListView)findViewById(R.id.client_listView);
         clientData = new ArrayList<ClientData>();
-        clientData.add(new ClientData("Shrinivas Holgundikar","PIL","Criminal",R.drawable.ic_crime_client,"21-Apr-14"));
+        clientData.add(new ClientData("smith barney","PIL","Criminal",R.drawable.ic_crime_client,"21-Apr-14"));
         clientData.add(new ClientData("johnson flep","Commercial","Civil",R.drawable.ic_civil_client,"2-Feb-10"));
         clientData.add(new ClientData("smith sebastian","Criminal","Criminal",R.drawable.ic_crime_client,"12-Dec-10"));
         clientData.add(new ClientData("kait williams","PIL","Civil",R.drawable.ic_civil_client,"23-Jan-13"));
