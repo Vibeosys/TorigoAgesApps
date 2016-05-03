@@ -170,7 +170,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/ic_perm_phone_msg_black_24dp" />
+                android:src="@drawable/ic_perm_identity_black_24dp" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/ic_account_balance_black_24dp" />
+                android:src="@drawable/ic_attachment_black_24dp" />
 
             <Spinner
                 android:id="@+id/spinner_case_stage"

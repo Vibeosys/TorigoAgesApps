@@ -56,6 +56,7 @@ public class ClientActivity  extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     final Dialog dialog  = new Dialog(context);
                             dialog.setContentView(R.layout.client_dialog);
+                dialog.setTitle("smith sebastian");
                 dialog.show();
 
             }

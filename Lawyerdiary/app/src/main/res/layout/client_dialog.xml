@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
+    android:layout_gravity="center"
     android:layout_height="300dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="smith sebastian"
-        android:id="@+id/dialog_client_name"
-        android:layout_marginTop="5dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-    <View
-        android:layout_below="@+id/dialog_client_name"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="5dp"
-        android:background="#c0c0c0"
-        android:id="@+id/view" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +14,6 @@
         android:text="Case No:"
         android:id="@+id/case_no"
         android:layout_marginLeft="35dp"
-        android:layout_below="@+id/view"
         android:layout_alignParentLeft="true"
           />
 
