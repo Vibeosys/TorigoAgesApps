@@ -80,4 +80,16 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/lay"
+        android:layout_gravity="bottom"
+        android:background="@color/transperent"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Demo Version"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
 </RelativeLayout>

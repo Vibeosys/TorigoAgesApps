@@ -363,6 +363,7 @@ public class MainActivity extends AppCompatActivity
     public void showCallDialog(View v) {
 
         final Dialog dialog = new Dialog(context);
+        dialog.setTitle("Emergency Call");
         dialog.setContentView(R.layout.dialog_call);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.WRAP_CONTENT);
         dialog.show();
@@ -372,21 +373,23 @@ public class MainActivity extends AppCompatActivity
 
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_problem);
-
+        dialog.setTitle("Report Problem");
         Spinner spinner = (Spinner) dialog.findViewById(R.id.spiner);
         ArrayAdapter<String> adapter;
         List<String> list;
 
         list = new ArrayList<String>();
-        list.add("Tyre Puncher");
+        list.add("Tyre Puncture");
         list.add("Fuel Leakage");
         list.add("Wheel Alignment");
         list.add("Servicing");
         list.add("Break Down");
         list.add("Other...");
+
+        String[] arr = {"Tyre Puncture", "Fuel Leakage", "Wheel Alignment", "Servicing", "Break Down", "Other..."};
         adapter = new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.dropdown_list_item, arr);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.WRAP_CONTENT);
         dialog.show();

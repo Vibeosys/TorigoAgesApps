@@ -7,8 +7,9 @@
     tools:context="com.vibeosys.lawyerdiary.activities.LoginActivity">
 
     <LinearLayout
+        android:id="@+id/lay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center|top"
         android:orientation="vertical">
 
@@ -85,21 +86,26 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:layout_margin="12dp"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="New User? Register Here"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="Demo Version"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="16dp" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/transperent"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Demo Version"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

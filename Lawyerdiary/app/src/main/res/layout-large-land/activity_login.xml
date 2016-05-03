@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transperent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.vibeosys.lawyerdiary.activities.LoginActivity">
 
     <LinearLayout
+        android:id="@+id/lay"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@android:color/white"
         android:gravity="center|top"
         android:orientation="vertical">
 
         <RelativeLayout
+
             android:layout_width="550dp"
             android:layout_height="250dp"
             android:background="@drawable/login_back_lawyer"
@@ -94,15 +98,18 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="Demo Version"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="16dp" />
         </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+
+    <TextView
+        android:layout_width="550dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay"
+        android:layout_gravity="center"
+        android:background="@color/transperent"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Demo Version"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
+</LinearLayout>

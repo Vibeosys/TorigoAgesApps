@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transperent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.vibeosys.vehicletrack.LoginActivity">
 
     <LinearLayout
         android:layout_width="550dp"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@drawable/login_back"
         android:gravity="center"
         android:orientation="vertical"
@@ -78,19 +80,16 @@
                 android:textSize="18sp" />
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lay"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="20dp"
-            android:background="@color/transperent"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Demo Version"
-            android:textColor="@android:color/white"
-            android:textSize="16dp" />
     </LinearLayout>
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="550dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/transperent"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Demo Version"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
+</LinearLayout>
