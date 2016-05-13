@@ -37,6 +37,7 @@ public class DashboardActivity extends AppCompatActivity {
     ImageView diat;
     ImageView InstructionNotes;
     ImageView messageChat;
+    ImageView purchase;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
 
@@ -54,6 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         diat = (ImageView)findViewById(R.id.circular_image_view2);
         InstructionNotes =(ImageView)findViewById(R.id.circular_image_view3);
         messageChat = (ImageView)findViewById(R.id.circular_image_view4);
+        purchase =(ImageView) findViewById(R.id.circular_image_view5);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);

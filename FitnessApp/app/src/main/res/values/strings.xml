@@ -3,4 +3,6 @@
     <string name="navigation_drawer_open">DrawerOpen</string>
     <string name="navigation_drawer_close">DrawerOpen</string>
     <string name="title_activity_my_profile">My Profile</string>
+    <string name="rupess_symbol">\u20B9</string>
+    <string name="pay_now_btn">PAY NOW</string>
 </resources>

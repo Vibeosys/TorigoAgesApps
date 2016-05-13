@@ -1,0 +1,19 @@
+package com.vibeosys.fitnessapp.activities;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+
+import com.vibeosys.fitnessapp.R;
+
+/**
+ * Created by shrinivas on 13-05-2016.
+ */
+public class ServicesActivity  extends AppCompatActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.services_list_view);
+
+    }
+}

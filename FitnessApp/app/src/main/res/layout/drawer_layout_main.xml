@@ -99,6 +99,26 @@
                 android:layout_alignTop="@+id/instructionNotesTv"
                 android:layout_alignStart="@+id/circular_image_view4" />
 
+            <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/cart_circular_img"
+                android:id="@+id/circular_image_view5"
+                android:layout_marginStart="140dp"
+                android:layout_below="@+id/instructionNotesTv" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="purchase"
+                android:paddingStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="26dp"
+                android:textSize="12sp"
+                android:id="@+id/purchesTv"
+                android:layout_below="@+id/circular_image_view5"
+                android:layout_alignStart="@+id/circular_image_view5" />
         </RelativeLayout>
 
     </FrameLayout>
