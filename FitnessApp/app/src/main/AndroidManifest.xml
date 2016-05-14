@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vibeosys.fitnessapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_icon"
@@ -15,14 +19,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.BodyMassIndexActivity"></activity>
-        <activity android:name=".activities.DashboardActivity"></activity>
-        <activity android:name=".activities.DietPlanActivity"></activity>
-        <activity android:name=".activities.InstructionsActivity"></activity>
-        <activity android:name=".activities.MessageChatActivity"></activity>
-        <activity android:name=".activities.MyProfileActivity"></activity>
-        <activity android:name=".activities.WorkSheetActivity"></activity>
+        <activity android:name=".activities.BodyMassIndexActivity" />
+        <activity android:name=".activities.DashboardActivity" />
+        <activity android:name=".activities.DietPlanActivity" />
+        <activity android:name=".activities.InstructionsActivity" />
+        <activity android:name=".activities.MessageChatActivity" />
+        <activity android:name=".activities.MyProfileActivity" />
+        <activity android:name=".activities.WorkSheetActivity" />
+        <activity android:name=".activities.ServicesActivity" />
+        <activity
+            android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="${applicationId}.braintree" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.CardActivity"></activity>
     </application>
 
 </manifest>
