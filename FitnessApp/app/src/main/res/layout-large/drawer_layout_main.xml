@@ -3,113 +3,158 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundGravity="center"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:foregroundGravity="center">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
 
-            <RelativeLayout
-                android:layout_width="550dp"
-                android:layout_height="550dp">
+            android:layout_height="match_parent">
 
-                <com.vibeosys.fitnessapp.activities.NewCircularImageView
-                    android:id="@+id/circular_image_view1"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/worksheet_circular"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="95dp"
-                    android:layout_marginTop="92dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <com.vibeosys.fitnessapp.activities.NewCircularImageView
-                    android:id="@+id/circular_image_view2"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/images_diaet_color"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="86dp"
-                    android:layout_marginTop="92dp"
-                    android:layout_alignParentEnd="true" />
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="441dp"
+                    android:layout_height="536dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Work schedule"
-                    android:id="@+id/worksheetTitle"
-                    android:textAlignment="center"
-                    android:layout_marginStart="12dp"
-                    android:textSize="16sp"
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view1"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="45dp"
+                        android:src="@drawable/worksheet_circular" />
 
-                    android:layout_below="@+id/circular_image_view1"
-                    android:layout_alignStart="@+id/circular_image_view1" />
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view2"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="36dp"
+                        android:src="@drawable/images_diaet_color" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Diet"
-                    android:textSize="16sp"
-                    android:id="@+id/dietTextview"
-                    android:layout_marginStart="55dp"
-                    android:layout_alignTop="@+id/worksheetTitle"
-                    android:layout_alignStart="@+id/circular_image_view2" />
+                    <TextView
+                        android:id="@+id/worksheetTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view1"
+                        android:layout_below="@+id/circular_image_view1"
+                        android:layout_marginStart="16dp"
+                        android:paddingStart="6dp"
+                        android:text="Work schedule"
+                        android:textAlignment="center"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
 
-                <com.vibeosys.fitnessapp.activities.NewCircularImageView
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/download_instruct"
-                    android:id="@+id/circular_image_view3"
-                    android:layout_marginTop="35dp"
-                    android:layout_below="@+id/worksheetTitle"
-                    android:layout_alignStart="@+id/circular_image_view1"
-                    />
+                    <TextView
+                        android:id="@+id/dietTextview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view2"
+                        android:layout_alignTop="@+id/worksheetTitle"
+                        android:layout_marginStart="55dp"
+                        android:text="Diet"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
 
-                <com.vibeosys.fitnessapp.activities.NewCircularImageView
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/circular_img"
-                    android:id="@+id/circular_image_view4"
-                    android:layout_alignTop="@+id/circular_image_view3"
-                    android:layout_alignStart="@+id/circular_image_view2" />
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view3"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_alignStart="@+id/circular_image_view1"
+                        android:layout_below="@+id/worksheetTitle"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/download_instruct" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Instructions Notes"
-                    android:paddingStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:textSize="16sp"
-                    android:id="@+id/instructionNotesTv"
-                    android:layout_below="@+id/circular_image_view3"
-                    android:layout_alignStart="@+id/circular_image_view3" />
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view4"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignStart="@+id/circular_image_view2"
+                        android:layout_alignTop="@+id/circular_image_view3"
+                        android:src="@drawable/circular_img" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Messages"
-                    android:layout_marginStart="25dp"
-                    android:textSize="16sp"
-                    android:id="@+id/messagesTv"
-                    android:layout_alignTop="@+id/instructionNotesTv"
-                    android:layout_alignStart="@+id/circular_image_view4" />
+                    <TextView
+                        android:id="@+id/instructionNotesTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view3"
+                        android:layout_below="@+id/circular_image_view3"
+                        android:layout_marginTop="4dp"
+                        android:paddingStart="10dp"
+                        android:text="Instructions Notes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/messagesTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view4"
+                        android:layout_alignTop="@+id/instructionNotesTv"
+                        android:layout_marginStart="35dp"
+                        android:text="Messages"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
 
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view5"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_below="@+id/instructionNotesTv"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="serviceOpen"
+                        android:src="@drawable/order_image_dash_board" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/purchesTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view5"
+                        android:layout_below="@+id/circular_image_view5"
+                        android:layout_marginStart="26dp"
+                        android:layout_marginTop="4dp"
+                        android:paddingStart="10dp"
+                        android:text="purchase"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
 
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view6"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignStart="@+id/circular_image_view4"
+                        android:layout_alignTop="@+id/circular_image_view5"
+                        android:onClick="cartOpen"
+                        android:src="@drawable/purchase_image" />
 
+                    <TextView
+                        android:id="@+id/Purchase_orders_Tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view6"
+                        android:layout_below="@+id/circular_image_view6"
+                        android:layout_marginStart="45dp"
+                        android:text="Orders"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
     </FrameLayout>
 
 
@@ -121,8 +166,7 @@
         android:background="@android:color/white"
         android:choiceMode="singleChoice"
         android:divider="#FFCC00"
-        android:dividerHeight="4px"
-        />
+        android:dividerHeight="4px" />
 
 
 </android.support.v4.widget.DrawerLayout>

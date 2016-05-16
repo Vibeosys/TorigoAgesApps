@@ -5,4 +5,5 @@
     <string name="title_activity_my_profile">My Profile</string>
     <string name="rupess_symbol">\u20B9</string>
     <string name="pay_now_btn">PAY NOW</string>
+    <string name="total">\u20B9 3567.00</string>
 </resources>

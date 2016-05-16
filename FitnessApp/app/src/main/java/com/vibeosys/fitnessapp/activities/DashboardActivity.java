@@ -150,4 +150,8 @@ public class DashboardActivity extends AppCompatActivity {
     public void serviceOpen(View v) {
         startActivity(new Intent(getApplicationContext(), ServicesActivity.class));
     }
+
+    public void cartOpen(View v) {
+        startActivity(new Intent(getApplicationContext(), PurchaseServices.class));
+    }
 }

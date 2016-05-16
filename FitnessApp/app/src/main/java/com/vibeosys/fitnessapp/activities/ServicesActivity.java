@@ -29,6 +29,7 @@ public class ServicesActivity extends AppCompatActivity implements PurchaseAdapt
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.services_list_view);
+        setTitle("Product List");
         ListView serviceList = (ListView) findViewById(R.id.service_list);
         List<PurchaseProduct> productList = new ArrayList<>();
         productList.add(new PurchaseProduct("Dedicated Trainer", "Trainer will train 1 hour per day per month", 1500));

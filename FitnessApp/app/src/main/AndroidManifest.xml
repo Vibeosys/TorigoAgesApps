@@ -39,7 +39,8 @@
                 <data android:scheme="${applicationId}.braintree" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CardActivity"></activity>
+        <activity android:name=".activities.CardActivity" />
+        <activity android:name=".activities.PurchaseServices"></activity>
     </application>
 
 </manifest>
