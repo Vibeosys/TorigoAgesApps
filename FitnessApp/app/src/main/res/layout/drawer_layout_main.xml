@@ -72,7 +72,7 @@
                         android:layout_height="130dp"
                         android:layout_alignStart="@+id/circular_image_view1"
                         android:layout_below="@+id/worksheetTitle"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="20dp"
                         android:src="@drawable/download_instruct" />
 
                     <com.vibeosys.fitnessapp.activities.NewCircularImageView
@@ -111,7 +111,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_below="@+id/instructionNotesTv"
-                        android:layout_marginStart="125dp"
+                        android:layout_marginStart="45dp"
                         android:layout_marginTop="10dp"
                         android:onClick="serviceOpen"
                         android:src="@drawable/cart_circular_img" />
@@ -126,6 +126,23 @@
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:text="purchase"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="12sp" />
+                    <com.vibeosys.fitnessapp.activities.NewCircularImageView
+                        android:id="@+id/circular_image_view6"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_alignStart="@+id/circular_image_view4"
+                        android:layout_alignTop="@+id/circular_image_view5"
+                        android:src="@drawable/order_image_dash_board" />
+                    <TextView
+                        android:id="@+id/Purchase_orders_Tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/circular_image_view6"
+                        android:layout_below="@+id/circular_image_view6"
+                        android:layout_marginStart="45dp"
+                        android:text="Orders"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="12sp" />
                 </RelativeLayout>
