@@ -217,6 +217,7 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:background="@color/amber"
+        android:onClick="invoiceOpen"
         android:text="Purchase"
         android:textColor="@android:color/white" />
 </LinearLayout>

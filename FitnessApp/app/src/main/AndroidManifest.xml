@@ -40,7 +40,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.CardActivity" />
-        <activity android:name=".activities.PurchaseServices"></activity>
+        <activity android:name=".activities.PurchaseServices" />
+        <activity android:name=".activities.InviceActivity"></activity>
     </application>
 
 </manifest>

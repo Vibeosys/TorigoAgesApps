@@ -9,9 +9,6 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.braintreepayments.api.BraintreePaymentActivity;
-import com.braintreepayments.api.PaymentRequest;
-import com.braintreepayments.api.models.PaymentMethodNonce;
 import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.adapters.PurchaseAdapter;
 import com.vibeosys.fitnessapp.data.PurchaseProduct;
@@ -63,7 +60,7 @@ public class ServicesActivity extends AppCompatActivity implements PurchaseAdapt
         startActivityForResult(paymentRequest.getIntent(this), REQUEST_CODE);*/
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
@@ -74,5 +71,5 @@ public class ServicesActivity extends AppCompatActivity implements PurchaseAdapt
                 // Send the nonce to your server.
             }
         }
-    }
+    }*/
 }

@@ -1,6 +1,7 @@
 package com.vibeosys.fitnessapp.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -66,5 +67,9 @@ public class CardActivity extends AppCompatActivity {
             }
         });
         pd.show(getSupportFragmentManager(), "MonthYearPickerDialog");
+    }
+
+    public void invoiceOpen(View v) {
+        startActivity(new Intent(getApplicationContext(), InviceActivity.class));
     }
 }

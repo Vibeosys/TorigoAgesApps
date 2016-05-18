@@ -23,7 +23,7 @@ public class PurchaseServices extends AppCompatActivity {
         ListView serviceList = (ListView) findViewById(R.id.service_list);
         List<PurchaseProduct> productList = new ArrayList<>();
         setTitle("Services availed for 2016");
-        productList.add(new PurchaseProduct("Dedicated Trainer", "20 Mar 2016 to 19 Apr 2016.", 1500));
+        productList.add(new PurchaseProduct("Yoga Trainer", "20 Mar 2016 to 19 Apr 2016.", 1500));
         productList.add(new PurchaseProduct("British Nutrition", "Recovery glutamine.", 767));
         productList.add(new PurchaseProduct("Dymatize Super", "6000 MG 180 CAPLETS.", 1300));
 
