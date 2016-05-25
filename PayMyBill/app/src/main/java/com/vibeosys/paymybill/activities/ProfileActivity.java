@@ -19,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        setTitle(getResources().getString(R.string.profile_activity));
         mImgProfile = (ImageView) findViewById(R.id.profilePic);
         mTxtName = (TextView) findViewById(R.id.txtUserName);
         mTxtEmailId = (TextView) findViewById(R.id.txtEmailId);

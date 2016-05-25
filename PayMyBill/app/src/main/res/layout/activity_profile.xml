@@ -44,7 +44,7 @@
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
                     android:text="@string/txt_profile_name"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
 
                 <View
@@ -61,8 +61,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:text="Jack Reacher"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/primaryText"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -83,7 +83,7 @@
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
                     android:text="@string/txt_profile_email_id"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
 
                 <View
@@ -100,8 +100,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:text="jackreacher@dt.com"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/primaryText"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -122,7 +122,7 @@
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
                     android:text="@string/txt_profile_mob_no"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
 
                 <View
@@ -139,8 +139,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:text="9999765490"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/primaryText"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -161,7 +161,7 @@
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
                     android:text="@string/txt_profile_country"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
 
                 <View
@@ -178,8 +178,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:text="India"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/primaryText"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

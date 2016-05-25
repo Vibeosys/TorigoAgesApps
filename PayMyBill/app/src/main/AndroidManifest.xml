@@ -25,6 +25,10 @@
         <activity
             android:name=".activities.ProfileActivity"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.HistoryActivity"
+            android:parentActivityName=".MainActivity"></activity>
+
         <activity android:name=".activities.UserRegisterActivity"
             android:parentActivityName=".activities.LoginActivity"></activity>
     </application>

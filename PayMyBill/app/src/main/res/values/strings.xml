@@ -7,6 +7,8 @@
 
     <!-- Activity Name -->
     <string name="add_bill_activity">Add Bill</string>
+    <string name="add_history_activity">History</string>
+    <string name="profile_activity">My Profile</string>
 
     <!-- All Hints -->
     <string name="hint_bill_description">Bill Description</string>

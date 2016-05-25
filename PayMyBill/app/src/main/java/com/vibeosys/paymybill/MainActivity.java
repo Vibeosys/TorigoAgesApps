@@ -1,9 +1,14 @@
 package com.vibeosys.paymybill;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.transition.Explode;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,10 +21,14 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
+import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
+import com.vibeosys.paymybill.activities.ProfileActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +36,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button test  = (Button) findViewById(R.id.Testing);
+        Button test = (Button) findViewById(R.id.Testing);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,12 +44,15 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-                Intent iAddBill = new Intent(getApplicationContext(), AddBillActivity.class);
-                startActivity(iAddBill);
+                //getWindow().setExitTransition(new Explode());
+                startActivity();
+
             }
         });
 
@@ -52,6 +64,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void startActivity() {
+        Intent iAddBill = new Intent(getApplicationContext(), AddBillActivity.class);
+        startActivity(iAddBill,
+                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @Override
@@ -92,13 +111,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_history) {
+            startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_profile) {
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
         } else if (id == R.id.nav_share) {
 
