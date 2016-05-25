@@ -22,7 +22,7 @@
     <string name="btn_sign_in">SIGN IN</string>
     <string name="btn_register">REGISTER</string>
     <string name="btn_facebook">LOG IN WITH FACEBOOK</string>
-    <string name="login_title">Login in</string>
+    <string name="login_title">Login</string>
     <string name="tv_forgot_password">Forgot your password</string>
 
     <!--Profile activity -->
@@ -30,4 +30,13 @@
     <string name="txt_profile_email_id">Email Id</string>
     <string name="txt_profile_mob_no">Mobile Number</string>
     <string name="txt_profile_country">Country</string>
+    <!--User Registration -->
+    <string name="register_title">User Registration</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_id">Enter Your Email Id</string>
+    <string name="user_password">Enter Your Password</string>
+    <string name="user_confirm_password">Re-Enter Your Password</string>
+    <string name="register_cancel_btn">CANCEL</string>
+    <string name="register_btn">REGISTER</string>
 </resources>
