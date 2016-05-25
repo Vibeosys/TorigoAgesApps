@@ -3,6 +3,18 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    <!-- Activity Name -->
+    <string name="add_bill_activity">Add Bill</string>
+
+    <!-- All Hints -->
+    <string name="hint_bill_description">Bill Description</string>
+    <string name="hint_bill_date">Paid On</string>
+    <string name="hint_bill_amount">Amount</string>
+
+    <!-- Button Names -->
+    <string name="btn_share_with">Share With</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>
