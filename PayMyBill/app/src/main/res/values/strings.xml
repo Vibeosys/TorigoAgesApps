@@ -17,4 +17,10 @@
     <string name="btn_share_with">Share With</string>
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
+    <!-- Login Names -->
+    <string name="btn_sign_in">SIGN IN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_facebook">LOG IN WITH FACEBOOK</string>
+    <string name="login_title">Login in</string>
+    <string name="tv_forgot_password">Forgot your password</string>
 </resources>
