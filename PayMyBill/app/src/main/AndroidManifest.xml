@@ -21,6 +21,9 @@
         <activity android:name=".activities.LoginActivity" />
         <activity
             android:name=".activities.AddBillActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.ProfileActivity"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 
