@@ -19,26 +19,55 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Owes You \n $56.36"
-            android:textColor="@color/primaryText"
-            android:textSize="22sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owes You"
+                android:textColor="@color/primaryText"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$56.36"
+                android:textColor="@color/primaryText"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="You Owe\n$26.00"
-            android:textColor="@color/colorAccent"
-            android:textSize="22sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="You Owe"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="$26.00"
+                android:textColor="@color/colorAccent"
+                android:textSize="22sp" />
+        </LinearLayout>
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="4dp"
-        android:background="@color/colorPrimaryDark"/>
-<include layout="@layout/dash_board_view_pager"></include>
+        android:background="@color/colorPrimaryDark" />
+
+    <include layout="@layout/dash_board_view_pager"></include>
 </LinearLayout>
