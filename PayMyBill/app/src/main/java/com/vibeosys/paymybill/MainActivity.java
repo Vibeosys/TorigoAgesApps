@@ -22,6 +22,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context = this;
-    FloatingActionButton fab1;
-    FloatingActionButton fab2;
+    LinearLayout fab1;
+    LinearLayout fab2;
     FloatingActionButton fab;
     private boolean flagFabClick = false;
 
@@ -51,8 +52,8 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });*/
-        fab1 = (FloatingActionButton) findViewById(R.id.fab_1);
-        fab2 = (FloatingActionButton) findViewById(R.id.fab_2);
+        fab1 = (LinearLayout) findViewById(R.id.fab_1);
+        fab2 = (LinearLayout) findViewById(R.id.fab_2);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +70,12 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity();
+            }
+        });
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -83,8 +89,8 @@ public class MainActivity extends AppCompatActivity
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void startActivity() {
         Intent iAddBill = new Intent(getApplicationContext(), AddBillActivity.class);
-        startActivity(iAddBill,
-                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        startActivity(iAddBill);
+        hideFloating();
     }
 
     @Override
@@ -147,16 +153,16 @@ public class MainActivity extends AppCompatActivity
         Animation show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_rotate);
         fab.startAnimation(show_fab);
         FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
-        layoutParams1.rightMargin += (int) (fab1.getWidth() * 0.25);
-        layoutParams1.bottomMargin += (int) (fab1.getHeight() * 1.7);
+        layoutParams1.rightMargin += (int) (fab1.getWidth() * 0.20 / 2);
+        layoutParams1.bottomMargin += (int) (fab1.getHeight() * 1.7 / 2);
         fab1.setLayoutParams(layoutParams1);
         Animation show_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_show);
         fab1.startAnimation(show_fab_1);
         fab1.setClickable(true);
 
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
-        layoutParams2.rightMargin += (int) (fab2.getWidth() * 0.25);
-        layoutParams2.bottomMargin += (int) (fab2.getHeight() * 3.0);
+        layoutParams2.rightMargin += (int) (fab2.getWidth() * 0.15 / 2);
+        layoutParams2.bottomMargin += (int) (fab2.getHeight() * 3.0 / 2);
         fab2.setLayoutParams(layoutParams2);
         Animation show_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_show);
         fab2.startAnimation(show_fab_2);
@@ -169,16 +175,16 @@ public class MainActivity extends AppCompatActivity
         Animation show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_rotate_reverse);
         fab.startAnimation(show_fab);
         FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
-        layoutParams1.rightMargin -= (int) (fab1.getWidth() * 0.25);
-        layoutParams1.bottomMargin -= (int) (fab1.getHeight() * 1.7);
+        layoutParams1.rightMargin -= (int) (fab1.getWidth() * 0.20 / 2);
+        layoutParams1.bottomMargin -= (int) (fab1.getHeight() * 1.7 / 2);
         fab1.setLayoutParams(layoutParams1);
         Animation hide_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_hide);
         fab1.startAnimation(hide_fab_1);
         fab1.setClickable(false);
 
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
-        layoutParams2.rightMargin -= (int) (fab2.getWidth() * 0.25);
-        layoutParams2.bottomMargin -= (int) (fab2.getHeight() * 3.0);
+        layoutParams2.rightMargin -= (int) (fab2.getWidth() * 0.15 / 2);
+        layoutParams2.bottomMargin -= (int) (fab2.getHeight() * 3.0 / 2);
         fab2.setLayoutParams(layoutParams2);
         Animation hide_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_hide);
         fab2.startAnimation(hide_fab_2);

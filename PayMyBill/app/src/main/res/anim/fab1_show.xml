@@ -15,9 +15,9 @@
 
     <!--Move-->
     <translate
-        android:duration="700"
-        android:fromXDelta="25%"
-        android:fromYDelta="170%"
+        android:duration="800"
+        android:fromXDelta="9%"
+        android:fromYDelta="95%"
         android:interpolator="@android:anim/linear_interpolator"
         android:toXDelta="0%"
         android:toYDelta="0%"></translate>

@@ -3,36 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.FloatingActionButton
+    <LinearLayout
         android:id="@+id/fab_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_compass"
-        android:visibility="invisible"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:fabSize="mini" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="invisible">
 
-    <android.support.design.widget.FloatingActionButton
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_bill_activity"
+            android:textColor="@color/secondaryText" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_receipt_white_24dp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:fabSize="mini" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/fab_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_myplaces"
-        android:visibility="invisible"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:fabSize="mini" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="invisible">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_share"
-        android:visibility="invisible"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:fabSize="mini" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Expenses"
+            android:textColor="@color/secondaryText" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_expences"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:fabSize="mini" />
+    </LinearLayout>
 </FrameLayout>
