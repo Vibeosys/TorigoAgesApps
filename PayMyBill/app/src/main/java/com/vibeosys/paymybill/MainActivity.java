@@ -84,11 +84,11 @@ public class MainActivity extends AppCompatActivity
                 startAddExpenses();
             }
         });
-        tab_layout.addTab(tab_layout.newTab().setText("FRIENDS"));
+        tab_layout.addTab(tab_layout.newTab().setText("All Friends"));
 
-        tab_layout.addTab(tab_layout.newTab().setText("OWE"));
+        tab_layout.addTab(tab_layout.newTab().setText("I Owe"));
 
-        tab_layout.addTab(tab_layout.newTab().setText("LENT"));
+        tab_layout.addTab(tab_layout.newTab().setText("Friends Owe"));
         tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
         tab_layout.setSelectedTabIndicatorHeight(4);
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

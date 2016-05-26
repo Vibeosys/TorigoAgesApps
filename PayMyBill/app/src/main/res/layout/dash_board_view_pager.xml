@@ -18,6 +18,7 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
                 android:text="Hello World!" />
 
             <android.support.v4.view.ViewPager
