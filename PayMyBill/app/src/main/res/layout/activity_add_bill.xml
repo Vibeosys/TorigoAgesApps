@@ -76,6 +76,7 @@
             android:layout_gravity="center"
             android:layout_margin="4dp"
             android:background="@drawable/button_custom"
+            android:onClick="shareWith"
             android:text="@string/btn_share_with"
             android:textColor="@android:color/white"
             android:translationZ="4dp" />
@@ -87,7 +88,8 @@
             android:layout_margin="4dp"
             android:gravity="center"
             android:numColumns="3"
-            android:stretchMode="columnWidth" />
+            android:stretchMode="columnWidth"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="match_parent"
