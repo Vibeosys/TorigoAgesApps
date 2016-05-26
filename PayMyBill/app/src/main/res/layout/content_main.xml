@@ -35,5 +35,10 @@
             android:textSize="22sp" />
 
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorPrimaryDark"/>
+<include layout="@layout/dash_board_view_pager"></include>
 </LinearLayout>

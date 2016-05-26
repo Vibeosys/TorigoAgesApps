@@ -8,6 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.text.InputType;
 import android.transition.Explode;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -28,6 +31,7 @@ import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.ProfileActivity;
+import com.vibeosys.paymybill.adapters.MainActivityAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,21 +41,14 @@ public class MainActivity extends AppCompatActivity
     LinearLayout fab2;
     FloatingActionButton fab;
     private boolean flagFabClick = false;
-
+    TabLayout tab_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*Button test = (Button) findViewById(R.id.Testing);
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i);
-            }
-        });*/
+        tab_layout = (TabLayout)findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);
 
@@ -76,6 +73,38 @@ public class MainActivity extends AppCompatActivity
                 startActivity();
             }
         });
+        tab_layout.addTab(tab_layout.newTab().setText("FRIENDS"));
+
+        tab_layout.addTab(tab_layout.newTab().setText("OWE"));
+
+        tab_layout.addTab(tab_layout.newTab().setText("LENT"));
+        tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tab_layout.setSelectedTabIndicatorHeight(4);
+        final ViewPager viewPager =(ViewPager)findViewById(R.id.pager);
+        viewPager.setOffscreenPageLimit(2);
+        final MainActivityAdapter mainActivityAdapteradapter =
+                new MainActivityAdapter(getSupportFragmentManager() , tab_layout.getTabCount());
+        viewPager.setAdapter(mainActivityAdapteradapter);
+
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
+        tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
