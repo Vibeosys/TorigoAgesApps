@@ -31,6 +31,9 @@
         <activity
             android:name=".activities.UserRegisterActivity"
             android:parentActivityName=".activities.LoginActivity" />
+        <activity
+            android:name=".activities.ExpencesesActivity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".activities.SignInActivity"></activity>
     </application>
 

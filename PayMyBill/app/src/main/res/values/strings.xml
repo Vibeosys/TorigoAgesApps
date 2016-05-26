@@ -9,6 +9,7 @@
     <string name="add_bill_activity">Add Bill</string>
     <string name="add_history_activity">History</string>
     <string name="profile_activity">My Profile</string>
+    <string name="expenses_activity">My Expenses</string>
 
     <!-- All Hints -->
     <string name="hint_bill_description">Bill Description</string>
@@ -32,6 +33,7 @@
     <string name="txt_profile_email_id">Email Id</string>
     <string name="txt_profile_mob_no">Mobile Number</string>
     <string name="txt_profile_country">Country</string>
+
     <!--User Registration -->
     <string name="register_title">User Registration</string>
     <string name="first_name">First Name</string>
@@ -41,7 +43,11 @@
     <string name="user_confirm_password">Re-Enter Your Password</string>
     <string name="register_cancel_btn">CANCEL</string>
     <string name="register_btn">REGISTER</string>
+
     <!--Sign in -->
     <string name="sign_in_title">Sign In</string>
     <string name="sign_btn_title">SIGN IN</string>
+
+    <!-- Fab Layout-->
+    <string name="string_expenses">Add Expenses</string>
 </resources>

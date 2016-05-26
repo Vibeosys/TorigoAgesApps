@@ -10,7 +10,7 @@ import com.vibeosys.paymybill.data.HistoryDTO;
 
 import java.util.ArrayList;
 
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends BaseActivity {
 
     private ListView mListView;
     private HistoryAdapter mHistoryAdapter;

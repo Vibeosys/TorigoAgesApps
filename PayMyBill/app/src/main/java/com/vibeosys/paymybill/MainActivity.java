@@ -28,6 +28,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
+import com.vibeosys.paymybill.activities.ExpencesesActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.ProfileActivity;
@@ -42,15 +43,18 @@ public class MainActivity extends AppCompatActivity
     FloatingActionButton fab;
     private boolean flagFabClick = false;
     TabLayout tab_layout;
+    private FrameLayout mFrameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        tab_layout = (TabLayout)findViewById(R.id.tab_layout);
+        tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);
+        mFrameLayout = (FrameLayout) findViewById(R.id.frameLayout);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +74,14 @@ public class MainActivity extends AppCompatActivity
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity();
+                startAddBill();
+            }
+        });
+
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAddExpenses();
             }
         });
         tab_layout.addTab(tab_layout.newTab().setText("FRIENDS"));
@@ -80,10 +91,10 @@ public class MainActivity extends AppCompatActivity
         tab_layout.addTab(tab_layout.newTab().setText("LENT"));
         tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
         tab_layout.setSelectedTabIndicatorHeight(4);
-        final ViewPager viewPager =(ViewPager)findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setOffscreenPageLimit(2);
         final MainActivityAdapter mainActivityAdapteradapter =
-                new MainActivityAdapter(getSupportFragmentManager() , tab_layout.getTabCount());
+                new MainActivityAdapter(getSupportFragmentManager(), tab_layout.getTabCount());
         viewPager.setAdapter(mainActivityAdapteradapter);
 
 
@@ -91,7 +102,8 @@ public class MainActivity extends AppCompatActivity
         tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());            }
+                viewPager.setCurrentItem(tab.getPosition());
+            }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
@@ -115,9 +127,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private void startActivity() {
+    private void startAddBill() {
         Intent iAddBill = new Intent(getApplicationContext(), AddBillActivity.class);
+        startActivity(iAddBill);
+        hideFloating();
+    }
+
+    private void startAddExpenses() {
+        Intent iAddBill = new Intent(getApplicationContext(), ExpencesesActivity.class);
         startActivity(iAddBill);
         hideFloating();
     }
@@ -170,10 +187,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }
-        else if(id == R.id.sign_out )
-        {
-            Intent signInIntent  = new Intent(getApplicationContext(),LoginActivity.class);
+        } else if (id == R.id.sign_out) {
+            Intent signInIntent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(signInIntent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -183,6 +198,7 @@ public class MainActivity extends AppCompatActivity
 
     private void displayFloating() {
         flagFabClick = true;
+        mFrameLayout.setBackgroundColor(getResources().getColor(R.color.transperentWhite));
         Animation show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_rotate);
         fab.startAnimation(show_fab);
         FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
@@ -205,6 +221,7 @@ public class MainActivity extends AppCompatActivity
 
     private void hideFloating() {
         flagFabClick = false;
+        mFrameLayout.setBackgroundColor(getResources().getColor(R.color.transperent));
         Animation show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_rotate_reverse);
         fab.startAnimation(show_fab);
         FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();

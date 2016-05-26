@@ -37,10 +37,9 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*mSessionManager = SessionManager.getInstance(getContext());
+        mSessionManager = SessionManager.getInstance(getContext());
         mServerSyncManager = new ServerSyncManager(getContext(), mSessionManager);
         mDbRepository = new DbRepository(getContext(), mSessionManager);
-*/
         /*if (mSessionManager.getAnalyticsSet().equals("on")) {
             // Google analytics tracker
             if (isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {

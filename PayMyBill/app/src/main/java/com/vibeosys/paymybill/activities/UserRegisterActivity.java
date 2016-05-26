@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.vibeosys.paymybill.R;
 
-public class UserRegisterActivity extends AppCompatActivity {
+public class UserRegisterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

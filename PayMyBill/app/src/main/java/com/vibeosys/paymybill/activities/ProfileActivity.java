@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.vibeosys.paymybill.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity {
 
     private ImageView mImgProfile;
     private TextView mTxtName;

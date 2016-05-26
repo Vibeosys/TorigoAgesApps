@@ -6,11 +6,8 @@
     <rotate
         android:duration="500"
         android:fromDegrees="0"
-        android:interpolator="@android:anim/linear_interpolator"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:repeatCount="2"
-        android:repeatMode="reverse"
         android:toDegrees="45"></rotate>
 
 </set>

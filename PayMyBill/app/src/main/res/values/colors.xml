@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF6E40</color>
     <color name="primaryText">#e7000000</color>
     <color name="secondaryText">#9e000000</color>
+    <color name="transperentWhite">#c8ffffff</color>
+    <color name="transperent">#00ffffff</color>
+    <color name="flatRed">#c0392b</color>
+    <color name="flatGreen">#27ae60</color>
 </resources>
