@@ -18,7 +18,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
@@ -29,6 +32,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context = this;
+    FloatingActionButton fab1;
+    FloatingActionButton fab2;
+    FloatingActionButton fab;
+    private boolean flagFabClick = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,22 +43,29 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button test = (Button) findViewById(R.id.Testing);
+        /*Button test = (Button) findViewById(R.id.Testing);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
+        fab1 = (FloatingActionButton) findViewById(R.id.fab_1);
+        fab2 = (FloatingActionButton) findViewById(R.id.fab_2);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
                 //getWindow().setExitTransition(new Explode());
-                startActivity();
+//                //startActivity();
+                if (flagFabClick) {
+                    hideFloating();
+                } else {
+                    displayFloating();
+                }
 
             }
         });
@@ -126,5 +140,48 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void displayFloating() {
+        flagFabClick = true;
+        Animation show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_rotate);
+        fab.startAnimation(show_fab);
+        FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
+        layoutParams1.rightMargin += (int) (fab1.getWidth() * 0.25);
+        layoutParams1.bottomMargin += (int) (fab1.getHeight() * 1.7);
+        fab1.setLayoutParams(layoutParams1);
+        Animation show_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_show);
+        fab1.startAnimation(show_fab_1);
+        fab1.setClickable(true);
+
+        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
+        layoutParams2.rightMargin += (int) (fab2.getWidth() * 0.25);
+        layoutParams2.bottomMargin += (int) (fab2.getHeight() * 3.0);
+        fab2.setLayoutParams(layoutParams2);
+        Animation show_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_show);
+        fab2.startAnimation(show_fab_2);
+        fab2.setClickable(true);
+
+    }
+
+    private void hideFloating() {
+        flagFabClick = false;
+        Animation show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_rotate_reverse);
+        fab.startAnimation(show_fab);
+        FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
+        layoutParams1.rightMargin -= (int) (fab1.getWidth() * 0.25);
+        layoutParams1.bottomMargin -= (int) (fab1.getHeight() * 1.7);
+        fab1.setLayoutParams(layoutParams1);
+        Animation hide_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_hide);
+        fab1.startAnimation(hide_fab_1);
+        fab1.setClickable(false);
+
+        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
+        layoutParams2.rightMargin -= (int) (fab2.getWidth() * 0.25);
+        layoutParams2.bottomMargin -= (int) (fab2.getHeight() * 3.0);
+        fab2.setLayoutParams(layoutParams2);
+        Animation hide_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_hide);
+        fab2.startAnimation(hide_fab_2);
+        fab2.setClickable(false);
     }
 }
