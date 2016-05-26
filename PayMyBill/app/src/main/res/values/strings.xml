@@ -41,4 +41,7 @@
     <string name="user_confirm_password">Re-Enter Your Password</string>
     <string name="register_cancel_btn">CANCEL</string>
     <string name="register_btn">REGISTER</string>
+    <!--Sign in -->
+    <string name="sign_in_title">Sign In</string>
+    <string name="sign_btn_title">SIGN IN</string>
 </resources>
