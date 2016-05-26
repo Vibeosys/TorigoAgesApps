@@ -10,6 +10,7 @@
     <string name="add_history_activity">History</string>
     <string name="profile_activity">My Profile</string>
     <string name="expenses_activity">My Expenses</string>
+    <string name="settle_activity">Settle Up</string>
 
     <!-- All Hints -->
     <string name="hint_bill_description">Bill Description</string>
@@ -50,4 +51,7 @@
 
     <!-- Fab Layout-->
     <string name="string_expenses">Add Expenses</string>
+
+    <!--settle up-->
+    <string name="btn_settle_up">Settle Up</string>
 </resources>

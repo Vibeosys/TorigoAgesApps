@@ -33,8 +33,11 @@
             android:parentActivityName=".activities.LoginActivity" />
         <activity
             android:name=".activities.ExpencesesActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activities.SignInActivity" />
+        <activity
+            android:name=".activities.SettleActivity"
             android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".activities.SignInActivity"></activity>
     </application>
 
 </manifest>

@@ -1,13 +1,16 @@
 package com.vibeosys.paymybill.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.vibeosys.paymybill.R;
+import com.vibeosys.paymybill.activities.SettleActivity;
 import com.vibeosys.paymybill.adapters.FriendGridAdapter;
 import com.vibeosys.paymybill.adapters.FriendListAdapter;
 import com.vibeosys.paymybill.data.FriendsDTO;
@@ -27,6 +30,12 @@ public class AllFriendFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dashboard_list, container, false);
         mFriendList = (ListView) view.findViewById(R.id.dashBoard_list);
+        mFriendList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getContext(), SettleActivity.class));
+            }
+        });
         createList();
         return view;
     }
