@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity
         fab.startAnimation(show_fab);
         FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
         layoutParams1.rightMargin += (int) (fab1.getWidth() * 0.20 / 2);
-        layoutParams1.bottomMargin += (int) (fab1.getHeight() * 1.7 / 2);
+        layoutParams1.bottomMargin += (int) (fab1.getHeight() * 1.9 / 2);
         fab1.setLayoutParams(layoutParams1);
         Animation show_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_show);
         fab1.startAnimation(show_fab_1);
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity
 
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
         layoutParams2.rightMargin += (int) (fab2.getWidth() * 0.15 / 2);
-        layoutParams2.bottomMargin += (int) (fab2.getHeight() * 3.0 / 2);
+        layoutParams2.bottomMargin += (int) (fab2.getHeight() * 3.4 / 2);
         fab2.setLayoutParams(layoutParams2);
         Animation show_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_show);
         fab2.startAnimation(show_fab_2);
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity
         fab.startAnimation(show_fab);
         FrameLayout.LayoutParams layoutParams1 = (FrameLayout.LayoutParams) fab1.getLayoutParams();
         layoutParams1.rightMargin -= (int) (fab1.getWidth() * 0.20 / 2);
-        layoutParams1.bottomMargin -= (int) (fab1.getHeight() * 1.7 / 2);
+        layoutParams1.bottomMargin -= (int) (fab1.getHeight() * 1.9 / 2);
         fab1.setLayoutParams(layoutParams1);
         Animation hide_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_hide);
         fab1.startAnimation(hide_fab_1);
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity
 
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
         layoutParams2.rightMargin -= (int) (fab2.getWidth() * 0.15 / 2);
-        layoutParams2.bottomMargin -= (int) (fab2.getHeight() * 3.0 / 2);
+        layoutParams2.bottomMargin -= (int) (fab2.getHeight() * 3.4 / 2);
         fab2.setLayoutParams(layoutParams2);
         Animation hide_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_hide);
         fab2.startAnimation(hide_fab_2);

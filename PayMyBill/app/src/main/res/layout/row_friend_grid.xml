@@ -9,7 +9,7 @@
         android:id="@+id/imgProf"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/avatar_profile" />
+        android:src="@drawable/ic_avtar" />
 
     <TextView
         android:id="@+id/friendName"
