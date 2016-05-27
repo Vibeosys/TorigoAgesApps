@@ -27,7 +27,9 @@
     <string name="btn_register">REGISTER</string>
     <string name="btn_facebook">LOG IN WITH FACEBOOK</string>
     <string name="login_title">Login</string>
-    <string name="tv_forgot_password">Forgot your password</string>
+    <string name="tv_forgot_password">Forgot your password ?</string>
+    <string name ="login_or">-------- OR ---------</string>
+    <string name="OtpMessage">You will receive OTP on your email address, Please enter OTP below to verify your email address</string>
 
     <!--Profile activity -->
     <string name="txt_profile_name">Name</string>
@@ -44,6 +46,7 @@
     <string name="user_confirm_password">Re-Enter Your Password</string>
     <string name="register_cancel_btn">CANCEL</string>
     <string name="register_btn">REGISTER</string>
+    <string name="upload_photo_register">"Upload your photo"</string>
 
     <!--Sign in -->
     <string name="sign_in_title">Sign In</string>
