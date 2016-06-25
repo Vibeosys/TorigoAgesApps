@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp">
 
             <Button
                 android:id="@+id/btn_fbLogin"
@@ -43,6 +44,16 @@
                 android:text="@string/login_or"
                 android:textSize="15sp" />
 
+            <Button
+                android:id="@+id/btn_GPLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-15dp"
+                android:background="#dd4b39"
+                android:drawableLeft="@drawable/btn_google"
+                android:text="Log in with Google+"
+                android:textColor="#ffffff" />
             <!--<TextView
                 android:id="@+id/textOREmail"
                 android:layout_width="fill_parent"
@@ -178,7 +189,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textOREmail"
+                android:id="@+id/forgot_password"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

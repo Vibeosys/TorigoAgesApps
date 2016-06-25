@@ -1,17 +1,13 @@
 package com.vibeosys.paymybill;
 
 import android.annotation.TargetApi;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.text.InputType;
-import android.transition.Explode;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,7 +19,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -31,7 +26,7 @@ import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.ExpencesesActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
-import com.vibeosys.paymybill.activities.ProfileActivity;
+import com.vibeosys.paymybill.activities.MyProfileActivity;
 import com.vibeosys.paymybill.adapters.MainActivityAdapter;
 
 public class MainActivity extends AppCompatActivity
@@ -164,9 +159,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -181,13 +176,15 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
             // Handle the camera action
         } else if (id == R.id.nav_profile) {
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            /*startActivity(new Intent(getApplicationContext(), ProfileActivity.class));*/
+            Intent signInIntent = new Intent(getApplicationContext(), MyProfileActivity.class);
+            startActivity(signInIntent);
 
-        } else if (id == R.id.nav_share) {
+        } /*else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
-        } else if (id == R.id.sign_out) {
+        }*/ else if (id == R.id.sign_out) {
             Intent signInIntent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(signInIntent);
         }
