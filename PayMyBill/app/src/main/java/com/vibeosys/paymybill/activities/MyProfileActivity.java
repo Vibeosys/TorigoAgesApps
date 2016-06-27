@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.vibeosys.paymybill.R;
 
-public class MyProfileActivity extends AppCompatActivity {
+public class MyProfileActivity extends BaseActivity {
 
 
     @Override

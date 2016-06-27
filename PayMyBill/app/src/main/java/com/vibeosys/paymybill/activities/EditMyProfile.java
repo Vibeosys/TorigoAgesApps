@@ -5,12 +5,12 @@ import android.os.Bundle;
 
 import com.vibeosys.paymybill.*;
 
-public class EditMyProfile extends AppCompatActivity {
+public class EditMyProfile extends BaseActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_edit_my_profile);
+        setContentView(R.layout.activity_edit_my_profile);
         setTitle(R.string.edit_my_profile);
     }
 }

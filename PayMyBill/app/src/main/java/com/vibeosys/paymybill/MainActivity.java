@@ -23,13 +23,14 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
+import com.vibeosys.paymybill.activities.BaseActivity;
 import com.vibeosys.paymybill.activities.ExpencesesActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.MyProfileActivity;
 import com.vibeosys.paymybill.adapters.MainActivityAdapter;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context = this;
