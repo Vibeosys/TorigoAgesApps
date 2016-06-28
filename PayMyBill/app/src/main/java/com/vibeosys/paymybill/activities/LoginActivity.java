@@ -106,9 +106,10 @@ public class LoginActivity extends BaseActivity {
                 }
                 else if(currentProfile ==null)
                 {
-                    String firstName= "";
+                    /*String firstName= "";
                     String lastName =  "";
-                    String FbId= "";
+                    String FbId= "";*/
+                    Log.d("FbProfile","current profile found null");
                 }
             }
         };
@@ -141,7 +142,8 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        /*try {
+        /* To get the facebook hash key for development.
+        try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "com.vibeosys.paymybill",
                     PackageManager.GET_SIGNATURES);
@@ -175,5 +177,12 @@ public class LoginActivity extends BaseActivity {
         Log.d("FBLOGIN","Log out");
         /*Intent logout = new Intent(context, MainActivity.class);
         context.startActivity(logout);*/
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        accessTokenTracker.stopTracking();
+        profileTracker.stopTracking();
     }
 }
