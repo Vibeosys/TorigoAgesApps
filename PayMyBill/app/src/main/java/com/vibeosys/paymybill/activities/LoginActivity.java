@@ -83,7 +83,8 @@ public class LoginActivity extends BaseActivity {
                 if(currentAccessToken !=null)
                 {
                     String UserID = currentAccessToken.getUserId();
-                    Toast tost = Toast.makeText(getApplicationContext(),"Current Access Token "+AccessToken.getCurrentAccessToken().toString() ,Toast.LENGTH_SHORT);
+                    String FbToken = currentAccessToken.getToken();
+                    Toast tost = Toast.makeText(getApplicationContext(),"Current Access Token "+FbToken ,Toast.LENGTH_SHORT);
                     tost.setGravity(Gravity.CENTER,0,0);
                     tost.show();
                 }
