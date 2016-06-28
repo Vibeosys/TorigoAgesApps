@@ -21,7 +21,16 @@
             android:orientation="vertical"
             android:layout_marginBottom="15dp">
 
-            <Button
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_with_Facebook"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:paddingBottom="10dp"
+                android:textSize="14sp"
+                android:paddingTop="10dp"/>
+
+            <!--<Button
                 android:id="@+id/btn_fbLogin"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
@@ -30,7 +39,7 @@
                 android:drawableLeft="@drawable/fbbtn_logo"
                 android:text="@string/btn_facebook"
                 android:textColor="#ffffff"
-                android:textSize="14sp" />
+                android:textSize="14sp" />-->
 
 
             <TextView
