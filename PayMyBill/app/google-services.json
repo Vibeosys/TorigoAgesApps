@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "191281845236",
+    "project_id": "paymybill-46f79"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191281845236:android:0fdd6bcff0496616",
+        "android_client_info": {
+          "package_name": "com.vibeosys.paymybill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191281845236-gilndcn8h9b7groql3uqoucm8rmolfvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibeosys.paymybill",
+            "certificate_hash": "78057967BDFD3044185352BCE11F9C0FD8087CEE"
+          }
+        },
+        {
+          "client_id": "191281845236-b4me2lknqgipjuo22edevmas4q4gdk68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8QGS7QT3awKFj7O76zpp2nVZAZN3GYXU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
