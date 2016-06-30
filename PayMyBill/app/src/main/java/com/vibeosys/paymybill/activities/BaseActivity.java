@@ -56,7 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         mSessionManager = SessionManager.getInstance(getApplicationContext());
         mServerSyncManager = new ServerSyncManager(getApplicationContext(), mSessionManager);
-        mDbRepository = new DbRepository(getApplicationContext(), mSessionManager);
+        mDbRepository = new DbRepository(getApplicationContext());
 
 
     }

@@ -39,7 +39,7 @@ public abstract class BaseFragment extends Fragment {
 
         mSessionManager = SessionManager.getInstance(getContext());
         mServerSyncManager = new ServerSyncManager(getContext(), mSessionManager);
-        mDbRepository = new DbRepository(getContext(), mSessionManager);
+        mDbRepository = new DbRepository(getContext());
         /*if (mSessionManager.getAnalyticsSet().equals("on")) {
             // Google analytics tracker
             if (isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {

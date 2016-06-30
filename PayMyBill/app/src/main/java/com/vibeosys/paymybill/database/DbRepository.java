@@ -23,17 +23,26 @@ import java.util.List;
 public class DbRepository extends SQLiteOpenHelper {
 
     private final String TAG = DbRepository.class.getSimpleName();
+    private static int DATABASE_VERSION_NUMBER = 1;
 
-    public DbRepository(Context context, SessionManager sessionManager) {
-        super(context, sessionManager.getDatabaseDeviceFullPath(), null, 1);
+
+    public DbRepository(Context context) {
+        super(context,SqlContract.DATABASE_NAME  , null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String CREATE_REGISTER_TABLE="CREATE TABLE "+ SqlContract.SqlRegisterUser.TABLE_NAME +"("+
+                SqlContract.SqlRegisterUser.USER_ID + " INTEGER PRIMARY KEY," + SqlContract.SqlRegisterUser.USER_NAME +
+                " TEXT,"+ SqlContract.SqlRegisterUser.USER_EMAIL_ID +" TEXT,"+ SqlContract.SqlRegisterUser.USER_PASSWORD +
+                " TEXT,"+ SqlContract.SqlRegisterUser.USER_IMAGE +" BLOB" +")";
+        db.execSQL(CREATE_REGISTER_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS "+SqlContract.SqlRegisterUser.TABLE_NAME);
+        onCreate(db);
 
     }
 

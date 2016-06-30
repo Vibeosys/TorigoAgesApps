@@ -83,6 +83,7 @@
                     android:textStyle="italic"/>
 
                 <Button
+                    android:id="@+id/user_Register"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="22dp"

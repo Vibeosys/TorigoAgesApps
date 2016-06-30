@@ -178,7 +178,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
         });
 
-        /* To get the facebook hash key for development.
+        /* --- To get the facebook hash key for development.---
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "com.vibeosys.paymybill",

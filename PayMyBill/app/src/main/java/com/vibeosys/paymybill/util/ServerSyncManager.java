@@ -61,7 +61,7 @@ public class ServerSyncManager
     public ServerSyncManager(@NonNull Context context, @NonNull SessionManager sessionManager) {
         mContext = context;
         mSessionManager = sessionManager;
-        mDbRepository = new DbRepository(mContext, mSessionManager);
+        mDbRepository = new DbRepository(mContext);
     }
 
     public void syncDataWithServer(final boolean aShowProgressDlg) {
