@@ -13,10 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,6 +64,10 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     public static  int RC_SIGN_IN =0;
     private boolean mIntentInProgress ;
     private boolean mSignInClicked;
+    private EditText mEmailId,mPassword;
+    private boolean setFlag =true;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +81,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         mForgotPassword =(TextView) findViewById(R.id.forgot_password);
         mFacebbokLogin =(LoginButton) findViewById(R.id.login_with_Facebook);
         mGoogSignInButton =  (SignInButton) findViewById(R.id.google_Plus_signIn);
+        mEmailId = (EditText) findViewById(R.id.emailIdEditText);
+        mPassword = (EditText) findViewById(R.id.passwordEditText);
         mFacebbokLogin.setReadPermissions(Arrays.asList("public_profile", "email"));
 
 
@@ -134,7 +142,15 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 }
             }
         };
+        /*for (int i = 0; i < mGoogSignInButton.getChildCount(); i++) {
+            View v = mGoogSignInButton.getChildAt(i);
 
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setPadding(0, 0, 20, 0);
+                return;
+            }
+        }*/
         mGoogSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,6 +185,23 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
         });
         mSignIn = (Button) findViewById(R.id.sign_in_user_btn);
+        mSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean val= validate();
+                if(val == false)
+                {
+                   // Toast.makeText(getApplicationContext(),"return value is false",Toast.LENGTH_LONG).show();
+                }
+                else if(val == true)
+                {
+                    Toast toast = Toast.makeText(getApplicationContext(),"All validations are done",Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER,0,0);
+                    toast.show();
+
+                }
+            }
+        });
         mForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,6 +230,44 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
 
     }
+
+    private boolean validate() {
+
+        if(mEmailId.getText().toString().trim().length()==0)
+        {
+            mEmailId.requestFocus();
+            mEmailId.setError("Please enter email id");
+            mEmailId.clearFocus();
+            setFlag= false;
+            return false;
+        }
+        else if(mEmailId.getText().toString().trim().length()!=0)
+        {
+            if(!Patterns.EMAIL_ADDRESS.matcher(mEmailId.getText().toString()).matches())
+            {   mEmailId.requestFocus();
+                mEmailId.setError("Invalid email Id");
+                mEmailId.clearFocus();
+                setFlag= false;
+                return false;
+            }
+            else
+            {
+                Log.d("TAG","TAG");
+            }
+        }
+        if(mPassword.getText().toString().trim().length()==0)
+        {
+            mPassword.getFocusables(View.FOCUS_RIGHT);
+            mPassword.setError("Please enter Password");
+            mPassword.clearFocus();
+            setFlag= false;
+            return false;
+        }
+
+
+        return true;
+    }
+
     private void resolveSignInError() {
 
         if (mConnectionResult.hasResolution()) {

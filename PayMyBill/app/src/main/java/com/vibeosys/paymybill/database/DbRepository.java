@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
@@ -36,7 +37,14 @@ public class DbRepository extends SQLiteOpenHelper {
                 SqlContract.SqlRegisterUser.USER_ID + " INTEGER PRIMARY KEY," + SqlContract.SqlRegisterUser.USER_NAME +
                 " TEXT,"+ SqlContract.SqlRegisterUser.USER_EMAIL_ID +" TEXT,"+ SqlContract.SqlRegisterUser.USER_PASSWORD +
                 " TEXT,"+ SqlContract.SqlRegisterUser.USER_IMAGE +" BLOB" +")";
-        db.execSQL(CREATE_REGISTER_TABLE);
+        try
+        {
+            db.execSQL(CREATE_REGISTER_TABLE);
+        }catch (SQLiteException e)
+        {
+            Log.d("TAG","SQL");
+        }
+
     }
 
     @Override

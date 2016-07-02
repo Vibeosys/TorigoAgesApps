@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.database.DbRepository;
@@ -22,6 +24,7 @@ public class UserRegisterActivity extends BaseActivity {
     public static final int requestCodeCamera=1;
     private Button mUserRegister ;
     private EditText mUserEmailId,mUserPassword;
+    private boolean setFlag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +50,19 @@ public class UserRegisterActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-               validate();
+              boolean val= validate();
 
-                   /*call  data base method*/
+                if(val == false)
+                {
+                    //Toast.makeText(getApplicationContext(),"return value is false",Toast.LENGTH_LONG).show();
+                }
+                else if(val == true)
+                {
+                    Toast toast = Toast.makeText(getApplicationContext(),"All validations are done",Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER,0,0);
+                    toast.show();
 
-
+                }
             }
         });
     }
@@ -69,6 +80,7 @@ public class UserRegisterActivity extends BaseActivity {
             mUserEmailId.requestFocus();
             mUserEmailId.setError("Please enter email id");
             mUserEmailId.clearFocus();
+            setFlag= false;
             return false;
         }
         else if(mUserEmailId.getText().toString().trim().length()!=0)
@@ -77,6 +89,7 @@ public class UserRegisterActivity extends BaseActivity {
             {   mUserEmailId.requestFocus();
                 mUserEmailId.setError("Invalid email Id");
                 mUserEmailId.clearFocus();
+                setFlag= false;
                 return false;
             }
             else
@@ -84,13 +97,15 @@ public class UserRegisterActivity extends BaseActivity {
                 Log.d("TAG","TAG");
             }
         }
-        else if(mUserPassword.getText().toString().trim().length()==0)
+        if(mUserPassword.getText().toString().trim().length()==0)
         {
-            mUserPassword.requestFocus();
+            mUserPassword.getFocusables(View.FOCUS_RIGHT);
             mUserPassword.setError("Please enter Password");
             mUserPassword.clearFocus();
+            setFlag= false;
             return false;
         }
+
         return true;
     }
 }
