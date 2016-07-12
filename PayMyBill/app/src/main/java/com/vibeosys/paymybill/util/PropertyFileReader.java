@@ -42,7 +42,7 @@ public class PropertyFileReader {
         return mProperties.getProperty(PropertyTypeConstants.API_ENDPOINT_URI);
     }
 
-    public String getDownloadDbUrl() {
+/*    public String getDownloadDbUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.API_DOWNLOAD_DB_URI);
     }
 
@@ -98,5 +98,5 @@ public class PropertyFileReader {
 
     public String getUserPermission() {
         return mProperties.getProperty(PropertyTypeConstants.USER_PERMISSION);
-    }
+    }*/
 }

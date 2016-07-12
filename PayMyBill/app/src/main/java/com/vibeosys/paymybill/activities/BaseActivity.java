@@ -121,7 +121,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     //@Override
     public void onUploadComplete(String uploadJsonResponse, Map<String, String> inputParameters) {
-        try {
+        /*try {
             JSONObject jsonObject = new JSONObject(uploadJsonResponse);
             String imageUrl = jsonObject.getString("message");
             SessionManager.Instance().setUserPhotoUrl(imageUrl);
@@ -129,7 +129,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Log.e("ProfileImgUpErr", "JSON exception while uploading the image." + e.toString());
         }
 
-        this.finish();
+        this.finish();*/
     }
 
     //@Override

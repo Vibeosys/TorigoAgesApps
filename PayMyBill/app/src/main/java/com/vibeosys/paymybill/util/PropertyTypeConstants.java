@@ -7,7 +7,7 @@ public final class PropertyTypeConstants {
 
     //Properties file constants
     public static final String API_ENDPOINT_URI = "api.endpoint.uri";
-    public static final String API_RESTAURANT_URI = "api.getrestaurant.uri";
+  /*  public static final String API_RESTAURANT_URI = "api.getrestaurant.uri";
     public static final String API_DOWNLOAD_DB_URI = "api.download.db.url";
     public static final String API_DOWNLOAD_URI = "api.download.url";
     public static final String API_UPLOAD_URL = "api.upload.url";
@@ -23,11 +23,15 @@ public final class PropertyTypeConstants {
     public static final String BILL_PRINTER_IP = "printer.bill.ip";
 
     public static final String USER_PERMISSION = "user.permission";
+    */
 
     //Specific to Shared Pref for Session Manager to consume
     public static final String USER_ID = "user.id";
     public static final String USER_NAME = "user.name";
     public static final String USER_EMAIL_ID = "user.email";
+    public static final String USER_FB_ACCESS_TOKEN = "user.access.token";
+    public static final String USER_PASSWORD = "user.pass";
+    public static final String USER_LOGIN_SOURCE="user.source";
     public static final String USER_IS_ACTIVE = "user.active";
     public static final String USER_ROLL_ID = "user.roleid";
     public static final String USER_RESTO_ID = "user.restoId";

@@ -66,15 +66,15 @@ public class ServerSyncManager
 
     public void syncDataWithServer(final boolean aShowProgressDlg) {
         Log.d("BaseActivity", "IN Base");
-        String downloadUrl = mSessionManager.getDownloadUrl(mSessionManager.getUserId(), mSessionManager.getUserRestaurantId());
+       /* String downloadUrl = mSessionManager.getDownloadUrl(mSessionManager.getUserId(), mSessionManager.getUserRestaurantId());
         String uploadJson = getUploadSyncJson();
         SyncDataDTO syncData = new SyncDataDTO();
         syncData.setDownloadUrl(downloadUrl);
         syncData.setUploadUrl(mSessionManager.getUploadUrl());
-        syncData.setUploadJson(uploadJson);
+        syncData.setUploadJson(uploadJson);*/
         mIsWorkInProgress = true;
 
-        new BackgroundTask(aShowProgressDlg).execute(syncData);
+       // new BackgroundTask(aShowProgressDlg).execute(syncData);
     }
 
     public void uploadDataToServer(TableDataDTO... params) {
@@ -84,15 +84,15 @@ public class ServerSyncManager
         }
 
         final ProgressDialog progress = new ProgressDialog(mContext);
-        if (mSessionManager.getUserId() == 0 || mSessionManager.getUserName() == null
+       /* if (mSessionManager.getUserId() == 0 || mSessionManager.getUserName() == null
                 || mSessionManager.getUserName().isEmpty()) {
             Log.e("UserNotAuth", "User is not authenticated before upload");
             return;
         }
         String uploadJson = prepareUploadJsonFromData(params);
-        String uploadURL = mSessionManager.getUploadUrl();
+        String uploadURL = mSessionManager.getUploadUrl();*/
         // Log.i(TAG, "##" + uploadJson);
-        uploadJsonToServer(uploadJson, uploadURL, progress);
+       // uploadJsonToServer(uploadJson, uploadURL, progress);
     }
 
     /*public boolean sendOtpToUser(String emailId) {

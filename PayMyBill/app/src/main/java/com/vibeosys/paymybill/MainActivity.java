@@ -29,6 +29,7 @@ import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.MyProfileActivity;
 import com.vibeosys.paymybill.adapters.MainActivityAdapter;
+import com.vibeosys.paymybill.util.UserAuth;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,6 +48,11 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if(!UserAuth.isUserLoggedIn())
+        {
+            callToLogin();
+            return;
+        }
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);
@@ -121,6 +127,13 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void callToLogin() {
+        Intent loginactivity = new Intent(MainActivity.this,LoginActivity.class);
+        loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginactivity);
+        finish();
     }
 
     private void startAddBill() {

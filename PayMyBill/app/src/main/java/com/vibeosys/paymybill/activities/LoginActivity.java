@@ -42,6 +42,7 @@ import com.google.android.gms.auth.*;
 import com.google.android.gms.*;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
+import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 
 import java.security.MessageDigest;
@@ -116,9 +117,14 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 {
                     String UserID = currentAccessToken.getUserId();
                     String FbToken = currentAccessToken.getToken();
-                    Toast tost = Toast.makeText(getApplicationContext(),"Current Access Token "+FbToken ,Toast.LENGTH_SHORT);
+                    mSessionManager.setUserAccessToken(FbToken);
+                    mSessionManager.setLoginSource("1");
+                    Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(loginIntent);
+                    finish();
+                   /* Toast tost = Toast.makeText(getApplicationContext(),"Current Access Token "+FbToken ,Toast.LENGTH_SHORT);
                     tost.setGravity(Gravity.CENTER,0,0);
-                    tost.show();
+                    tost.show();*/
                 }
 
 
@@ -300,6 +306,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         }
         else
         {
+            if(mGoogleApiClient!=null)
             mGoogleApiClient.connect();
         }
     }
