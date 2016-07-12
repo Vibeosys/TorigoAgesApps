@@ -65,5 +65,5 @@
 
     <!--Facebook App Key -->
     <string name="facebook_app_id">1134020779954080</string>
-
+    <string name="login_with_google">Log in with Google</string>
 </resources>

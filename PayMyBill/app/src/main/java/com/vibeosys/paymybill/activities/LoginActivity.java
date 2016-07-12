@@ -6,6 +6,7 @@ import android.content.IntentSender;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -76,16 +77,18 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         setContentView(R.layout.activity_login);
         setTitle(getResources().getString(R.string.login_title));
         /* Google pluse login*/
-        googlePlusAPIInit();
+       // googlePlusAPIInit();
         mRegisterUser = (Button) findViewById(R.id.register_user);
         mForgotPassword =(TextView) findViewById(R.id.forgot_password);
         mFacebbokLogin =(LoginButton) findViewById(R.id.login_with_Facebook);
         mGoogSignInButton =  (SignInButton) findViewById(R.id.google_Plus_signIn);
         mEmailId = (EditText) findViewById(R.id.emailIdEditText);
         mPassword = (EditText) findViewById(R.id.passwordEditText);
+        mSignIn = (Button) findViewById(R.id.sign_in_user_btn);
+        setGooglePlusButtonText(mGoogSignInButton,"Log in with Google");
         mFacebbokLogin.setReadPermissions(Arrays.asList("public_profile", "email"));
 
-
+        /*Facebook login function*/
         mFacebbokLogin.registerCallback(callbackManager,  new FacebookCallback<LoginResult>(){
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -95,16 +98,16 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
             @Override
             public void onCancel() {
-              //  Toast.makeText(getApplicationContext(),"Cancel button is clicked",Toast.LENGTH_SHORT).show();
+
             }
             @Override
             public void onError(FacebookException error) {
-              //  Toast.makeText(getApplicationContext(),"Login Error with Facebook",Toast.LENGTH_SHORT).show();
+
 
             }
         });
 
-
+        /*Facebook access Token key*/
         accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
@@ -121,6 +124,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
             }
         };
+        /*Facebook profile function*/
         profileTracker = new ProfileTracker() {
             @Override
             protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
@@ -142,18 +146,11 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 }
             }
         };
-        /*for (int i = 0; i < mGoogSignInButton.getChildCount(); i++) {
-            View v = mGoogSignInButton.getChildAt(i);
-
-            if (v instanceof TextView) {
-                TextView tv = (TextView) v;
-                tv.setPadding(0, 0, 20, 0);
-                return;
-            }
-        }*/
+        /*Google sign in button*/
         mGoogSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                googlePlusAPIInit();
                      if(!mGoogleApiClient.isConnecting())
                      {
                          googlePlusAPIInit();
@@ -175,7 +172,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                      }
             }
         });
-
+        /*Register button function*/
         mRegisterUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,14 +181,14 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
             }
         });
-        mSignIn = (Button) findViewById(R.id.sign_in_user_btn);
+        /*Sign in button function */
         mSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean val= validate();
                 if(val == false)
                 {
-                   // Toast.makeText(getApplicationContext(),"return value is false",Toast.LENGTH_LONG).show();
+
                 }
                 else if(val == true)
                 {
@@ -202,6 +199,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 }
             }
         });
+        /*Forgot password button click event*/
         mForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,7 +228,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
 
     }
-
+    /*Login validation functions*/
     private boolean validate() {
 
         if(mEmailId.getText().toString().trim().length()==0)
@@ -267,7 +265,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
         return true;
     }
-
+    /*Google login error function*/
     private void resolveSignInError() {
 
         if (mConnectionResult.hasResolution()) {
@@ -280,6 +278,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
        }
     }
+    /*Google login initialization functions*/
     private void googlePlusAPIInit() {
         mGoogleApiClient = new GoogleApiClient.Builder(LoginActivity.this)
                 .addConnectionCallbacks(LoginActivity.this)
@@ -332,7 +331,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         if(mGoogleApiClient!=null)
         mGoogleApiClient.connect();
     }
-
+    /*Google login functions*/
     @Override
     public void onConnected(Bundle bundle) {
 
@@ -370,6 +369,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
         }
     }
+    /*Google login get profile*/
     private void getProfileInformation() {
         try {
             if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
@@ -402,6 +402,22 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    /*Alignment for google login button */
+    protected void setGooglePlusButtonText(SignInButton mGoogSignInButton,
+                                           String buttonText) {
+        for (int i = 0; i < mGoogSignInButton.getChildCount(); i++) {
+            View v = mGoogSignInButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setTextSize(14);
+                tv.setPadding(0,0,14,0);
+                tv.setTypeface(null, Typeface.BOLD);
+                tv.setText(buttonText);
+                return;
+            }
         }
     }
 }

@@ -24,11 +24,7 @@ public class MyProfileActivity extends BaseActivity {
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Toast toast = Toast.makeText(getApplicationContext(),
-                        "Now new activity will open for edit text", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
-                toast.show();*/
-                Intent editProfile = new Intent(getApplicationContext(),EditMyProfile.class);
+                Intent editProfile = new Intent(getApplicationContext(), EditMyProfile.class);
                 startActivity(editProfile);
             }
         });
