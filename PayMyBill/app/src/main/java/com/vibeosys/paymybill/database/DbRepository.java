@@ -25,31 +25,80 @@ public class DbRepository extends SQLiteOpenHelper {
 
     private final String TAG = DbRepository.class.getSimpleName();
     private static int DATABASE_VERSION_NUMBER = 1;
+    private final String CREATE_USER_TABLE =
+            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlRegisterUser.TABLE_NAME + "(" +
+                    SqlContract.SqlRegisterUser.USER_ID + " INTEGER PRIMARY KEY,"
+                    + SqlContract.SqlRegisterUser.USER_NAME
+                    + " TEXT," + SqlContract.SqlRegisterUser.USER_EMAIL_ID
+                    + " TEXT," + SqlContract.SqlRegisterUser.USER_PASSWORD +
+                    " TEXT," + SqlContract.SqlRegisterUser.USER_SOURCE + " TEXT,"
+                    + SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE_KEY + " TEXT,"
+                    + SqlContract.SqlRegisterUser.USER_ROLE_ID + " INTEGER,"
+                    + SqlContract.SqlRegisterUser.USER_ACTIVE + " INTEGER," +
+                    SqlContract.SqlRegisterUser.USER_IMAGE + " BLOB" + ")";
+    private final String CREATE_CURRENCY =
+            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlCurrency.TABLE_NAME + "(" +
+                    SqlContract.SqlCurrency.CURRENCY_ID + " INTEGER PRIMARY KEY,"
+                    + SqlContract.SqlCurrency.CURRENCY + " INTEGER" + ")";
 
+    private final String BILL_TYPE =
+            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlBillType.TABLE_NAME + "(" +
+                    SqlContract.SqlBillType.BILL_ID + " INTEGER PRIMARY KEY," +
+                    SqlContract.SqlBillType.BILL_TYPE + " TEXT" + ")";
+    private final String BILL_SHARED =
+            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlBillShared.TABLE_NAME + "(" +
+                    SqlContract.SqlBillShared.BILL_SHARED_ID + " INTEGER,"
+                    + SqlContract.SqlBillShared.BILL_TRANSACTION_ID + " INTEGER," +
+                    SqlContract.SqlBillShared.FRIEND_ID + " INTEGER" + ")";
+    private final String TRANSACTION =
+            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlTransaction.TABLE_NAME + "(" +
+                    SqlContract.SqlTransaction.TRANSACTION_ID + " INTEGER PRIMARY KEY,"
+                    + SqlContract.SqlTransaction.TRANSACTION_CURRENCY + " INTEGER," +
+                    SqlContract.SqlTransaction.TRANSACTION_IN_AMOUNT + " INTEGER," +
+                    SqlContract.SqlTransaction.TRANSACTION_OUT_AMOUNT + " INTEGER," +
+                    SqlContract.SqlTransaction.TRANSACTION_PAID_ON_DATE + " DATE," +
+                    SqlContract.SqlTransaction.TRANSACTION_GENERATED_DATE + " DATE," +
+                    SqlContract.SqlTransaction.TRANSACTION_DESCRIPTION + " TEXT," +
+                    SqlContract.SqlTransaction.TRANSACTION_BILL_TYPE + " TEXT," + ")";
 
     public DbRepository(Context context) {
-        super(context,SqlContract.DATABASE_NAME  , null, 1);
+        super(context, SqlContract.DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_REGISTER_TABLE="CREATE TABLE "+ SqlContract.SqlRegisterUser.TABLE_NAME +"("+
-                SqlContract.SqlRegisterUser.USER_ID + " INTEGER PRIMARY KEY," + SqlContract.SqlRegisterUser.USER_NAME +
-                " TEXT,"+ SqlContract.SqlRegisterUser.USER_EMAIL_ID +" TEXT,"+ SqlContract.SqlRegisterUser.USER_PASSWORD +
-                " TEXT,"+ SqlContract.SqlRegisterUser.USER_IMAGE +" BLOB" +")";
-        try
-        {
-            db.execSQL(CREATE_REGISTER_TABLE);
-        }catch (SQLiteException e)
-        {
-            Log.d("TAG","SQL");
+
+        try {
+            db.execSQL(CREATE_USER_TABLE);
+        } catch (SQLiteException e) {
+            Log.d("TAG", "SQL");
+        }
+        try {
+            db.execSQL(CREATE_CURRENCY);
+        } catch (SQLiteException e) {
+            Log.d("TAG", "SQL");
+        }
+        try {
+            db.execSQL(BILL_TYPE);
+        } catch (SQLiteException e) {
+            Log.d("TAG", "SQL");
+        }
+        try {
+            db.execSQL(BILL_SHARED);
+        } catch (SQLiteException e) {
+            Log.d("TAG", "SQL");
+        }
+        try {
+            db.execSQL(TRANSACTION);
+        } catch (SQLiteException e) {
+            Log.d("TAG", "SQL");
         }
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+SqlContract.SqlRegisterUser.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SqlContract.SqlRegisterUser.TABLE_NAME);
         onCreate(db);
 
     }
