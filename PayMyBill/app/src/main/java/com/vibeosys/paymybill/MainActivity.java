@@ -48,11 +48,11 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(!UserAuth.isUserLoggedIn())
+        /*if(!UserAuth.isUserLoggedIn())
         {
             callToLogin();
             return;
-        }
+        }*/
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);

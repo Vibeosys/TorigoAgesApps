@@ -7,57 +7,71 @@ package com.vibeosys.paymybill.database;
 public class SqlContract {
     public static String DATABASE_NAME = "payMyBill";
 
-    public abstract class SqlRegisterUser {
-        public final static String TABLE_NAME = "user";
-        public final static String USER_ID = "userId";
-        public final static String USER_NAME = "userName";
-        public final static String USER_EMAIL_ID = "userEmailId";
-        public final static String USER_PASSWORD = "userPassword";
-        public final static String USER_IMAGE = "userImage";
-        public final static String USER_SOURCE = "userLoginSource";
-        public final static String USER_LOGIN_SOURCE_KEY = "userLoginSourceKey";
-        public final static String USER_ROLE_ID = "userRoleId";
-        public final static String USER_ACTIVE = "userActive";
-    }
-
-    public abstract class SqlCurrency {
-        public final static String TABLE_NAME = "currency";
-        public final static String CURRENCY_ID = "currencyId";
-        public final static String CURRENCY = "currency";
-    }
 
     public abstract class SqlBillType {
-        public final static String TABLE_NAME = "billType";
-        public final static String BILL_ID = "billId";
-        public final static String BILL_TYPE = "billType";
+        public final static String TABLE_NAME = "BillType";
+        public final static String BILL_ID = "BillTypeId";
+        public final static String BILL_TYPE_NAME = "BillTypeName";
+    }
+    public abstract class SqlCurrency {
+        public final static String TABLE_NAME = "CurrencyType";
+        public final static String CURRENCY_TYPE_ID = "CurrencyTypeId";
+        public final static String CURRENCY_TYPE_NAME = "CurrencyTypeName";
+        public final static String CURRENCY_SYMBOL="CurrencySymbol";
     }
 
-    public abstract class SqlBillShared {
-        public final static String TABLE_NAME = "billShared";
-        public final static String BILL_SHARED_ID = "billSharedId";
-        public final static String BILL_TRANSACTION_ID = "transactionId";
-        public final static String FRIEND_ID = "friendId";
+    public abstract class SqlLoginSource
+    {
+        public final static String TABLE_NAME="LoginSourceType";
+        public final static String LOGIN_SOURCE_ID="LoginSourceId";
+        public final static String LOGIN_SOURCE_NAME="LoginSourceName";
     }
-
-    public abstract class SqlTransaction {
-        public final static String TABLE_NAME = "billTransaction";
-        public final static String TRANSACTION_ID = "billTransactionId";
-        public final static String TRANSACTION_CURRENCY = "billCurrency";
-        public final static String TRANSACTION_IN_AMOUNT = "billInAmount";
-        public final static String TRANSACTION_OUT_AMOUNT = "billOutAmount";
-        public final static String TRANSACTION_PAID_ON_DATE = "billPaidOnDate";
-        public final static String TRANSACTION_GENERATED_DATE = "billGeneratedDate";
-        public final static String TRANSACTION_DESCRIPTION = "billDescription";
-        public final static String TRANSACTION_BILL_TYPE = "billTransactionType";
+    public abstract class SqlRegisterUser {
+        public final static String TABLE_NAME = "UserData";
+        public final static String USER_ID = "UserId";
+        public final static String USER_EMAIL_ID = "UserEmail";
+        public final static String USER_PASSWORD = "Pwd";
+        public final static String USER_FIRST_NAME = "FirstName";
+        public final static String USER_LAST_NAME="LastName";
+        public final static String USER_PHONE = "Phone";
+        public final static String USER_LOGIN_SOURCE = "LoginSource";
+        public final static String USER_IMAGE_URL = "PhotoUrl";
+        public final static String USER_LOGIN_SOURCE_KEY = "FbApiToken";
     }
 
     public abstract class SqlFriend {
-        public final static String TABLE_NAME = "friends";
-        public final static String FRIEND_ID = "friendId";
-        public final static String FRIEND_NAME = "friendName";
-        public final static String FRIEND_CONTACT_NO = "friendContactNo";
-        public final static String FRIEND_EMAIL = "friendEmail";
-        public final static String FRIEND_PHOTO = "friendPhoto";
+        public final static String TABLE_NAME = "Friend";
+        public final static String FRIEND_ID = "FriendId";
+        public final static String FRIEND_NAME = "Name";
+        public final static String FRIEND_CONTACT_NO = "ContactNo";
+        public final static String FRIEND_EMAIL = "emailId";
+        public final static String FRIEND_PHOTO = "ImageUrl";
     }
+
+
+
+    public abstract class SqlBill {
+        public final static String TABLE_NAME = "Bill";
+        public final static String Bill_Id = "billSharedId";
+        public final static String BILL_NO = "BillNo";
+        public final static String BILL_DATE = "BillDate";
+        public final static String BILL_AMOUNT ="BillAmount";
+        public final static String BILL_DESC="BillDesc";
+        public final static String BILL_TYPE_ID="BillTypeId";
+        public final static String BILL_PAID_ID="PaidBy";
+    }
+
+    public abstract class SqlTransaction {
+        public final static String TABLE_NAME = "TransactionDetails";
+        public final static String TRANSACTION_ID = "TransactionId";
+        public final static String TRANSACTION_BILL_ID = "BillId";
+        public final static String TRANSACTION_PERSON_ID = "PersonId";
+        public final static String TRANSACTION_CREDIT_AMOUNT = "CreditAmt";
+        public final static String TRANSACTION_DEBIT_AMOUNT="DebitAmt";
+        public final static String TRANSACTION_DESCRIPTION = "Desc";
+        public final static String TRANSACTION_DATE="TransactionDate";
+    }
+
+
 
 }

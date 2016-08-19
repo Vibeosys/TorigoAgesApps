@@ -50,6 +50,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 
+
 public class LoginActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks, View.OnClickListener {
 
@@ -119,9 +120,9 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                     String FbToken = currentAccessToken.getToken();
                     mSessionManager.setUserAccessToken(FbToken);
                     mSessionManager.setLoginSource("1");
-                   /* Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(loginIntent);
-                    finish();*/
+                    finish();
 
                 }
             }
