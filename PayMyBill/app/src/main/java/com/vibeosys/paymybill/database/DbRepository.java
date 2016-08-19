@@ -27,52 +27,39 @@ public class DbRepository extends SQLiteOpenHelper {
 
     private final String TAG = DbRepository.class.getSimpleName();
     private static int DATABASE_VERSION_NUMBER = 1;
-    private final String CREATE_USER_TABLE =
-            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlRegisterUser.TABLE_NAME + "(" +
-                    SqlContract.SqlRegisterUser.USER_ID + " INTEGER NOT NULL,"
-                    + SqlContract.SqlRegisterUser.USER_NAME
-                    + " TEXT," + SqlContract.SqlRegisterUser.USER_EMAIL_ID
-                    + " TEXT," + SqlContract.SqlRegisterUser.USER_PASSWORD +
-                    " TEXT," + SqlContract.SqlRegisterUser.USER_SOURCE + " TEXT,"
-                    + SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE_KEY + " TEXT,"
-                    + SqlContract.SqlRegisterUser.USER_ROLE_ID + " INTEGER,"
-                    + SqlContract.SqlRegisterUser.USER_ACTIVE + " INTEGER," +
-                    SqlContract.SqlRegisterUser.USER_IMAGE + " VARCHAR(55),PRIMARY KEY("
-                    + SqlContract.SqlRegisterUser.USER_ID + "))";
-    private final String CREATE_CURRENCY =
-            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlCurrency.TABLE_NAME + "(" +
-                    SqlContract.SqlCurrency.CURRENCY_ID + " INTEGER NOT NULL,"
-                    + SqlContract.SqlCurrency.CURRENCY + " VARCHAR(10),PRIMARY KEY("
-                    + SqlContract.SqlCurrency.CURRENCY_ID + "))";
-    private final String CREATE_FRIEND = "CREATE TABLE IF NOT EXISTS"
-            + SqlContract.SqlFriend.TABLE_NAME + "(" + SqlContract.SqlFriend.FRIEND_ID + " INTEGER NOT NULL," +
-            SqlContract.SqlFriend.FRIEND_NAME + " VARCHAR(55)," + SqlContract.SqlFriend.FRIEND_CONTACT_NO + " VARCHAR(25),"
-            + SqlContract.SqlFriend.FRIEND_EMAIL + " VARCHAR(45)," + SqlContract.SqlFriend.FRIEND_PHOTO + " VARCHAR(45),"
-            + "PRIMARY KEY(" + SqlContract.SqlFriend.FRIEND_ID + ") )";
-    private final String BILL_TYPE =
-            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlBillType.TABLE_NAME + "(" +
-                    SqlContract.SqlBillType.BILL_ID + " INTEGER NOT NULL," +
-                    SqlContract.SqlBillType.BILL_TYPE + " TEXT,PRIMARY KEY("
-                    + SqlContract.SqlBillType.BILL_ID + "))";
+    private final String BILL_TYPE = "CREATE TABLE BillType (BillTypeId INTEGER," +
+            "BillTypeName TEXT UNIQUE,PRIMARY KEY(BillTypeId));";
 
-    private final String BILL_SHARED =
-            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlBillShared.TABLE_NAME + "(" +
-                    SqlContract.SqlBillShared.BILL_SHARED_ID + " INTEGER NOT NULL,"
-                    + SqlContract.SqlBillShared.BILL_TRANSACTION_ID + " INTEGER," +
-                    SqlContract.SqlBillShared.FRIEND_ID + " INTEGER,PRIMARY KEY(" +
-                    SqlContract.SqlBillShared.BILL_SHARED_ID + "))";
+    private final String CREATE_CURRENCY = "CREATE TABLE CurrencyType (CurrencyTypeId INTEGER," +
+            "CurrencyTypeName TEXT UNIQUE," +
+            "CurrencySymbol TEXT UNIQUE,PRIMARY KEY(CurrencyTypeId));";
 
-    private final String TRANSACTION =
-            "CREATE TABLE IF NOT EXISTS " + SqlContract.SqlTransaction.TABLE_NAME + "(" +
-                    SqlContract.SqlTransaction.TRANSACTION_ID + " INTEGER NOT NULL,"
-                    + SqlContract.SqlTransaction.TRANSACTION_CURRENCY + " INTEGER," +
-                    SqlContract.SqlTransaction.TRANSACTION_IN_AMOUNT + " DOUBLE(17,10) DEFAULT 0," +
-                    SqlContract.SqlTransaction.TRANSACTION_OUT_AMOUNT + " DOUBLE(17,10) DEFAULT 0," +
-                    SqlContract.SqlTransaction.TRANSACTION_PAID_ON_DATE + " DATETIME," +
-                    SqlContract.SqlTransaction.TRANSACTION_GENERATED_DATE + " DATETIME," +
-                    SqlContract.SqlTransaction.TRANSACTION_DESCRIPTION + " VARCHAR(255)," +
-                    SqlContract.SqlTransaction.TRANSACTION_BILL_TYPE + " INTEGER," + ",PRIMARY KEY("
-                    + SqlContract.SqlTransaction.TRANSACTION_ID + ")";
+    private final String LOGIN_SOURCE_TYPE = "CREATE TABLE LoginSourceType (LoginSourceId INTEGER," +
+            "LoginSourceName TEXT UNIQUE,PRIMARY KEY(LoginSourceId));";
+
+    private final String CREATE_USER_TABLE = "CREATE TABLE UserData (UserId INTEGER," +
+            "UserEmail TEXT,Pwd TEXT,FirstName TEXT NOT NULL," +
+            "LastName TEXT NOT NULL,Phone TEXT,LoginSource INTEGER NOT NULL," +
+            "FbApiToken TEXT,PhotoUrl TEXT,PRIMARY KEY(UserId)," +
+            "FOREIGN KEY(`LoginSource`) REFERENCES LoginSourceType.LoginSourceId);";
+
+
+    private final String CREATE_FRIEND = "CREATE TABLE Friend(FriendId INTEGER," +
+            "Name TEXT NOT NULL,ContactNo TEXT NOT NULL UNIQUE," +
+            "emailId TEXT,ImageUrl TEXT,PRIMARY KEY(FriendId));";
+
+    private final String CREATE_BILL = "CREATE TABLE Bill(BillId INTEGER," +
+            "BillNo INTEGER NOT NULL UNIQUE,BillDate TEXT,BillAmount NUMERIC," +
+            "BillDesc TEXT,BillTypeId INTEGER,CurrencyId INTEGER,PaidBy INTEGER," +
+            "PRIMARY KEY(BillId),FOREIGN KEY(BillTypeId) REFERENCES BillType.BillTypeId," +
+            "FOREIGN KEY(CurrencyId) REFERENCES CurrencyType.CurrencyTypeId," +
+            "FOREIGN KEY(PaidBy) REFERENCES Friend.FriendId);";
+
+    private final String CREATE_TRANSACTION = "CREATE TABLE TransactionDetails(TransactionId TEXT," +
+            "BillId INTEGER,PersonId INTEGER,CreditAmt TEXT,DebitAmt TEXT," +
+            "Desc TEXT,TransactionDate TEXT,PRIMARY KEY(TransactionId)," +
+            "FOREIGN KEY(BillId) REFERENCES Bill.BillId,FOREIGN KEY(PersonId) " +
+            "REFERENCES Friend.FriendId);";
 
     public DbRepository(Context context) {
         super(context, SqlContract.DATABASE_NAME, null, 1);
@@ -81,6 +68,21 @@ public class DbRepository extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        try {
+            db.execSQL(BILL_TYPE);
+        } catch (SQLiteException e) {
+            Log.d(TAG, "Bill type" + BILL_TYPE);
+        }
+        try {
+            db.execSQL(CREATE_CURRENCY);
+        } catch (SQLiteException e) {
+            Log.d(TAG, "Create Currency" + CREATE_CURRENCY);
+        }
+        try {
+            db.execSQL(LOGIN_SOURCE_TYPE);
+        } catch (SQLiteException e) {
+            Log.d(TAG, "Create LoginSourceType" + LOGIN_SOURCE_TYPE);
+        }
         try {
             db.execSQL(CREATE_USER_TABLE);
         } catch (SQLiteException e) {
@@ -92,27 +94,15 @@ public class DbRepository extends SQLiteOpenHelper {
             Log.d(TAG, "Create Friend" + CREATE_FRIEND);
         }
         try {
-            db.execSQL(CREATE_CURRENCY);
+            db.execSQL(CREATE_BILL);
         } catch (SQLiteException e) {
-            Log.d(TAG, "Create Currency" + CREATE_CURRENCY);
+            Log.d(TAG, "Create Bill" + CREATE_BILL);
         }
         try {
-            db.execSQL(BILL_TYPE);
+            db.execSQL(CREATE_TRANSACTION);
         } catch (SQLiteException e) {
-            Log.d(TAG, "Bill type" + BILL_TYPE);
+            Log.d(TAG, "Create Transaction" + CREATE_TRANSACTION);
         }
-        try {
-            db.execSQL(TRANSACTION);
-        } catch (SQLiteException e) {
-            Log.d(TAG, "Transaction" + TRANSACTION);
-        }
-        try {
-            db.execSQL(BILL_SHARED);
-        } catch (SQLiteException e) {
-            Log.d(TAG, "Bill Shared" + BILL_SHARED);
-        }
-
-
     }
 
     @Override
