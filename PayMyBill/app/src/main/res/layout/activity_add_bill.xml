@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context="com.vibeosys.paymybill.activities.AddBillActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
@@ -42,13 +45,14 @@
                         android:layout_margin="4dp"></Spinner>
 
                     <EditText
+                        android:id="@+id/txtAmount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:hint="@string/hint_bill_amount"
                         android:inputType="numberDecimal"
                         android:singleLine="true"
-                        android:textSize="22dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -63,6 +67,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/txtBillDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -70,53 +75,118 @@
             android:inputType="text"
             android:singleLine="true" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center|center_vertical"
+            android:orientation="horizontal">
+
+            <!--<Button
+                android:id="@+id/btnShareWith"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_custom"
+                android:text="@string/btn_share_with"
+                android:textColor="@android:color/white"
+                android:translationZ="4dp" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/str_divided"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/radioDivided"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioEqually"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/str_equally" />
+
+                <RadioButton
+                    android:id="@+id/radioUnequally"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_unequally" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/txtErrorFriend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:text="@string/str_error_select_at_least_one"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:gravity="center_vertical|center"
+        android:orientation="horizontal">
+
+        <!--<Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_custom_cancel"
+            android:text="@string/btn_cancel"
+            android:textColor="@android:color/white"
+            android:translationZ="4dp" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="4dp"
             android:background="@drawable/button_custom"
-            android:onClick="shareWith"
-            android:text="@string/btn_share_with"
+            android:text="@string/btn_next"
+            android:textColor="@android:color/white"
+            android:translationZ="4dp" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/str_paid_by"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnPaidBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_custom"
+            android:text="@string/btn_paidBy"
             android:textColor="@android:color/white"
             android:translationZ="4dp" />
-
-        <GridView
-            android:id="@+id/gridview"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="4dp"
-            android:gravity="center"
-            android:numColumns="3"
-            android:stretchMode="columnWidth"
-            android:visibility="invisible" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:background="@drawable/button_custom_cancel"
-                android:text="@string/btn_cancel"
-                android:textColor="@android:color/white"
-                android:translationZ="4dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:background="@drawable/button_custom"
-                android:text="@string/btn_save"
-                android:textColor="@android:color/white"
-                android:translationZ="4dp" />
-        </LinearLayout>
-
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

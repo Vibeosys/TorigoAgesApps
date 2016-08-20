@@ -1,12 +1,14 @@
 package com.vibeosys.paymybill.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vibeosys.paymybill.R;
@@ -56,17 +58,30 @@ public class FriendGridAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.imgProf = (ImageView) row.findViewById(R.id.imgProf);
             viewHolder.friendName = (TextView) row.findViewById(R.id.friendName);
+            viewHolder.layout = (LinearLayout) row.findViewById(R.id.item);
             row.setTag(viewHolder);
 
         } else viewHolder = (ViewHolder) row.getTag();
         FriendsDTO friend = mFriends.get(position);
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
+        if (friend.isFlagOwe()) {
+            viewHolder.layout.setBackgroundColor(Color.GRAY);
+        } else {
+            viewHolder.layout.setBackgroundColor(Color.WHITE);
+        }
+
         return row;
+    }
+
+    public void itemSelected(int position) {
+        mFriends.get(position).setFlagOwe(!mFriends.get(position).isFlagOwe());
+        notifyDataSetChanged();
     }
 
     private class ViewHolder {
         ImageView imgProf;
         TextView friendName;
+        LinearLayout layout;
     }
 }

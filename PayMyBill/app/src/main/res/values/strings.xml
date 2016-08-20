@@ -66,4 +66,18 @@
     <!--Facebook App Key -->
     <string name="facebook_app_id">1134020779954080</string>
     <string name="login_with_google">Log in with Google</string>
+    <string name="str_unequally">Unequally</string>
+    <string name="str_equally">Equally</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_paidBy">You</string>
+    <string name="str_paid_by">Paid By</string>
+    <string name="str_divided">Devided</string>
+    <string name="str_err_enter_amt">Please Enter Amount</string>
+    <string name="str_err_enter_date">Please Enter Bill Date</string>
+    <string name="str_error_select_at_least_one">Please select at least one friend</string>
+    <!--Add Friend -->
+    <string name="friend_name">Name</string>
+    <string name="friend_phone">Phone No</string>
+    <string name="friend_email">Email id</string>
+    <string name="friend_save">SUBMIT</string>
 </resources>

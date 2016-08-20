@@ -1,11 +1,12 @@
 package com.vibeosys.paymybill.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by akshay on 26-05-2016.
  */
-public class FriendsDTO {
+public class FriendsDTO implements Serializable {
 
     private int mId;
     private String mName;
@@ -76,5 +77,17 @@ public class FriendsDTO {
 
     public void setFlagOwe(boolean flagOwe) {
         this.flagOwe = flagOwe;
+    }
+
+    @Override
+    public String toString() {
+        return "FriendsDTO{" +
+                "mId=" + mId +
+                ", mName='" + mName + '\'' +
+                ", mImgSource='" + mImgSource + '\'' +
+                ", mAmount=" + mAmount +
+                ", mDate=" + mDate +
+                ", flagOwe=" + flagOwe +
+                '}';
     }
 }
