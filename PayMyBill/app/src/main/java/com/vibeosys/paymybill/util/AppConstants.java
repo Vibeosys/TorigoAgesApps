@@ -6,6 +6,8 @@ package com.vibeosys.paymybill.util;
 public final class AppConstants {
 
     public final static int SERVICE_TIME_OUT = 30;// 30 sec app hit the server
+    public static final int EQUALLY_DIVIDED = 1;
+    public static final int UNEQUALLY_DIVIDED = 2;
   /*  public final static int DINE_IN = 1;
     public final static int TAKE_AWAY = 2;
     public final static int DELIVERY = 3;

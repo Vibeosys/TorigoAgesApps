@@ -1,6 +1,8 @@
 package com.vibeosys.paymybill.activities;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,19 +11,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.adapters.FriendGridAdapter;
+import com.vibeosys.paymybill.adapters.SelectedFriendAdapter;
+import com.vibeosys.paymybill.data.BillDetailsDTO;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.SelectedFriends;
+import com.vibeosys.paymybill.data.TransactionDetailsDTO;
 import com.vibeosys.paymybill.interfaces.SelectedFriendCriteria;
+import com.vibeosys.paymybill.util.AppConstants;
 import com.vibeosys.paymybill.util.DateUtils;
 
 import java.util.ArrayList;
@@ -30,8 +38,7 @@ import java.util.List;
 
 public class AddBillActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
-    private static final int EQUALLY_DIVIDED = 1;
-    private static final int UNEQUALLY_DIVIDED = 2;
+
     private static final int CAMERA_REQUEST = 100;
 
     private ImageView mImgBill;
@@ -46,13 +53,15 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
     private ArrayList<FriendsDTO> friendsDTOs = new ArrayList<>();
     private SelectedFriendCriteria mSelectedFriendCriteria = new SelectedFriends();
+    private Context mContext;
+    private FriendsDTO paidByFriend = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bill);
         setTitle(getResources().getString(R.string.add_bill_activity));
-
+        mContext = this;
         mTxtDate = (EditText) findViewById(R.id.txtDate);
         mTxtAmt = (EditText) findViewById(R.id.txtAmount);
         mTxtBillDesc = (EditText) findViewById(R.id.txtBillDesc);
@@ -80,11 +89,11 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
     private void createList() {
 
-        friendsDTOs.add(new FriendsDTO(1, "Prakash Dhole", "prakash.jpg", 30.78));
-        friendsDTOs.add(new FriendsDTO(1, "Ganesh", "prakash.jpg", 30.78));
-        friendsDTOs.add(new FriendsDTO(1, "Rajesh Farande", "prakash.jpg", 30.78));
-        friendsDTOs.add(new FriendsDTO(1, "Vinayak", "prakash.jpg", 30.78));
-        friendsDTOs.add(new FriendsDTO(1, "Krushna", "prakash.jpg", 30.78));
+        friendsDTOs.add(new FriendsDTO(2, "Prakash Dhole", "prakash.jpg", 0));
+        friendsDTOs.add(new FriendsDTO(3, "Ganesh", "prakash.jpg", 0));
+        friendsDTOs.add(new FriendsDTO(4, "Rajesh Farande", "prakash.jpg", 0));
+        friendsDTOs.add(new FriendsDTO(5, "Vinayak", "prakash.jpg", 0));
+        friendsDTOs.add(new FriendsDTO(6, "Krushna", "prakash.jpg", 0));
 
         mFriendGridAdapter = new FriendGridAdapter(getApplicationContext(), friendsDTOs);
         mGridFriends.setAdapter(mFriendGridAdapter);
@@ -145,10 +154,18 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         String strAmount = mTxtAmt.getText().toString();
         String strDate = mTxtDate.getText().toString();
         String strDesc = mTxtBillDesc.getText().toString();
+        double billAmount = 0;
+
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
         int radioSelectedId = 0;
+        int splitMode = 0;
         radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();
+        if (radioSelectedId == R.id.radioEqually) {
+            splitMode = AppConstants.EQUALLY_DIVIDED;
+        } else if (radioSelectedId == R.id.radioUnequally) {
+            splitMode = AppConstants.UNEQUALLY_DIVIDED;
+        }
         mTxtAmt.setError(null);
         mTxtDate.setError(null);
         boolean cancelFlag = false;
@@ -165,10 +182,30 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
             cancelFlag = true;
             focusView = mGridFriends;
             mTxtErrorGrid.setVisibility(View.VISIBLE);
+        } else if (!TextUtils.isEmpty(strAmount)) {
+            try {
+                billAmount = Double.parseDouble(strAmount);
+            } catch (NumberFormatException e) {
+                cancelFlag = true;
+                focusView = mTxtAmt;
+                mTxtAmt.setError(getResources().getString(R.string.str_number_error));
+            }
         }
         if (cancelFlag) {
             focusView.requestFocus();
         } else {
+
+            long billNo = myCalendar.getTime().getTime();
+            int typeId = 0;
+            int currencyId = 0;
+            int paidBy = 0;
+            selectedFriends.add(new FriendsDTO(1, "Akshay", "prakash.jpg", 0));
+            BillDetailsDTO newBill = new BillDetailsDTO(billNo, strDate, billAmount, strDesc, typeId, currencyId, paidBy);
+            newBill.setShareWith(selectedFriends);
+            Intent iTransactionList = new Intent(getApplicationContext(), TransactionDetailsActivity.class);
+            iTransactionList.putExtra("BillDetails", newBill);
+            iTransactionList.putExtra("Split", splitMode);
+            startActivity(iTransactionList);
             //Start new List activity
         }
     }
@@ -190,12 +227,32 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private void openSelectedDialog() {
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
+        final Dialog dialog = new Dialog(mContext);
+        dialog.setContentView(R.layout.dialog_paid_by_list);
+        dialog.setTitle(getResources().getString(R.string.str_dialog_title_select_paid_by));
+        ListView friendListView = (ListView) dialog.findViewById(R.id.listSelectedFriends);
+        final SelectedFriendAdapter adapter = new SelectedFriendAdapter(mContext, selectedFriends);
+        friendListView.setAdapter(adapter);
+        friendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                paidByFriend = (FriendsDTO) adapter.getItem(position);
+                mBtnPaidBy.setText(paidByFriend.getName());
+                dialog.dismiss();
+            }
+        });
+        if (selectedFriends.size() == 0) {
+            mTxtErrorGrid.setVisibility(View.VISIBLE);
+            mBtnPaidBy.setText("You");
+        } else {
+            dialog.show();
+        }
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         mFriendGridAdapter.itemSelected(position);
-
         mTxtErrorGrid.setVisibility(View.GONE);
     }
 }
