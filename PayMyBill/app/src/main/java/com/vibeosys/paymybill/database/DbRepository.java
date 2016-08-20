@@ -3,6 +3,7 @@ package com.vibeosys.paymybill.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -258,8 +259,9 @@ public class DbRepository extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertFriend(FriendDbDTO friendDbDTO) {
-        boolean flagError = false;
+    public int insertFriend(FriendDbDTO friendDbDTO) {
+       // boolean flagError = false;
+        int flagError;
         String errorMessage = "";
         SQLiteDatabase sqLiteDatabase = null;
         ContentValues contentValues = null;
@@ -274,22 +276,33 @@ public class DbRepository extends SQLiteOpenHelper {
                 contentValues.put(SqlContract.SqlFriend.FRIEND_CONTACT_NO, friendDbDTO.getContact());
                 contentValues.put(SqlContract.SqlFriend.FRIEND_EMAIL, friendDbDTO.getEmail());
                 contentValues.put(SqlContract.SqlFriend.FRIEND_PHOTO, friendDbDTO.getImage());
-                if (!sqLiteDatabase.isOpen()) sqLiteDatabase = getWritableDatabase();
-                count = sqLiteDatabase.insert(SqlContract.SqlFriend.TABLE_NAME, null, contentValues);
-                contentValues.clear();
-                Log.d(TAG, "## Friend is Added Successfully");
-                flagError = true;
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try
+                {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlFriend.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Friend is Added Successfully");
+                   // flagError = true;
+                    flagError=1;
+                }catch (SQLiteConstraintException e)
+                {
+                    Log.d(TAG, "## Friend record already present");
+                   // flagError = true;
+                    flagError=2;
+                }
 
             }
         } catch (Exception e) {
-            flagError = false;
+           // flagError = false;
+            flagError=3;
             errorMessage = e.getMessage();
             Log.e(TAG, "##Error while insert Friend " + e.toString());
         } finally {
             if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
                 sqLiteDatabase.close();
-            if (!flagError)
-                Log.e(TAG, "##Insert Friend" + errorMessage);
+            /*if (!flagError)
+                Log.e(TAG, "##Insert Friend" + errorMessage);*/
         }
         return flagError;
     }

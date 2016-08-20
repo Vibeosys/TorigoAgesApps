@@ -23,6 +23,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
+import com.vibeosys.paymybill.activities.AddFriendActivity;
 import com.vibeosys.paymybill.activities.BaseActivity;
 import com.vibeosys.paymybill.activities.ExpencesesActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
@@ -173,9 +174,10 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
+        if (id == R.id.add_friend) {
+            Intent intent =new Intent(getApplicationContext(), AddFriendActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -251,4 +253,5 @@ public class MainActivity extends BaseActivity
         fab2.startAnimation(hide_fab_2);
         fab2.setClickable(false);
     }
+
 }

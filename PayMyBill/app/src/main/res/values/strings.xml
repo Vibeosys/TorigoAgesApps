@@ -80,4 +80,17 @@
     <string name="friend_phone">Phone No</string>
     <string name="friend_email">Email id</string>
     <string name="friend_save">SUBMIT</string>
+    <string name="friend_add">Add friend</string>
+    <string name="name_validation_msg">Please enter name</string>
+    <string name="phone_validation_msg">Please enter phone</string>
+    <string name="phone_no_validation_msg">Phone number must have 10 digits</string>
+    <string name="email_validation_msg">Please enter email id</string>
+    <string name="invalid_email_id">Invalid email id</string>
+    <string name="ph_already_present">Record already present cannot insert reord</string>
+
+    <string name="btn_ok">Ok</string>
+    <string name="str_dialog_title_select_paid_by">Select Paid By</string>
+    <string name="str_number_error">Please enter correct amount</string>
+    <string name="str_error_correct_amount">Please enter correct amount</string>
+
 </resources>

@@ -84,7 +84,7 @@
                     android:background="@android:color/darker_gray" />
 
                 <EditText
-                    android:id="@+id/phoneNo"
+                    android:id="@+id/friendPhoneNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -109,11 +109,11 @@
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:layout_margin="2dp"
+                    android:layout_marginTop="2dp"
                     android:background="@android:color/darker_gray" />
 
                 <EditText
-                    android:id="@+id/emailId"
+                    android:id="@+id/friendEmailId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -129,6 +129,7 @@
             android:gravity="center"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/add_friend_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
@@ -137,6 +138,7 @@
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
             <Button
+                android:id="@+id/cancel_friend_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
