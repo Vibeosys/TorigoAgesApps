@@ -7,21 +7,15 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.vibeosys.paymybill.data.BillDetailsDTO;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.Sync;
-import com.vibeosys.paymybill.data.TransactionDetailsDTO;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
-import com.vibeosys.paymybill.util.SessionManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by akshay on 24/05/2016.
@@ -350,10 +344,11 @@ public class DbRepository extends SQLiteOpenHelper {
         String errorMessage = "";
         SQLiteDatabase sqLiteDatabase = null;
         ContentValues contentValues = null;
+        long billId = 0;
         long count = -1;
         try {
             sqLiteDatabase = getWritableDatabase();
-            long billId = getLastId(sqLiteDatabase, SqlContract.SqlBill.BILL_ID, SqlContract.SqlBill.TABLE_NAME);
+            billId = getLastId(sqLiteDatabase, SqlContract.SqlBill.BILL_ID, SqlContract.SqlBill.TABLE_NAME);
             synchronized (sqLiteDatabase) {
                 contentValues = new ContentValues();
                 contentValues.put(SqlContract.SqlBill.BILL_ID, billId);
@@ -377,9 +372,6 @@ public class DbRepository extends SQLiteOpenHelper {
                 }
 
             }
-            if (flagError == 1) {
-                insertTransaction(billId, billDetailsDTO, sqLiteDatabase);
-            }
         } catch (Exception e) {
             flagError = 3;
             errorMessage = e.getMessage();
@@ -388,16 +380,25 @@ public class DbRepository extends SQLiteOpenHelper {
             if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
                 sqLiteDatabase.close();
         }
+        if (flagError == 1) {
+            flagError = insertBillTransaction(billId, billDetailsDTO);
+        }
         return flagError;
     }
 
-    public int insertTransaction(long billId, BillDetailsDTO billDetailsDTO, SQLiteDatabase sqLiteDatabase) {
+    public int insertBillTransaction(long billId, BillDetailsDTO billDetailsDTO) {
         int flagError = 0;
+        SQLiteDatabase sqLiteDatabase = null;
         ContentValues contentValues = null;
+        FriendsDTO paidByFriend = null;
         long count = -1;
         try {
-            synchronized (sqLiteDatabase) {
-                for (FriendsDTO friendsDTO : billDetailsDTO.getShareWith()) {
+            for (FriendsDTO friendsDTO : billDetailsDTO.getShareWith()) {
+                if (friendsDTO.getId() == billDetailsDTO.getPaidBy()) {
+                    paidByFriend = friendsDTO;
+                }
+                sqLiteDatabase = getWritableDatabase();
+                synchronized (sqLiteDatabase) {
                     contentValues = new ContentValues();
                     contentValues.put(SqlContract.SqlTransaction.TRANSACTION_ID, getLastId
                             (sqLiteDatabase, SqlContract.SqlTransaction.TRANSACTION_ID, SqlContract.SqlTransaction.TABLE_NAME));
@@ -417,7 +418,52 @@ public class DbRepository extends SQLiteOpenHelper {
                     } catch (SQLiteConstraintException e) {
                         Log.d(TAG, "## Transaction is already present");
                         flagError = 2;
+                    } finally {
+                        if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                            sqLiteDatabase.close();
                     }
+                }
+            }
+        } catch (Exception e) {
+            flagError = 3;
+            Log.e(TAG, "##Error while insert Transaction " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        if (flagError == 1) {
+            flagError = insertUserTransaction(billDetailsDTO, billId, paidByFriend);
+        }
+        return flagError;
+    }
+
+    public int insertUserTransaction(BillDetailsDTO billDetailsDTO, long billId, FriendsDTO paidByFriend) {
+        int flagError = 0;
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_ID, getLastId
+                        (sqLiteDatabase, SqlContract.SqlTransaction.TRANSACTION_ID, SqlContract.SqlTransaction.TABLE_NAME));
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_BILL_ID, billId);
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_PERSON_ID, billDetailsDTO.getPaidBy());
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_CREDIT_AMOUNT, paidByFriend.getAmount());
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DEBIT_AMOUNT, 0);
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DESCRIPTION, billDetailsDTO.getDescription());
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DATE, billDetailsDTO.getBillDate());
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlTransaction.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Transaction is Added Successfully");
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Transaction is already present");
+                    flagError = 2;
                 }
             }
         } catch (Exception e) {
@@ -429,59 +475,144 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return flagError;
     }
-    public int userRegister(UserRegisterDbDTO userRegisterDbDTO)
-    {
+
+    public int userRegister(UserRegisterDbDTO userRegisterDbDTO) {
         SQLiteDatabase sqLiteDatabase = null;
         ContentValues contentValues = null;
-        long count=-1;
+        long count = -1;
         int returnVal;
-        try
-        {
-            sqLiteDatabase=getWritableDatabase();
-            synchronized (sqLiteDatabase)
-            {
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
                 contentValues = new ContentValues();
-                contentValues.put(SqlContract.SqlRegisterUser.USER_EMAIL_ID,userRegisterDbDTO.getUserEmailId());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_PASSWORD,userRegisterDbDTO.getUserPassword());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_FIRST_NAME,userRegisterDbDTO.getFirstName());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_LAST_NAME,userRegisterDbDTO.getLastName());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_PHONE,userRegisterDbDTO.getPhoneNumber());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE,userRegisterDbDTO.getLoginSource());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE_KEY,userRegisterDbDTO.getFbTokenId());
-                contentValues.put(SqlContract.SqlRegisterUser.USER_IMAGE_URL,userRegisterDbDTO.getPhotoUrl());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_EMAIL_ID, userRegisterDbDTO.getUserEmailId());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_PASSWORD, userRegisterDbDTO.getUserPassword());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_FIRST_NAME, userRegisterDbDTO.getFirstName());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LAST_NAME, userRegisterDbDTO.getLastName());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_PHONE, userRegisterDbDTO.getPhoneNumber());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE, userRegisterDbDTO.getLoginSource());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE_KEY, userRegisterDbDTO.getFbTokenId());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_IMAGE_URL, userRegisterDbDTO.getPhotoUrl());
 
-                try
-                {
-                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlRegisterUser.TABLE_NAME,null,contentValues);
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlRegisterUser.TABLE_NAME, null, contentValues);
                     contentValues.clear();
-                    returnVal=1;
+                    returnVal = 1;
 
-                }
-                catch (SQLiteConstraintException e)
-                {
-                    Log.d(TAG,"User is already register");
-                    returnVal =2;
-                }
-                catch (SQLiteException e)
-                {
-                    Log.d(TAG,"SQL Exception in UserData Table");
-                    returnVal=3;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "User is already register");
+                    returnVal = 2;
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "SQL Exception in UserData Table");
+                    returnVal = 3;
                 }
             }
 
 
-        }catch (Exception e)
-        {
-            Log.d(TAG,"Problem while inserting user");
-            returnVal =3;
-        }finally {
-            if(sqLiteDatabase.isOpen())
-            {
+        } catch (Exception e) {
+            Log.d(TAG, "Problem while inserting user");
+            returnVal = 3;
+        } finally {
+            if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
         }
 
         return returnVal;
+    }
+
+    public boolean deleteBillAndTransactions(BillDetailsDTO billDetailsDTO) {
+        boolean deleteFlag = false;
+        long billId = getBillId(billDetailsDTO.getBillNo());
+        boolean deleteTransaction = deleteTransaction(billId);
+        boolean deleteBill = deleteBill(billId);
+        if (deleteTransaction && deleteBill) {
+            deleteFlag = true;
+        } else {
+            deleteFlag = false;
+        }
+        return deleteFlag;
+    }
+
+    public long getBillId(long billNo) {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        long billId = 0;
+        try {
+            String[] whereClause = new String[]{String.valueOf(billNo)};
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                cursor = sqLiteDatabase.rawQuery("SELECT " + SqlContract.SqlBill.BILL_ID
+                        + " From " + SqlContract.SqlFriend.TABLE_NAME + " WHERE " + SqlContract.SqlBill.BILL_NO
+                        + "=?", whereClause);
+                if (cursor != null) {
+                    if (cursor.getCount() > 0) {
+                        cursor.moveToFirst();
+                        billId = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_ID));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return billId;
+    }
+
+    public boolean deleteTransaction(long billId) {
+        boolean flagError = false;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                String[] whereClause = new String[]{String.valueOf(billId)};
+                count = sqLiteDatabase.delete(SqlContract.SqlTransaction.TABLE_NAME, SqlContract.SqlTransaction.TRANSACTION_BILL_ID + "=?", whereClause);
+                Log.d(TAG, " ## delete Transactions data successfully");
+
+            }
+        } catch (Exception e) {
+            flagError = false;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while delete Transactions " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+            if (!flagError)
+                Log.e(TAG, "##delete Transactions by Bill" + errorMessage);
+        }
+        return flagError;
+    }
+
+    public boolean deleteBill(long billId) {
+        boolean flagError = false;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                String[] whereClause = new String[]{String.valueOf(billId)};
+                count = sqLiteDatabase.delete(SqlContract.SqlBill.TABLE_NAME, SqlContract.SqlBill.BILL_ID + "=?", whereClause);
+                Log.d(TAG, " ## delete Bill successfully");
+
+            }
+        } catch (Exception e) {
+            flagError = false;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while delete Bill " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+            if (!flagError)
+                Log.e(TAG, "##delete Bill" + errorMessage);
+        }
+        return flagError;
     }
 }
 

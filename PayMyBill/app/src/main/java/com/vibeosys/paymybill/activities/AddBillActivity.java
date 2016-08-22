@@ -88,14 +88,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void createList() {
-
-       /* friendsDTOs.add(new FriendsDTO(2, "Prakash Dhole", "prakash.jpg", 0));
-        friendsDTOs.add(new FriendsDTO(3, "Ganesh", "prakash.jpg", 0));
-        friendsDTOs.add(new FriendsDTO(4, "Rajesh Farande", "prakash.jpg", 0));
-        friendsDTOs.add(new FriendsDTO(5, "Vinayak", "prakash.jpg", 0));
-        friendsDTOs.add(new FriendsDTO(6, "Krushna", "prakash.jpg", 0));*/
         friendsDTOs = mDbRepository.getFriendList();
-
         mFriendGridAdapter = new FriendGridAdapter(getApplicationContext(), friendsDTOs);
         mGridFriends.setAdapter(mFriendGridAdapter);
 
@@ -109,7 +102,6 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     }
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
@@ -119,7 +111,6 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             updateLabel();
         }
-
     };
 
     private void updateLabel() {
@@ -159,6 +150,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
+        selectedFriends.add(new FriendsDTO(1, "Akshay", "prakash.jpg", 0));
         int radioSelectedId = 0;
         int splitMode = 0;
         radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();
@@ -179,7 +171,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
             cancelFlag = true;
             focusView = mTxtDate;
             mTxtDate.setError(getResources().getString(R.string.str_err_enter_date));
-        } else if (selectedFriends.size() == 0) {
+        } else if (selectedFriends.size() == 1) {
             cancelFlag = true;
             focusView = mGridFriends;
             mTxtErrorGrid.setVisibility(View.VISIBLE);
@@ -199,8 +191,10 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
             long billNo = myCalendar.getTime().getTime();
             int typeId = 0;
             int currencyId = 0;
-            int paidBy = 0;
-            selectedFriends.add(new FriendsDTO(1, "Akshay", "prakash.jpg", 0));
+            int paidBy = 1;
+            if (paidByFriend != null) {
+                paidBy = paidByFriend.getId();
+            }
             BillDetailsDTO newBill = new BillDetailsDTO(billNo, strDate, billAmount, strDesc, typeId, currencyId, paidBy);
             newBill.setShareWith(selectedFriends);
             Intent iTransactionList = new Intent(getApplicationContext(), TransactionDetailsActivity.class);
