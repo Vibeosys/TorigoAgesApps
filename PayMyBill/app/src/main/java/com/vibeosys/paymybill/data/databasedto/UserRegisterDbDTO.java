@@ -9,12 +9,12 @@ public class UserRegisterDbDTO {
     String mFirstName;
     String mLastName;
     String mPhoneNumber;
-    String mLoginSource;
+    int mLoginSource;
     String mFbTokenId;
     String mPhotoUrl;
 
     public UserRegisterDbDTO(String mUserEmailId, String mUserPassword, String mFirstName,
-                             String mLastName, String mPhoneNumber, String mLoginSource,
+                             String mLastName, String mPhoneNumber, int mLoginSource,
                              String mFbTokenId, String mPhotoUrl) {
         this.mUserEmailId = mUserEmailId;
         this.mUserPassword = mUserPassword;
@@ -66,11 +66,11 @@ public class UserRegisterDbDTO {
         this.mPhoneNumber = mPhoneNumber;
     }
 
-    public String getLoginSource() {
+    public int getLoginSource() {
         return mLoginSource;
     }
 
-    public void setLoginSource(String mLoginSource) {
+    public void setLoginSource(int mLoginSource) {
         this.mLoginSource = mLoginSource;
     }
 

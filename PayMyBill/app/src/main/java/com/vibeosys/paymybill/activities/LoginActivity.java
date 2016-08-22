@@ -44,6 +44,7 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
+import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -137,7 +138,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                     String lastName = currentProfile.getLastName();
                     Uri FbIdT = currentProfile.getLinkUri();
                     String FbId = currentProfile.getId();
-                    Toast.makeText(getApplicationContext(), "First Name " + firstName + " Last Name " + lastName, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), "First Name " + firstName + " Last Name " + lastName, Toast.LENGTH_SHORT).show();
                 } else if (currentProfile == null) {
                     /*String firstName= "";
                     String lastName =  "";
@@ -282,7 +283,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 String personGooglePlusProfile = currentPerson.getUrl();
                 String personGoogleId = currentPerson.getId();
                 String email = Plus.AccountApi.getAccountName(mGoogleApiClient);
-
+                callFromGoogleRegisterUser(email,personName,2,personGoogleId,personPhotoUrl);
                 Log.e(TAG, "Name: " + personName + ", plusProfile: "
                         + personGooglePlusProfile + ", email: " + email
                         + ", Image: " + personPhotoUrl+"person Id"+ personGoogleId );
@@ -300,6 +301,19 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void callFromGoogleRegisterUser(String email,String personName,int loginSource,String googleId,String PhotoUrl) {
+        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"","","","",loginSource,googleId,PhotoUrl);
+        int returnVal;
+        returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
+        if(returnVal==1)
+        {
+          Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+        }
+
     }
 
     /*Alignment for google login button */
@@ -343,12 +357,12 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 break;
             case R.id.sign_in_user_btn:
                 boolean val = validate();
-                if (val == false) {
-                    /*call method on login successfully */
-                } else if (val == true) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "All validations are done", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
+
+                 if(val == true) {
+
+                     String mUserEmailId=mEmailId.getText().toString().trim();
+                     String mUserPassword =  mPassword.getText().toString().trim();
+                     callToUserRegistration(mUserEmailId,mUserPassword);
                 }
                 break;
 
@@ -362,5 +376,33 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 startActivity(forgotPass);
                 break;
         }
+    }
+
+    private void callToUserRegistration(String mUserEmailId,String mUserPassword) {
+        int returnVal = mDbRepository.CheckUserRegistration(mUserEmailId,mUserPassword);
+        if(returnVal==1)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(), "user is valid", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            finish();
+        }
+        if(returnVal==2 )
+        {
+           mPassword.requestFocus();
+           mPassword.setError("Incorrect Password");
+        }
+        if(returnVal==3)
+        {
+            mEmailId.requestFocus();
+            mEmailId.setError("Invalid email Id");
+        }
+        if(returnVal ==-1 ||returnVal == 4 || returnVal==5)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(), "user sign in error", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+
     }
 }

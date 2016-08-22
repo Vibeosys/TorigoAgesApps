@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.vibeosys.paymybill.data.BillDetailsDTO;
@@ -613,6 +614,113 @@ public class DbRepository extends SQLiteOpenHelper {
                 Log.e(TAG, "##delete Bill" + errorMessage);
         }
         return flagError;
+    }
+
+    public int CheckUserRegistration(String userName,String password)
+    {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor=null;
+        long count=-1;
+        int returnVal=-2;
+        int countVal;
+        String Password;
+        try
+        {
+            sqLiteDatabase =getReadableDatabase();
+            synchronized (sqLiteDatabase)
+            {
+                try
+                {
+                    cursor =sqLiteDatabase.rawQuery("select "+SqlContract.SqlRegisterUser.USER_PASSWORD+" from "+SqlContract.SqlRegisterUser.TABLE_NAME
+                            +" where "+SqlContract.SqlRegisterUser.USER_EMAIL_ID+"=?",new String[]{userName});
+                    countVal =cursor.getCount();
+                    if(countVal > 0)
+                    {
+                        cursor.moveToFirst();
+                        do{
+                            Password = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_PASSWORD));
+                        }while (cursor.moveToNext());
+                        if(TextUtils.equals(password,Password))
+                        {
+                            returnVal=1;
+                            return returnVal;
+                        }
+                        else if(!TextUtils.equals(password,Password))
+                        {
+                            returnVal =2;
+                            return returnVal;
+
+                        }
+                    }else if(countVal==0)
+                    {
+                        returnVal =3;
+                        return returnVal;
+                    }
+
+
+                }catch (SQLiteException e)
+                {
+                    Log.d(TAG,"user Login problem");
+                    returnVal=4;
+                    return returnVal;
+                }
+            }
+
+        }catch (Exception e)
+        {
+            Log.d(TAG,"user Registration error");
+            returnVal =5;
+        }
+        finally {
+            if(sqLiteDatabase.isOpen())
+            {
+                sqLiteDatabase.close();
+            }
+        }
+        return returnVal;
+    }
+    public int userRegisterSocialMedia(UserRegisterDbDTO userRegisterDbDTO) {
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long count = -1;
+        int returnVal;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlRegisterUser.USER_EMAIL_ID, userRegisterDbDTO.getUserEmailId());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_PASSWORD, userRegisterDbDTO.getUserPassword());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_FIRST_NAME, userRegisterDbDTO.getFirstName());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LAST_NAME, userRegisterDbDTO.getLastName());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_PHONE, userRegisterDbDTO.getPhoneNumber());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE, userRegisterDbDTO.getLoginSource());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE_KEY, userRegisterDbDTO.getFbTokenId());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_IMAGE_URL, userRegisterDbDTO.getPhotoUrl());
+
+                try {
+                    count = sqLiteDatabase.insertWithOnConflict(SqlContract.SqlRegisterUser.TABLE_NAME, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+                    contentValues.clear();
+                    returnVal = 1;
+
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "User is already register");
+                    returnVal = 2;
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "SQL Exception in UserData Table");
+                    returnVal = 3;
+                }
+            }
+
+
+        } catch (Exception e) {
+            Log.d(TAG, "Problem while inserting user");
+            returnVal = 3;
+        } finally {
+            if (sqLiteDatabase.isOpen()) {
+                sqLiteDatabase.close();
+            }
+        }
+        return returnVal;
     }
 }
 

@@ -54,7 +54,7 @@ public class UserRegisterActivity extends BaseActivity {
                 if(val == true)
                 {
                     UserRegisterDbDTO UserRegisterDbDTO = new UserRegisterDbDTO(mUserEmailId.getText().toString().trim(),
-                            mUserPassword.getText().toString().trim(),"","","","","","");
+                            mUserPassword.getText().toString().trim(),"","","",3,"","");
                     insertUser(UserRegisterDbDTO);
                 }
             }
