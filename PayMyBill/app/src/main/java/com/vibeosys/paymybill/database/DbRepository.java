@@ -16,6 +16,7 @@ import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.Sync;
 import com.vibeosys.paymybill.data.TransactionDetailsDTO;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
+import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
 import com.vibeosys.paymybill.util.SessionManager;
 
 import java.util.ArrayList;
@@ -427,6 +428,60 @@ public class DbRepository extends SQLiteOpenHelper {
                 sqLiteDatabase.close();
         }
         return flagError;
+    }
+    public int userRegister(UserRegisterDbDTO userRegisterDbDTO)
+    {
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long count=-1;
+        int returnVal;
+        try
+        {
+            sqLiteDatabase=getWritableDatabase();
+            synchronized (sqLiteDatabase)
+            {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlRegisterUser.USER_EMAIL_ID,userRegisterDbDTO.getUserEmailId());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_PASSWORD,userRegisterDbDTO.getUserPassword());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_FIRST_NAME,userRegisterDbDTO.getFirstName());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LAST_NAME,userRegisterDbDTO.getLastName());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_PHONE,userRegisterDbDTO.getPhoneNumber());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE,userRegisterDbDTO.getLoginSource());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_LOGIN_SOURCE_KEY,userRegisterDbDTO.getFbTokenId());
+                contentValues.put(SqlContract.SqlRegisterUser.USER_IMAGE_URL,userRegisterDbDTO.getPhotoUrl());
+
+                try
+                {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlRegisterUser.TABLE_NAME,null,contentValues);
+                    contentValues.clear();
+                    returnVal=1;
+
+                }
+                catch (SQLiteConstraintException e)
+                {
+                    Log.d(TAG,"User is already register");
+                    returnVal =2;
+                }
+                catch (SQLiteException e)
+                {
+                    Log.d(TAG,"SQL Exception in UserData Table");
+                    returnVal=3;
+                }
+            }
+
+
+        }catch (Exception e)
+        {
+            Log.d(TAG,"Problem while inserting user");
+            returnVal =3;
+        }finally {
+            if(sqLiteDatabase.isOpen())
+            {
+                sqLiteDatabase.close();
+            }
+        }
+
+        return returnVal;
     }
 }
 

@@ -11,18 +11,6 @@
         android:orientation="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true">
 
-        <!-- <TextView
-             android:id="@+id/login_title"
-             android:layout_width="fill_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginBottom="16dp"
-             android:layout_marginTop="22dp"
-             android:gravity="center_horizontal"
-             android:text="Account Login"
-             android:textColor="#fff"
-             android:textSize="26sp"
-             android:textStyle="bold" />
-             android:layout_below="@+id/login_title"-->
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -71,13 +59,27 @@
                         android:hint="@string/user_password"
                         android:drawablePadding="10dp"/>
                 </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <EditText
+                        android:id="@+id/confirmPwddEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="textPassword"
+                        android:drawableLeft="@drawable/ic_password"
+                        android:hint="@string/user_confirm_password"
+                        android:drawablePadding="10dp"/>
+                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:id="@+id/uploadUserPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
                     android:text="@string/upload_photo_register"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textStyle="italic"/>
@@ -86,7 +88,7 @@
                     android:id="@+id/user_Register"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="22dp"
+                    android:layout_margin="12dp"
                     android:background="@drawable/button_custom"
                     android:text="@string/register_btn"
                     android:textColor="@android:color/white"

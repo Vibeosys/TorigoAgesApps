@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vibeosys.paymybill.R;
+import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
 import com.vibeosys.paymybill.database.DbRepository;
 
 public class UserRegisterActivity extends BaseActivity {
@@ -23,7 +25,7 @@ public class UserRegisterActivity extends BaseActivity {
     private TextView uploadPhoto;
     public static final int requestCodeCamera=1;
     private Button mUserRegister ;
-    private EditText mUserEmailId,mUserPassword;
+    private EditText mUserEmailId,mUserPassword,mConfirmPassword;
     private boolean setFlag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,7 @@ public class UserRegisterActivity extends BaseActivity {
         mUserRegister = (Button) findViewById(R.id.user_Register);
         mUserEmailId =(EditText) findViewById(R.id.emailIdEditText);
         mUserPassword = (EditText) findViewById(R.id.passwordEditText);
-
-        DbRepository dbRepository = new DbRepository(getApplicationContext());
-                    dbRepository.getWritableDatabase();
+        mConfirmPassword =(EditText) findViewById(R.id.confirmPwddEditText);
 
         uploadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,17 +51,11 @@ public class UserRegisterActivity extends BaseActivity {
             public void onClick(View v) {
 
               boolean val= validate();
-
-                if(val == false)
+                if(val == true)
                 {
-                    //Toast.makeText(getApplicationContext(),"return value is false",Toast.LENGTH_LONG).show();
-                }
-                else if(val == true)
-                {
-                    Toast toast = Toast.makeText(getApplicationContext(),"All validations are done",Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER,0,0);
-                    toast.show();
-
+                    UserRegisterDbDTO UserRegisterDbDTO = new UserRegisterDbDTO(mUserEmailId.getText().toString().trim(),
+                            mUserPassword.getText().toString().trim(),"","","","","","");
+                    insertUser(UserRegisterDbDTO);
                 }
             }
         });
@@ -75,11 +69,12 @@ public class UserRegisterActivity extends BaseActivity {
     }
     private boolean validate()
     {
+        String mUserPwd= mUserPassword.getText().toString().trim();
+        String mConfirmPwd= mConfirmPassword.getText().toString().trim();
         if(mUserEmailId.getText().toString().trim().length()==0)
         {
             mUserEmailId.requestFocus();
             mUserEmailId.setError("Please enter email id");
-            mUserEmailId.clearFocus();
             setFlag= false;
             return false;
         }
@@ -88,24 +83,57 @@ public class UserRegisterActivity extends BaseActivity {
             if(!Patterns.EMAIL_ADDRESS.matcher(mUserEmailId.getText().toString()).matches())
             {   mUserEmailId.requestFocus();
                 mUserEmailId.setError("Invalid email Id");
-                mUserEmailId.clearFocus();
                 setFlag= false;
                 return false;
-            }
-            else
-            {
-                Log.d("TAG","TAG");
             }
         }
         if(mUserPassword.getText().toString().trim().length()==0)
         {
-            mUserPassword.getFocusables(View.FOCUS_RIGHT);
+            mUserPassword.requestFocus();
             mUserPassword.setError("Please enter Password");
-            mUserPassword.clearFocus();
             setFlag= false;
             return false;
         }
-
+        if(mConfirmPassword.getText().toString().trim().length()==0)
+        {
+            mConfirmPassword.requestFocus();
+            mConfirmPassword.setError("Please enter confirm Password");
+            setFlag= false;
+            return false;
+        }
+        if(!TextUtils.isEmpty(mUserPwd) && !TextUtils.isEmpty(mConfirmPwd))
+        {
+            if(!mUserPwd.equals(mConfirmPwd))
+            {
+                mConfirmPassword.requestFocus();
+                mConfirmPassword.setError("Password did not match");
+                setFlag= false;
+                return false;
+            }
+        }
         return true;
+    }
+    public void insertUser(UserRegisterDbDTO UserRegisterDbDTO)
+    {
+        int returnVal=mDbRepository.userRegister(UserRegisterDbDTO);
+        if(returnVal ==1)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(),"Registration is successfully ",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+            finish();
+        }
+        if(returnVal ==2)
+        {
+            mUserEmailId.requestFocus();
+            mUserEmailId.setError("User is already register");
+        }
+        if(returnVal ==3)
+        {
+            Log.d("AddUser","Error while inserting user record");
+            Toast toast = Toast.makeText(getApplicationContext(), "Error while inserting record", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
     }
 }

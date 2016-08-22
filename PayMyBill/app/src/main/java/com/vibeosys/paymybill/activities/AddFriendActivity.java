@@ -170,7 +170,10 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                         FriendDbDTO friendDbDTO= new FriendDbDTO(0,userName,userPhoneNo,userEmailId,mImageUri);
                         insertFriend(friendDbDTO);
                     }
-
+                break;
+            case R.id.cancel_friend_details:
+                finish();
+                break;
         }
     }
     private void insertFriend(FriendDbDTO friendDbDTO)
@@ -182,6 +185,7 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
             Toast toast = Toast.makeText(getApplicationContext(), "Record insert successfully", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+            finish();
         }if(returnVal==2)
         {
             mFriendPhoneNo.requestFocus();
