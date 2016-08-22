@@ -53,12 +53,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mSessionManager = SessionManager.getInstance(getApplicationContext());
         mServerSyncManager = new ServerSyncManager(getApplicationContext(), mSessionManager);
         mDbRepository = new DbRepository(getApplicationContext());
-
-
+        mDbRepository.getDatabaseStructure();
     }
 
 

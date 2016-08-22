@@ -41,6 +41,9 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
         mBillTotalAmount = billDetailsDTO.getAmount();
         calculateAndUpdateTotal();
 
+        mBtnCancel.setOnClickListener(this);
+        mBtnSave.setOnClickListener(this);
+
         if (splitMode == AppConstants.EQUALLY_DIVIDED) {
             double sharedAmount = mBillTotalAmount / billDetailsDTO.getShareWith().size();
             for (FriendsDTO friend : billDetailsDTO.getShareWith()) {
@@ -58,7 +61,15 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
 
     @Override
     public void onClick(View v) {
-
+        int id = v.getId();
+        switch (id) {
+            case R.id.btnCancel:
+                finish();
+                break;
+            case R.id.btnSave:
+                //Save the bill in database with all transaction
+                break;
+        }
     }
 
     @Override

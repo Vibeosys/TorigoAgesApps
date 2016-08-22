@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.vibeosys.paymybill.data.BillDetailsDTO;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.Sync;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
@@ -39,10 +40,10 @@ public class DbRepository extends SQLiteOpenHelper {
             "LoginSourceName TEXT UNIQUE,PRIMARY KEY(LoginSourceId));";
 
     private final String CREATE_USER_TABLE = "CREATE TABLE UserData (UserId INTEGER," +
-            "UserEmail TEXT,Pwd TEXT,FirstName TEXT NOT NULL," +
-            "LastName TEXT NOT NULL,Phone TEXT,LoginSource INTEGER NOT NULL," +
+            "UserEmail TEXT UNIQUE,Pwd TEXT,FirstName TEXT," +
+            "LastName TEXT,Phone TEXT,LoginSource INTEGER NOT NULL," +
             "FbApiToken TEXT,PhotoUrl TEXT,PRIMARY KEY(UserId)," +
-            "FOREIGN KEY(`LoginSource`) REFERENCES LoginSourceType.LoginSourceId);";
+            "FOREIGN KEY(`LoginSource`) REFERENCES LoginSourceType(LoginSourceId));";
 
 
     private final String CREATE_FRIEND = "CREATE TABLE Friend(FriendId INTEGER," +
@@ -52,15 +53,15 @@ public class DbRepository extends SQLiteOpenHelper {
     private final String CREATE_BILL = "CREATE TABLE Bill(BillId INTEGER," +
             "BillNo INTEGER NOT NULL UNIQUE,BillDate TEXT,BillAmount NUMERIC," +
             "BillDesc TEXT,BillTypeId INTEGER,CurrencyId INTEGER,PaidBy INTEGER," +
-            "PRIMARY KEY(BillId),FOREIGN KEY(BillTypeId) REFERENCES BillType.BillTypeId," +
-            "FOREIGN KEY(CurrencyId) REFERENCES CurrencyType.CurrencyTypeId," +
-            "FOREIGN KEY(PaidBy) REFERENCES Friend.FriendId);";
+            "PRIMARY KEY(BillId),FOREIGN KEY(BillTypeId) REFERENCES BillType(BillTypeId)," +
+            "FOREIGN KEY(CurrencyId) REFERENCES CurrencyType(CurrencyTypeId)," +
+            "FOREIGN KEY(PaidBy) REFERENCES Friend(FriendId));";
 
     private final String CREATE_TRANSACTION = "CREATE TABLE TransactionDetails(TransactionId TEXT," +
             "BillId INTEGER,PersonId INTEGER,CreditAmt TEXT,DebitAmt TEXT," +
             "Desc TEXT,TransactionDate TEXT,PRIMARY KEY(TransactionId)," +
-            "FOREIGN KEY(BillId) REFERENCES Bill.BillId,FOREIGN KEY(PersonId) " +
-            "REFERENCES Friend.FriendId);";
+            "FOREIGN KEY(BillId) REFERENCES Bill(BillId),FOREIGN KEY(PersonId) " +
+            "REFERENCES Friend(FriendId));";
 
     public DbRepository(Context context) {
         super(context, SqlContract.DATABASE_NAME, null, 1);
@@ -260,7 +261,7 @@ public class DbRepository extends SQLiteOpenHelper {
     }
 
     public int insertFriend(FriendDbDTO friendDbDTO) {
-       // boolean flagError = false;
+        // boolean flagError = false;
         int flagError;
         String errorMessage = "";
         SQLiteDatabase sqLiteDatabase = null;
@@ -278,24 +279,22 @@ public class DbRepository extends SQLiteOpenHelper {
                 contentValues.put(SqlContract.SqlFriend.FRIEND_PHOTO, friendDbDTO.getImage());
                 if (!sqLiteDatabase.isOpen())
                     sqLiteDatabase = getWritableDatabase();
-                try
-                {
+                try {
                     count = sqLiteDatabase.insertOrThrow(SqlContract.SqlFriend.TABLE_NAME, null, contentValues);
                     contentValues.clear();
                     Log.d(TAG, "## Friend is Added Successfully");
-                   // flagError = true;
-                    flagError=1;
-                }catch (SQLiteConstraintException e)
-                {
+                    // flagError = true;
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
                     Log.d(TAG, "## Friend record already present");
-                   // flagError = true;
-                    flagError=2;
+                    // flagError = true;
+                    flagError = 2;
                 }
 
             }
         } catch (Exception e) {
-           // flagError = false;
-            flagError=3;
+            // flagError = false;
+            flagError = 3;
             errorMessage = e.getMessage();
             Log.e(TAG, "##Error while insert Friend " + e.toString());
         } finally {
@@ -342,6 +341,102 @@ public class DbRepository extends SQLiteOpenHelper {
                 sqLiteDatabase.close();
         }
         return friendDbDTOs;
+    }
+
+    public int insertBill(BillDetailsDTO billDetailsDTO) {
+        int flagError;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlBill.BILL_ID, getLastId
+                        (sqLiteDatabase, SqlContract.SqlBill.BILL_ID, SqlContract.SqlBill.TABLE_NAME));
+                contentValues.put(SqlContract.SqlBill.BILL_NO, billDetailsDTO.getBillNo());
+                contentValues.put(SqlContract.SqlBill.BILL_DATE, billDetailsDTO.getBillDate());
+                contentValues.put(SqlContract.SqlBill.BILL_AMOUNT, billDetailsDTO.getAmount());
+                contentValues.put(SqlContract.SqlBill.BILL_DESC, billDetailsDTO.getDescription());
+                contentValues.put(SqlContract.SqlBill.BILL_TYPE_ID, billDetailsDTO.getTypeId());
+                contentValues.put(SqlContract.SqlBill.BILL_CURRENCY_ID, billDetailsDTO.getCurrencyId());
+                contentValues.put(SqlContract.SqlBill.BILL_PAID_ID, billDetailsDTO.getPaidBy());
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlBill.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Bill is Added Successfully");
+                    // flagError = true;
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Bill record already present");
+                    // flagError = true;
+                    flagError = 2;
+                }
+
+            }
+        } catch (Exception e) {
+            // flagError = false;
+            flagError = 3;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while insert Bill " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+            /*if (!flagError)
+                Log.e(TAG, "##Insert Friend" + errorMessage);*/
+        }
+        return flagError;
+    }
+
+    public int insertTransaction(BillDetailsDTO billDetailsDTO) {
+        int flagError;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlBill.BILL_ID, getLastId
+                        (sqLiteDatabase, SqlContract.SqlBill.BILL_ID, SqlContract.SqlBill.TABLE_NAME));
+                contentValues.put(SqlContract.SqlBill.BILL_NO, billDetailsDTO.getBillNo());
+                contentValues.put(SqlContract.SqlBill.BILL_DATE, billDetailsDTO.getBillDate());
+                contentValues.put(SqlContract.SqlBill.BILL_AMOUNT, billDetailsDTO.getAmount());
+                contentValues.put(SqlContract.SqlBill.BILL_DESC, billDetailsDTO.getDescription());
+                contentValues.put(SqlContract.SqlBill.BILL_TYPE_ID, billDetailsDTO.getTypeId());
+                contentValues.put(SqlContract.SqlBill.BILL_CURRENCY_ID, billDetailsDTO.getCurrencyId());
+                contentValues.put(SqlContract.SqlBill.BILL_PAID_ID, billDetailsDTO.getPaidBy());
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlBill.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Bill is Added Successfully");
+                    // flagError = true;
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Bill record already present");
+                    // flagError = true;
+                    flagError = 2;
+                }
+
+            }
+        } catch (Exception e) {
+            // flagError = false;
+            flagError = 3;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while insert Bill " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+            /*if (!flagError)
+                Log.e(TAG, "##Insert Friend" + errorMessage);*/
+        }
+        return flagError;
     }
 }
 
