@@ -92,5 +92,7 @@
     <string name="str_dialog_title_select_paid_by">Select Paid By</string>
     <string name="str_number_error">Please enter correct amount</string>
     <string name="str_error_correct_amount">Please enter correct amount</string>
+    <string name="str_err_amount">Please fill the correct amounts</string>
+    <string name="str_err_bill_not_settel">Bill is not settle correctly please fill correct amounts</string>
 
 </resources>

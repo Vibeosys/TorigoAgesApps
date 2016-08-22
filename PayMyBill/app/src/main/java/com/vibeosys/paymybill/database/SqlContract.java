@@ -52,7 +52,7 @@ public class SqlContract {
 
     public abstract class SqlBill {
         public final static String TABLE_NAME = "Bill";
-        public final static String BILL_ID = "billSharedId";
+        public final static String BILL_ID = "BillId";
         public final static String BILL_NO = "BillNo";
         public final static String BILL_DATE = "BillDate";
         public final static String BILL_AMOUNT = "BillAmount";

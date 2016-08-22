@@ -22,6 +22,14 @@ public class FriendsDTO implements Serializable {
         this.mAmount = mAmount;
     }
 
+    public FriendsDTO(int mId, String mName, String mImgSource, double mAmount, boolean flagOwe) {
+        this.mId = mId;
+        this.mName = mName;
+        this.mImgSource = mImgSource;
+        this.mAmount = mAmount;
+        this.flagOwe = flagOwe;
+    }
+
     public FriendsDTO(int mId, String mName, String mImgSource, double mAmount, Date mDate, boolean flagOwe) {
         this.mId = mId;
         this.mName = mName;

@@ -14,7 +14,7 @@ import com.vibeosys.paymybill.data.BillDetailsDTO;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.util.AppConstants;
 
-public class TransactionDetailsActivity extends AppCompatActivity implements View.OnClickListener, TransactionListAdapter.AmountChangedListener {
+public class TransactionDetailsActivity extends BaseActivity implements View.OnClickListener, TransactionListAdapter.AmountChangedListener {
 
     private static final String TAG = TransactionDetailsActivity.class.getSimpleName();
     private BillDetailsDTO billDetailsDTO;
@@ -24,6 +24,8 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
     private TransactionListAdapter adapter;
     private TextView mTxtTotal, mTxtRemains, mTxtError;
     private double mBillTotalAmount;
+    private double mTotalFriendAmount = 0;
+    private double mRemainingAmount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
             }
             adapter = new TransactionListAdapter(getApplicationContext(), billDetailsDTO.getShareWith());
             adapter.setSpiltMode(AppConstants.EQUALLY_DIVIDED);
+            calculateAndUpdateTotal();
         } else if (splitMode == AppConstants.UNEQUALLY_DIVIDED) {
             adapter = new TransactionListAdapter(getApplicationContext(), billDetailsDTO.getShareWith());
             adapter.setSpiltMode(AppConstants.UNEQUALLY_DIVIDED);
@@ -68,7 +71,31 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
                 break;
             case R.id.btnSave:
                 //Save the bill in database with all transaction
+                saveData();
                 break;
+        }
+    }
+
+    private void saveData() {
+        boolean cancelFlag = false;
+        View focusView = null;
+        if (mRemainingAmount < 0) {
+            cancelFlag = true;
+            focusView = mTxtRemains;
+            mTxtRemains.setError(getResources().getString(R.string.str_err_amount));
+        } else if (mRemainingAmount > 0) {
+            cancelFlag = true;
+            focusView = mTxtRemains;
+            mTxtRemains.setError(getResources().getString(R.string.str_err_bill_not_settel));
+        } else if (mTotalFriendAmount != billDetailsDTO.getAmount()) {
+            cancelFlag = true;
+            focusView = mTxtTotal;
+            mTxtTotal.setError(getResources().getString(R.string.str_err_bill_not_settel));
+        }
+        if (cancelFlag) {
+            focusView.requestFocus();
+        } else {
+            mDbRepository.insertBill(billDetailsDTO);
         }
     }
 
@@ -87,21 +114,21 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
 
     private void calculateAndUpdateTotal() {
         //Logic to update the total Amount
-        double totalFriend = 0;
-        double remains = 0;
+        mTotalFriendAmount = 0;
+        mRemainingAmount = 0;
         for (FriendsDTO friend : billDetailsDTO.getShareWith()) {
-            totalFriend = totalFriend + friend.getAmount();
+            mTotalFriendAmount = mTotalFriendAmount + friend.getAmount();
         }
-        remains = mBillTotalAmount - totalFriend;
-        if (remains < 0) {
+        mRemainingAmount = mBillTotalAmount - mTotalFriendAmount;
+        if (mRemainingAmount < 0) {
             mTxtRemains.setTextColor(getResources().getColor(android.R.color.holo_red_light));
         } else {
             mTxtRemains.setTextColor(getResources().getColor(R.color.secondaryText));
         }
 
-        String strTotal = "Total:" + String.format("%.2f", totalFriend) + " Of " + String.format("%.2f", mBillTotalAmount);
+        String strTotal = "Total:" + String.format("%.2f", mTotalFriendAmount) + " Of " + String.format("%.2f", mBillTotalAmount);
         mTxtTotal.setText(strTotal);
-        String strRemains = "Remains:" + String.format("%.2f", remains);
+        String strRemains = "Remains:" + String.format("%.2f", mRemainingAmount);
         mTxtRemains.setText(strRemains);
     }
 }
