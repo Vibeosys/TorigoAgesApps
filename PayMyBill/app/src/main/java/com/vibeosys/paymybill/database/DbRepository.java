@@ -11,6 +11,9 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.vibeosys.paymybill.data.BillDetailsDTO;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendBillTransaction;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendBills;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.Sync;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
@@ -54,7 +57,7 @@ public class DbRepository extends SQLiteOpenHelper {
             "FOREIGN KEY(CurrencyId) REFERENCES CurrencyType(CurrencyTypeId)," +
             "FOREIGN KEY(PaidBy) REFERENCES Friend(FriendId));";
 
-    private final String CREATE_TRANSACTION = "CREATE TABLE TransactionDetails(TransactionId TEXT," +
+    private final String CREATE_TRANSACTION = "CREATE TABLE TransactionDetails(TransactionId INTEGER," +
             "BillId INTEGER,PersonId INTEGER,CreditAmt TEXT,DebitAmt TEXT," +
             "Desc TEXT,TransactionDate TEXT,PRIMARY KEY(TransactionId)," +
             "FOREIGN KEY(BillId) REFERENCES Bill(BillId),FOREIGN KEY(PersonId) " +
@@ -398,6 +401,7 @@ public class DbRepository extends SQLiteOpenHelper {
                 if (friendsDTO.getId() == billDetailsDTO.getPaidBy()) {
                     paidByFriend = friendsDTO;
                 }
+                sqLiteDatabase = null;
                 sqLiteDatabase = getWritableDatabase();
                 synchronized (sqLiteDatabase) {
                     contentValues = new ContentValues();
@@ -544,7 +548,7 @@ public class DbRepository extends SQLiteOpenHelper {
             sqLiteDatabase = getReadableDatabase();
             synchronized (sqLiteDatabase) {
                 cursor = sqLiteDatabase.rawQuery("SELECT " + SqlContract.SqlBill.BILL_ID
-                        + " From " + SqlContract.SqlFriend.TABLE_NAME + " WHERE " + SqlContract.SqlBill.BILL_NO
+                        + " From " + SqlContract.SqlBill.TABLE_NAME + " WHERE " + SqlContract.SqlBill.BILL_NO
                         + "=?", whereClause);
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {
@@ -616,69 +620,57 @@ public class DbRepository extends SQLiteOpenHelper {
         return flagError;
     }
 
-    public int CheckUserRegistration(String userName,String password)
-    {
+    public int CheckUserRegistration(String userName, String password) {
         SQLiteDatabase sqLiteDatabase = null;
-        Cursor cursor=null;
-        long count=-1;
-        int returnVal=-2;
+        Cursor cursor = null;
+        long count = -1;
+        int returnVal = -2;
         int countVal;
         String Password;
-        try
-        {
-            sqLiteDatabase =getReadableDatabase();
-            synchronized (sqLiteDatabase)
-            {
-                try
-                {
-                    cursor =sqLiteDatabase.rawQuery("select "+SqlContract.SqlRegisterUser.USER_PASSWORD+" from "+SqlContract.SqlRegisterUser.TABLE_NAME
-                            +" where "+SqlContract.SqlRegisterUser.USER_EMAIL_ID+"=?",new String[]{userName});
-                    countVal =cursor.getCount();
-                    if(countVal > 0)
-                    {
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                try {
+                    cursor = sqLiteDatabase.rawQuery("select " + SqlContract.SqlRegisterUser.USER_PASSWORD + " from " + SqlContract.SqlRegisterUser.TABLE_NAME
+                            + " where " + SqlContract.SqlRegisterUser.USER_EMAIL_ID + "=?", new String[]{userName});
+                    countVal = cursor.getCount();
+                    if (countVal > 0) {
                         cursor.moveToFirst();
-                        do{
+                        do {
                             Password = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_PASSWORD));
-                        }while (cursor.moveToNext());
-                        if(TextUtils.equals(password,Password))
-                        {
-                            returnVal=1;
+                        } while (cursor.moveToNext());
+                        if (TextUtils.equals(password, Password)) {
+                            returnVal = 1;
                             return returnVal;
-                        }
-                        else if(!TextUtils.equals(password,Password))
-                        {
-                            returnVal =2;
+                        } else if (!TextUtils.equals(password, Password)) {
+                            returnVal = 2;
                             return returnVal;
 
                         }
-                    }else if(countVal==0)
-                    {
-                        returnVal =3;
+                    } else if (countVal == 0) {
+                        returnVal = 3;
                         return returnVal;
                     }
 
 
-                }catch (SQLiteException e)
-                {
-                    Log.d(TAG,"user Login problem");
-                    returnVal=4;
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "user Login problem");
+                    returnVal = 4;
                     return returnVal;
                 }
             }
 
-        }catch (Exception e)
-        {
-            Log.d(TAG,"user Registration error");
-            returnVal =5;
-        }
-        finally {
-            if(sqLiteDatabase.isOpen())
-            {
+        } catch (Exception e) {
+            Log.d(TAG, "user Registration error");
+            returnVal = 5;
+        } finally {
+            if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
         }
         return returnVal;
     }
+
     public int userRegisterSocialMedia(UserRegisterDbDTO userRegisterDbDTO) {
         SQLiteDatabase sqLiteDatabase = null;
         ContentValues contentValues = null;
@@ -721,6 +713,126 @@ public class DbRepository extends SQLiteOpenHelper {
             }
         }
         return returnVal;
+    }
+
+    /**
+     * For main screen function
+     **/
+    public ArrayList<FriendTransactions> getFriendListTransaction() {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        ArrayList<FriendTransactions> friendDbDTOs = null;
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                cursor = sqLiteDatabase.rawQuery("SELECT * From " + SqlContract.SqlFriend.TABLE_NAME, null);
+                friendDbDTOs = new ArrayList<>();
+                if (cursor != null) {
+                    if (cursor.getCount() > 0) {
+                        cursor.moveToFirst();
+
+                        do {
+                            int friendId = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_ID));
+                            String name = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_NAME));
+                            String contact = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_CONTACT_NO));
+                            String email = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_EMAIL));
+                            String image = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_PHOTO));
+                            FriendTransactions friendsDT = new FriendTransactions(friendId, name, image);
+                            friendDbDTOs.add(friendsDT);
+
+                        } while (cursor.moveToNext());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return friendDbDTOs;
+    }
+
+    public ArrayList<FriendBills> getBills(int userId, int friendId) {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        ArrayList<FriendBills> bills = null;
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                String[] whereClause = new String[]{String.valueOf(userId), String.valueOf(friendId)};
+                cursor = sqLiteDatabase.rawQuery("SELECT * From " + SqlContract.SqlBill.TABLE_NAME + " WHERE "
+                        + SqlContract.SqlBill.BILL_PAID_ID + "=? OR " + SqlContract.SqlBill.BILL_PAID_ID + "=?", whereClause);
+                bills = new ArrayList<>();
+                if (cursor != null) {
+                    if (cursor.getCount() > 0) {
+                        cursor.moveToFirst();
+
+                        do {
+                            int billId = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_ID));
+                            String billDesc = cursor.getString(cursor.getColumnIndex(SqlContract.SqlBill.BILL_DESC));
+                            String date = cursor.getString(cursor.getColumnIndex(SqlContract.SqlBill.BILL_DATE));
+                            double amount = cursor.getDouble(cursor.getColumnIndex(SqlContract.SqlBill.BILL_AMOUNT));
+                            int paidBy = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_PAID_ID));
+                            FriendBills friendsDT = new FriendBills(billId, billDesc, date, amount, paidBy);
+                            bills.add(friendsDT);
+
+                        } while (cursor.moveToNext());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return bills;
+    }
+
+    public ArrayList<FriendBillTransaction> getTransactionByBill(long billId, int userId, int friendId) {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        ArrayList<FriendBillTransaction> transactions = null;
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                String[] whereClause = new String[]{String.valueOf(billId), String.valueOf(userId), String.valueOf(friendId)};
+                cursor = sqLiteDatabase.rawQuery("SELECT * From " + SqlContract.SqlTransaction.TABLE_NAME + " WHERE "
+                        + SqlContract.SqlTransaction.TRANSACTION_BILL_ID + "=? AND ("
+                        + SqlContract.SqlTransaction.TRANSACTION_PERSON_ID + "=? OR "
+                        + SqlContract.SqlTransaction.TRANSACTION_PERSON_ID + "=?)", whereClause);
+                transactions = new ArrayList<>();
+                if (cursor != null) {
+                    if (cursor.getCount() > 0) {
+                        cursor.moveToFirst();
+
+                        do {
+                            int transactionId = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlTransaction.TRANSACTION_ID));
+                            int personId = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlTransaction.TRANSACTION_PERSON_ID));
+                            double creditAmount = cursor.getDouble(cursor.getColumnIndex(SqlContract.SqlTransaction.TRANSACTION_CREDIT_AMOUNT));
+                            double debitAmount = cursor.getDouble(cursor.getColumnIndex(SqlContract.SqlTransaction.TRANSACTION_DEBIT_AMOUNT));
+                            String transactionDate = cursor.getString(cursor.getColumnIndex(SqlContract.SqlTransaction.TRANSACTION_DATE));
+                            FriendBillTransaction friendsDT = new FriendBillTransaction(transactionId, personId, creditAmount, debitAmount, transactionDate);
+                            transactions.add(friendsDT);
+
+                        } while (cursor.moveToNext());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return transactions;
     }
 }
 

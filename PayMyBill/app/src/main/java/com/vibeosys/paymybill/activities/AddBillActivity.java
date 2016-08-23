@@ -150,7 +150,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
-        selectedFriends.add(new FriendsDTO(1, "Akshay", "prakash.jpg", 0));
+        //selectedFriends.add(new FriendsDTO(1, "Akshay", "prakash.jpg", 0));
         int radioSelectedId = 0;
         int splitMode = 0;
         radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();

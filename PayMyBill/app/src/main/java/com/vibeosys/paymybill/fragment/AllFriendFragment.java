@@ -3,6 +3,7 @@ package com.vibeosys.paymybill.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.activities.SettleActivity;
 import com.vibeosys.paymybill.adapters.FriendGridAdapter;
 import com.vibeosys.paymybill.adapters.FriendListAdapter;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactionHandler;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
 import com.vibeosys.paymybill.data.FriendsDTO;
 
 import java.sql.Date;
@@ -41,14 +44,17 @@ public class AllFriendFragment extends BaseFragment {
     }
 
     private void createList() {
-        ArrayList<FriendsDTO> friendsDTOs = new ArrayList<>();
+       /* ArrayList<FriendsDTO> friendsDTOs = new ArrayList<>();
         friendsDTOs.add(new FriendsDTO(1, "Prakash Dhole", "prakash.jpg", 30.78, new java.util.Date(), true));
         friendsDTOs.add(new FriendsDTO(1, "Ganesh", "prakash.jpg", 30.78, new java.util.Date(), false));
         friendsDTOs.add(new FriendsDTO(1, "Rajesh Farande", "prakash.jpg", 30.78, new java.util.Date(), false));
         friendsDTOs.add(new FriendsDTO(1, "Vinayak", "prakash.jpg", 30.78, new java.util.Date(), true));
-        friendsDTOs.add(new FriendsDTO(1, "Krushna", "prakash.jpg", 30.78, new java.util.Date(), true));
+        friendsDTOs.add(new FriendsDTO(1, "Krushna", "prakash.jpg", 30.78, new java.util.Date(), true));*/
+        FriendTransactionHandler friendTransactionHandler = new FriendTransactionHandler(mDbRepository);
 
-        listAdapter = new FriendListAdapter(getContext(), friendsDTOs);
+        ArrayList<FriendTransactions> mFriends = friendTransactionHandler.getFriendList();
+        Log.d(TAG, mFriends.toString());
+        listAdapter = new FriendListAdapter(getContext(), mFriends);
         mFriendList.setAdapter(listAdapter);
 
     }

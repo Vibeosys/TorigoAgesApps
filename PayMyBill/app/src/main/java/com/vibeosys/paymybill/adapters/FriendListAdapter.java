@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vibeosys.paymybill.R;
+import com.vibeosys.paymybill.data.FriendTransactions.BorrowType;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.util.DateUtils;
 
@@ -23,9 +25,9 @@ public class FriendListAdapter extends BaseAdapter {
 
     private final static String TAG = HistoryAdapter.class.getSimpleName();
     private Context mContext;
-    private ArrayList<FriendsDTO> mFriends;
+    private ArrayList<FriendTransactions> mFriends;
 
-    public FriendListAdapter(Context mContext, ArrayList<FriendsDTO> mFriendsDTOs) {
+    public FriendListAdapter(Context mContext, ArrayList<FriendTransactions> mFriendsDTOs) {
         this.mContext = mContext;
         this.mFriends = mFriendsDTOs;
     }
@@ -63,17 +65,22 @@ public class FriendListAdapter extends BaseAdapter {
             row.setTag(viewHolder);
 
         } else viewHolder = (ViewHolder) row.getTag();
-        FriendsDTO friend = mFriends.get(position);
+        FriendTransactions friend = mFriends.get(position);
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
         DateUtils dateUtils = new DateUtils();
-        viewHolder.billDate.setText(dateUtils.getLocalDateInReadableFormat(friend.getDate()));
-        viewHolder.billAmount.setText("$ " + String.format("%.2f", friend.getAmount()));
-        if (friend.isFlagOwe()) {
+        //viewHolder.billDate.setText(dateUtils.getLocalDateInReadableFormat(friend.getDate()));
+        double amount = friend.getAmount();
+        if (amount < 0) {
+            viewHolder.billAmount.setText("$ " + String.format("%.2f", -(amount)));
+        } else {
+            viewHolder.billAmount.setText("$ " + String.format("%.2f", amount));
+        }
+        if (friend.getType() == BorrowType.YOU_OWE) {
             viewHolder.billOwed.setText("You Owe");
             viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.flatRed));
             viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.flatRed));
-        } else {
+        } else if (friend.getType() == BorrowType.OWES_YOU) {
             viewHolder.billOwed.setText("Owes You");
             viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
             viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
