@@ -2,6 +2,7 @@ package com.vibeosys.paymybill.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.vibeosys.paymybill.activities.LoginActivity;
@@ -10,7 +11,9 @@ import com.vibeosys.paymybill.activities.LoginActivity;
  * Created by shrinivas on 12-07-2016.
  */
 public class UserAuth {
-
+    private static SharedPreferences mProjectSharedPref = null;
+    private static Context mContext = null;
+    private static final String PROJECT_PREFERENCES = "com.vibeosys.paymybill";
     public static boolean isUserLoggedIn(Context context, String userName, String userEmailId) {
         if (userEmailId == null || userEmailId == "" || userName == null || userName == "") {
             Intent theLoginIntent = new Intent(context, LoginActivity.class);
@@ -33,6 +36,7 @@ public class UserAuth {
         String theUserEmailId = SessionManager.Instance().getUserEmailId();
         String theUserName = SessionManager.Instance().getUserName();
         String accessTokenKey = SessionManager.Instance().getUserAccessToken();
+        String loginSource = SessionManager.Instance().getLoginSource();
         //String theUserPhotoURL = SessionManager.Instance().getUserPhotoUrl();
 
        /* if (theUserEmailId == null || theUserEmailId == "" || theUserName == null || theUserName == "") {
@@ -80,4 +84,5 @@ public class UserAuth {
 
         return true;
     }
+
 }

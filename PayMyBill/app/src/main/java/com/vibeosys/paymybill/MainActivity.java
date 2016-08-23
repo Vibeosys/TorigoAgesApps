@@ -213,6 +213,19 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_send) {
 
         }*/ else if (id == R.id.sign_out) {
+            if(mSessionManager.getLoginSource().equals("1"))
+            {
+                LoginActivity.LogoutFacebook();
+                UserAuth.CleanAuthenticationInfo();
+            }
+            if(mSessionManager.getLoginSource().equals("2"))
+            {
+                UserAuth.CleanAuthenticationInfo();
+            }
+            if(mSessionManager.getLoginSource().equals("3"))
+            {
+                UserAuth.CleanAuthenticationInfo();
+            }
             Intent signInIntent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(signInIntent);
         }
