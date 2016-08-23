@@ -21,6 +21,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.AddFriendActivity;
@@ -30,6 +31,7 @@ import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.MyProfileActivity;
 import com.vibeosys.paymybill.adapters.MainActivityAdapter;
+import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.util.UserAuth;
 
 public class MainActivity extends BaseActivity
@@ -42,6 +44,8 @@ public class MainActivity extends BaseActivity
     private boolean flagFabClick = false;
     TabLayout tab_layout;
     private FrameLayout mFrameLayout;
+    private TextView mNavigationUserEmailId,mNavigationUserName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +53,12 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*if(!UserAuth.isUserLoggedIn())
+        if(!UserAuth.isUserLoggedIn())
         {
             callToLogin();
             return;
-        }*/
+        }
+        mDbRepository.insertFriend(new FriendDbDTO(1, "Abcd", "1234567890", "abc@gmail.com", "abc.jpg"));
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);
@@ -128,6 +133,13 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        mNavigationUserEmailId =(TextView) headerView.findViewById(R.id.userEmailId);
+        mNavigationUserName = (TextView) headerView.findViewById(R.id.userName);
+        mNavigationUserEmailId.setText(""+mSessionManager.getUserEmailId());
+        mNavigationUserName.setText(""+mSessionManager.getUserName());
+
+
     }
 
     private void callToLogin() {

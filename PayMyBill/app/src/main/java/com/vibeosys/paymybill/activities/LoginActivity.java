@@ -1,5 +1,6 @@
 package com.vibeosys.paymybill.activities;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -10,6 +11,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -28,6 +30,8 @@ import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
@@ -46,10 +50,13 @@ import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-
+import java.util.Set;
 
 
 public class LoginActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener,
@@ -70,6 +77,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private boolean mSignInClicked;
     private EditText mEmailId, mPassword;
     private boolean setFlag = true;
+    private int ACCOUNT_PERMISSION_CODE = 14;
 
 
     @Override
@@ -100,6 +108,39 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             public void onSuccess(LoginResult loginResult) {
                 accessTokenTracker.startTracking();
                 profileTracker.startTracking();
+                Set<String> permiss = loginResult.getRecentlyGrantedPermissions();
+                loginResult.getAccessToken();
+                GraphRequest graphRequest = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+                        JSONObject data = response.getJSONObject();
+                        String photoUrl="";
+                        if(object!=null)
+                        {
+                            String emailId = object.optString("email");
+                            String uid = object.optString("id");
+                            String firstName= object.optString("first_name");
+                            String lastName= object.optString("last_name");
+                         //   String photoUrl= object.optString("picture");
+                            try {
+                                 photoUrl= data.getJSONObject("picture").getJSONObject("data").getString("url");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            AccessToken token = AccessToken.getCurrentAccessToken();
+                            String FbTokenId = token.getUserId();
+                            callFromFacebookLogin(emailId,"", firstName,lastName,"",1,FbTokenId,photoUrl);
+                            callToSessionManager(emailId,"1",firstName,lastName,FbTokenId);
+                        }
+
+
+                    }
+                });
+                Bundle bundle = new Bundle();
+                bundle.putString("fields","email,first_name,last_name,picture.type(large)");
+                graphRequest.setParameters(bundle);
+                graphRequest.executeAsync();
             }
 
             @Override
@@ -119,11 +160,11 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 if (currentAccessToken != null) {
                     String UserID = currentAccessToken.getUserId();
                     String FbToken = currentAccessToken.getToken();
-                    mSessionManager.setUserAccessToken(FbToken);
+                    /*mSessionManager.setUserAccessToken(FbToken);
                     mSessionManager.setLoginSource("1");
                     Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(loginIntent);
-                    finish();
+                    finish();*/
 
                 }
             }
@@ -138,6 +179,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                     String lastName = currentProfile.getLastName();
                     Uri FbIdT = currentProfile.getLinkUri();
                     String FbId = currentProfile.getId();
+
+
                    // Toast.makeText(getApplicationContext(), "First Name " + firstName + " Last Name " + lastName, Toast.LENGTH_SHORT).show();
                 } else if (currentProfile == null) {
                     /*String firstName= "";
@@ -148,7 +191,27 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
         };
     }
-
+    public void callFromFacebookLogin(String email,String password,String firstName,String lastName,String phoneNo,int loginSource,String FbTokenId,String photourl)
+    {
+        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",firstName,lastName,"",loginSource,FbTokenId,photourl);
+        int returnVal;
+        returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
+        if(returnVal==1)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+            Intent mainActivity = new Intent(getApplication(),MainActivity.class);
+            startActivity(mainActivity);
+            finish();
+        }
+        if(returnVal ==3 || returnVal==2)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(),"Cannot able to insert record",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+        }
+    }
     /*Login validation functions*/
     private boolean validate() {
 
@@ -278,20 +341,22 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
                 Person currentPerson = Plus.PeopleApi
                         .getCurrentPerson(mGoogleApiClient);
+                String email = Plus.AccountApi.getAccountName(mGoogleApiClient);
                 String personName = currentPerson.getDisplayName();
                 String personPhotoUrl = currentPerson.getImage().getUrl();
                 String personGooglePlusProfile = currentPerson.getUrl();
                 String personGoogleId = currentPerson.getId();
-                String email = Plus.AccountApi.getAccountName(mGoogleApiClient);
+
                 callFromGoogleRegisterUser(email,personName,2,personGoogleId,personPhotoUrl);
-                Log.e(TAG, "Name: " + personName + ", plusProfile: "
-                        + personGooglePlusProfile + ", email: " + email
+                callToSessionManager(email,"2",personName,"",personGoogleId);
+                /*Log.e(TAG, "Name: " + personName + ", plusProfile: "
+                        + personGooglePlusProfile
                         + ", Image: " + personPhotoUrl+"person Id"+ personGoogleId );
                 Toast toast = Toast.makeText(getApplicationContext(),"Name: " + personName + ", plusProfile: "
-                        + personGooglePlusProfile + ", email: " + email
+                        + personGooglePlusProfile
                         + ", Image: " + personPhotoUrl+"person Id"+ personGoogleId ,Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                toast.show();*/
 
             } else {
                /* Toast.makeText(getApplicationContext(),
@@ -304,12 +369,21 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     private void callFromGoogleRegisterUser(String email,String personName,int loginSource,String googleId,String PhotoUrl) {
-        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"","","","",loginSource,googleId,PhotoUrl);
+        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",personName,"","",loginSource,googleId,PhotoUrl);
         int returnVal;
         returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
         if(returnVal==1)
         {
           Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+            Intent mainActivity = new Intent(getApplication(),MainActivity.class);
+            startActivity(mainActivity);
+            finish();
+        }
+        if(returnVal ==3 || returnVal==2)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(),"Cannot able to insert record",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }
@@ -339,9 +413,11 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
         switch (btnId) {
             case R.id.google_Plus_signIn:
-                googlePlusAPIInit();
-                if (!mGoogleApiClient.isConnecting()) {
-                    googlePlusAPIInit();
+                //googlePlusAPIInit();//Here i have to change
+                getAccountPermission();
+                /*if (!mGoogleApiClient.isConnecting()) {
+                   // googlePlusAPIInit();//Here i have to change
+                    getAccountPermission();
                     if (mGoogleApiClient.isConnected()) {
                         mSignInClicked = true;
                         resolveSignInError();
@@ -352,17 +428,15 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                             resolveSignInError();
                         }
                     }
-
-                }
+                }*/
                 break;
             case R.id.sign_in_user_btn:
                 boolean val = validate();
-
                  if(val == true) {
-
                      String mUserEmailId=mEmailId.getText().toString().trim();
                      String mUserPassword =  mPassword.getText().toString().trim();
                      callToUserRegistration(mUserEmailId,mUserPassword);
+                     callToSessionManager(mUserEmailId,"3","","","");
                 }
                 break;
 
@@ -385,6 +459,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             Toast toast = Toast.makeText(getApplicationContext(), "user is valid", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+            Intent mainActivity = new Intent(getApplication(),MainActivity.class);
+            startActivity(mainActivity);
             finish();
         }
         if(returnVal==2 )
@@ -403,6 +479,48 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }
+
+    }
+  public void  getAccountPermission()
+    {
+         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.GET_ACCOUNTS},
+                 ACCOUNT_PERMISSION_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==ACCOUNT_PERMISSION_CODE && grantResults[0]==0)
+        {
+            googlePlusAPIInit();
+            if (!mGoogleApiClient.isConnecting()) {
+                // googlePlusAPIInit();//Here i have to change
+               // getAccountPermission();
+                if (mGoogleApiClient.isConnected()) {
+                    mSignInClicked = true;
+                    resolveSignInError();
+                } else {
+                    mGoogleApiClient.connect();
+                    if (mGoogleApiClient.isConnected()) {
+                        mSignInClicked = true;
+                        resolveSignInError();
+                    }
+                }
+            }
+        }else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "User denied permission", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+    }
+    public void callToSessionManager(String emailId,String loginSource,String firstName,String lastName,String accessToken)
+    {
+        mSessionManager.setUserEmailId(emailId);
+        mSessionManager.setLoginSource(loginSource);
+        mSessionManager.setUserName(firstName,lastName);
+        mSessionManager.setUserAccessToken(accessToken);
+
 
     }
 }

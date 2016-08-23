@@ -2,6 +2,7 @@ package com.vibeosys.paymybill.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 
 import com.vibeosys.paymybill.activities.LoginActivity;
 
@@ -37,7 +38,11 @@ public class UserAuth {
        /* if (theUserEmailId == null || theUserEmailId == "" || theUserName == null || theUserName == "") {
             return false;
         }*/
-        if(accessTokenKey==null || accessTokenKey==""|| accessTokenKey==null ||accessTokenKey=="")
+        /*if(accessTokenKey==null || accessTokenKey==""|| accessTokenKey==null ||accessTokenKey=="")
+        {
+            return false;
+        }*/
+        if(theUserEmailId==null || theUserEmailId==""|| TextUtils.isEmpty(theUserEmailId))
         {
             return false;
         }
