@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class FriendGridAdapter extends BaseAdapter {
 
-    private final static String TAG = HistoryAdapter.class.getSimpleName();
+    private final static String TAG = FriendGridAdapter.class.getSimpleName();
     private Context mContext;
     private ArrayList<FriendsDTO> mFriends;
 

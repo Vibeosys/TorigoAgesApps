@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class TransactionListAdapter extends BaseAdapter {
 
-    private final static String TAG = HistoryAdapter.class.getSimpleName();
+    private final static String TAG = TransactionListAdapter.class.getSimpleName();
     private Context mContext;
     private List<FriendsDTO> mFriends;
     private AmountChangedListener amountChangedListener;

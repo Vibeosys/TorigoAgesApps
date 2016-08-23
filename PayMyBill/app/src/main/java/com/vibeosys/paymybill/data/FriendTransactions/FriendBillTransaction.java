@@ -1,9 +1,11 @@
 package com.vibeosys.paymybill.data.FriendTransactions;
 
+import java.io.Serializable;
+
 /**
  * Created by akshay on 23-08-2016.
  */
-public class FriendBillTransaction {
+public class FriendBillTransaction implements Serializable {
 
     private int transactionId;
     private int personId;

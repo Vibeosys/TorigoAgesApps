@@ -1,11 +1,12 @@
 package com.vibeosys.paymybill.data.FriendTransactions;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by akshay on 23-08-2016.
  */
-public class FriendBills {
+public class FriendBills implements Serializable {
     private long billId;
     private String billDesc;
     private String date;
@@ -93,7 +94,7 @@ public class FriendBills {
     }
 
     public BorrowType getType() {
-        if (friendBillAmount < 0) {
+        if (paidBy != 1) {
             this.type = BorrowType.YOU_OWE;
         } else {
             this.type = BorrowType.OWES_YOU;

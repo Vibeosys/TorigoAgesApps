@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class SelectedFriendAdapter extends BaseAdapter {
 
-    private final static String TAG = HistoryAdapter.class.getSimpleName();
+    private final static String TAG = SelectedFriendAdapter.class.getSimpleName();
     private Context mContext;
     private List<FriendsDTO> mFriends;
 

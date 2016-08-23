@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 public class FriendListAdapter extends BaseAdapter {
 
-    private final static String TAG = HistoryAdapter.class.getSimpleName();
+    private final static String TAG = FriendListAdapter.class.getSimpleName();
     private Context mContext;
     private ArrayList<FriendTransactions> mFriends;
 

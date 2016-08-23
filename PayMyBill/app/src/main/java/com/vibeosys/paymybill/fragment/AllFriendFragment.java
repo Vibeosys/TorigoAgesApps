@@ -33,13 +33,16 @@ public class AllFriendFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dashboard_list, container, false);
         mFriendList = (ListView) view.findViewById(R.id.dashBoard_list);
+        createList();
         mFriendList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getContext(), SettleActivity.class));
+                FriendTransactions friendTransactions = (FriendTransactions) listAdapter.getItem(position);
+                Intent iSettle = new Intent(getContext(), SettleActivity.class);
+                iSettle.putExtra("data", friendTransactions);
+                startActivity(iSettle);
             }
         });
-        createList();
         return view;
     }
 
