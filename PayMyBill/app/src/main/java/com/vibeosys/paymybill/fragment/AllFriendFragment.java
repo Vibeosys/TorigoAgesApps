@@ -24,9 +24,14 @@ import java.util.ArrayList;
 /**
  * Created by shrinivas on 26-05-2016.
  */
-public class AllFriendFragment extends BaseFragment {
-    ListView mFriendList;
-    FriendListAdapter listAdapter;
+public class AllFriendFragment extends FriendListBaseFragment {
+    private ListView mFriendList;
+    private FriendListAdapter listAdapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -47,15 +52,6 @@ public class AllFriendFragment extends BaseFragment {
     }
 
     private void createList() {
-       /* ArrayList<FriendsDTO> friendsDTOs = new ArrayList<>();
-        friendsDTOs.add(new FriendsDTO(1, "Prakash Dhole", "prakash.jpg", 30.78, new java.util.Date(), true));
-        friendsDTOs.add(new FriendsDTO(1, "Ganesh", "prakash.jpg", 30.78, new java.util.Date(), false));
-        friendsDTOs.add(new FriendsDTO(1, "Rajesh Farande", "prakash.jpg", 30.78, new java.util.Date(), false));
-        friendsDTOs.add(new FriendsDTO(1, "Vinayak", "prakash.jpg", 30.78, new java.util.Date(), true));
-        friendsDTOs.add(new FriendsDTO(1, "Krushna", "prakash.jpg", 30.78, new java.util.Date(), true));*/
-        FriendTransactionHandler friendTransactionHandler = new FriendTransactionHandler(mDbRepository);
-
-        ArrayList<FriendTransactions> mFriends = friendTransactionHandler.getFriendList();
         Log.d(TAG, mFriends.toString());
         listAdapter = new FriendListAdapter(getContext(), mFriends);
         mFriendList.setAdapter(listAdapter);
