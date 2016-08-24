@@ -46,7 +46,7 @@ public class UserAuth {
         {
             return false;
         }*/
-        if(theUserEmailId==null || theUserEmailId==""|| TextUtils.isEmpty(theUserEmailId))
+        if(theUserEmailId==null || theUserEmailId=="")
         {
             return false;
         }

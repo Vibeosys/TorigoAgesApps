@@ -65,7 +65,8 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (!UserAuth.isUserLoggedIn()) {
+        boolean test = UserAuth.isUserLoggedIn();
+        if (!test) {
             callToLogin();
             return;
         }
@@ -183,9 +184,13 @@ public class MainActivity extends BaseActivity
 
     private void callToLogin() {
         Intent loginactivity = new Intent(MainActivity.this, LoginActivity.class);
-        loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
+        //loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
         startActivity(loginactivity);
+       // moveTaskToBack(true);
         finish();
+
     }
 
     private void startAddBill() {

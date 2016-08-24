@@ -79,6 +79,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private EditText mEmailId, mPassword;
     private boolean setFlag = true;
     private int ACCOUNT_PERMISSION_CODE = 14;
+    private int count=0;
 
 
     @Override
@@ -531,7 +532,20 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
        // super.onBackPressed();
         if(!UserAuth.isUserLoggedIn())
         {
-            finish();
+            if(count==1)
+            {
+                moveTaskToBack(true);
+                finish();
+            }
+            else {
+                count = count + 1;
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Press once's again back button will exit from application", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
+
+
         }
     }
 }
