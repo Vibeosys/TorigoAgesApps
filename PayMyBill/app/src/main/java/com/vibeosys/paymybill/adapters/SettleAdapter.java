@@ -62,16 +62,18 @@ public class SettleAdapter extends BaseAdapter {
             row.setTag(viewHolder);
 
         } else viewHolder = (ViewHolder) row.getTag();
-        FriendBills history = historyDTOs.get(position);
-        Log.d(TAG, history.toString());
-        viewHolder.txtBillDesc.setText(history.getBillDesc());
-        viewHolder.txtDate.setText(history.getDate());
-        viewHolder.txtAmount.setText("" + history.getFriendBillAmount());
-        if (history.getType() == BorrowType.YOU_OWE) {
+        FriendBills friendBills = historyDTOs.get(position);
+        Log.d(TAG, friendBills.toString());
+        viewHolder.txtBillDesc.setText(friendBills.getBillDesc());
+        viewHolder.txtDate.setText(friendBills.getDate());
+        double amount = friendBills.getFriendBillAmount();
+        amount = amount < 0 ? -(amount) : amount;
+        viewHolder.txtAmount.setText(String.format("%.2f", amount));
+        if (friendBills.getType() == BorrowType.YOU_OWE) {
             viewHolder.txtType.setText("You Owe");
             viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.flatRed));
             viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.flatRed));
-        } else if (history.getType() == BorrowType.OWES_YOU) {
+        } else if (friendBills.getType() == BorrowType.OWES_YOU) {
             viewHolder.txtType.setText("Owes You");
             viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
             viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.flatGreen));

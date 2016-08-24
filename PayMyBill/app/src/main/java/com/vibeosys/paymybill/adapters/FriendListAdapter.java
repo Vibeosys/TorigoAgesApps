@@ -73,7 +73,7 @@ public class FriendListAdapter extends BaseAdapter {
         double amount = friend.getAmount();
         if (amount < 0) {
             viewHolder.billAmount.setText("$ " + String.format("%.2f", -(amount)));
-        } else {
+        } else if (amount > 0) {
             viewHolder.billAmount.setText("$ " + String.format("%.2f", amount));
         }
         if (friend.getType() == BorrowType.YOU_OWE) {
@@ -84,6 +84,12 @@ public class FriendListAdapter extends BaseAdapter {
             viewHolder.billOwed.setText("Owes You");
             viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
             viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
+        }
+        if (amount == 0) {
+            viewHolder.billOwed.setText("All Bills");
+            viewHolder.billAmount.setText("Settled");
+            viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
+            viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
         }
         return row;
     }

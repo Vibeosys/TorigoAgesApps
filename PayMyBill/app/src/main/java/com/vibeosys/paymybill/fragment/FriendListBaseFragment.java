@@ -22,7 +22,7 @@ public class FriendListBaseFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         friendTransactionHandler = new FriendTransactionHandler(mDbRepository);
         FilterZeroAmount zeroAmount = new FilterZeroAmount();
-        mFriends = zeroAmount.filterBillsByAmount(friendTransactionHandler.getFriendList());
+        mFriends = friendTransactionHandler.getFriendList();
     }
 
     private class FilterZeroAmount implements BillFilterByAmount {

@@ -71,6 +71,7 @@ public class SqlContract {
         public final static String TRANSACTION_DEBIT_AMOUNT = "DebitAmt";
         public final static String TRANSACTION_DESCRIPTION = "Desc";
         public final static String TRANSACTION_DATE = "TransactionDate";
+        public final static String TRANSACTION_IS_SETTLE = "IsSettle";
     }
 
 

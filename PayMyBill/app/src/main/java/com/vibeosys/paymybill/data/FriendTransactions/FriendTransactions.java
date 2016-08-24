@@ -88,6 +88,16 @@ public class FriendTransactions implements Serializable {
                 '}';
     }
 
+    public ArrayList<FriendBills> getFilterBills() {
+        ArrayList<FriendBills> friendBills = new ArrayList<>();
+        for (FriendBills friendBill : getBills()) {
+            if (friendBill.getFriendBillAmount() != 0) {
+                friendBills.add(friendBill);
+            }
+        }
+        return friendBills;
+    }
+
     private double calculateAmount() {
         MyBills myBills = new MyBills();
         ArrayList<FriendBills> ownBills = myBills.filterBills(this.bills, 1);

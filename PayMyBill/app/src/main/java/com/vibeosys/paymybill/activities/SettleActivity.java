@@ -2,6 +2,8 @@ package com.vibeosys.paymybill.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,11 +15,13 @@ import com.vibeosys.paymybill.data.HistoryDTO;
 
 import java.util.ArrayList;
 
-public class SettleActivity extends AppCompatActivity {
+public class SettleActivity extends BaseActivity implements View.OnClickListener {
 
     private ListView mListView;
     private SettleAdapter settleAdapter;
     private TextView txtFriendName, txtAmount, txtType;
+    private Button btnSettle;
+    private FriendTransactions friendTransactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +32,17 @@ public class SettleActivity extends AppCompatActivity {
         txtFriendName = (TextView) findViewById(R.id.txtFriendName);
         txtAmount = (TextView) findViewById(R.id.txtAmount);
         txtType = (TextView) findViewById(R.id.txtType);
+        btnSettle = (Button) findViewById(R.id.btnSettle);
+        btnSettle.setOnClickListener(this);
+        friendTransactions = (FriendTransactions) getIntent().getExtras().getSerializable("data");
 
-        FriendTransactions friendTransactions = (FriendTransactions) getIntent().getExtras().getSerializable("data");
-        /*ArrayList<HistoryDTO> historyDTOs = new ArrayList<>();
-        historyDTOs.add(new HistoryDTO("Dog Food", "You Borrow", "25 May", "$30"));
-        historyDTOs.add(new HistoryDTO("Rent", "You Lent", "23 May", "$250"));
-        historyDTOs.add(new HistoryDTO("Dinner", "You Lent", "21 May", "$22"));*/
-
-        settleAdapter = new SettleAdapter(getApplicationContext(), friendTransactions.getBills());
+        settleAdapter = new SettleAdapter(getApplicationContext(), friendTransactions.getFilterBills());
         mListView.setAdapter(settleAdapter);
 
         txtFriendName.setText(friendTransactions.getName());
         double amount = friendTransactions.getAmount();
-        if (amount < 0) {
-            txtAmount.setText("$ " + String.format("%.2f", -(amount)));
-        } else {
-            txtAmount.setText("$ " + String.format("%.2f", amount));
-        }
-
+        amount = amount < 0 ? -(amount) : amount;
+        txtAmount.setText(String.format("%.2f", amount));
         if (friendTransactions.getType() == BorrowType.YOU_OWE) {
             txtType.setText("You Owe");
             txtType.setTextColor(getResources().getColor(R.color.flatRed));
@@ -55,5 +52,27 @@ public class SettleActivity extends AppCompatActivity {
             txtType.setTextColor(getResources().getColor(R.color.flatGreen));
             txtAmount.setTextColor(getResources().getColor(R.color.flatGreen));
         }
+
+        if (amount == 0) {
+            btnSettle.setVisibility(View.INVISIBLE);
+            txtType.setText("All Bills are");
+            txtAmount.setText("Settled");
+            txtType.setTextColor(getResources().getColor(R.color.secondaryText));
+            txtAmount.setTextColor(getResources().getColor(R.color.secondaryText));
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.btnSettle:
+                settleBills();
+                break;
+        }
+    }
+
+    private void settleBills() {
+        mDbRepository.settleAllBills(friendTransactions);
     }
 }

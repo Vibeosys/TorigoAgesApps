@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.vibeosys.paymybill.data.BillDetailsDTO;
+import com.vibeosys.paymybill.data.FriendTransactions.BorrowType;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendBillTransaction;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendBills;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
@@ -18,8 +19,10 @@ import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.Sync;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
+import com.vibeosys.paymybill.util.DateUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by akshay on 24/05/2016.
@@ -59,7 +62,7 @@ public class DbRepository extends SQLiteOpenHelper {
 
     private final String CREATE_TRANSACTION = "CREATE TABLE TransactionDetails(TransactionId INTEGER," +
             "BillId INTEGER,PersonId INTEGER,CreditAmt TEXT,DebitAmt TEXT," +
-            "Desc TEXT,TransactionDate TEXT,PRIMARY KEY(TransactionId)," +
+            "Desc TEXT,TransactionDate TEXT,IsSettle INTEGER DEFAULT 0,PRIMARY KEY(TransactionId)," +
             "FOREIGN KEY(BillId) REFERENCES Bill(BillId),FOREIGN KEY(PersonId) " +
             "REFERENCES Friend(FriendId));";
 
@@ -413,6 +416,7 @@ public class DbRepository extends SQLiteOpenHelper {
                     contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DEBIT_AMOUNT, friendsDTO.getAmount());
                     contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DESCRIPTION, billDetailsDTO.getDescription());
                     contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DATE, billDetailsDTO.getBillDate());
+                    contentValues.put(SqlContract.SqlTransaction.TRANSACTION_IS_SETTLE, 0);
                     if (!sqLiteDatabase.isOpen())
                         sqLiteDatabase = getWritableDatabase();
                     try {
@@ -459,6 +463,7 @@ public class DbRepository extends SQLiteOpenHelper {
                 contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DEBIT_AMOUNT, 0);
                 contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DESCRIPTION, billDetailsDTO.getDescription());
                 contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DATE, billDetailsDTO.getBillDate());
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_IS_SETTLE, 0);
                 if (!sqLiteDatabase.isOpen())
                     sqLiteDatabase = getWritableDatabase();
                 try {
@@ -834,53 +839,216 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return transactions;
     }
-    public String getUserProfileImage(String userEmailId){
-        String mImageUri="";
+
+    public String getUserProfileImage(String userEmailId) {
+        String mImageUri = "";
         SQLiteDatabase sqLiteDatabase = null;
-        Cursor cursor=null;
+        Cursor cursor = null;
         int countVal;
         try {
             sqLiteDatabase = getReadableDatabase();
-            synchronized (sqLiteDatabase)
-            {
-                try
-                {
-                    cursor = sqLiteDatabase.rawQuery("select "+SqlContract.SqlRegisterUser.USER_IMAGE_URL
-                            +" from "+SqlContract.SqlRegisterUser.TABLE_NAME+" where "
-                            +SqlContract.SqlRegisterUser.USER_EMAIL_ID+"=?",new String[]{userEmailId});
-                    countVal= cursor.getCount();
-                    if(countVal>0)
-                    {
+            synchronized (sqLiteDatabase) {
+                try {
+                    cursor = sqLiteDatabase.rawQuery("select " + SqlContract.SqlRegisterUser.USER_IMAGE_URL
+                            + " from " + SqlContract.SqlRegisterUser.TABLE_NAME + " where "
+                            + SqlContract.SqlRegisterUser.USER_EMAIL_ID + "=?", new String[]{userEmailId});
+                    countVal = cursor.getCount();
+                    if (countVal > 0) {
                         cursor.moveToFirst();
-                        do{
+                        do {
                             mImageUri = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_IMAGE_URL));
-                        }while (cursor.moveToNext());
+                        } while (cursor.moveToNext());
                     }
 
-                }catch (SQLiteException e)
-                {
+                } catch (SQLiteException e) {
                     e.printStackTrace();
-                    Log.d(TAG,e.toString());
+                    Log.d(TAG, e.toString());
                 }
             }
 
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.d(TAG,e.toString());
+            Log.d(TAG, e.toString());
 
-        }finally {
-            if(cursor!=null)
-            {
+        } finally {
+            if (cursor != null) {
                 cursor.close();
             }
-            if(sqLiteDatabase.isOpen())
-            {
+            if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
 
         }
         return mImageUri;
+    }
+
+    public int settleAllBills(FriendTransactions friendTransactions) {
+        int flagError;
+        flagError = insertSettleBill(friendTransactions);
+        if (flagError == 1) {
+            ArrayList<FriendBills> bills = friendTransactions.getBills();
+            for (FriendBills bill : bills) {
+                ArrayList<FriendBillTransaction> billTransactions = bill.getTransaction();
+                for (FriendBillTransaction friendBillTransaction : billTransactions) {
+                    flagError = updateSettleTransaction(friendBillTransaction);
+                }
+            }
+        }
+        return flagError;
+    }
+
+
+    private int insertSettleBill(FriendTransactions friendTransactions) {
+        int flagError;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long billId = 0;
+        long count = -1;
+        DateUtils dateUtils = new DateUtils();
+        Date d = new Date();
+        String date = dateUtils.getLocalDateInReadableFormat(d);
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            billId = getLastId(sqLiteDatabase, SqlContract.SqlBill.BILL_ID, SqlContract.SqlBill.TABLE_NAME);
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlBill.BILL_ID, billId);
+                contentValues.put(SqlContract.SqlBill.BILL_NO, d.getTime());
+                contentValues.put(SqlContract.SqlBill.BILL_DATE, date);
+                double amount = friendTransactions.getAmount();
+                if (amount < 0) {
+                    contentValues.put(SqlContract.SqlBill.BILL_AMOUNT, -(amount));
+                } else if (amount > 0) {
+                    contentValues.put(SqlContract.SqlBill.BILL_AMOUNT, amount);
+                }
+
+                contentValues.put(SqlContract.SqlBill.BILL_DESC, "Settlement of bills");
+                contentValues.put(SqlContract.SqlBill.BILL_TYPE_ID, 0);
+                contentValues.put(SqlContract.SqlBill.BILL_CURRENCY_ID, 0);
+                int paidBy = 0;
+                if (friendTransactions.getType() == BorrowType.OWES_YOU) {
+                    paidBy = 1;//Replace 1 with for user
+                } else if (friendTransactions.getType() == BorrowType.YOU_OWE) {
+                    paidBy = friendTransactions.getFriendId();
+                }
+                contentValues.put(SqlContract.SqlBill.BILL_PAID_ID, paidBy);
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlBill.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Settle Bill is Added Successfully");
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Settle Bill record already present");
+                    flagError = 2;
+                }
+
+            }
+        } catch (Exception e) {
+            flagError = 3;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while insert Settle Bill " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        if (flagError == 1) {
+            flagError = insertSettleTransaction(billId, friendTransactions);
+        }
+        return flagError;
+    }
+
+    public int insertSettleTransaction(long billId, FriendTransactions friendTransactions) {
+        int flagError = 0;
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        DateUtils dateUtils = new DateUtils();
+        Date d = new Date();
+        String date = dateUtils.getLocalDateInReadableFormat(d);
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_ID, getLastId
+                        (sqLiteDatabase, SqlContract.SqlTransaction.TRANSACTION_ID, SqlContract.SqlTransaction.TABLE_NAME));
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_BILL_ID, billId);
+                int personId = 0;
+                if (friendTransactions.getType() == BorrowType.OWES_YOU) {
+                    personId = friendTransactions.getFriendId();
+                } else if (friendTransactions.getType() == BorrowType.YOU_OWE) {
+                    personId = 1;//Replace 1 with for user
+                }
+                double amount = friendTransactions.getAmount();
+                if (amount < 0) {
+                    contentValues.put(SqlContract.SqlTransaction.TRANSACTION_CREDIT_AMOUNT, -(amount));
+                } else if (amount > 0) {
+                    contentValues.put(SqlContract.SqlTransaction.TRANSACTION_CREDIT_AMOUNT, amount);
+                }
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_PERSON_ID, personId);
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DEBIT_AMOUNT, 0);
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DESCRIPTION, "Settlement");
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_DATE, date);
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_IS_SETTLE, 1);
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlTransaction.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Transaction settle is Added Successfully");
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Transaction settle is already present");
+                    flagError = 2;
+                }
+            }
+        } catch (Exception e) {
+            flagError = 3;
+            Log.e(TAG, "##Error while insert Transaction settle " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return flagError;
+    }
+
+    private int updateSettleTransaction(FriendBillTransaction friendBillTransaction) {
+        int flagError;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                String[] whereClause = new String[]{String.valueOf(friendBillTransaction.getTransactionId())};
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlTransaction.TRANSACTION_IS_SETTLE, 1);
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.update(SqlContract.SqlTransaction.TABLE_NAME, contentValues,
+                            SqlContract.SqlTransaction.TRANSACTION_ID + "=?", whereClause);
+                    contentValues.clear();
+                    Log.d(TAG, "## Transaction Updated Successfully");
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Transaction not Updated");
+                    flagError = 2;
+                }
+
+            }
+        } catch (Exception e) {
+            flagError = 3;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while update Settle transaction " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return flagError;
     }
 }
 
