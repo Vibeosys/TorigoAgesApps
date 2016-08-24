@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity
         txtOwesYouAmount = (TextView) findViewById(R.id.txtOwesYouAmount);
         txtYouOwesAmount = (TextView) findViewById(R.id.txtYouOwesAmount);
         calculateAmounts();
-        mDbRepository.insertFriend(new FriendDbDTO(1, "Abcd", "1234567890", "abc@gmail.com", "abc.jpg"));
+//        mDbRepository.insertFriend(new FriendDbDTO(1, "Abcd", "1234567890", "abc@gmail.com", "abc.jpg"));
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);

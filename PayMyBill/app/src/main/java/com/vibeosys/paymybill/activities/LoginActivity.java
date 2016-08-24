@@ -2,6 +2,7 @@ package com.vibeosys.paymybill.activities;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageInfo;
@@ -48,6 +49,7 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
+import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
 import com.vibeosys.paymybill.util.UserAuth;
 
@@ -82,6 +84,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private int count=0;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +108,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         mSignIn.setOnClickListener(this);
         mForgotPassword.setOnClickListener(this);
 
+
         /*Facebook login function*/
         mFacebbokLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -124,7 +129,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                             String uid = object.optString("id");
                             String firstName= object.optString("first_name");
                             String lastName= object.optString("last_name");
-                         //   String photoUrl= object.optString("picture");
                             try {
                                  photoUrl= data.getJSONObject("picture").getJSONObject("data").getString("url");
                             } catch (JSONException e) {
@@ -135,8 +139,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                             callFromFacebookLogin(emailId,"", firstName,lastName,"",1,FbTokenId,photoUrl);
                             callToSessionManager(emailId,"1",firstName,lastName,FbTokenId);
                         }
-
-
                     }
                 });
                 Bundle bundle = new Bundle();
@@ -162,12 +164,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 if (currentAccessToken != null) {
                     String UserID = currentAccessToken.getUserId();
                     String FbToken = currentAccessToken.getToken();
-                    /*mSessionManager.setUserAccessToken(FbToken);
-                    mSessionManager.setLoginSource("1");
-                    Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(loginIntent);
-                    finish();*/
-
                 }
             }
         };
@@ -182,22 +178,24 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                     Uri FbIdT = currentProfile.getLinkUri();
                     String FbId = currentProfile.getId();
 
-
-                   // Toast.makeText(getApplicationContext(), "First Name " + firstName + " Last Name " + lastName, Toast.LENGTH_SHORT).show();
                 } else if (currentProfile == null) {
-                    /*String firstName= "";
-                    String lastName =  "";
-                    String FbId= "";*/
+
                     Log.d("FbProfile", "current profile found null");
                 }
             }
         };
     }
-    public void callFromFacebookLogin(String email,String password,String firstName,String lastName,String phoneNo,int loginSource,String FbTokenId,String photourl)
+    public void callFromFacebookLogin(String email,String password,String firstName,String lastName,
+                                      String phoneNo,int loginSource,String FbTokenId,String photourl)
     {
-        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",firstName,lastName,"",loginSource,FbTokenId,photourl);
+        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",firstName,lastName,"",
+                loginSource,FbTokenId,photourl);
+        FriendDbDTO friendDbDTO = new FriendDbDTO(1,firstName,"",email,photourl);
         int returnVal;
+        long friendID;
+        friendID = mDbRepository.addFirstFriend(friendDbDTO);
         returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
+
         if(returnVal==1)
         {
             Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
@@ -282,10 +280,16 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     public static void LogoutFacebook() {
-        LoginManager.getInstance().logOut();
-        Log.d("FBLOGIN", "Log out");
-        /*Intent logout = new Intent(context, MainActivity.class);
-        context.startActivity(logout);*/
+        try
+        {
+            LoginManager.getInstance().logOut();
+            Log.d("FBLOGIN", "Log out");
+        }catch (FacebookException e)
+        {
+            e.printStackTrace();
+            Log.d(TAG,"Facebook logout exception");
+        }
+
     }
 
     @Override
@@ -348,30 +352,21 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 String personPhotoUrl = currentPerson.getImage().getUrl();
                 String personGooglePlusProfile = currentPerson.getUrl();
                 String personGoogleId = currentPerson.getId();
-
                 callFromGoogleRegisterUser(email,personName,2,personGoogleId,personPhotoUrl);
                 callToSessionManager(email,"2",personName,"",personGoogleId);
-                /*Log.e(TAG, "Name: " + personName + ", plusProfile: "
-                        + personGooglePlusProfile
-                        + ", Image: " + personPhotoUrl+"person Id"+ personGoogleId );
-                Toast toast = Toast.makeText(getApplicationContext(),"Name: " + personName + ", plusProfile: "
-                        + personGooglePlusProfile
-                        + ", Image: " + personPhotoUrl+"person Id"+ personGoogleId ,Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();*/
 
             } else {
-               /* Toast.makeText(getApplicationContext(),
-                        "Person information is null", Toast.LENGTH_LONG).show();*/
-                Log.e("user profile is null","profile is null");
+              Log.e("user profile is null","profile is null");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void callFromGoogleRegisterUser(String email,String personName,int loginSource,String googleId,String PhotoUrl) {
-        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",personName,"","",loginSource,googleId,PhotoUrl);
+    private void callFromGoogleRegisterUser(String email,String personName,
+                                            int loginSource,String googleId,String PhotoUrl) {
+        UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",personName,"","",
+                loginSource,googleId,PhotoUrl);
         int returnVal;
         returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
         if(returnVal==1)
@@ -517,14 +512,13 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             toast.show();
         }
     }
-    public void callToSessionManager(String emailId,String loginSource,String firstName,String lastName,String accessToken)
+    public void callToSessionManager(String emailId,String loginSource,String firstName,
+                                     String lastName,String accessToken)
     {
         mSessionManager.setUserEmailId(emailId);
         mSessionManager.setLoginSource(loginSource);
         mSessionManager.setUserName(firstName,lastName);
         mSessionManager.setUserAccessToken(accessToken);
-
-
     }
 
     @Override

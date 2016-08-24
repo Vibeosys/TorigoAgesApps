@@ -719,7 +719,58 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return returnVal;
     }
+    public long addFirstFriend(FriendDbDTO friendDbDTO)
+    {
+        long returnVal=0;
+        SQLiteDatabase sqLiteDatabase=null;
+        ContentValues contentValues =null;
+        Cursor cursor=null;
+        long count=-1;
+        String query ="select * from Friend order by ROWID DESC limit 1";
+        try
+        {
+            sqLiteDatabase =getWritableDatabase();
+            synchronized (sqLiteDatabase)
+            {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlFriend.FRIEND_NAME,friendDbDTO.getName());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_CONTACT_NO,friendDbDTO.getContact());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_EMAIL,friendDbDTO.getEmail());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_PHOTO,friendDbDTO.getImage());
 
+                try {
+                    count = sqLiteDatabase.insertWithOnConflict(SqlContract.SqlFriend.TABLE_NAME,
+                            null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+                    contentValues.clear();
+                    if(count>0)
+                    {
+                        cursor=sqLiteDatabase.rawQuery(query,null);
+                        if(cursor!=null && cursor.moveToFirst())
+                        {
+                            long Id = cursor.getLong(0);
+                            returnVal = Id;
+                        }
+                    }
+                }catch (SQLiteConstraintException e)
+                {
+                    Log.d(TAG,"Error while inserting first friend record");
+                }catch (SQLiteException e)
+                {
+                    Log.d(TAG,"Error while inserting first friend record");
+                }
+            }
+
+        }catch (Exception e)
+        {
+            Log.d(TAG,"Problem while inserting first friend record");
+        }finally {
+            if (sqLiteDatabase.isOpen()) {
+                sqLiteDatabase.close();
+            }
+        }
+
+        return returnVal;
+    }
     /**
      * For main screen function
      **/
