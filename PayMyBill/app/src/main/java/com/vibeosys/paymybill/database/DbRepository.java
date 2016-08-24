@@ -834,5 +834,53 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return transactions;
     }
+    public String getUserProfileImage(String userEmailId){
+        String mImageUri="";
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor=null;
+        int countVal;
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase)
+            {
+                try
+                {
+                    cursor = sqLiteDatabase.rawQuery("select "+SqlContract.SqlRegisterUser.USER_IMAGE_URL
+                            +" from "+SqlContract.SqlRegisterUser.TABLE_NAME+" where "
+                            +SqlContract.SqlRegisterUser.USER_EMAIL_ID+"=?",new String[]{userEmailId});
+                    countVal= cursor.getCount();
+                    if(countVal>0)
+                    {
+                        cursor.moveToFirst();
+                        do{
+                            mImageUri = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_IMAGE_URL));
+                        }while (cursor.moveToNext());
+                    }
+
+                }catch (SQLiteException e)
+                {
+                    e.printStackTrace();
+                    Log.d(TAG,e.toString());
+                }
+            }
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            Log.d(TAG,e.toString());
+
+        }finally {
+            if(cursor!=null)
+            {
+                cursor.close();
+            }
+            if(sqLiteDatabase.isOpen())
+            {
+                sqLiteDatabase.close();
+            }
+
+        }
+        return mImageUri;
+    }
 }
 

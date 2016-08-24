@@ -73,7 +73,8 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == MEDIA_PERMISSION_CODE && grantResults[1] == 0) {
@@ -160,14 +161,16 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                         mFriendEmailId.requestFocus();
                         mFriendEmailId.setError(getResources().getString(R.string.email_validation_msg));
                         validationFlag = false;
-                    } else if (!TextUtils.isEmpty(userEmailId) && !Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
+                    } else if (!TextUtils.isEmpty(userEmailId) &&
+                            !Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
                         mFriendEmailId.requestFocus();
                         mFriendEmailId.setError(getResources().getString(R.string.invalid_email_id));
                         validationFlag = false;
                     }
                 } if (validationFlag==true) {
 
-                        FriendDbDTO friendDbDTO= new FriendDbDTO(0,userName,userPhoneNo,userEmailId,mImageUri);
+                        FriendDbDTO friendDbDTO=
+                                new FriendDbDTO(0,userName,userPhoneNo,userEmailId,mImageUri);
                         insertFriend(friendDbDTO);
                     }
                 break;

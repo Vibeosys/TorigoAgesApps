@@ -49,6 +49,7 @@ import com.google.android.gms.plus.model.people.Person;
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
+import com.vibeosys.paymybill.util.UserAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -488,7 +489,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode==ACCOUNT_PERMISSION_CODE && grantResults[0]==0)
         {
@@ -522,5 +524,14 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         mSessionManager.setUserAccessToken(accessToken);
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
+        if(!UserAuth.isUserLoggedIn())
+        {
+            finish();
+        }
     }
 }

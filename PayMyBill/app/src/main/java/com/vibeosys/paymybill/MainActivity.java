@@ -3,11 +3,14 @@ package com.vibeosys.paymybill;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +23,7 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -45,6 +49,8 @@ public class MainActivity extends BaseActivity
     TabLayout tab_layout;
     private FrameLayout mFrameLayout;
     private TextView mNavigationUserEmailId,mNavigationUserName;
+    private ImageView mUserProfile;
+    private String mImageUri;
 
 
     @Override
@@ -130,14 +136,22 @@ public class MainActivity extends BaseActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        /*Drawer Menu initialization */
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
         mNavigationUserEmailId =(TextView) headerView.findViewById(R.id.userEmailId);
         mNavigationUserName = (TextView) headerView.findViewById(R.id.userName);
+        mImageUri = mDbRepository.getUserProfileImage(mSessionManager.getUserEmailId());
+        mUserProfile = (ImageView) headerView.findViewById(R.id.userProfile);
         mNavigationUserEmailId.setText(""+mSessionManager.getUserEmailId());
         mNavigationUserName.setText(""+mSessionManager.getUserName());
+
+        if(!TextUtils.isEmpty(mImageUri))
+        {
+            Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
+            mUserProfile.setImageBitmap(mBitmapString);
+        }
 
 
     }
