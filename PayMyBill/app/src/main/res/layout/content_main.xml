@@ -25,6 +25,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtOwesYouAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$56.36"
@@ -47,6 +48,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtYouOwesAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"

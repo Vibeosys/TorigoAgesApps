@@ -35,8 +35,14 @@ import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.MyProfileActivity;
 import com.vibeosys.paymybill.adapters.MainActivityAdapter;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactionHandler;
+import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.util.UserAuth;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,10 +54,10 @@ public class MainActivity extends BaseActivity
     private boolean flagFabClick = false;
     TabLayout tab_layout;
     private FrameLayout mFrameLayout;
-    private TextView mNavigationUserEmailId,mNavigationUserName;
+    private TextView mNavigationUserEmailId, mNavigationUserName;
     private ImageView mUserProfile;
     private String mImageUri;
-
+    private TextView txtOwesYouAmount, txtYouOwesAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +65,13 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(!UserAuth.isUserLoggedIn())
-        {
+        if (!UserAuth.isUserLoggedIn()) {
             callToLogin();
             return;
         }
+        txtOwesYouAmount = (TextView) findViewById(R.id.txtOwesYouAmount);
+        txtYouOwesAmount = (TextView) findViewById(R.id.txtYouOwesAmount);
+        calculateAmounts();
         mDbRepository.insertFriend(new FriendDbDTO(1, "Abcd", "1234567890", "abc@gmail.com", "abc.jpg"));
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
@@ -140,15 +148,14 @@ public class MainActivity extends BaseActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
-        mNavigationUserEmailId =(TextView) headerView.findViewById(R.id.userEmailId);
+        mNavigationUserEmailId = (TextView) headerView.findViewById(R.id.userEmailId);
         mNavigationUserName = (TextView) headerView.findViewById(R.id.userName);
         mImageUri = mDbRepository.getUserProfileImage(mSessionManager.getUserEmailId());
         mUserProfile = (ImageView) headerView.findViewById(R.id.userProfile);
-        mNavigationUserEmailId.setText(""+mSessionManager.getUserEmailId());
-        mNavigationUserName.setText(""+mSessionManager.getUserName());
+        mNavigationUserEmailId.setText("" + mSessionManager.getUserEmailId());
+        mNavigationUserName.setText("" + mSessionManager.getUserName());
 
-        if(!TextUtils.isEmpty(mImageUri))
-        {
+        if (!TextUtils.isEmpty(mImageUri)) {
             Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
             mUserProfile.setImageBitmap(mBitmapString);
         }
@@ -156,8 +163,26 @@ public class MainActivity extends BaseActivity
 
     }
 
+    private void calculateAmounts() {
+        double owesYouAmount = 0;
+        double youOwesAmount = 0;
+        FriendTransactionHandler friendTransactionHandler = new FriendTransactionHandler(mDbRepository);
+        ArrayList<FriendTransactions> mFriends = friendTransactionHandler.getFriendList();
+        for (FriendTransactions friendTransactions : mFriends) {
+            double amount = friendTransactions.getAmount();
+            if (amount < 0) {
+                youOwesAmount = youOwesAmount + amount;
+            } else if (amount > 0) {
+                owesYouAmount = owesYouAmount + amount;
+            }
+        }
+        txtOwesYouAmount.setText(String.format("%.2f", owesYouAmount));
+        txtYouOwesAmount.setText(String.format("%.2f", -(youOwesAmount)));
+
+    }
+
     private void callToLogin() {
-        Intent loginactivity = new Intent(MainActivity.this,LoginActivity.class);
+        Intent loginactivity = new Intent(MainActivity.this, LoginActivity.class);
         loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginactivity);
         finish();
@@ -201,7 +226,7 @@ public class MainActivity extends BaseActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.add_friend) {
-            Intent intent =new Intent(getApplicationContext(), AddFriendActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AddFriendActivity.class);
             startActivity(intent);
         }
 
@@ -227,17 +252,14 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_send) {
 
         }*/ else if (id == R.id.sign_out) {
-            if(mSessionManager.getLoginSource().equals("1"))
-            {
+            if (mSessionManager.getLoginSource().equals("1")) {
                 LoginActivity.LogoutFacebook();
                 UserAuth.CleanAuthenticationInfo();
             }
-            if(mSessionManager.getLoginSource().equals("2"))
-            {
+            if (mSessionManager.getLoginSource().equals("2")) {
                 UserAuth.CleanAuthenticationInfo();
             }
-            if(mSessionManager.getLoginSource().equals("3"))
-            {
+            if (mSessionManager.getLoginSource().equals("3")) {
                 UserAuth.CleanAuthenticationInfo();
             }
             Intent signInIntent = new Intent(getApplicationContext(), LoginActivity.class);
