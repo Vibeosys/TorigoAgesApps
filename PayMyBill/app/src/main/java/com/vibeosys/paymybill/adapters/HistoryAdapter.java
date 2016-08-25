@@ -65,8 +65,7 @@ public class HistoryAdapter extends BaseAdapter {
         Log.d(TAG, history.toString());
         viewHolder.txtBillDesc.setText(history.getBillDesc());
         viewHolder.txtDate.setText(history.getBillDate());
-        viewHolder.txtType.setText(history.getBillType());
-        viewHolder.txtAmount.setText(history.getAmount());
+        viewHolder.txtAmount.setText(String.format("%.2f", history.getAmount()));
         return row;
     }
 

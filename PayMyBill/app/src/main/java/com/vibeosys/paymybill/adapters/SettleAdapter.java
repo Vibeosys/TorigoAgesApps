@@ -12,6 +12,7 @@ import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.FriendTransactions.BorrowType;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendBills;
 import com.vibeosys.paymybill.data.HistoryDTO;
+import com.vibeosys.paymybill.util.AppConstants;
 
 import java.util.ArrayList;
 
@@ -69,15 +70,22 @@ public class SettleAdapter extends BaseAdapter {
         double amount = friendBills.getFriendBillAmount();
         amount = amount < 0 ? -(amount) : amount;
         viewHolder.txtAmount.setText(String.format("%.2f", amount));
-        if (friendBills.getType() == BorrowType.YOU_OWE) {
-            viewHolder.txtType.setText("You Owe");
-            viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.flatRed));
-            viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.flatRed));
-        } else if (friendBills.getType() == BorrowType.OWES_YOU) {
-            viewHolder.txtType.setText("Owes You");
-            viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
-            viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
+        if (friendBills.getBillType() == AppConstants.BILL_TYPE_SETTLEMENT) {
+            viewHolder.txtType.setText("Settled with");
+            viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
+            viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
+        } else {
+            if (friendBills.getType() == BorrowType.YOU_OWE) {
+                viewHolder.txtType.setText("You Owe");
+                viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.flatRed));
+                viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.flatRed));
+            } else if (friendBills.getType() == BorrowType.OWES_YOU) {
+                viewHolder.txtType.setText("Owes You");
+                viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
+                viewHolder.txtAmount.setTextColor(mContext.getResources().getColor(R.color.flatGreen));
+            }
         }
+
 
         return row;
     }

@@ -155,7 +155,9 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
             super.onPostExecute(result);
             if (result == 1) {
                 Toast.makeText(getApplicationContext(), "Bill is added", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
+                iMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(iMain);
                 finish();
             } else {
                 Toast.makeText(getApplicationContext(), "Bill is not added retry!!!", Toast.LENGTH_SHORT).show();

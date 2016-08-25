@@ -94,5 +94,7 @@
     <string name="str_error_correct_amount">Please enter correct amount</string>
     <string name="str_err_amount">Please fill the correct amounts</string>
     <string name="str_err_bill_not_settel">Bill is not settle correctly please fill correct amounts</string>
+    <string name="add_expences">Expense is added</string>
+    <string name="str_err_expanses_add">Expense is not added retry!!!</string>
 
 </resources>

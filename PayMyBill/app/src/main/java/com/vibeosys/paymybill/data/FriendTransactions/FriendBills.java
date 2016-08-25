@@ -14,17 +14,19 @@ public class FriendBills implements Serializable {
     private int paidBy;
     private double friendBillAmount;
     private BorrowType type;
+    private int billType;
     ArrayList<FriendBillTransaction> transaction;
 
     public FriendBills() {
     }
 
-    public FriendBills(long billId, String billDesc, String date, double billAmount, int paidBy) {
+    public FriendBills(long billId, String billDesc, String date, double billAmount, int paidBy, int billType) {
         this.billId = billId;
         this.billDesc = billDesc;
         this.date = date;
         this.billAmount = billAmount;
         this.paidBy = paidBy;
+        this.billType = billType;
     }
 
     public long getBillId() {
@@ -61,6 +63,14 @@ public class FriendBills implements Serializable {
 
     public int getPaidBy() {
         return paidBy;
+    }
+
+    public int getBillType() {
+        return billType;
+    }
+
+    public void setBillType(int billType) {
+        this.billType = billType;
     }
 
     public void setPaidBy(int paidBy) {

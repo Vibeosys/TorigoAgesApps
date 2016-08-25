@@ -16,9 +16,11 @@ import com.vibeosys.paymybill.data.FriendTransactions.FriendBillTransaction;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendBills;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
 import com.vibeosys.paymybill.data.FriendsDTO;
+import com.vibeosys.paymybill.data.HistoryDTO;
 import com.vibeosys.paymybill.data.Sync;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
+import com.vibeosys.paymybill.util.AppConstants;
 import com.vibeosys.paymybill.util.DateUtils;
 
 import java.util.ArrayList;
@@ -719,51 +721,44 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return returnVal;
     }
-    public long addFirstFriend(FriendDbDTO friendDbDTO)
-    {
-        long returnVal=0;
-        SQLiteDatabase sqLiteDatabase=null;
-        ContentValues contentValues =null;
-        Cursor cursor=null;
-        long count=-1;
-        String query ="select FriendId from Friend order by ROWID DESC limit 1";
-        try
-        {
-            sqLiteDatabase =getWritableDatabase();
-            synchronized (sqLiteDatabase)
-            {
+
+    public long addFirstFriend(FriendDbDTO friendDbDTO) {
+        long returnVal = 0;
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        Cursor cursor = null;
+        long count = -1;
+        String query = "select FriendId from Friend order by ROWID DESC limit 1";
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
                 contentValues = new ContentValues();
-                contentValues.put(SqlContract.SqlFriend.FRIEND_NAME,friendDbDTO.getName());
-                contentValues.put(SqlContract.SqlFriend.FRIEND_CONTACT_NO,friendDbDTO.getContact());
-                contentValues.put(SqlContract.SqlFriend.FRIEND_EMAIL,friendDbDTO.getEmail());
-                contentValues.put(SqlContract.SqlFriend.FRIEND_PHOTO,friendDbDTO.getImage());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_NAME, friendDbDTO.getName());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_CONTACT_NO, friendDbDTO.getContact());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_EMAIL, friendDbDTO.getEmail());
+                contentValues.put(SqlContract.SqlFriend.FRIEND_PHOTO, friendDbDTO.getImage());
 
                 try {
                     count = sqLiteDatabase.insertWithOnConflict(SqlContract.SqlFriend.TABLE_NAME,
                             null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
                     contentValues.clear();
-                    if(count>0)
-                    {
-                        cursor=sqLiteDatabase.rawQuery(query,null);
-                        if(cursor!=null && cursor.moveToFirst())
-                        {
+                    if (count > 0) {
+                        cursor = sqLiteDatabase.rawQuery(query, null);
+                        if (cursor != null && cursor.moveToFirst()) {
                             long Id = cursor.getLong(0);
                             returnVal = Id;
                         }
                     }
-                }catch (SQLiteConstraintException e)
-                {
-                    Log.d(TAG,"Error while inserting first friend record");
-                }catch (SQLiteException e)
-                {
-                    Log.d(TAG,"Error while inserting first friend record");
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "Error while inserting first friend record");
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "Error while inserting first friend record");
                 }
             }
 
-        }catch (Exception e)
-        {
-            Log.d(TAG,"Problem while inserting first friend record");
-        }finally {
+        } catch (Exception e) {
+            Log.d(TAG, "Problem while inserting first friend record");
+        } finally {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
@@ -772,44 +767,36 @@ public class DbRepository extends SQLiteOpenHelper {
         return returnVal;
     }
 
-    public boolean deleteAllUserFriendRecords()
-    {
+    public boolean deleteAllUserFriendRecords() {
 
-        SQLiteDatabase sqLiteDatabase =null;
-        try
-        {
-            sqLiteDatabase =getWritableDatabase();
-            synchronized (sqLiteDatabase)
-            {
-                try
-                {
-                    sqLiteDatabase.delete(SqlContract.SqlFriend.TABLE_NAME,null,null);
+        SQLiteDatabase sqLiteDatabase = null;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            synchronized (sqLiteDatabase) {
+                try {
+                    sqLiteDatabase.delete(SqlContract.SqlFriend.TABLE_NAME, null, null);
                     sqLiteDatabase.close();
-                }catch (SQLiteConstraintException e)
-                {
-                    Log.d(TAG,"Sql deleting friends record");
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "Sql deleting friends record");
                     return false;
-                }catch (SQLiteException e)
-                {
-                    Log.d(TAG,"Sql deleting friends record");
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "Sql deleting friends record");
                     return false;
                 }
             }
 
-        }catch (Exception e)
-        {
-            Log.d(TAG,"Error while deleting friend records");
+        } catch (Exception e) {
+            Log.d(TAG, "Error while deleting friend records");
             return false;
-        }
-        finally {
-            if(sqLiteDatabase.isOpen())
-            {
+        } finally {
+            if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
         }
 
         return true;
     }
+
     /**
      * For main screen function
      **/
@@ -871,7 +858,8 @@ public class DbRepository extends SQLiteOpenHelper {
                             String date = cursor.getString(cursor.getColumnIndex(SqlContract.SqlBill.BILL_DATE));
                             double amount = cursor.getDouble(cursor.getColumnIndex(SqlContract.SqlBill.BILL_AMOUNT));
                             int paidBy = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_PAID_ID));
-                            FriendBills friendsDT = new FriendBills(billId, billDesc, date, amount, paidBy);
+                            int billType = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_TYPE_ID));
+                            FriendBills friendsDT = new FriendBills(billId, billDesc, date, amount, paidBy, billType);
                             bills.add(friendsDT);
 
                         } while (cursor.moveToNext());
@@ -972,9 +960,9 @@ public class DbRepository extends SQLiteOpenHelper {
         return mImageUri;
     }
 
-    public int settleAllBills(FriendTransactions friendTransactions) {
+    public int settleAllBills(FriendTransactions friendTransactions, int userId) {
         int flagError;
-        flagError = insertSettleBill(friendTransactions);
+        flagError = insertSettleBill(friendTransactions, userId);
         if (flagError == 1) {
             ArrayList<FriendBills> bills = friendTransactions.getBills();
             for (FriendBills bill : bills) {
@@ -988,7 +976,7 @@ public class DbRepository extends SQLiteOpenHelper {
     }
 
 
-    private int insertSettleBill(FriendTransactions friendTransactions) {
+    private int insertSettleBill(FriendTransactions friendTransactions, int userId) {
         int flagError;
         String errorMessage = "";
         SQLiteDatabase sqLiteDatabase = null;
@@ -1014,11 +1002,11 @@ public class DbRepository extends SQLiteOpenHelper {
                 }
 
                 contentValues.put(SqlContract.SqlBill.BILL_DESC, "Settlement of bills");
-                contentValues.put(SqlContract.SqlBill.BILL_TYPE_ID, 0);
+                contentValues.put(SqlContract.SqlBill.BILL_TYPE_ID, AppConstants.BILL_TYPE_SETTLEMENT);
                 contentValues.put(SqlContract.SqlBill.BILL_CURRENCY_ID, 0);
                 int paidBy = 0;
                 if (friendTransactions.getType() == BorrowType.OWES_YOU) {
-                    paidBy = 1;//Replace 1 with for user
+                    paidBy = userId;//Replace 1 with for user
                 } else if (friendTransactions.getType() == BorrowType.YOU_OWE) {
                     paidBy = friendTransactions.getFriendId();
                 }
@@ -1141,6 +1129,86 @@ public class DbRepository extends SQLiteOpenHelper {
         return flagError;
     }
 
+    public int insertMyExpances(BillDetailsDTO billDetailsDTO) {
+        int flagError;
+        String errorMessage = "";
+        SQLiteDatabase sqLiteDatabase = null;
+        ContentValues contentValues = null;
+        long billId = 0;
+        long count = -1;
+        try {
+            sqLiteDatabase = getWritableDatabase();
+            billId = getLastId(sqLiteDatabase, SqlContract.SqlBill.BILL_ID, SqlContract.SqlBill.TABLE_NAME);
+            synchronized (sqLiteDatabase) {
+                contentValues = new ContentValues();
+                contentValues.put(SqlContract.SqlBill.BILL_ID, billId);
+                contentValues.put(SqlContract.SqlBill.BILL_NO, billDetailsDTO.getBillNo());
+                contentValues.put(SqlContract.SqlBill.BILL_DATE, billDetailsDTO.getBillDate());
+                contentValues.put(SqlContract.SqlBill.BILL_AMOUNT, billDetailsDTO.getAmount());
+                contentValues.put(SqlContract.SqlBill.BILL_DESC, billDetailsDTO.getDescription());
+                contentValues.put(SqlContract.SqlBill.BILL_TYPE_ID, billDetailsDTO.getTypeId());
+                contentValues.put(SqlContract.SqlBill.BILL_CURRENCY_ID, billDetailsDTO.getCurrencyId());
+                contentValues.put(SqlContract.SqlBill.BILL_PAID_ID, billDetailsDTO.getPaidBy());
+                if (!sqLiteDatabase.isOpen())
+                    sqLiteDatabase = getWritableDatabase();
+                try {
+                    count = sqLiteDatabase.insertOrThrow(SqlContract.SqlBill.TABLE_NAME, null, contentValues);
+                    contentValues.clear();
+                    Log.d(TAG, "## Expenses is Added Successfully");
+                    flagError = 1;
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "## Bill record already present");
+                    flagError = 2;
+                }
 
+            }
+        } catch (Exception e) {
+            flagError = 3;
+            errorMessage = e.getMessage();
+            Log.e(TAG, "##Error while insert Bill " + e.toString());
+        } finally {
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return flagError;
+    }
+
+    public ArrayList<HistoryDTO> getExpensesList() {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        ArrayList<HistoryDTO> bills = null;
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                cursor = sqLiteDatabase.rawQuery("SELECT * From " + SqlContract.SqlBill.TABLE_NAME + " WHERE "
+                        + SqlContract.SqlBill.BILL_TYPE_ID + "=" + AppConstants.BILL_TYPE_EXPANSES, null);
+                bills = new ArrayList<>();
+                if (cursor != null) {
+                    if (cursor.getCount() > 0) {
+                        cursor.moveToFirst();
+
+                        do {
+                            int billId = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_ID));
+                            String billDesc = cursor.getString(cursor.getColumnIndex(SqlContract.SqlBill.BILL_DESC));
+                            String date = cursor.getString(cursor.getColumnIndex(SqlContract.SqlBill.BILL_DATE));
+                            double amount = cursor.getDouble(cursor.getColumnIndex(SqlContract.SqlBill.BILL_AMOUNT));
+                            int paidBy = cursor.getInt(cursor.getColumnIndex(SqlContract.SqlBill.BILL_PAID_ID));
+                            HistoryDTO billHostory = new HistoryDTO(billId, billDesc, date, amount);
+                            bills.add(billHostory);
+
+                        } while (cursor.moveToNext());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
+        }
+        return bills;
+    }
 }
 

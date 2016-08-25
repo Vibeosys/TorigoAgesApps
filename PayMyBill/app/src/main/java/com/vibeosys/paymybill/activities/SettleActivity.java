@@ -1,12 +1,18 @@
 package com.vibeosys.paymybill.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.adapters.SettleAdapter;
 import com.vibeosys.paymybill.data.FriendTransactions.BorrowType;
@@ -67,12 +73,61 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         int id = v.getId();
         switch (id) {
             case R.id.btnSettle:
-                settleBills();
+                createAlertDialog("Confirmation", "Are you sure to settle this amount");
                 break;
         }
     }
 
+    protected void createAlertDialog(String title, String message) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // whatever...
+                        settleBills();
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create().show();
+    }
+
     private void settleBills() {
-        mDbRepository.settleAllBills(friendTransactions);
+        InsertDbAsync insert = new InsertDbAsync();
+        insert.execute();
+    }
+
+    private class InsertDbAsync extends AsyncTask<Void, Void, Integer> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Integer doInBackground(Void... params) {
+            return mDbRepository.settleAllBills(friendTransactions, Integer.parseInt(mSessionManager.getUserFriendId()));
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            super.onPostExecute(result);
+            if (result == 1) {
+                Toast.makeText(getApplicationContext(), "Bill is settle", Toast.LENGTH_SHORT).show();
+                Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
+                iMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(iMain);
+                finish();
+            } else {
+                Toast.makeText(getApplicationContext(), "Bills are not settle please try again", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

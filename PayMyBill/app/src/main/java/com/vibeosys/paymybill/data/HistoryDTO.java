@@ -5,16 +5,24 @@ package com.vibeosys.paymybill.data;
  */
 public class HistoryDTO {
 
+    private int mBillId;
     private String mBillDesc;
-    private String mBillType;
     private String mBillDate;
-    private String mAmount;
+    private double mAmount;
 
-    public HistoryDTO(String mBillDesc, String mBillType, String mBillDate, String mAmount) {
+    public HistoryDTO(int mBillId, String mBillDesc, String mBillDate, double mAmount) {
+        this.mBillId = mBillId;
         this.mBillDesc = mBillDesc;
-        this.mBillType = mBillType;
         this.mBillDate = mBillDate;
         this.mAmount = mAmount;
+    }
+
+    public int getBillId() {
+        return mBillId;
+    }
+
+    public void setBillId(int mBillId) {
+        this.mBillId = mBillId;
     }
 
     public String getBillDesc() {
@@ -25,14 +33,6 @@ public class HistoryDTO {
         this.mBillDesc = mBillDesc;
     }
 
-    public String getBillType() {
-        return mBillType;
-    }
-
-    public void setBillType(String mBillType) {
-        this.mBillType = mBillType;
-    }
-
     public String getBillDate() {
         return mBillDate;
     }
@@ -41,11 +41,11 @@ public class HistoryDTO {
         this.mBillDate = mBillDate;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return mAmount;
     }
 
-    public void setAmount(String mAmount) {
+    public void setAmount(double mAmount) {
         this.mAmount = mAmount;
     }
 }

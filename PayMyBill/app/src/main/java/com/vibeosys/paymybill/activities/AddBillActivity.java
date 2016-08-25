@@ -189,9 +189,9 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         } else {
 
             long billNo = myCalendar.getTime().getTime();
-            int typeId = 0;
+            int typeId = AppConstants.BILL_TYPE_SHARED;
             int currencyId = 0;
-            int paidBy = 1;
+            int paidBy = Integer.parseInt(mSessionManager.getUserFriendId());
             if (paidByFriend != null) {
                 paidBy = paidByFriend.getId();
             }

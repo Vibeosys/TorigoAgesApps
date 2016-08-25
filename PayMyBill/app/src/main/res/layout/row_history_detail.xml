@@ -66,7 +66,7 @@
                     android:gravity="right"
                     android:hint="@string/hint_bill_amount"
                     android:textColor="@color/secondaryText"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
 

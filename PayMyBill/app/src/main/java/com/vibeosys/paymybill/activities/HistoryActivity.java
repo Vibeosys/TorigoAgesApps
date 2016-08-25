@@ -22,9 +22,7 @@ public class HistoryActivity extends BaseActivity {
         setTitle(getResources().getString(R.string.add_history_activity));
         mListView = (ListView) findViewById(R.id.listHistory);
         ArrayList<HistoryDTO> historyDTOs = new ArrayList<>();
-        historyDTOs.add(new HistoryDTO("Dog Food", "You Borrow", "25 May", "$30"));
-        historyDTOs.add(new HistoryDTO("Rent", "You Lent", "23 May", "$250"));
-        historyDTOs.add(new HistoryDTO("Dinner", "You Lent", "21 May", "$22"));
+        historyDTOs = mDbRepository.getExpensesList();
         mHistoryAdapter = new HistoryAdapter(getApplicationContext(), historyDTOs);
         mListView.setAdapter(mHistoryAdapter);
     }

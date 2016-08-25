@@ -45,6 +45,7 @@
                         android:layout_margin="4dp"></Spinner>
 
                     <EditText
+                        android:id="@+id/txtAmount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
@@ -66,6 +67,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/txtBillDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -81,6 +83,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -91,6 +94,7 @@
                 android:translationZ="4dp" />
 
             <Button
+                android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
