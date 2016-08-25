@@ -17,6 +17,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/userPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
@@ -38,7 +39,7 @@
 
 
                 <TextView
-                    android:id="@+id/heightTv"
+                    android:id="@+id/nameTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -47,11 +48,11 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
-                    android:id="@+id/heightTitle"
+                    android:id="@+id/nameTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/heightTv"
+                    android:layout_below="@+id/nameTv"
                     android:text="Name"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -59,13 +60,13 @@
                     android:id="@+id/SplitLine_hor1"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/heightTitle"
+                    android:layout_below="@+id/nameTitle"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
                 <TextView
-                    android:id="@+id/weightTv"
+                    android:id="@+id/emailIdTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -74,11 +75,11 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
-                    android:id="@+id/weightTilte"
+                    android:id="@+id/emailIdTilte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/weightTv"
+                    android:layout_below="@+id/emailIdTv"
                     android:text="email Id"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -86,13 +87,13 @@
                     android:id="@+id/SplitLine_hor2"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/weightTilte"
+                    android:layout_below="@+id/emailIdTilte"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
                 <TextView
-                    android:id="@+id/chestTv"
+                    android:id="@+id/mobileTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -101,11 +102,11 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
-                    android:id="@+id/chestTitle"
+                    android:id="@+id/mobileTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/chestTv"
+                    android:layout_below="@+id/mobileTv"
                     android:text="Mobile No."
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -113,13 +114,13 @@
                     android:id="@+id/SplitLine_hor3"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/chestTitle"
+                    android:layout_below="@+id/mobileTitle"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
                 <TextView
-                    android:id="@+id/bloodGroupsTv"
+                    android:id="@+id/countryTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -128,11 +129,11 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
-                    android:id="@+id/bloogGroupTitle"
+                    android:id="@+id/countryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/bloodGroupsTv"
+                    android:layout_below="@+id/countryTv"
                     android:text="Country"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -140,7 +141,7 @@
                     android:id="@+id/SplitLine_hor4"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/bloogGroupTitle"
+                    android:layout_below="@+id/countryTitle"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
