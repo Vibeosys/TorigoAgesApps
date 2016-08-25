@@ -45,6 +45,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.*;
 import com.google.android.gms.*;
+import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.vibeosys.paymybill.MainActivity;
@@ -137,7 +138,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                             AccessToken token = AccessToken.getCurrentAccessToken();
                             String FbTokenId = token.getUserId();
                             callFromFacebookLogin(emailId,"", firstName,lastName,"",1,FbTokenId,photoUrl);
-                            callToSessionManager(emailId,"1",firstName,lastName,FbTokenId);
+
                         }
                     }
                 });
@@ -195,7 +196,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         long friendID;
         friendID = mDbRepository.addFirstFriend(friendDbDTO);
         returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
-
+        String convertVal = String.valueOf(returnVal);
+        callToSessionManager(email,"1",firstName,lastName,FbTokenId,convertVal);
         if(returnVal==1)
         {
             Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
@@ -353,7 +355,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 String personGooglePlusProfile = currentPerson.getUrl();
                 String personGoogleId = currentPerson.getId();
                 callFromGoogleRegisterUser(email,personName,2,personGoogleId,personPhotoUrl);
-                callToSessionManager(email,"2",personName,"",personGoogleId);
+
 
             } else {
               Log.e("user profile is null","profile is null");
@@ -367,8 +369,13 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                                             int loginSource,String googleId,String PhotoUrl) {
         UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",personName,"","",
                 loginSource,googleId,PhotoUrl);
+        FriendDbDTO friendDbDTO = new FriendDbDTO(1,personName,"",email,PhotoUrl);
         int returnVal;
+        long friendID;
         returnVal = mDbRepository.userRegisterSocialMedia(userRegisterDbDTO);
+        friendID = mDbRepository.addFirstFriend(friendDbDTO);
+        String convertVal = String.valueOf(friendID);
+        callToSessionManager(email,"2",personName,"",googleId,convertVal);
         if(returnVal==1)
         {
           Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
@@ -433,7 +440,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                      String mUserEmailId=mEmailId.getText().toString().trim();
                      String mUserPassword =  mPassword.getText().toString().trim();
                      callToUserRegistration(mUserEmailId,mUserPassword);
-                     callToSessionManager(mUserEmailId,"3","","","");
+
                 }
                 break;
 
@@ -450,7 +457,12 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     private void callToUserRegistration(String mUserEmailId,String mUserPassword) {
+
         int returnVal = mDbRepository.CheckUserRegistration(mUserEmailId,mUserPassword);
+        FriendDbDTO friendDbDTO = new FriendDbDTO(1,"","",mUserEmailId,"");
+        long friendID  = mDbRepository.addFirstFriend(friendDbDTO);
+        String convertVal = String.valueOf(friendID);
+        callToSessionManager(mUserEmailId,"3","","","",convertVal);
         if(returnVal==1)
         {
             Toast toast = Toast.makeText(getApplicationContext(), "user is valid", Toast.LENGTH_LONG);
@@ -513,12 +525,13 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         }
     }
     public void callToSessionManager(String emailId,String loginSource,String firstName,
-                                     String lastName,String accessToken)
+                                     String lastName,String accessToken,String userFriendId)
     {
         mSessionManager.setUserEmailId(emailId);
         mSessionManager.setLoginSource(loginSource);
         mSessionManager.setUserName(firstName,lastName);
         mSessionManager.setUserAccessToken(accessToken);
+        mSessionManager.setUserFriendId(userFriendId);
     }
 
     @Override

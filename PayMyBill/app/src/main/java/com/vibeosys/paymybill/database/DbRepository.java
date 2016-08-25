@@ -50,8 +50,8 @@ public class DbRepository extends SQLiteOpenHelper {
 
 
     private final String CREATE_FRIEND = "CREATE TABLE Friend(FriendId INTEGER," +
-            "Name TEXT NOT NULL,ContactNo TEXT NOT NULL UNIQUE," +
-            "emailId TEXT,ImageUrl TEXT,PRIMARY KEY(FriendId));";
+            "Name TEXT,ContactNo TEXT," +
+            "emailId TEXT UNIQUE,ImageUrl TEXT,PRIMARY KEY(FriendId));";
 
     private final String CREATE_BILL = "CREATE TABLE Bill(BillId INTEGER," +
             "BillNo INTEGER NOT NULL UNIQUE,BillDate TEXT,BillAmount NUMERIC," +
@@ -726,7 +726,7 @@ public class DbRepository extends SQLiteOpenHelper {
         ContentValues contentValues =null;
         Cursor cursor=null;
         long count=-1;
-        String query ="select * from Friend order by ROWID DESC limit 1";
+        String query ="select FriendId from Friend order by ROWID DESC limit 1";
         try
         {
             sqLiteDatabase =getWritableDatabase();
@@ -770,6 +770,45 @@ public class DbRepository extends SQLiteOpenHelper {
         }
 
         return returnVal;
+    }
+
+    public boolean deleteAllUserFriendRecords()
+    {
+
+        SQLiteDatabase sqLiteDatabase =null;
+        try
+        {
+            sqLiteDatabase =getWritableDatabase();
+            synchronized (sqLiteDatabase)
+            {
+                try
+                {
+                    sqLiteDatabase.delete(SqlContract.SqlFriend.TABLE_NAME,null,null);
+                    sqLiteDatabase.close();
+                }catch (SQLiteConstraintException e)
+                {
+                    Log.d(TAG,"Sql deleting friends record");
+                    return false;
+                }catch (SQLiteException e)
+                {
+                    Log.d(TAG,"Sql deleting friends record");
+                    return false;
+                }
+            }
+
+        }catch (Exception e)
+        {
+            Log.d(TAG,"Error while deleting friend records");
+            return false;
+        }
+        finally {
+            if(sqLiteDatabase.isOpen())
+            {
+                sqLiteDatabase.close();
+            }
+        }
+
+        return true;
     }
     /**
      * For main screen function
@@ -1101,5 +1140,7 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return flagError;
     }
+
+
 }
 

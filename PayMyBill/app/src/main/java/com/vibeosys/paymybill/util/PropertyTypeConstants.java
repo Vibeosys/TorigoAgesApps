@@ -33,11 +33,12 @@ public final class PropertyTypeConstants {
     public static final String USER_PASSWORD = "user.pass";
     public static final String USER_LOGIN_SOURCE="user.source";
     public static final String USER_PHOTO_URL = "user.photo.url";
+    public static final String USER_FRIEND_ID="user.friend.id";
     public static final String USER_IS_ACTIVE = "user.active";
     public static final String USER_ROLL_ID = "user.roleid";
     public static final String USER_RESTO_ID = "user.restoId";
     public static final String USER_RESTO_NAME = "user.restoName";
-       public static final String USER_REGD_API_KEY = "user.regd.api.key";
+    public static final String USER_REGD_API_KEY = "user.regd.api.key";
     public static final String USER_DEVICE_ID = "user.deviceId";
     public static final String USER_IMEI_ID = "user.imei";
     public static final String USER_MAC_ID = "user.mac";

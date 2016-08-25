@@ -46,7 +46,7 @@ public class UserAuth {
         {
             return false;
         }*/
-        if(theUserEmailId==null || theUserEmailId=="")
+        if(theUserEmailId==null || theUserEmailId=="" || TextUtils.isEmpty(theUserEmailId))
         {
             return false;
         }
@@ -81,6 +81,7 @@ public class UserAuth {
         theSessionManager.setUserAccessToken(null);
         theSessionManager.setUserPassword(null);
         theSessionManager.setUserAccessToken(null);
+        theSessionManager.setUserFriendId(null);
 
         return true;
     }

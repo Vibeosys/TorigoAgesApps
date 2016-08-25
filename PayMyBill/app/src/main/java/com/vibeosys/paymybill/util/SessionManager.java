@@ -118,6 +118,14 @@ public class SessionManager {
     {
         setValuesInSharedPrefs(PropertyTypeConstants.USER_PHOTO_URL,userProfileImage);
     }
+    public String getUserFriendId()
+    {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_FRIEND_ID,null);
+    }
+    public void setUserFriendId(String userFriendId)
+    {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_FRIEND_ID,userFriendId);
+    }
     private static void setValuesInSharedPrefs(String sharedPrefKey, String sharedPrefValue) {
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putString(sharedPrefKey, sharedPrefValue);
