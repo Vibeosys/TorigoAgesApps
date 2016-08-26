@@ -151,7 +151,8 @@ public class MainActivity extends BaseActivity
         View headerView = navigationView.getHeaderView(0);
         mNavigationUserEmailId = (TextView) headerView.findViewById(R.id.userEmailId);
         mNavigationUserName = (TextView) headerView.findViewById(R.id.userName);
-        mImageUri = mDbRepository.getUserProfileImage(mSessionManager.getUserEmailId());
+        //mImageUri = mDbRepository.getUserProfileImage(mSessionManager.getUserEmailId());
+        mImageUri = mSessionManager.getUserProfileImage();
         mUserProfile = (ImageView) headerView.findViewById(R.id.userProfile);
         mNavigationUserEmailId.setText("" + mSessionManager.getUserEmailId());
         mNavigationUserName.setText("" + mSessionManager.getUserName());
@@ -160,6 +161,7 @@ public class MainActivity extends BaseActivity
             Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
             mUserProfile.setImageBitmap(mBitmapString);
         }
+
 
 
     }
@@ -178,7 +180,8 @@ public class MainActivity extends BaseActivity
             }
         }
         txtOwesYouAmount.setText(String.format("%.2f", owesYouAmount));
-        txtYouOwesAmount.setText(String.format("%.2f", -(youOwesAmount)));
+        youOwesAmount = youOwesAmount < 0 ? -(youOwesAmount) : youOwesAmount;
+        txtYouOwesAmount.setText(String.format("%.2f", youOwesAmount));
 
     }
 

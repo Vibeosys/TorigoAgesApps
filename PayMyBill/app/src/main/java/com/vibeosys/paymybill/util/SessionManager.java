@@ -126,6 +126,23 @@ public class SessionManager {
     {
         setValuesInSharedPrefs(PropertyTypeConstants.USER_FRIEND_ID,userFriendId);
     }
+    public String getUserPhoneNo()
+    {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_PHONE_NO,null);
+    }
+    public  void setUserPhoneNo(String userPhoneNo)
+    {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_PHONE_NO,userPhoneNo);
+    }
+    public String getUserCountry()
+    {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_COUNTRY,null);
+    }
+    public void setUserCountry(String userCountry)
+    {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_COUNTRY,userCountry);
+    }
+
     private static void setValuesInSharedPrefs(String sharedPrefKey, String sharedPrefValue) {
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putString(sharedPrefKey, sharedPrefValue);

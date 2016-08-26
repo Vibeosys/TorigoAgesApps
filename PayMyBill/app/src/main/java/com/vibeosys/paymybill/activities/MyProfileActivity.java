@@ -32,15 +32,46 @@ public class MyProfileActivity extends BaseActivity {
         mUserMobileNo =(TextView) findViewById(R.id.mobileTv);
         mUserCountry =(TextView) findViewById(R.id.countryTv);
         mUserPhoto =(ImageView) findViewById(R.id.userPhoto);
-        mImageUri = mDbRepository.getUserProfileImage(mSessionManager.getUserEmailId());
+        //mImageUri = mDbRepository.getUserProfileImage(mSessionManager.getUserEmailId());
+        mImageUri = mSessionManager.getUserProfileImage();
         if (!TextUtils.isEmpty(mImageUri)) {
             Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
             mUserPhoto.setImageBitmap(mBitmapString);
         }
-        mUserName.setText(""+mSessionManager.getUserName());
-        mUserEmailId.setText(""+mSessionManager.getUserEmailId());
-        mUserMobileNo.setText("");
-        mUserCountry.setText("");
+        else {
+            mUserPhoto.setImageDrawable(getResources().getDrawable(R.drawable.avatar_profile));
+        }
+        if(!TextUtils.isEmpty(mSessionManager.getUserName()))
+        {
+            mUserName.setText(""+mSessionManager.getUserName());
+        }
+        else
+        {
+            mUserName.setText("");
+        }
+        if(!TextUtils.isEmpty(mSessionManager.getUserEmailId()))
+        {
+            mUserEmailId.setText(""+mSessionManager.getUserEmailId());
+        }
+        else
+        {
+            mUserEmailId.setText("");
+        }
+        if(!TextUtils.isEmpty(mSessionManager.getUserPhoneNo()))
+        {
+            mUserMobileNo.setText(""+mSessionManager.getUserPhoneNo());
+        }else
+        {
+            mUserMobileNo.setText("");
+        }
+        if(!TextUtils.isEmpty(mSessionManager.getUserCountry()))
+        {
+            mUserCountry.setText(""+mSessionManager.getUserCountry());
+        }else
+        {
+            mUserCountry.setText("");
+        }
+
         FloatingActionButton mFloatingActionButton = (FloatingActionButton) findViewById(R.id.fab_profile);
 
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {

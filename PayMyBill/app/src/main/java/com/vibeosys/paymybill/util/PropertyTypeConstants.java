@@ -34,6 +34,8 @@ public final class PropertyTypeConstants {
     public static final String USER_LOGIN_SOURCE="user.source";
     public static final String USER_PHOTO_URL = "user.photo.url";
     public static final String USER_FRIEND_ID="user.friend.id";
+    public static final String USER_PHONE_NO ="user.phone.no";
+    public static final String USER_COUNTRY="user.country";
     public static final String USER_IS_ACTIVE = "user.active";
     public static final String USER_ROLL_ID = "user.roleid";
     public static final String USER_RESTO_ID = "user.restoId";
