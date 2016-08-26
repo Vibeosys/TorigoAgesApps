@@ -1251,5 +1251,47 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return bills;
     }
+    public String getPassword(String emailId)
+    {
+        SQLiteDatabase sqLiteDatabase=null;
+        Cursor cursor = null;
+        int count =-1;
+        String returnVal="";
+        try
+        {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase)
+            {
+                try
+                {
+                    String[] whereArg = {emailId};
+                    cursor = sqLiteDatabase.rawQuery("select Pwd from "+SqlContract.SqlRegisterUser.TABLE_NAME+" where "
+                            +SqlContract.SqlRegisterUser.USER_EMAIL_ID+" = ?",whereArg);
+                    count = cursor.getCount();
+                    if ( count > 0) {
+                        cursor.moveToFirst();
+                        do {
+                            returnVal = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_PASSWORD));
+                        } while (cursor.moveToNext());
+                    }
+                    return returnVal;
+                }catch (SQLiteConstraintException e)
+                {
+                    Log.d(TAG,"error while getting Pwd");
+                }
+                catch (SQLiteException e)
+                {
+                    Log.d(TAG,"error while getting Pwd");
+                }
+
+            }
+
+        }catch (Exception e)
+        {
+            Log.d(TAG,"error while getting Pwd");
+
+        }
+        return returnVal;
+    }
 }
 

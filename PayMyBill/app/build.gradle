@@ -37,4 +37,5 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile files('libs/DatabaseDownload.jar')
     compile files('libs/gson-2.4.jar')
+    compile files('libs/activation.jar')
 }
