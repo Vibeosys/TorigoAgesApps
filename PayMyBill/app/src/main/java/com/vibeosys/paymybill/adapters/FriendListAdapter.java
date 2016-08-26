@@ -70,7 +70,7 @@ public class FriendListAdapter extends BaseAdapter {
         viewHolder.friendName.setText(friend.getName());
         DateUtils dateUtils = new DateUtils();
         //viewHolder.billDate.setText(dateUtils.getLocalDateInReadableFormat(friend.getDate()));
-        double amount = friend.getAmount();
+        double amount = Math.round(friend.getAmount());
         if (amount < 0) {
             viewHolder.billAmount.setText("$ " + String.format("%.2f", -(amount)));
         } else if (amount > 0) {

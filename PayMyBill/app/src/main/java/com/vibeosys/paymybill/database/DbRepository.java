@@ -312,14 +312,15 @@ public class DbRepository extends SQLiteOpenHelper {
         return flagError;
     }
 
-    public ArrayList<FriendsDTO> getFriendList() {
+    public ArrayList<FriendsDTO> getFriendList(String userId) {
         SQLiteDatabase sqLiteDatabase = null;
         Cursor cursor = null;
         ArrayList<FriendsDTO> friendDbDTOs = null;
         try {
             sqLiteDatabase = getReadableDatabase();
             synchronized (sqLiteDatabase) {
-                cursor = sqLiteDatabase.rawQuery("SELECT * From " + SqlContract.SqlFriend.TABLE_NAME, null);
+                String[] whereClause = new String[]{userId};
+                cursor = sqLiteDatabase.rawQuery("SELECT * From " + SqlContract.SqlFriend.TABLE_NAME + " WHERE " + SqlContract.SqlFriend.FRIEND_ID + "!=?", whereClause);
                 friendDbDTOs = new ArrayList<>();
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {

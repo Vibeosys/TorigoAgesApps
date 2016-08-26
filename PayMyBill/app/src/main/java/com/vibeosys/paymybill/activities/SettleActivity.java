@@ -46,7 +46,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         mListView.setAdapter(settleAdapter);
 
         txtFriendName.setText(friendTransactions.getName());
-        double amount = friendTransactions.getAmount();
+        double amount = Math.round(friendTransactions.getAmount());
         amount = amount < 0 ? -(amount) : amount;
         txtAmount.setText(String.format("%.2f", amount));
         if (friendTransactions.getType() == BorrowType.YOU_OWE) {

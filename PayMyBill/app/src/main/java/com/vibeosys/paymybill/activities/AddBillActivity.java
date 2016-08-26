@@ -88,7 +88,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void createList() {
-        friendsDTOs = mDbRepository.getFriendList();
+        friendsDTOs = mDbRepository.getFriendList(mSessionManager.getUserFriendId());
         mFriendGridAdapter = new FriendGridAdapter(getApplicationContext(), friendsDTOs);
         mGridFriends.setAdapter(mFriendGridAdapter);
 
@@ -150,7 +150,8 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
-        //selectedFriends.add(new FriendsDTO(1, "Akshay", "prakash.jpg", 0));
+        selectedFriends.add(new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
+                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true));
         int radioSelectedId = 0;
         int splitMode = 0;
         radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();
@@ -222,6 +223,8 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private void openSelectedDialog() {
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
+        selectedFriends.add(new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
+                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true));
         final Dialog dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.dialog_paid_by_list);
         dialog.setTitle(getResources().getString(R.string.str_dialog_title_select_paid_by));
