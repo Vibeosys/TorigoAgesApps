@@ -680,6 +680,62 @@ public class DbRepository extends SQLiteOpenHelper {
         return returnVal;
     }
 
+    public UserRegisterDbDTO getUserRegistrationDetails(String userName, String password) {
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        long count = -1;
+        int returnVal = -2;
+        int countVal;
+        String Password,firstName,LastName;
+        UserRegisterDbDTO UserRegisterDbDTO=null;
+        try {
+            sqLiteDatabase = getReadableDatabase();
+            synchronized (sqLiteDatabase) {
+                try {
+                    cursor = sqLiteDatabase.rawQuery("select * from " + SqlContract.SqlRegisterUser.TABLE_NAME
+                            + " where " + SqlContract.SqlRegisterUser.USER_EMAIL_ID + "=?", new String[]{userName});
+                    countVal = cursor.getCount();
+                    if (countVal > 0) {
+                        cursor.moveToFirst();
+                        do {
+                            Password = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_PASSWORD));
+                            firstName = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_FIRST_NAME));
+                            LastName =cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_LAST_NAME));
+                            UserRegisterDbDTO = new UserRegisterDbDTO(userName,password,firstName,LastName,"",0,"","");
+                            return UserRegisterDbDTO;
+                        } while (cursor.moveToNext());
+                        /*if (TextUtils.equals(password, Password)) {
+                           // returnVal = 1;
+                           // return returnVal;
+                        } else if (!TextUtils.equals(password, Password)) {
+                            returnVal = 2;
+                            //return returnVal;
+
+                        }*/
+                    } else if (countVal == 0) {
+                        returnVal = 3;
+                       // return returnVal;
+                    }
+
+
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "user Login problem");
+                    returnVal = 4;
+                   // return returnVal;
+                }
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "user Registration error");
+            returnVal = 5;
+        } finally {
+            if (sqLiteDatabase.isOpen()) {
+                sqLiteDatabase.close();
+            }
+        }
+        return UserRegisterDbDTO;
+    }
+
     public int userRegisterSocialMedia(UserRegisterDbDTO userRegisterDbDTO) {
         SQLiteDatabase sqLiteDatabase = null;
         ContentValues contentValues = null;

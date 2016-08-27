@@ -2,6 +2,7 @@ package com.vibeosys.paymybill.activities;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -71,9 +72,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private TextView mForgotPassword;
     private Button mRegisterUser;
     private Button mSignIn;
-    private AccessTokenTracker accessTokenTracker;
     private CallbackManager callbackManager;
-    private ProfileTracker profileTracker;
     protected GoogleApiClient mGoogleApiClient;
     private ConnectionResult mConnectionResult;
     private static int RC_SIGN_IN = 0;
@@ -114,8 +113,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         mFacebbokLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                accessTokenTracker.startTracking();
-                profileTracker.startTracking();
+
                 Set<String> permiss = loginResult.getRecentlyGrantedPermissions();
                 loginResult.getAccessToken();
                 GraphRequest graphRequest = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
@@ -126,10 +124,12 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                         String photoUrl="";
                         if(object!=null)
                         {
+                            String name =object.optString("name");
                             String emailId = object.optString("email");
                             String uid = object.optString("id");
                             String firstName= object.optString("first_name");
                             String lastName= object.optString("last_name");
+
                             try {
                                  photoUrl= data.getJSONObject("picture").getJSONObject("data").getString("url");
                             } catch (JSONException e) {
@@ -157,38 +157,13 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             }
         });
 
-        /*Facebook access Token key*/
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                currentAccessToken = AccessToken.getCurrentAccessToken();
-                if (currentAccessToken != null) {
-                    String UserID = currentAccessToken.getUserId();
-                    String FbToken = currentAccessToken.getToken();
-                }
-            }
-        };
-        /*Facebook profile function*/
-        profileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-                currentProfile = Profile.getCurrentProfile();
-                if (currentProfile != null) {
-                    String firstName = currentProfile.getFirstName();
-                    String lastName = currentProfile.getLastName();
-                    Uri FbIdT = currentProfile.getLinkUri();
-                    String FbId = currentProfile.getId();
-
-                } else if (currentProfile == null) {
-
-                    Log.d("FbProfile", "current profile found null");
-                }
-            }
-        };
     }
     public void callFromFacebookLogin(String email,String password,String firstName,String lastName,
                                       String phoneNo,int loginSource,String FbTokenId,String photourl)
     {
+        ProgressDialog progressDialog= new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
         UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",firstName,lastName,"",
                 loginSource,FbTokenId,photourl);
         FriendDbDTO friendDbDTO = new FriendDbDTO(1,firstName,"",email,photourl);
@@ -200,18 +175,19 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         callToSessionManager(email,"1",firstName,lastName,FbTokenId,convertVal);
         if(returnVal==1)
         {
-            Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER,0,0);
-            toast.show();
+            //Login success
             Intent mainActivity = new Intent(getApplication(),MainActivity.class);
             startActivity(mainActivity);
             finish();
+            progressDialog.cancel();
         }
         if(returnVal ==3 || returnVal==2)
         {
             Toast toast = Toast.makeText(getApplicationContext(),"Cannot able to insert record",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
+            if(progressDialog.isShowing())
+            progressDialog.cancel();
         }
     }
     /*Login validation functions*/
@@ -297,8 +273,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     @Override
     protected void onStop() {
         super.onStop();
-        accessTokenTracker.stopTracking();
-        profileTracker.stopTracking();
         if (mGoogleApiClient != null)
             mGoogleApiClient.disconnect();
     }
@@ -355,8 +329,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                 String personGooglePlusProfile = currentPerson.getUrl();
                 String personGoogleId = currentPerson.getId();
                 callFromGoogleRegisterUser(email,personName,2,personGoogleId,personPhotoUrl);
-
-
             } else {
               Log.e("user profile is null","profile is null");
             }
@@ -366,7 +338,12 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     private void callFromGoogleRegisterUser(String email,String personName,
-                                            int loginSource,String googleId,String PhotoUrl) {
+                                            int loginSource,String googleId,String PhotoUrl)
+    {
+
+        ProgressDialog progressDialog= new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
         UserRegisterDbDTO userRegisterDbDTO = new UserRegisterDbDTO(email,"",personName,"","",
                 loginSource,googleId,PhotoUrl);
         FriendDbDTO friendDbDTO = new FriendDbDTO(1,personName,"",email,PhotoUrl);
@@ -378,18 +355,21 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         callToSessionManager(email,"2",personName,"",googleId,convertVal);
         if(returnVal==1)
         {
-          Toast toast = Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER,0,0);
-            toast.show();
+          //Login success
             Intent mainActivity = new Intent(getApplication(),MainActivity.class);
             startActivity(mainActivity);
             finish();
+            progressDialog.cancel();
         }
         if(returnVal ==3 || returnVal==2)
         {
             Toast toast = Toast.makeText(getApplicationContext(),"Cannot able to insert record",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
+            if(progressDialog.isShowing())
+            {
+                progressDialog.cancel();
+            }
         }
 
     }
@@ -417,22 +397,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
         switch (btnId) {
             case R.id.google_Plus_signIn:
-                //googlePlusAPIInit();//Here i have to change
                 getAccountPermission();
-                /*if (!mGoogleApiClient.isConnecting()) {
-                   // googlePlusAPIInit();//Here i have to change
-                    getAccountPermission();
-                    if (mGoogleApiClient.isConnected()) {
-                        mSignInClicked = true;
-                        resolveSignInError();
-                    } else {
-                        mGoogleApiClient.connect();
-                        if (mGoogleApiClient.isConnected()) {
-                            mSignInClicked = true;
-                            resolveSignInError();
-                        }
-                    }
-                }*/
                 break;
             case R.id.sign_in_user_btn:
                 boolean val = validate();
@@ -440,15 +405,12 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                      String mUserEmailId=mEmailId.getText().toString().trim();
                      String mUserPassword =  mPassword.getText().toString().trim();
                      callToUserRegistration(mUserEmailId,mUserPassword);
-
                 }
                 break;
-
             case R.id.register_user:
                 Intent registerUser = new Intent(getApplicationContext(), UserRegisterActivity.class);
                 startActivity(registerUser);
                 break;
-
             case R.id.forgot_password:
                 Intent forgotPass = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
                 startActivity(forgotPass);
@@ -457,36 +419,59 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     private void callToUserRegistration(String mUserEmailId,String mUserPassword) {
+        ProgressDialog progressDialog= new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
 
         int returnVal = mDbRepository.CheckUserRegistration(mUserEmailId,mUserPassword);
         FriendDbDTO friendDbDTO = new FriendDbDTO(1,"","",mUserEmailId,"");
         long friendID  = mDbRepository.addFirstFriend(friendDbDTO);
         String convertVal = String.valueOf(friendID);
-        callToSessionManager(mUserEmailId,"3","","","",convertVal);
+        UserRegisterDbDTO userRegisterDbDTO = mDbRepository.getUserRegistrationDetails(mUserEmailId,mUserPassword);
+        if(userRegisterDbDTO!=null)
+        {
+            callToSessionManager(mUserEmailId,"3",userRegisterDbDTO.getFirstName().toString(),
+                    userRegisterDbDTO.getLastName().toString(),"",convertVal);
+        }
+        else {
+            callToSessionManager(mUserEmailId,"3","","","",convertVal);
+        }
+
         if(returnVal==1)
         {
-            Toast toast = Toast.makeText(getApplicationContext(), "user is valid", Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+           //Login success
             Intent mainActivity = new Intent(getApplication(),MainActivity.class);
             startActivity(mainActivity);
             finish();
+            progressDialog.cancel();
         }
         if(returnVal==2 )
         {
            mPassword.requestFocus();
            mPassword.setError("Incorrect Password");
+            if(progressDialog.isShowing())
+            {
+                progressDialog.cancel();
+            }
         }
         if(returnVal==3)
         {
             mEmailId.requestFocus();
             mEmailId.setError("Invalid email Id");
+            if(progressDialog.isShowing())
+            {
+                progressDialog.cancel();
+            }
         }
         if(returnVal ==-1 ||returnVal == 4 || returnVal==5)
         {
             Toast toast = Toast.makeText(getApplicationContext(), "user sign in error", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+            if(progressDialog.isShowing())
+            {
+                progressDialog.cancel();
+            }
         }
 
     }
@@ -503,10 +488,9 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         if(requestCode==ACCOUNT_PERMISSION_CODE && grantResults[0]==0)
         {
             googlePlusAPIInit();
-            if (!mGoogleApiClient.isConnecting()) {
-                // googlePlusAPIInit();//Here i have to change
-               // getAccountPermission();
-                if (mGoogleApiClient.isConnected()) {
+            if (!mGoogleApiClient.isConnecting())
+            {
+              if (mGoogleApiClient.isConnected()) {
                     mSignInClicked = true;
                     resolveSignInError();
                 } else {

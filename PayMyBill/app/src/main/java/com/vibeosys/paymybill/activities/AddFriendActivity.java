@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 
@@ -119,8 +120,8 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                     toast.show();
                 }
             } else {
-                Toast.makeText(this, "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                /*Toast.makeText(this, "You haven't picked Image",
+                        Toast.LENGTH_LONG).show();*/
             }
         } catch (Exception e) {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG)
@@ -184,10 +185,10 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
        int returnVal= mDbRepository.insertFriend(friendDbDTO);
         if(returnVal==1)
         {
-            Log.d("AddFirend","Successfully inserted friend record");
+            /*Log.d("AddFirend","Successfully inserted friend record");
             Toast toast = Toast.makeText(getApplicationContext(), "Record insert successfully", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            toast.show();*/
             finish();
         }if(returnVal==2)
         {

@@ -31,7 +31,7 @@ public class UserRegisterActivity extends BaseActivity {
     private TextView uploadPhoto;
     public static final int requestCodeCamera=1;
     private Button mUserRegister ;
-    private EditText mUserEmailId,mUserPassword,mConfirmPassword;
+    private EditText mUserEmailId,mUserPassword,mConfirmPassword,mFirstName,mLastName;
     private ImageView mImageview;
     private boolean setFlag = true;
     private int MEDIA_PERMISSION_CODE_USER_REGISTER=15;
@@ -47,6 +47,8 @@ public class UserRegisterActivity extends BaseActivity {
         mUserEmailId =(EditText) findViewById(R.id.emailIdEditText);
         mUserPassword = (EditText) findViewById(R.id.passwordEditText);
         mConfirmPassword =(EditText) findViewById(R.id.confirmPwddEditText);
+        mFirstName=(EditText) findViewById(R.id.firstNameEditText);
+        mLastName=(EditText) findViewById(R.id.lastNameEditText);
         mImageview = (ImageView) findViewById(R.id.user_profile_photo);
 
         uploadPhoto.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +67,8 @@ public class UserRegisterActivity extends BaseActivity {
                 if(val == true)
                 {
                     UserRegisterDbDTO UserRegisterDbDTO = new UserRegisterDbDTO(mUserEmailId.getText().toString().trim(),
-                            mUserPassword.getText().toString().trim(),"","","",3,"",mImageUri);
+                            mUserPassword.getText().toString().trim(),mFirstName.getText().toString().trim()
+                            ,mLastName.getText().toString().trim(),"",3,"",mImageUri);
                     insertUser(UserRegisterDbDTO);
                 }
             }
@@ -76,6 +79,20 @@ public class UserRegisterActivity extends BaseActivity {
     {
         String mUserPwd= mUserPassword.getText().toString().trim();
         String mConfirmPwd= mConfirmPassword.getText().toString().trim();
+        if(mFirstName.getText().toString().trim().length()==0)
+        {
+            mFirstName.requestFocus();
+            mFirstName.setError("Please enter first name");
+            setFlag= false;
+            return false;
+        }
+        if(mLastName.getText().toString().trim().length()==0)
+        {
+            mLastName.requestFocus();
+            mLastName.setError("Please enter last name");
+            setFlag= false;
+            return false;
+        }
         if(mUserEmailId.getText().toString().trim().length()==0)
         {
             mUserEmailId.requestFocus();
@@ -200,8 +217,8 @@ public class UserRegisterActivity extends BaseActivity {
                     toast.show();
                 }
             } else {
-                Toast.makeText(this, "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                /*Toast.makeText(this, "You haven't picked Image",
+                        Toast.LENGTH_LONG).show();*/
             }
         } catch (Exception e) {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG)

@@ -35,6 +35,35 @@
                     android:layout_marginTop="15dp">
 
                     <EditText
+                        android:id="@+id/firstNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="textEmailAddress"
+                        android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                        android:hint="@string/first_name"
+                        android:drawablePadding="10dp"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/lastNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="textEmailAddress"
+                        android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                        android:hint="@string/last_name"
+                        android:drawablePadding="10dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
                         android:id="@+id/emailIdEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
