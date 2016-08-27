@@ -28,7 +28,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     private EditText mEmailid;
     private int SEND_EMAIL_PERMISSION_CODE;
     GMailSender sender;
-    String mUserPwd,template,messageTxt;
+    String mUserPwd,template,messageTxt,mReceiverEmail,mSenderEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +37,11 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         mEmailid = (EditText)findViewById(R.id.emailIdEditText);
         mForgotPassword =(Button) findViewById(R.id.forgotPassword);
         setTitle(R.string.forgotpass_title);
+        mSenderEmail="";
+        String mSenderPassword="";
         mForgotPassword.setOnClickListener(this);
         //Enter emailid and Pwd
-        sender = new GMailSender("", "");
+        sender = new GMailSender(mSenderEmail, mSenderPassword);
         /*StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.
                 Builder().permitAll().build();
 
@@ -75,26 +77,14 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     }
 
     private void callTSendEmail() {
-        /*Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setData(Uri.parse("mailto:"+"shrinivas@vibeosys.com"));
-        intent.setType("message/rfc822");
-        intent.putExtra(Intent.EXTRA_EMAIL,"shrinivas@vibeosys.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT,"Forgot password ,Pay my bills");
-        intent.putExtra(Intent.EXTRA_TEXT,"Your password is dummy data ");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        try
-        {
-            startActivity(Intent.createChooser(intent,"send email using"));
-            finish();
-        }catch (Exception e)
-        {
-            Log.d(TAG,"exception while sending email");
-        }*/
+
         try {
-            new MyAsyncClass().execute();
+            mReceiverEmail= mEmailid.getText().toString().trim();
+            new MyAsyncClass().execute(mReceiverEmail);
 
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            Log.d(TAG,ex.toString());
+
         }
     }
 
@@ -135,7 +125,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         }
     }
 
-    class MyAsyncClass extends AsyncTask<Void, Void, Void> {
+    class MyAsyncClass extends AsyncTask<String, Void, Void> {
 
         ProgressDialog pDialog;
 
@@ -150,11 +140,13 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         }
 
         @Override
-        protected Void doInBackground(Void... mApi) {
+        protected Void doInBackground(String... mApi) {
             try {
                 messageTxt= template + mUserPwd;
+                String email = mApi[0];
+
                 // Add subject, Body, your mail Id, and receiver mail Id.
-                sender.sendMail("Forgot password", messageTxt, "", "");
+                sender.sendMail("Forgot password", messageTxt, mSenderEmail,email );
 //sender emailid and receviver emailid
 
             }
@@ -169,7 +161,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             pDialog.cancel();
-            Toast.makeText(getApplicationContext(), "Email send", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Email send... Please check your email", Toast.LENGTH_LONG).show();
         }
     }
 }
