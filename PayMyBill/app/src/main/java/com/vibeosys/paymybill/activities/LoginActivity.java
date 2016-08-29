@@ -3,6 +3,7 @@ package com.vibeosys.paymybill.activities;
 import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -30,8 +31,10 @@ import android.widget.Toast;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookActivity;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdkNotInitializedException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
@@ -89,7 +92,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(LoginActivity.this);
+       // FacebookSdk.sdkInitialize(LoginActivity.this);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_login);
         setTitle(getResources().getString(R.string.login_title));
@@ -107,7 +111,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         mRegisterUser.setOnClickListener(this);
         mSignIn.setOnClickListener(this);
         mForgotPassword.setOnClickListener(this);
-
 
         /*Facebook login function*/
         mFacebbokLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -260,8 +263,9 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     public static void LogoutFacebook() {
         try
         {
-            LoginManager.getInstance().logOut();
-            Log.d("FBLOGIN", "Log out");
+                LoginManager.getInstance().logOut();
+                Log.d("FBLOGIN", "Log out");
+
         }catch (FacebookException e)
         {
             e.printStackTrace();

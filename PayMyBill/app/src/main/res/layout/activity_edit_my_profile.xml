@@ -181,17 +181,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <Button
-                            android:id="@+id/updateBtn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="4dp"
-                            android:layout_marginStart="4dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/button_custom"
-                            android:text="@string/my_profile_update"
-                            android:textColor="@android:color/white"
-                            android:textStyle="bold" />
+
 
                         <Button
                             android:id="@+id/cancelBtn"
@@ -202,6 +192,17 @@
                             android:layout_weight="1"
                             android:background="@drawable/button_custom_cancel"
                             android:text="@string/register_cancel_btn"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+                        <Button
+                            android:id="@+id/updateBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_custom"
+                            android:text="@string/my_profile_update"
                             android:textColor="@android:color/white"
                             android:textStyle="bold" />
                     </LinearLayout>

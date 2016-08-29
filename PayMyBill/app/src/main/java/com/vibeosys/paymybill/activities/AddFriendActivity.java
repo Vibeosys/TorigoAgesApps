@@ -176,6 +176,8 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                     }
                 break;
             case R.id.cancel_friend_details:
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
                 finish();
                 break;
         }
@@ -189,6 +191,8 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
             Toast toast = Toast.makeText(getApplicationContext(), "Record insert successfully", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();*/
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
             finish();
         }if(returnVal==2)
         {

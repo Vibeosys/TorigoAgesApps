@@ -128,15 +128,7 @@
             android:layout_alignParentBottom="true"
             android:gravity="center"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/add_friend_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="22dp"
-                android:background="@drawable/button_custom"
-                android:text="@string/friend_save"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/cancel_friend_details"
                 android:layout_width="wrap_content"
@@ -144,6 +136,15 @@
                 android:layout_margin="22dp"
                 android:background="@drawable/disablebutton"
                 android:text="@string/register_cancel_btn"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/add_friend_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:background="@drawable/button_custom"
+                android:text="@string/friend_save"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
         </LinearLayout>
