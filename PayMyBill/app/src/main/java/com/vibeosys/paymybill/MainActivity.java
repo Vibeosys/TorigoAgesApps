@@ -188,7 +188,7 @@ public class MainActivity extends BaseActivity
     private void callToLogin() {
         Intent loginactivity = new Intent(MainActivity.this, LoginActivity.class);
         /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
-        //loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
         startActivity(loginactivity);
        // moveTaskToBack(true);

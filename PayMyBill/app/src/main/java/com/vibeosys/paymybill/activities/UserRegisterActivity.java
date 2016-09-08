@@ -144,6 +144,7 @@ public class UserRegisterActivity extends BaseActivity {
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
             Intent mLoginActivity = new Intent(getApplicationContext(),LoginActivity.class);
+            mLoginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(mLoginActivity);
             finish();
         }
