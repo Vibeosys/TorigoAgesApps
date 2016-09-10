@@ -66,4 +66,15 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="client_name">Client Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_id">Email Id</string>
+    <string name="address">Address</string>
+    <string name="str_new_client">New Client</string>
+    <string name="new_client_added">New Client Added successfully</string>
+    <string name="new_client_not_added">Client is not added</string>
+    <string name="str_error_name_reqired">Please Enter the name</string>
+    <string name="str_err_ph_no">Please enter the phone number</string>
+    <string name="str_err_ph_no_not_valid">Please enter the valid phone number</string>
+    <string name="str_err_email_not_valid">Please enter valid email Id</string>
 </resources>

@@ -11,7 +11,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,11 +43,19 @@
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".activities.ClientActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".activities.AddClientActivity"
-            android:parentActivityName=".activities.ClientActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.ClientActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.AddClientActivity"
+            android:parentActivityName=".activities.ClientActivity" />
+
+        <provider
+            android:name=".database.LawyerProvider"
+            android:authorities="com.vibeosys.lawyerdiary"
+            android:enabled="true"
+            android:exported="false"></provider>
     </application>
 
 </manifest>

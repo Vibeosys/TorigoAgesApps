@@ -9,6 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:elevation="6dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,12 +31,13 @@
                 android:src="@drawable/ic_perm_identity_black_24dp" />
 
             <EditText
+                android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:background="@android:color/white"
-                android:hint="Client name " />
+                android:hint="@string/client_name" />
         </LinearLayout>
 
         <View
@@ -53,15 +58,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/ic_sentiment_dissatisfied_black_24dp" />
+                android:src="@drawable/ic_phone_black_24dp" />
 
             <EditText
+                android:id="@+id/txtPhNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:background="@android:color/white"
-                android:hint="Petitioner" />
+                android:hint="@string/phone_number" />
         </LinearLayout>
 
         <View
@@ -82,45 +88,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/ic_perm_identity_black_24dp" />
+                android:src="@drawable/ic_email_black_24dp" />
 
             <EditText
+                android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:background="@android:color/white"
-                android:hint="Defendant" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/colorPrimaryDark" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="17dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/event_color_04"
-                android:padding="4dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="16dp"
-                android:background="@android:color/white"
-                android:hint="Court Name" />
+                android:hint="@string/email_id" />
         </LinearLayout>
 
         <View
@@ -141,75 +118,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/ic_attachment_black_24dp" />
+                android:src="@drawable/ic_location_city_black_24dp" />
 
             <EditText
+                android:id="@+id/txtAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:background="@android:color/white"
-                android:hint="Client Address" />
+                android:hint="@string/address" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/colorPrimaryDark" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="17dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:src="@drawable/ic_perm_identity_black_24dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="16dp"
-                android:background="@android:color/white"
-                android:hint="Phone Number" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/colorPrimaryDark" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="17dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:src="@drawable/ic_attachment_black_24dp" />
-
-            <Spinner
-                android:id="@+id/spinner_case_stage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/Phone_editText"
-                android:layout_alignStart="@+id/Phone_editText"
-                android:layout_alignTop="@+id/case_stage_textView"
-                android:spinnerMode="dropdown" />
-        </LinearLayout>
 
         <!-- <View
              android:layout_width="match_parent"
@@ -225,6 +145,7 @@
             android:layout_marginTop="17dp">
 
             <Button
+                android:id="@+id/btnCancel"
                 style="@style/button_custom_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -238,7 +159,7 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/btnSave"
                 style="@style/button_custom_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

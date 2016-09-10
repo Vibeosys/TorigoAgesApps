@@ -10,7 +10,7 @@ import android.provider.BaseColumns;
  */
 public class LawyerContract {
 
-    public static final String CONTENT_AUTHORITY = "com.vibeosys.lawyerdiary.app";
+    public static final String CONTENT_AUTHORITY = "com.vibeosys.lawyerdiary";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
