@@ -36,6 +36,10 @@ public class LawyerContract {
         public static Uri buildClientUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
+
+        public static String getClientPhNoFromUri(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
     }
 
     public static final class Case implements BaseColumns {

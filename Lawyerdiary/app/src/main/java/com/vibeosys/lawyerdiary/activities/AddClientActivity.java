@@ -2,6 +2,7 @@ package com.vibeosys.lawyerdiary.activities;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.net.Uri;
 import android.os.Bundle;
@@ -80,6 +81,10 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
         String email = mTxtEmail.getText().toString();
         String address = mTxtAddress.getText().toString();
 
+        Cursor clientCursor = getContentResolver().query(LawyerContract.Client.CONTENT_URI,
+                new String[]{LawyerContract.Client._ID}, LawyerContract.Client.PH_NUMBER + "=?",
+                new String[]{phoneNumber}, null);
+
         View focusView = null;
         boolean flag = false;
         mTxtName.setError(null);
@@ -102,6 +107,12 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
             flag = true;
             focusView = mTxtEmail;
             mTxtEmail.setError(getResources().getString(R.string.str_err_email_not_valid));
+        } else if (clientCursor.moveToFirst()) {
+            int clientIdIndex = clientCursor.getColumnIndex(LawyerContract.Client._ID);
+            clientId = clientCursor.getLong(clientIdIndex);
+            flag = true;
+            mTxtPhNo.setError(getResources().getString(R.string.str_ph_no_is_present));
+            focusView = mTxtPhNo;
         }
         if (flag) {
             focusView.requestFocus();

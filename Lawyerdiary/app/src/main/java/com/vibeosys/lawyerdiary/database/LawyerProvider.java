@@ -13,6 +13,7 @@ public class LawyerProvider extends ContentProvider {
     private static final UriMatcher sUriMatcher = buildUriMatcher();
 
     static final int CLIENT = 100;
+    static final int CLIENT_MATCH_PH_NO = 101;
     static final int CASE = 200;
     static final int DOCUMENT = 300;
     static final int REMINDER = 400;
@@ -25,6 +26,7 @@ public class LawyerProvider extends ContentProvider {
         matcher.addURI(authority, LawyerContract.PATH_CASE, CASE);
         matcher.addURI(authority, LawyerContract.PATH_DOCUMENT, DOCUMENT);
         matcher.addURI(authority, LawyerContract.PATH_REMINDER, REMINDER);
+        matcher.addURI(authority, LawyerContract.PATH_CLIENT + "/*", CLIENT_MATCH_PH_NO);
         return matcher;
     }
 
@@ -40,6 +42,8 @@ public class LawyerProvider extends ContentProvider {
 
             case CLIENT:
                 return LawyerContract.Client.CONTENT_TYPE;
+            case CLIENT_MATCH_PH_NO:
+                return LawyerContract.Client.CONTENT_ITEM_TYPE;
             case CASE:
                 return LawyerContract.Case.CONTENT_TYPE;
             case DOCUMENT:
@@ -144,6 +148,10 @@ public class LawyerProvider extends ContentProvider {
                         selectionArgs, null, null, sortOrder);
                 break;
             }
+            case CLIENT_MATCH_PH_NO: {
+                retCursor = getClientOfPhoneNo(uri, projection, sortOrder);
+                break;
+            }
             case CASE: {
                 retCursor = mDbRepository.getReadableDatabase().query(
                         LawyerContract.Case.TABLE_NAME, projection, selection,
@@ -167,6 +175,14 @@ public class LawyerProvider extends ContentProvider {
         }
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
+    }
+
+    private Cursor getClientOfPhoneNo(Uri uri, String[] projection, String sortOrder) {
+        String clientPhNo = LawyerContract.Client.getClientPhNoFromUri(uri);
+        String[] selectionArgs = new String[]{clientPhNo};
+        String selection = LawyerContract.Client.PH_NUMBER + "=?";
+        return mDbRepository.getReadableDatabase().query(LawyerContract.Client.TABLE_NAME,
+                projection, selection, selectionArgs, null, null, sortOrder);
     }
 
     @Override
@@ -196,5 +212,11 @@ public class LawyerProvider extends ContentProvider {
             getContext().getContentResolver().notifyChange(uri, null);
         }
         return rowUpdated;
+    }
+
+    @Override
+    public void shutdown() {
+        mDbRepository.close();
+        super.shutdown();
     }
 }
