@@ -37,8 +37,8 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         mEmailid = (EditText)findViewById(R.id.emailIdEditText);
         mForgotPassword =(Button) findViewById(R.id.forgotPassword);
         setTitle(R.string.forgotpass_title);
-        mSenderEmail="";
-        String mSenderPassword="";
+        mSenderEmail="aaa@email.com";
+        String mSenderPassword="bbbb";
         mForgotPassword.setOnClickListener(this);
         //Enter emailid and Pwd
         sender = new GMailSender(mSenderEmail, mSenderPassword);
@@ -46,7 +46,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
                 Builder().permitAll().build();
 
         StrictMode.setThreadPolicy(policy);*/
-        template = "You'r Password is ";
+        template = "Dear user ,\nYour PayMyBill account password is :  ";
 
     }
 
@@ -66,7 +66,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
                         callTSendEmail();
                     }
                     else {
-                        Toast toast =Toast.makeText(getApplicationContext(),"Cannot perform Operation",Toast.LENGTH_LONG);
+                        Toast toast =Toast.makeText(getApplicationContext(),"Cannot perform Operation invalid user",Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER,0,0);
                         toast.show();
                     }
@@ -161,7 +161,9 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             pDialog.cancel();
-            Toast.makeText(getApplicationContext(), "Email send... Please check your email", Toast.LENGTH_LONG).show();
+            Toast toast=Toast.makeText(getApplicationContext(), "Please check your email...", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
         }
     }
 }

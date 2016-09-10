@@ -6,9 +6,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Security;
 import java.util.Properties;
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
+
+
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;

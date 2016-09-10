@@ -236,7 +236,7 @@ public class MainActivity extends BaseActivity
         if (id == R.id.add_friend) {
             Intent intent = new Intent(getApplicationContext(), AddFriendActivity.class);
             startActivity(intent);
-            finish();
+          //  finish();
         }
 
         return super.onOptionsItemSelected(item);

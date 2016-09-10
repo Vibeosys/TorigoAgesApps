@@ -675,6 +675,9 @@ public class DbRepository extends SQLiteOpenHelper {
         } finally {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
+            }if(cursor!=null)
+            {
+                cursor.close();
             }
         }
         return returnVal;
@@ -731,6 +734,10 @@ public class DbRepository extends SQLiteOpenHelper {
         } finally {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
+            }
+            if(cursor!=null)
+            {
+                cursor.close();
             }
         }
         return UserRegisterDbDTO;
@@ -820,6 +827,10 @@ public class DbRepository extends SQLiteOpenHelper {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
+            if(cursor!=null)
+            {
+                cursor.close();
+            }
         }
 
         return returnVal;
@@ -850,6 +861,7 @@ public class DbRepository extends SQLiteOpenHelper {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
+
         }
 
         return true;
@@ -1346,6 +1358,11 @@ public class DbRepository extends SQLiteOpenHelper {
         {
             Log.d(TAG,"error while getting Pwd");
 
+        }finally {
+            if (cursor != null)
+                cursor.close();
+            if (sqLiteDatabase != null && sqLiteDatabase.isOpen())
+                sqLiteDatabase.close();
         }
         return returnVal;
     }

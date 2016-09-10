@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('activation-1.1.jar'))
