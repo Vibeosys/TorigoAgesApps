@@ -9,19 +9,19 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.vibeosys.lawyerdiary.R;
-import com.vibeosys.lawyerdiary.data.CaseData;
+import com.vibeosys.lawyerdiary.data.Client;
 
 import java.util.ArrayList;
 
 /**
  * Created by akshay on 12-09-2016.
  */
-public class CaseAdapter extends BaseAdapter {
+public class ClientAdapter extends BaseAdapter {
 
-    private ArrayList<CaseData> mData;
+    private ArrayList<Client> mData;
     private Context mContext;
 
-    public CaseAdapter(ArrayList<CaseData> mData, Context mContext) {
+    public ClientAdapter(ArrayList<Client> mData, Context mContext) {
         this.mData = mData;
         this.mContext = mContext;
     }
@@ -49,25 +49,22 @@ public class CaseAdapter extends BaseAdapter {
 
             LayoutInflater theLayoutInflator = (LayoutInflater) mContext.getSystemService
                     (Context.LAYOUT_INFLATER_SERVICE);
-            row = theLayoutInflator.inflate(R.layout.row_case_data, null);
+            row = theLayoutInflator.inflate(R.layout.row_client_data, null);
             viewHolder = new ViewHolder();
-            viewHolder.txtCaseName = (TextView) row.findViewById(R.id.txtCaseName);
-            viewHolder.txtCaseLogo = (TextView) row.findViewById(R.id.txtLogo);
-            viewHolder.txtCaseDesc = (TextView) row.findViewById(R.id.txtDescription);
+            viewHolder.txtClientName = (TextView) row.findViewById(R.id.txtClientName);
+            viewHolder.txtLogo = (TextView) row.findViewById(R.id.txtLogo);
+            viewHolder.txtPhNO = (TextView) row.findViewById(R.id.txtPhNo);
             row.setTag(viewHolder);
 
         } else
             viewHolder = (ViewHolder) convertView.getTag();
-        CaseData caseData = mData.get(position);
-        String caseName = caseData.getCaseName();
-        String caseDesc = caseData.getDescription();
-        viewHolder.txtCaseName.setText(caseName);
-        if (TextUtils.isEmpty(caseDesc)) {
-            viewHolder.txtCaseDesc.setText(mContext.getResources().getString(R.string.str_no_case_desc_found));
-        } else {
-            viewHolder.txtCaseDesc.setText(caseDesc);
-        }
-        String[] logos = caseName.split(" ", 2);
+        Client client = mData.get(position);
+        String clientName = client.getName();
+        String clientPhNo = client.getPhoneNumber();
+        viewHolder.txtClientName.setText(clientName);
+        viewHolder.txtPhNO.setText(clientPhNo);
+
+        String[] logos = clientName.split(" ", 2);
         String logo1 = logos[0];
         String caseLogo = "" + logo1.charAt(0);
         if (logos.length > 1) {
@@ -77,11 +74,11 @@ public class CaseAdapter extends BaseAdapter {
             }
         }
 
-        viewHolder.txtCaseLogo.setText(caseLogo);
+        viewHolder.txtLogo.setText(caseLogo);
         return row;
     }
 
     private class ViewHolder {
-        TextView txtCaseName, txtCaseLogo, txtCaseDesc;
+        TextView txtClientName, txtLogo, txtPhNO;
     }
 }

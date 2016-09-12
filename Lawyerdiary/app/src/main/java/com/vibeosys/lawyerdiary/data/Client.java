@@ -16,6 +16,12 @@ public class Client {
         this.mName = mName;
     }
 
+    public Client(long _Id, String mName, String mPhoneNumber) {
+        this._Id = _Id;
+        this.mName = mName;
+        this.mPhoneNumber = mPhoneNumber;
+    }
+
     public Client(long _Id, String mName, String mEmail, String mPhoneNumber, String mAddress) {
         this._Id = _Id;
         this.mName = mName;
