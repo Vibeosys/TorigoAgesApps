@@ -81,4 +81,5 @@
 
     <!-- AdMob Advertise banner id  -->
     <string name="banner_home_footer">ca-app-pub-1303442515313304/8865131277</string>
+    <string name="intestitial_banner_home_footer">ca-app-pub-1303442515313304/4991504878</string>
 </resources>

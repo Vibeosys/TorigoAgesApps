@@ -17,6 +17,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 import com.vibeosys.lawyerdiary.utils.Validator;
@@ -30,13 +33,24 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
     private EditText mTxtName, mTxtPhNo, mTxtEmail, mTxtAddress;
     private Button mBtnCancel, mBtnSave;
     private Validator validator = new Validator();
+    InterstitialAd mInterstitialAd ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_client);
         setTitle(getResources().getString(R.string.str_new_client));
-
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
+        mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+               // super.onAdLoaded();
+                showIntestititalAd();
+            }
+        });
         mTxtName = (EditText) findViewById(R.id.txtName);
         mTxtPhNo = (EditText) findViewById(R.id.txtPhNo);
         mTxtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -134,5 +148,12 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
 
         }
         return clientId;
+    }
+    public void showIntestititalAd()
+    {
+        if(mInterstitialAd.isLoaded())
+        {
+            mInterstitialAd.show();
+        }
     }
 }
