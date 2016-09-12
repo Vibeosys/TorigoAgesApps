@@ -78,4 +78,7 @@
     <string name="str_err_ph_no_not_valid">Please enter the valid phone number</string>
     <string name="str_err_email_not_valid">Please enter valid email Id</string>
     <string name="str_ph_no_is_present">This Phone number is already present</string>
+
+    <!-- AdMob Advertise banner id  -->
+    <string name="banner_home_footer">ca-app-pub-1303442515313304/8865131277</string>
 </resources>
