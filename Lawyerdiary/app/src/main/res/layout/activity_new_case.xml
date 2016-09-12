@@ -32,12 +32,13 @@
                     android:src="@drawable/ic_book_black_24dp" />
 
                 <EditText
+                    android:id="@+id/txtCaseName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:background="@android:color/white"
-                    android:hint="Case Name" />
+                    android:hint="@string/case_name" />
             </LinearLayout>
 
             <View
@@ -60,13 +61,14 @@
                     android:layout_marginRight="8dp"
                     android:src="@drawable/ic_contacts_black_24dp" />
 
-                <EditText
+                <AutoCompleteTextView
+                    android:id="@+id/txtClientName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:background="@android:color/white"
-                    android:hint="Client" />
+                    android:hint="@string/client_name" />
             </LinearLayout>
 
             <View
@@ -90,12 +92,13 @@
                     android:src="@drawable/ic_sentiment_dissatisfied_black_24dp" />
 
                 <EditText
+                    android:id="@+id/txtOppositionName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:background="@android:color/white"
-                    android:hint="Against" />
+                    android:hint="@string/str_opposition_name" />
             </LinearLayout>
 
             <View
@@ -119,24 +122,24 @@
                     android:layout_marginRight="8dp"
                     android:src="@drawable/ic_access_time_black_24dp" />
 
-                <TextView
+                <EditText
+                    android:id="@+id/txtDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
-                    android:text="Tue, Apr 26, 2016"
-                    android:textColor="@android:color/black"
-                    android:textSize="15sp" />
+                    android:background="@android:color/white"
+                    android:hint="Tue 24 May 2016" />
 
-                <TextView
+                <EditText
+                    android:id="@+id/txtTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="65dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
+                    android:background="@android:color/white"
                     android:gravity="end"
-                    android:text="4:30pm"
-                    android:textColor="@android:color/black"
-                    android:textSize="15sp" />
+                    android:hint="5:30 PM" />
             </LinearLayout>
 
             <View
@@ -160,12 +163,13 @@
                     android:src="@drawable/ic_location_on_black_24dp" />
 
                 <EditText
+                    android:id="@+id/txtCourtLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:background="@android:color/white"
-                    android:hint="Court Location" />
+                    android:hint="@string/str_court_location" />
             </LinearLayout>
 
             <View
@@ -189,12 +193,13 @@
                     android:src="@drawable/ic_event_note_black_24dp" />
 
                 <EditText
+                    android:id="@+id/txtDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:background="@android:color/white"
-                    android:hint="Description" />
+                    android:hint="@string/str_description" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,6 +211,7 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/txtStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="3dp"
@@ -213,9 +219,10 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="3dp"
                     android:background="@android:color/white"
-                    android:hint="Status" />
+                    android:hint="@string/str_status" />
 
                 <EditText
+                    android:id="@+id/txtKeyPoints"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="3dp"
@@ -223,7 +230,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="3dp"
                     android:background="@android:color/white"
-                    android:hint="Key Points" />
+                    android:hint="@string/key_points" />
 
             </LinearLayout>
 
@@ -275,6 +282,7 @@
                 android:layout_marginTop="17dp">
 
                 <Button
+                    android:id="@+id/btnCancel"
                     style="@style/button_custom_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -283,12 +291,12 @@
                     android:layout_weight="1"
                     android:background="@android:color/darker_gray"
                     android:onClick="callMain"
-                    android:text="Cancel"
+                    android:text="@string/cancel"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/email_sign_in_button"
+                    android:id="@+id/btnSave"
                     style="@style/button_custom_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -297,7 +305,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button_custom"
                     android:onClick="callMain"
-                    android:text="Save"
+                    android:text="@string/str_save"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
             </LinearLayout>

@@ -15,7 +15,7 @@ public class LawyerContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     public static final String PATH_CLIENT = "client";
-    public static final String PATH_CASE = "case";
+    public static final String PATH_CASE = "case_data";
     public static final String PATH_DOCUMENT = "document";
     public static final String PATH_REMINDER = "reminder";
 
@@ -50,7 +50,7 @@ public class LawyerContract {
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
                 + CONTENT_AUTHORITY + "/" + PATH_CASE;
 
-        public final static String TABLE_NAME = "case";
+        public final static String TABLE_NAME = "case_data";
         public final static String CASE_NAME = "case_name";
         public final static String CLIENT_ID = "client_id";
         public final static String AGAINST = "against";

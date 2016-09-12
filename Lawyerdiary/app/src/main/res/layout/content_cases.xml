@@ -17,57 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:onClick="viewCase"
-                android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="65dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="8dp"
-                    android:background="@color/colorAccent"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="C1"
-                        android:textColor="@android:color/white"
-                        android:textSize="45sp" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:padding="4dp"
-                        android:text="Case 1"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimaryDark" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:padding="4dp"
-                        android:text="Client was charged with ramming his car into a shop in suburban Kothrud on September 28..."
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

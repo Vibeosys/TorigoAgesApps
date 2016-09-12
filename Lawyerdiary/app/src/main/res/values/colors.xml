@@ -9,6 +9,8 @@
     <color name="event_color_02">#FF4081</color>
     <color name="event_color_03">#87d288</color>
     <color name="event_color_04">#f8b552</color>
-
+    <color name="primaryText">#fc474a4f</color>
+    <color name="accentText">#FF8A80</color>
+    <color name="secondaryText">#7e848c</color>
     <color name="transperent">#80000000</color>
 </resources>

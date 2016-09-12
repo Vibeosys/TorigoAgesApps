@@ -31,10 +31,10 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Case.CLIENT_ID + " INTEGER NOT NULL," +
             LawyerContract.Case.AGAINST + " TEXT NOT NULL," +
             LawyerContract.Case.SITUATION + " TEXT," +
-            LawyerContract.Case.CASE_DATE + " TEXT NOT NULL," +
+            LawyerContract.Case.CASE_DATE + " TEXT," +
             LawyerContract.Case.COURT_LOCATION + " TEXT NOT NULL," +
             LawyerContract.Case.DESCRIPTION + " TEXT," +
-            LawyerContract.Case.STATUS + " INTEGER NOT NULL DEFAULT 0," +
+            LawyerContract.Case.STATUS + " INTEGER DEFAULT 0," +
             LawyerContract.Case.KEY_POINTS + " TEXT,FOREIGN KEY(" +
             LawyerContract.Case.CLIENT_ID + ") REFERENCES " +
             LawyerContract.Client.TABLE_NAME + "(" + LawyerContract.Client._ID + "));";

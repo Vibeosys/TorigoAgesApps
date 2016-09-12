@@ -82,4 +82,23 @@
     <!-- AdMob Advertise banner id  -->
     <string name="banner_home_footer">ca-app-pub-1303442515313304/8865131277</string>
     <string name="intestitial_banner_home_footer">ca-app-pub-1303442515313304/4991504878</string>
+
+    <string name="case_name">Case Name</string>
+    <string name="str_opposition_name">Against</string>
+    <string name="str_description">Description</string>
+    <string name="str_status">Status</string>
+    <string name="key_points">Key Points</string>
+    <string name="cancel">Cancel</string>
+    <string name="str_save">Save</string>
+    <string name="str_court_location">Court Location</string>
+    <string name="add_new_case_title">New Case</string>
+    <string name="str_err_case_name_required">Please enter the case name</string>
+    <string name="str_error_client_name_reqired">Please enter the client name</string>
+    <string name="str_error_opposition_name_reqired">Please enter opposition name</string>
+    <string name="str_error_court_location_reqired">Please enter court location</string>
+    <string name="str_error_add_client_in_list">Please add the client in your client list</string>
+    <string name="new_case_added">New case is added</string>
+    <string name="new_case_not_added">Case is not added</string>
+    <string name="str_cases_title">Cases</string>
+    <string name="str_no_case_desc_found">No case description</string>
 </resources>

@@ -7,7 +7,21 @@
     android:fitsSystemWindows="true"
     tools:context="com.vibeosys.lawyerdiary.activities.CasesActivity">
 
-    <include layout="@layout/content_cases" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listCases"
+            android:layout_width="550dp"
+            android:layout_height="match_parent"
+            android:divider="@color/colorPrimaryDark"
+            android:dividerHeight="0.5dp"></ListView>
+    </LinearLayout>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
