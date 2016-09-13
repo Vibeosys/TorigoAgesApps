@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.vibeosys.lawyerdiary.Adapter.CaseAdapter;
@@ -15,7 +16,7 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 
 import java.util.ArrayList;
 
-public class CasesActivity extends AppCompatActivity {
+public class CasesActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
     private ListView listCases;
     private CaseAdapter caseAdapter;
@@ -35,6 +36,7 @@ public class CasesActivity extends AppCompatActivity {
             }
         });
         loadCaseData();
+        listCases.setOnItemClickListener(this);
     }
 
     private void loadCaseData() {
@@ -57,7 +59,16 @@ public class CasesActivity extends AppCompatActivity {
         listCases.setAdapter(caseAdapter);
     }
 
-    /*public void viewCase(View v) {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        CaseData caseData = (CaseData) caseAdapter.getItem(position);
+        long caseId = caseData.get_Id();
+        Intent iCaseDetails = new Intent(getApplicationContext(), CaseDetailsActivity.class);
+        iCaseDetails.putExtra(LawyerContract.Case._ID, caseId);
+        startActivity(iCaseDetails);
+    }
+
+   /* public void viewCase(View v) {
         Intent iCaseDetails = new Intent(getApplicationContext(), CaseDetailsActivity.class);
         startActivity(iCaseDetails);
     }*/

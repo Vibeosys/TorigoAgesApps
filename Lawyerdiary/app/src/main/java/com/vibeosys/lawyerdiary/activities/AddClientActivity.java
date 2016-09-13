@@ -33,7 +33,7 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
     private EditText mTxtName, mTxtPhNo, mTxtEmail, mTxtAddress;
     private Button mBtnCancel, mBtnSave;
     private Validator validator = new Validator();
-    InterstitialAd mInterstitialAd ;
+    InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-               // super.onAdLoaded();
+                // super.onAdLoaded();
                 showIntestititalAd();
             }
         });
@@ -94,10 +94,10 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
         String phoneNumber = mTxtPhNo.getText().toString();
         String email = mTxtEmail.getText().toString();
         String address = mTxtAddress.getText().toString();
-
-        Cursor clientCursor = getContentResolver().query(LawyerContract.Client.CONTENT_URI,
-                new String[]{LawyerContract.Client._ID}, LawyerContract.Client.PH_NUMBER + "=?",
-                new String[]{phoneNumber}, null);
+        Uri uri = LawyerContract.Client.buildClientPhMatchUri(phoneNumber);
+        Cursor clientCursor = getContentResolver().query(uri,
+                new String[]{LawyerContract.Client._ID}, null,
+                null, null);
 
         View focusView = null;
         boolean flag = false;
@@ -149,10 +149,9 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
         }
         return clientId;
     }
-    public void showIntestititalAd()
-    {
-        if(mInterstitialAd.isLoaded())
-        {
+
+    public void showIntestititalAd() {
+        if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
     }

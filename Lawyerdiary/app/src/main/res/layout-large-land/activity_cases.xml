@@ -17,9 +17,7 @@
         <ListView
             android:id="@+id/listCases"
             android:layout_width="550dp"
-            android:layout_height="match_parent"
-            android:divider="@color/colorPrimaryDark"
-            android:dividerHeight="0.5dp"></ListView>
+            android:layout_height="match_parent"></ListView>
     </LinearLayout>
 
 

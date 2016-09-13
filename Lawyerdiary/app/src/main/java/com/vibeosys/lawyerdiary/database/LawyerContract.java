@@ -37,6 +37,10 @@ public class LawyerContract {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
+        public static Uri buildClientPhMatchUri(String phNo) {
+            return CONTENT_URI.buildUpon().appendPath(phNo).build();
+        }
+
         public static String getClientPhNoFromUri(Uri uri) {
             return uri.getPathSegments().get(1);
         }
@@ -63,6 +67,10 @@ public class LawyerContract {
 
         public static final Uri buildCaseUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static long getCaseIdFromUri(Uri uri) {
+            return Long.parseLong(uri.getPathSegments().get(1));
         }
     }
 

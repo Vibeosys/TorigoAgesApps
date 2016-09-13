@@ -37,15 +37,7 @@ public class ClientActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         fab = (FloatingActionButton) findViewById(R.id.fab_client);
         clientList = (ListView) findViewById(R.id.client_listView);
-        /*clientData = new ArrayList<ClientData>();
-        clientData.add(new ClientData("smith barney","PIL","Criminal",R.drawable.ic_crime_client,"21-Apr-14"));
-        clientData.add(new ClientData("johnson flep","Commercial","Civil",R.drawable.ic_civil_client,"2-Feb-10"));
-        clientData.add(new ClientData("smith sebastian","Criminal","Criminal",R.drawable.ic_crime_client,"12-Dec-10"));
-        clientData.add(new ClientData("kait williams","PIL","Civil",R.drawable.ic_civil_client,"23-Jan-13"));
-        clientData.add(new ClientData("robert pattinson","Commercial","Civil",R.drawable.ic_civil_client,"2-Feb-15"));
-        clientData.add(new ClientData("aston martin","Commercial","Civil",R.drawable.ic_civil_client,"5-Oct-10"));
-        ClientDetailsAdapter adapter = new ClientDetailsAdapter(getApplicationContext(),clientData);
-        client.setAdapter(adapter);*/
+
 
         loadClientData();
         fab.setOnClickListener(new View.OnClickListener() {
@@ -69,19 +61,19 @@ public class ClientActivity extends AppCompatActivity {
 
     private void loadClientData() {
         ArrayList<Client> clients = new ArrayList<>();
-        Cursor caseCursor = getContentResolver().query(LawyerContract.Client.CONTENT_URI,
+        Cursor clientCursor = getContentResolver().query(LawyerContract.Client.CONTENT_URI,
                 new String[]{LawyerContract.Client._ID, LawyerContract.Client.NAME, LawyerContract.Client.PH_NUMBER
                 }, null, null, null);
 
-        if (caseCursor.getCount() > 0) {
-            caseCursor.moveToFirst();
+        if (clientCursor.getCount() > 0) {
+            clientCursor.moveToFirst();
             do {
-                long clientId = caseCursor.getLong(caseCursor.getColumnIndex(LawyerContract.Client._ID));
-                String name = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Client.NAME));
-                String phNumber = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Client.PH_NUMBER));
+                long clientId = clientCursor.getLong(clientCursor.getColumnIndex(LawyerContract.Client._ID));
+                String name = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.NAME));
+                String phNumber = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.PH_NUMBER));
                 clients.add(new Client(clientId, name, phNumber));
             }
-            while (caseCursor.moveToNext());
+            while (clientCursor.moveToNext());
         }
         clientAdapter = new ClientAdapter(clients, getApplicationContext());
         clientList.setAdapter(clientAdapter);

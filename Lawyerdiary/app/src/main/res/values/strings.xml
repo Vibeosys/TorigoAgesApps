@@ -101,4 +101,10 @@
     <string name="new_case_not_added">Case is not added</string>
     <string name="str_cases_title">Cases</string>
     <string name="str_no_case_desc_found">No case description</string>
+    <string name="str_case_details">Case Details</string>
+    <string name="case_date">Date</string>
+    <string name="str_client_files">Case Files</string>
+    <string name="str_case_document_or_proofs">Documents Or Proofs</string>
+    <string name="str_edit">Edit</string>
+    <string name="str_remind_me">Remind Me</string>
 </resources>

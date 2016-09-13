@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 public class LawyerProvider extends ContentProvider {
@@ -15,6 +16,7 @@ public class LawyerProvider extends ContentProvider {
     static final int CLIENT = 100;
     static final int CLIENT_MATCH_PH_NO = 101;
     static final int CASE = 200;
+    static final int CASE_DETAILS = 201;
     static final int DOCUMENT = 300;
     static final int REMINDER = 400;
 
@@ -27,7 +29,23 @@ public class LawyerProvider extends ContentProvider {
         matcher.addURI(authority, LawyerContract.PATH_DOCUMENT, DOCUMENT);
         matcher.addURI(authority, LawyerContract.PATH_REMINDER, REMINDER);
         matcher.addURI(authority, LawyerContract.PATH_CLIENT + "/*", CLIENT_MATCH_PH_NO);
+        matcher.addURI(authority, LawyerContract.PATH_CASE + "/#", CASE_DETAILS);
         return matcher;
+    }
+
+    private static final SQLiteQueryBuilder sCaseDetailsQueryBuilder;
+
+    static {
+        sCaseDetailsQueryBuilder = new SQLiteQueryBuilder();
+        //This is an inner join which looks like
+        //case INNER JOIN client ON case.client_id = client._id
+        sCaseDetailsQueryBuilder.setTables(
+                LawyerContract.Case.TABLE_NAME + " INNER JOIN " +
+                        LawyerContract.Client.TABLE_NAME +
+                        " ON " + LawyerContract.Case.TABLE_NAME +
+                        "." + LawyerContract.Case.CLIENT_ID +
+                        " = " + LawyerContract.Client.TABLE_NAME +
+                        "." + LawyerContract.Client._ID);
     }
 
     public LawyerProvider() {
@@ -46,6 +64,8 @@ public class LawyerProvider extends ContentProvider {
                 return LawyerContract.Client.CONTENT_ITEM_TYPE;
             case CASE:
                 return LawyerContract.Case.CONTENT_TYPE;
+            case CASE_DETAILS:
+                return LawyerContract.Case.CONTENT_ITEM_TYPE;
             case DOCUMENT:
                 return LawyerContract.Document.CONTENT_TYPE;
             case REMINDER:
@@ -158,6 +178,10 @@ public class LawyerProvider extends ContentProvider {
                         selectionArgs, null, null, sortOrder);
                 break;
             }
+            case CASE_DETAILS: {
+                retCursor = getCaseDetails(uri, projection, sortOrder);
+                break;
+            }
             case DOCUMENT: {
                 retCursor = mDbRepository.getReadableDatabase().query(
                         LawyerContract.Document.TABLE_NAME, projection, selection,
@@ -175,6 +199,20 @@ public class LawyerProvider extends ContentProvider {
         }
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
+    }
+
+    private Cursor getCaseDetails(Uri uri, String[] projection, String sortOrder) {
+        long caseId = LawyerContract.Case.getCaseIdFromUri(uri);
+        String[] selectionArgs = new String[]{String.valueOf(caseId)};
+        String selection = LawyerContract.Case.TABLE_NAME + "." + LawyerContract.Case._ID + "=?";
+        return sCaseDetailsQueryBuilder.query(mDbRepository.getReadableDatabase(),
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder
+        );
     }
 
     private Cursor getClientOfPhoneNo(Uri uri, String[] projection, String sortOrder) {

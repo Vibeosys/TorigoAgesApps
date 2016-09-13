@@ -28,7 +28,8 @@
         android:id="@+id/scrollView"
         android:layout_width="550dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profilePic">
+        android:layout_below="@+id/profilePic"
+        android:elevation="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +54,7 @@
                     android:layout_margin="5dp"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Case"
+                    android:text="@string/case_name"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
@@ -64,6 +65,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <TextView
+                    android:id="@+id/txtCaseName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -92,7 +94,7 @@
                     android:layout_margin="5dp"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Client Name"
+                    android:text="@string/client_name"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
@@ -103,6 +105,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <TextView
+                    android:id="@+id/txtClientName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -131,7 +134,7 @@
                     android:layout_margin="5dp"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Against"
+                    android:text="@string/str_opposition_name"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
@@ -142,6 +145,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <TextView
+                    android:id="@+id/txtOppositionName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -170,7 +174,7 @@
                     android:layout_margin="5dp"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Location"
+                    android:text="@string/str_court_location"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
@@ -181,6 +185,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <TextView
+                    android:id="@+id/txtCourtLocation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -210,7 +215,7 @@
                     android:layout_margin="5dp"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Case Details"
+                    android:text="@string/str_case_details"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
@@ -221,6 +226,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <TextView
+                    android:id="@+id/txtStatus"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -235,10 +241,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Status"
+                    android:text="@string/str_status"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -253,10 +260,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Pick up"
+                    android:text="@string/case_date"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtKeyPoints"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -271,10 +279,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Key Points"
+                    android:text="@string/key_points"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtFiles"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -289,7 +298,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Files"
+                    android:text="@string/str_client_files"
                     android:textSize="13sp" />
             </LinearLayout>
 
@@ -311,7 +320,7 @@
                     android:layout_margin="5dp"
                     android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
-                    android:text="Documents or Proofs"
+                    android:text="@string/str_description"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
@@ -322,6 +331,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <TextView
+                    android:id="@+id/txtDescription"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
@@ -342,6 +352,7 @@
                 android:layout_marginTop="17dp">
 
                 <Button
+                    android:id="@+id/btnEdit"
                     style="@style/button_custom_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -349,12 +360,12 @@
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="@android:color/darker_gray"
-                    android:text="Edit"
+                    android:text="@string/str_edit"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/email_sign_in_button"
+                    android:id="@+id/btnRemindMe"
                     style="@style/button_custom_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -362,7 +373,7 @@
                     android:layout_marginLeft="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_custom"
-                    android:text="Remind Me"
+                    android:text="@string/str_remind_me"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
             </LinearLayout>
