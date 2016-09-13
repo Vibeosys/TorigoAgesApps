@@ -18,7 +18,7 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 /**
  * Created by akshay on 13-09-2016.
  */
-public class CaseDetailFragment extends Fragment {
+public class CaseDetailFragment extends BaseFragment {
 
     private static final String TAG = CaseDetailFragment.class.getSimpleName();
     public static final String DETAIL_URI = "URI";
@@ -57,24 +57,24 @@ public class CaseDetailFragment extends Fragment {
                 LawyerContract.Case.CASE_NAME, LawyerContract.Client.NAME, LawyerContract.Case.AGAINST,
                 LawyerContract.Case.COURT_LOCATION, LawyerContract.Case.STATUS,
                 LawyerContract.Case.CASE_DATE, LawyerContract.Case.KEY_POINTS, LawyerContract.Case.DESCRIPTION};
-        Cursor clientCursor = null;
+        Cursor caseCursor = null;
         if (mUri != null) {
             try {
-                clientCursor = getContext().getContentResolver().query(mUri,
+                caseCursor = getContext().getContentResolver().query(mUri,
                         projection, null, null, null);
             } catch (SQLiteException e) {
                 Log.e(TAG, "error in getting case details" + e.toString());
             }
-            if (clientCursor.moveToFirst()) {
-                String caseName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_NAME));
-                String clientName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.NAME));
-                String oppositionName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.AGAINST));
-                String courtLocation = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.COURT_LOCATION));
-                int status = clientCursor.getInt(clientCursor.getColumnIndex(LawyerContract.Case.STATUS));
-                String date = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
-                String keyPoints = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.KEY_POINTS));
+            if (caseCursor.moveToFirst()) {
+                String caseName = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.CASE_NAME));
+                String clientName = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Client.NAME));
+                String oppositionName = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.AGAINST));
+                String courtLocation = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.COURT_LOCATION));
+                int status = caseCursor.getInt(caseCursor.getColumnIndex(LawyerContract.Case.STATUS));
+                String date = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
+                String keyPoints = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.KEY_POINTS));
                 // String files = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
-                String desc = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.DESCRIPTION));
+                String desc = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.DESCRIPTION));
 
                 getActivity().setTitle(caseName + " Details");
                 txtCaseName.setText(caseName);

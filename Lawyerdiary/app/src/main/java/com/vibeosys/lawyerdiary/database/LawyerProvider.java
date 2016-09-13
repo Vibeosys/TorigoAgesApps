@@ -30,6 +30,7 @@ public class LawyerProvider extends ContentProvider {
         matcher.addURI(authority, LawyerContract.PATH_REMINDER, REMINDER);
         matcher.addURI(authority, LawyerContract.PATH_CLIENT + "/*", CLIENT_MATCH_PH_NO);
         matcher.addURI(authority, LawyerContract.PATH_CASE + "/#", CASE_DETAILS);
+
         return matcher;
     }
 
@@ -199,6 +200,14 @@ public class LawyerProvider extends ContentProvider {
         }
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
+    }
+
+    private Cursor getClientDetails(Uri uri, String[] projection, String sortOrder) {
+        long clientId = LawyerContract.Client.getClientIdfromUri(uri);
+        String[] selectionArgs = new String[]{String.valueOf(clientId)};
+        String selection = LawyerContract.Client._ID + "=?";
+        return mDbRepository.getReadableDatabase().query(LawyerContract.Client.TABLE_NAME,
+                projection, selection, selectionArgs, null, null, sortOrder);
     }
 
     private Cursor getCaseDetails(Uri uri, String[] projection, String sortOrder) {

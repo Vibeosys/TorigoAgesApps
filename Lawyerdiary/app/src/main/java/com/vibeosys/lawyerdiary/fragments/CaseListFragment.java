@@ -26,7 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by akshay on 12-09-2016.
  */
-public class CaseListFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class CaseListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     private ListView listCases;
     private CaseAdapter caseAdapter;
     private int mPosition = ListView.INVALID_POSITION;

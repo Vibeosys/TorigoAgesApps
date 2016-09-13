@@ -44,6 +44,10 @@ public class LawyerContract {
         public static String getClientPhNoFromUri(Uri uri) {
             return uri.getPathSegments().get(1);
         }
+
+        public static long getClientIdfromUri(Uri uri) {
+            return Long.parseLong(uri.getPathSegments().get(1));
+        }
     }
 
     public static final class Case implements BaseColumns {
