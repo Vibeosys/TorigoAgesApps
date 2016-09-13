@@ -7,10 +7,14 @@
     android:fitsSystemWindows="true"
     tools:context="com.vibeosys.lawyerdiary.activities.CasesActivity">
 
-    <ListView
-        android:id="@+id/listCases"
+
+    <fragment
+        android:id="@+id/fragment_cases"
+        android:name="com.vibeosys.lawyerdiary.fragments.CaseListFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        tools:context="com.example.android.sunshine.app.ForecastFragment"
+        tools:layout="@android:layout/list_content" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

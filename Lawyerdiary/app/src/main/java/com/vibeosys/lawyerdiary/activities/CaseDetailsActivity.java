@@ -10,68 +10,32 @@ import android.widget.TextView;
 
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.fragments.CaseDetailFragment;
 
 public class CaseDetailsActivity extends AppCompatActivity {
-
-    private static final String TAG = CaseDetailsActivity.class.getSimpleName();
-    private long mCaseId;
-    private TextView txtCaseName, txtClientName, txtOppositionName,
-            txtCourtLocation, txtStatus, txtDate, txtKeyPoints, txtFiles, txtDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_case_details);
+        setContentView(R.layout.activity_detail_fragment_container);
 
-        mCaseId = getIntent().getExtras().getLong(LawyerContract.Case._ID);
+        // mCaseId = getIntent().getExtras().getLong(LawyerContract.Case._ID);
+        if (savedInstanceState == null) {
+            // Create the detail fragment and add it to the activity
+            // using a fragment transaction.
 
-        txtCaseName = (TextView) findViewById(R.id.txtCaseName);
-        txtClientName = (TextView) findViewById(R.id.txtClientName);
-        txtOppositionName = (TextView) findViewById(R.id.txtOppositionName);
-        txtCourtLocation = (TextView) findViewById(R.id.txtCourtLocation);
-        txtStatus = (TextView) findViewById(R.id.txtStatus);
-        txtDate = (TextView) findViewById(R.id.txtDate);
-        txtKeyPoints = (TextView) findViewById(R.id.txtKeyPoints);
-        txtFiles = (TextView) findViewById(R.id.txtFiles);
-        txtDescription = (TextView) findViewById(R.id.txtDescription);
-        loadAndDisplayData();
-    }
+            Bundle arguments = new Bundle();
+            arguments.putParcelable(CaseDetailFragment.DETAIL_URI, getIntent().getData());
 
-    private void loadAndDisplayData() {
-        String[] projection = new String[]{LawyerContract.Case.TABLE_NAME + "." + LawyerContract.Case._ID,
-                LawyerContract.Case.CASE_NAME, LawyerContract.Client.NAME, LawyerContract.Case.AGAINST,
-                LawyerContract.Case.COURT_LOCATION, LawyerContract.Case.STATUS,
-                LawyerContract.Case.CASE_DATE, LawyerContract.Case.KEY_POINTS, LawyerContract.Case.DESCRIPTION};
-        Uri uri = LawyerContract.Case.buildCaseUri(mCaseId);
-        Cursor clientCursor = null;
-        try {
-            clientCursor = getContentResolver().query(uri,
-                    projection, null, null, null);
-        } catch (SQLiteException e) {
-            Log.e(TAG, "error in getting case details" + e.toString());
-        }
+            CaseDetailFragment fragment = new CaseDetailFragment();
+            fragment.setArguments(arguments);
 
-        if (clientCursor.moveToFirst()) {
-            String caseName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_NAME));
-            String clientName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.NAME));
-            String oppositionName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.AGAINST));
-            String courtLocation = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.COURT_LOCATION));
-            int status = clientCursor.getInt(clientCursor.getColumnIndex(LawyerContract.Case.STATUS));
-            String date = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
-            String keyPoints = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.KEY_POINTS));
-            // String files = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
-            String desc = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.DESCRIPTION));
-
-            setTitle(caseName + " Details");
-            txtCaseName.setText(caseName);
-            txtClientName.setText(clientName);
-            txtOppositionName.setText(oppositionName);
-            txtCourtLocation.setText(courtLocation);
-            txtStatus.setText(String.valueOf(status));
-            txtDate.setText(date);
-            txtKeyPoints.setText(keyPoints);
-            txtDescription.setText(desc);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.case_detail_container, fragment)
+                    .commit();
         }
 
     }
+
+
 }

@@ -4,17 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:gravity="center"
     tools:context=".activities.NewCaseActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="520dp"
         android:layout_height="match_parent">
 
-
         <LinearLayout
-            android:layout_width="520dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:elevation="6dp"
             android:gravity="center"
             android:orientation="vertical">
