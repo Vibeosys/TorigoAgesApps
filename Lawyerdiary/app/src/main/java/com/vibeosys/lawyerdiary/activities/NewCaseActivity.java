@@ -1,5 +1,7 @@
 package com.vibeosys.lawyerdiary.activities;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -15,8 +17,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SimpleAdapter;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
@@ -26,10 +30,12 @@ import com.vibeosys.lawyerdiary.Adapter.ClientAutoCompleteAdapter;
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.data.Client;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.utils.DateUtils;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class NewCaseActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -40,9 +46,11 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     private Button btnCancel, btnSave;
     private AutoCompleteTextView txtClientName;
 
+    private Calendar mCaseCalender = Calendar.getInstance();
     private ArrayList<Client> clientList = new ArrayList<>();
     private long _clientId = -1;
     private ClientAutoCompleteAdapter clientAdapter;
+    private DateUtils dateUtils = new DateUtils();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +80,68 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         txtKeyPoints = (EditText) findViewById(R.id.txtKeyPoints);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnSave = (Button) findViewById(R.id.btnSave);
-        txtDate.setEnabled(false);
-        txtTime.setEnabled(false);
+        updateLabel();
+        updateTime();
+        //txtTime.setEnabled(false);
         btnCancel.setOnClickListener(this);
         btnSave.setOnClickListener(this);
         txtDate.setOnClickListener(this);
         txtTime.setOnClickListener(this);
         txtClientName.setOnItemClickListener(this);
+        txtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    new DatePickerDialog(NewCaseActivity.this, date, mCaseCalender
+                            .get(Calendar.YEAR), mCaseCalender.get(Calendar.MONTH),
+                            mCaseCalender.get(Calendar.DAY_OF_MONTH)).show();
+                }
+            }
+        });
+
+        txtTime.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    new TimePickerDialog(NewCaseActivity.this, time, mCaseCalender.
+                            get(Calendar.HOUR_OF_DAY), mCaseCalender.get(Calendar.MINUTE), false).show();
+                }
+            }
+        });
         loadClientData();
+    }
+
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            mCaseCalender.set(Calendar.YEAR, year);
+            mCaseCalender.set(Calendar.MONTH, monthOfYear);
+            mCaseCalender.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+        }
+    };
+
+    private void updateLabel() {
+        txtDate.setText(dateUtils.getLocalDateInReadableFormat(mCaseCalender.getTime()));
+        txtTime.requestFocus();
+    }
+
+    TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            mCaseCalender.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            mCaseCalender.set(Calendar.MINUTE, minute);
+            updateTime();
+        }
+    };
+
+    private void updateTime() {
+
+        txtTime.setText(dateUtils.getLocalTimeInReadableFormat(mCaseCalender.getTime()));
+        txtCourtLocation.requestFocus();
     }
 
     private void loadClientData() {
@@ -205,7 +267,8 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
             clientValues.put(LawyerContract.Case.CASE_NAME, caseName);
             clientValues.put(LawyerContract.Case.CLIENT_ID, _clientId);
             clientValues.put(LawyerContract.Case.AGAINST, oppositionName);
-            clientValues.put(LawyerContract.Case.CASE_DATE, strDate);
+            clientValues.put(LawyerContract.Case.CASE_DATE, dateUtils.getLongDate(strDate));
+            clientValues.put(LawyerContract.Case.CASE_TIME, dateUtils.getLongTime(strTime));
             clientValues.put(LawyerContract.Case.COURT_LOCATION, courtLocation);
             clientValues.put(LawyerContract.Case.DESCRIPTION, description);
             clientValues.put(LawyerContract.Case.STATUS, status);

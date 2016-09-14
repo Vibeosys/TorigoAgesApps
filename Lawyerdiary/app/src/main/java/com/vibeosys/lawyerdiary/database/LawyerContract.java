@@ -64,6 +64,7 @@ public class LawyerContract {
         public final static String AGAINST = "against";
         public final static String SITUATION = "situation";
         public final static String CASE_DATE = "case_date";
+        public final static String CASE_TIME = "case_time";
         public final static String COURT_LOCATION = "court_location";
         public final static String DESCRIPTION = "description";
         public final static String STATUS = "status";

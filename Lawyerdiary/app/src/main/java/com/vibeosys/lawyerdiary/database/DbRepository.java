@@ -31,7 +31,8 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Case.CLIENT_ID + " INTEGER NOT NULL," +
             LawyerContract.Case.AGAINST + " TEXT NOT NULL," +
             LawyerContract.Case.SITUATION + " TEXT," +
-            LawyerContract.Case.CASE_DATE + " TEXT," +
+            LawyerContract.Case.CASE_DATE + " INTEGER," +
+            LawyerContract.Case.CASE_TIME + " INTEGER," +
             LawyerContract.Case.COURT_LOCATION + " TEXT NOT NULL," +
             LawyerContract.Case.DESCRIPTION + " TEXT," +
             LawyerContract.Case.STATUS + " INTEGER DEFAULT 0," +
@@ -44,15 +45,15 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Document.DOCUMENT_NAME + " TEXT NOT NULL," +
             LawyerContract.Document.FILE_PATH + " TEXT NOT NULL UNIQUE," +
             LawyerContract.Document.CASE_ID + " INTEGER NOT NULL," +
-            LawyerContract.Document.LAST_UPDATED_DATE + " TEXT NOT NULL," +
+            LawyerContract.Document.LAST_UPDATED_DATE + " INTEGER NOT NULL," +
             "FOREIGN KEY(" + LawyerContract.Document.CASE_ID + ") REFERENCES " +
             LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";
 
     private String CREATE_REMINDER_TABLE = "CREATE TABLE " + LawyerContract.Reminder.TABLE_NAME + " (" +
             LawyerContract.Reminder._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LawyerContract.Reminder.REMINDER_NAME + " TEXT NOT NULL," +
-            LawyerContract.Reminder.START_DATE_TIME + " TEXT NOT NULL," +
-            LawyerContract.Reminder.END_DATE_TIME + " TEXT NOT NULL," +
+            LawyerContract.Reminder.START_DATE_TIME + " INTEGER NOT NULL," +
+            LawyerContract.Reminder.END_DATE_TIME + " INTEGER NOT NULL," +
             LawyerContract.Reminder.LOCATION + " TEXT NOT NULL," +
             LawyerContract.Reminder.NOTE + " TEXT," +
             LawyerContract.Reminder.COLOUR + " TEXT NOT NULL," +
