@@ -20,6 +20,7 @@ import android.widget.CursorAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SimpleAdapter;
+import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -42,7 +43,9 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     private static final String TAG = NewCaseActivity.class.getSimpleName();
     private InterstitialAd mInterstitialAd;
     private EditText txtCaseName, txtOppositionName, txtDate, txtTime, txtCourtLocation,
-            txtDescription, txtStatus, txtKeyPoints;
+            txtDescription, txtKeyPoints;
+
+    Switch swhStatus;
     private Button btnCancel, btnSave;
     private AutoCompleteTextView txtClientName;
 
@@ -76,13 +79,15 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         txtTime = (EditText) findViewById(R.id.txtTime);
         txtCourtLocation = (EditText) findViewById(R.id.txtCourtLocation);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
-        txtStatus = (EditText) findViewById(R.id.txtStatus);
+        swhStatus = (Switch) findViewById(R.id.swhStatus);
         txtKeyPoints = (EditText) findViewById(R.id.txtKeyPoints);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnSave = (Button) findViewById(R.id.btnSave);
         updateLabel();
         updateTime();
+        txtCaseName.requestFocus();
         //txtTime.setEnabled(false);
+        swhStatus.setChecked(true);
         btnCancel.setOnClickListener(this);
         btnSave.setOnClickListener(this);
         txtDate.setOnClickListener(this);
@@ -215,7 +220,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         String strTime = txtTime.getText().toString();
         String courtLocation = txtCourtLocation.getText().toString();
         String description = txtDescription.getText().toString();
-        String status = txtStatus.getText().toString();
+        boolean status = swhStatus.isChecked();
         String keyPoints = txtKeyPoints.getText().toString();
 
 
@@ -256,13 +261,10 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
             if (TextUtils.isEmpty(description)) {
                 description = null;
             }
-            if (TextUtils.isEmpty(status)) {
-                status = null;
-            }
             if (TextUtils.isEmpty(keyPoints)) {
                 keyPoints = null;
             }
-
+            int statusValue = status == true ? 1 : 0;
             ContentValues clientValues = new ContentValues();
             clientValues.put(LawyerContract.Case.CASE_NAME, caseName);
             clientValues.put(LawyerContract.Case.CLIENT_ID, _clientId);
@@ -271,7 +273,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
             clientValues.put(LawyerContract.Case.CASE_TIME, dateUtils.getLongTime(strTime));
             clientValues.put(LawyerContract.Case.COURT_LOCATION, courtLocation);
             clientValues.put(LawyerContract.Case.DESCRIPTION, description);
-            clientValues.put(LawyerContract.Case.STATUS, status);
+            clientValues.put(LawyerContract.Case.STATUS, String.valueOf(statusValue));
             clientValues.put(LawyerContract.Case.KEY_POINTS, keyPoints);
             try {
                 Uri insertCase = getContentResolver().insert(LawyerContract.Case.CONTENT_URI, clientValues);

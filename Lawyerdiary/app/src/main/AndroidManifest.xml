@@ -64,7 +64,9 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".activities.ClientDetailsActivity"></activity>
+        <activity
+            android:name=".activities.ClientDetailsActivity"
+            android:parentActivityName=".activities.ClientActivity"></activity>
     </application>
 
 </manifest>

@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.utils.DateUtils;
+
+import java.util.Date;
 
 /**
  * Created by akshay on 13-09-2016.
@@ -25,6 +28,7 @@ public class CaseDetailFragment extends BaseFragment {
     private TextView txtCaseName, txtClientName, txtOppositionName,
             txtCourtLocation, txtStatus, txtDate, txtKeyPoints, txtFiles, txtDescription;
     private Uri mUri;
+    private DateUtils dateUtils = new DateUtils();
 
     @Nullable
     @Override
@@ -56,7 +60,8 @@ public class CaseDetailFragment extends BaseFragment {
         String[] projection = new String[]{LawyerContract.Case.TABLE_NAME + "." + LawyerContract.Case._ID,
                 LawyerContract.Case.CASE_NAME, LawyerContract.Client.NAME, LawyerContract.Case.AGAINST,
                 LawyerContract.Case.COURT_LOCATION, LawyerContract.Case.STATUS,
-                LawyerContract.Case.CASE_DATE, LawyerContract.Case.KEY_POINTS, LawyerContract.Case.DESCRIPTION};
+                LawyerContract.Case.CASE_DATE, LawyerContract.Case.KEY_POINTS,
+                LawyerContract.Case.DESCRIPTION, LawyerContract.Case.CASE_TIME};
         Cursor caseCursor = null;
         if (mUri != null) {
             try {
@@ -71,18 +76,20 @@ public class CaseDetailFragment extends BaseFragment {
                 String oppositionName = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.AGAINST));
                 String courtLocation = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.COURT_LOCATION));
                 int status = caseCursor.getInt(caseCursor.getColumnIndex(LawyerContract.Case.STATUS));
-                String date = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
+                long date = caseCursor.getLong(caseCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
+                long time = caseCursor.getLong(caseCursor.getColumnIndex(LawyerContract.Case.CASE_TIME));
                 String keyPoints = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.KEY_POINTS));
                 // String files = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Case.CASE_DATE));
                 String desc = caseCursor.getString(caseCursor.getColumnIndex(LawyerContract.Case.DESCRIPTION));
-
+                String strStatus = status == 1 ? "Active" : "Inactive";
                 getActivity().setTitle(caseName + " Details");
                 txtCaseName.setText(caseName);
                 txtClientName.setText(clientName);
                 txtOppositionName.setText(oppositionName);
                 txtCourtLocation.setText(courtLocation);
-                txtStatus.setText(String.valueOf(status));
-                txtDate.setText(date);
+                txtStatus.setText(strStatus);
+                txtDate.setText(dateUtils.getLocalDateInReadableFormat(new Date(date)) + " "
+                        + dateUtils.getLocalTimeInReadableFormat(new Date(time)));
                 txtKeyPoints.setText(keyPoints);
                 txtDescription.setText(desc);
             }
