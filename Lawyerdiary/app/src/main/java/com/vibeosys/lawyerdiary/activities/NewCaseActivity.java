@@ -1,5 +1,6 @@
 package com.vibeosys.lawyerdiary.activities;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentUris;
@@ -9,20 +10,20 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.SimpleAdapter;
 import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -38,13 +39,11 @@ import com.vibeosys.lawyerdiary.utils.AppDataConstant;
 import com.vibeosys.lawyerdiary.utils.DateUtils;
 
 import org.apache.commons.io.FileUtils;
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import droidninja.filepicker.FilePickerBuilder;
 import droidninja.filepicker.FilePickerConst;
@@ -65,6 +64,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     private ClientAutoCompleteAdapter clientAdapter;
     private DateUtils dateUtils = new DateUtils();
     private ArrayList<String> filePaths = new ArrayList<String>();
+    private int SELECT_FILES = 19;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +128,10 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         txtFiles.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                showFileSelectionDialog();
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
+                    requestGrantPermission();
+                else
+                    showFileSelectionDialog();
             }
         });
         loadClientData();
@@ -322,6 +325,28 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
                 .setSelectedFiles(filePaths)
                 .setActivityTheme(R.style.AppTheme)
                 .pickDocument(this);
+    }
+
+    private void requestGrantPermission() {
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.MEDIA_CONTENT_CONTROL,
+                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                SELECT_FILES);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == SELECT_FILES && grantResults[1] == 0) {
+            showFileSelectionDialog();
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "User denied permission", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
     }
 
     @Override
