@@ -46,6 +46,7 @@ public class CalenderViewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent iNewEvent = new Intent(getApplicationContext(), NewEventActivity.class);
                 startActivity(iNewEvent);
+                finish();
             }
         });
         mWeekView = (WeekView) findViewById(R.id.weekView);

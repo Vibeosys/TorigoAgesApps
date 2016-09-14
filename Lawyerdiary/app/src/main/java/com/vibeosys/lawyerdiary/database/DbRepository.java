@@ -57,9 +57,10 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Reminder.LOCATION + " TEXT NOT NULL," +
             LawyerContract.Reminder.NOTE + " TEXT," +
             LawyerContract.Reminder.COLOUR + " TEXT NOT NULL," +
-            LawyerContract.Reminder.CASE_ID + " INTEGER NOT NULL," +
+            LawyerContract.Reminder.CASE_ID + " INTEGER)" ;
+           /* +
             "FOREIGN KEY(" + LawyerContract.Reminder.CASE_ID + ") REFERENCES " +
-            LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";
+            LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";*/
 
     public DbRepository(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
