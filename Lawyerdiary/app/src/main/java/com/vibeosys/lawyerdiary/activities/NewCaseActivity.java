@@ -4,9 +4,12 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -31,19 +34,26 @@ import com.vibeosys.lawyerdiary.Adapter.ClientAutoCompleteAdapter;
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.data.Client;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.utils.AppDataConstant;
 import com.vibeosys.lawyerdiary.utils.DateUtils;
 
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Text;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import droidninja.filepicker.FilePickerBuilder;
+import droidninja.filepicker.FilePickerConst;
 
 public class NewCaseActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private static final String TAG = NewCaseActivity.class.getSimpleName();
     private InterstitialAd mInterstitialAd;
     private EditText txtCaseName, txtOppositionName, txtDate, txtTime, txtCourtLocation,
-            txtDescription, txtKeyPoints;
+            txtDescription, txtKeyPoints, txtFiles;
 
     Switch swhStatus;
     private Button btnCancel, btnSave;
@@ -54,6 +64,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     private long _clientId = -1;
     private ClientAutoCompleteAdapter clientAdapter;
     private DateUtils dateUtils = new DateUtils();
+    private ArrayList<String> filePaths = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +92,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         swhStatus = (Switch) findViewById(R.id.swhStatus);
         txtKeyPoints = (EditText) findViewById(R.id.txtKeyPoints);
+        txtFiles = (EditText) findViewById(R.id.txtFiles);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnSave = (Button) findViewById(R.id.btnSave);
         updateLabel();
@@ -113,8 +125,15 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
                 }
             }
         });
+        txtFiles.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                showFileSelectionDialog();
+            }
+        });
         loadClientData();
     }
+
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -182,9 +201,15 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
             case R.id.btnSave:
                 long _caseId = saveCaseData();
                 if (_caseId > 0) {
-                    Toast.makeText(getApplicationContext(),
-                            getResources().getString(R.string.new_case_added),
-                            Toast.LENGTH_SHORT).show();
+                    if (filePaths.size() != 0) {
+                        AsyncSaveFiles saveFile = new AsyncSaveFiles();
+                        saveFile.execute(_caseId);
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                getResources().getString(R.string.new_case_added),
+                                Toast.LENGTH_SHORT).show();
+                    }
+
                     finish();
                 } else if (_caseId == 0) {
                 } else {
@@ -281,7 +306,6 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
             } catch (SQLException e) {
                 Log.e(TAG, "Case is not added " + e.toString());
             }
-
         }
         return _caseId;
     }
@@ -290,5 +314,84 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Client client = (Client) txtClientName.getAdapter().getItem(position);
         _clientId = client.get_Id();
+    }
+
+    //Custom File picker
+    private void showFileSelectionDialog() {
+        FilePickerBuilder.getInstance().setMaxCount(10)
+                .setSelectedFiles(filePaths)
+                .setActivityTheme(R.style.AppTheme)
+                .pickDocument(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case FilePickerConst.REQUEST_CODE:
+                if (resultCode == RESULT_OK && data != null) {
+                    filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_PHOTOS);
+                    //use them anywhere
+                    txtFiles.setText(filePaths.toString());
+                }
+        }
+    }
+
+    private class AsyncSaveFiles extends AsyncTask<Long, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Long... params) {
+            long caseId = params[0];
+
+            for (String strFilePath : filePaths) {
+                long documentId = 0;
+                boolean fileFlag = false;
+                String sourcePath = strFilePath;
+                File sourceFile = new File(sourcePath);
+                String fileName = Uri.parse(strFilePath).getLastPathSegment();
+                String destinationPath = Environment.getExternalStorageDirectory().getAbsolutePath() +
+                        AppDataConstant.DIR_PATH + fileName;
+                File destination = new File(destinationPath);
+                try {
+                    FileUtils.copyFile(sourceFile, destination);
+                    fileFlag = true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                if (fileFlag) {
+                    ContentValues documentValues = new ContentValues();
+                    documentValues.put(LawyerContract.Document.DOCUMENT_NAME, fileName);
+                    documentValues.put(LawyerContract.Document.FILE_PATH, destinationPath);
+                    documentValues.put(LawyerContract.Document.CASE_ID, caseId);
+                    documentValues.put(LawyerContract.Document.LAST_UPDATED_DATE, mCaseCalender.getTime().getTime());
+
+                    try {
+                        Uri insertCase = getContentResolver().insert(LawyerContract.Document.CONTENT_URI, documentValues);
+                        documentId = ContentUris.parseId(insertCase);
+                    } catch (SQLException e) {
+                        Log.e(TAG, "Document is not added " + e.toString());
+                    }
+                }
+                if (documentId > 0)
+                    Log.d(TAG, "Document added successfully" + documentId);
+                else
+                    Log.e(TAG, "Document not added" + documentId);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aLong) {
+            super.onPostExecute(aLong);
+            Toast.makeText(getApplicationContext(),
+                    getResources().getString(R.string.new_case_added),
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }
