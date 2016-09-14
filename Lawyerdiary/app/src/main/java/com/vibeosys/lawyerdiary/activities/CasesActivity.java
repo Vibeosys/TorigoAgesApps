@@ -58,13 +58,13 @@ public class CasesActivity extends BaseActivity implements CaseListFragment.Call
     }
 
     @Override
-    public void onItemSelected(Uri selectedCaseUri) {
+    public void onItemSelected(long caseId) {
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle args = new Bundle();
-            args.putParcelable(CaseDetailFragment.DETAIL_URI, selectedCaseUri);
+            args.putLong(CaseDetailFragment.DETAIL_URI, caseId);
 
             CaseDetailFragment fragment = new CaseDetailFragment();
             fragment.setArguments(args);
@@ -73,8 +73,8 @@ public class CasesActivity extends BaseActivity implements CaseListFragment.Call
                     .replace(R.id.case_detail_container, fragment, DETAILFRAGMENT_TAG)
                     .commit();
         } else {
-            Intent intent = new Intent(this, CaseDetailsActivity.class)
-                    .setData(selectedCaseUri);
+            Intent intent = new Intent(this, CaseDetailsActivity.class);
+            intent.putExtra(CaseDetailFragment.DETAIL_URI, caseId);
             startActivity(intent);
         }
     }

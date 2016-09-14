@@ -82,12 +82,12 @@ public class CaseListFragment extends BaseFragment implements AdapterView.OnItem
         CaseData caseData = (CaseData) caseAdapter.getItem(position);
         long caseId = caseData.get_Id();
         ((CallBackItem) getActivity())
-                .onItemSelected(LawyerContract.Case.buildCaseUri(caseId));
+                .onItemSelected(caseId);
         mPosition = position;
     }
 
     public interface CallBackItem {
-        public void onItemSelected(Uri selectedCaseUri);
+        public void onItemSelected(long selectedCaseId);
     }
 
     @Override

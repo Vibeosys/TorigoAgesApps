@@ -330,14 +330,23 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         switch (requestCode) {
             case FilePickerConst.REQUEST_CODE:
                 if (resultCode == RESULT_OK && data != null) {
+                    String fileNames = "";
                     filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_PHOTOS);
                     //use them anywhere
-                    txtFiles.setText(filePaths.toString());
+                    for (String strPath : filePaths) {
+                        String fileName = Uri.parse(strPath).getLastPathSegment();
+                        if (TextUtils.isEmpty(fileNames))
+                            fileNames = fileName;
+                        else
+                            fileNames = fileNames + "\n" + fileName;
+                    }
+                    txtFiles.setText(fileNames);
                 }
         }
     }
 
     private class AsyncSaveFiles extends AsyncTask<Long, Void, Void> {
+
 
         @Override
         protected void onPreExecute() {
@@ -355,7 +364,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
                 File sourceFile = new File(sourcePath);
                 String fileName = Uri.parse(strFilePath).getLastPathSegment();
                 String destinationPath = Environment.getExternalStorageDirectory().getAbsolutePath() +
-                        AppDataConstant.DIR_PATH + fileName;
+                        AppDataConstant.DIR_PATH + caseId + "/" + fileName;
                 File destination = new File(destinationPath);
                 try {
                     FileUtils.copyFile(sourceFile, destination);
@@ -378,9 +387,9 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
                         Log.e(TAG, "Document is not added " + e.toString());
                     }
                 }
-                if (documentId > 0)
+                if (documentId > 0) {
                     Log.d(TAG, "Document added successfully" + documentId);
-                else
+                } else
                     Log.e(TAG, "Document not added" + documentId);
             }
             return null;
@@ -392,6 +401,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
             Toast.makeText(getApplicationContext(),
                     getResources().getString(R.string.new_case_added),
                     Toast.LENGTH_SHORT).show();
+
         }
     }
 }

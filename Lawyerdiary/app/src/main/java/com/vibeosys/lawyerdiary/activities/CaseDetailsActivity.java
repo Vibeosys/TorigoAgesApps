@@ -25,7 +25,8 @@ public class CaseDetailsActivity extends AppCompatActivity {
             // using a fragment transaction.
 
             Bundle arguments = new Bundle();
-            arguments.putParcelable(CaseDetailFragment.DETAIL_URI, getIntent().getData());
+            arguments.putLong(CaseDetailFragment.DETAIL_URI,
+                    getIntent().getExtras().getLong(CaseDetailFragment.DETAIL_URI));
 
             CaseDetailFragment fragment = new CaseDetailFragment();
             fragment.setArguments(arguments);

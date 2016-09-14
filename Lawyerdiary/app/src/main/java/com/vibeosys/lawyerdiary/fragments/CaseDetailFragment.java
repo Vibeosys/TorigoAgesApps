@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class CaseDetailFragment extends BaseFragment {
             txtCourtLocation, txtStatus, txtDate, txtKeyPoints, txtFiles, txtDescription;
     private Uri mUri;
     private DateUtils dateUtils = new DateUtils();
+    private long _caseId;
 
     @Nullable
     @Override
@@ -37,7 +39,8 @@ public class CaseDetailFragment extends BaseFragment {
 
         Bundle arguments = getArguments();
         if (arguments != null) {
-            mUri = arguments.getParcelable(CaseDetailFragment.DETAIL_URI);
+            _caseId = arguments.getLong(CaseDetailFragment.DETAIL_URI);
+            mUri = LawyerContract.Case.buildCaseUri(_caseId);
             txtCaseName = (TextView) rootView.findViewById(R.id.txtCaseName);
             txtClientName = (TextView) rootView.findViewById(R.id.txtClientName);
             txtOppositionName = (TextView) rootView.findViewById(R.id.txtOppositionName);
@@ -94,5 +97,40 @@ public class CaseDetailFragment extends BaseFragment {
                 txtDescription.setText(desc);
             }
         }
+
+        loadFileData();
+    }
+
+    private void loadFileData() {
+        String[] projection = new String[]{LawyerContract.Document._ID, LawyerContract.Document.DOCUMENT_NAME,
+                LawyerContract.Document.FILE_PATH};
+        String selection = LawyerContract.Document.CASE_ID + "=?";
+        String[] selectionArgs = new String[]{String.valueOf(_caseId)};
+        Cursor documentCursor = null;
+        String allFiles = "";
+        try {
+            documentCursor = getContext().getContentResolver().query(LawyerContract.Document.CONTENT_URI,
+                    projection, selection, selectionArgs, null);
+        } catch (SQLiteException e) {
+            Log.e(TAG, "error in getting document details" + e.toString());
+        }
+        if (documentCursor.getCount() > 0) {
+            documentCursor.moveToFirst();
+
+            do {
+                String fileName = documentCursor.getString(documentCursor.
+                        getColumnIndex(LawyerContract.Document.DOCUMENT_NAME));
+                String _id = documentCursor.
+                        getString(documentCursor.getColumnIndex(LawyerContract.Document._ID));
+                String filePath = documentCursor.
+                        getString(documentCursor.getColumnIndex(LawyerContract.Document.FILE_PATH));
+                if (TextUtils.isEmpty(allFiles))
+                    allFiles = fileName;
+                else
+                    allFiles = allFiles + "\n" + fileName;
+            } while (documentCursor.moveToNext());
+        }
+
+        txtFiles.setText(allFiles);
     }
 }
