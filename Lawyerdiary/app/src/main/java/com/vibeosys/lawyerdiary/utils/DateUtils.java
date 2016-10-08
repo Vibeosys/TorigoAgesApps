@@ -17,6 +17,7 @@ public class DateUtils {
     final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     final SimpleDateFormat dateReadFormat = new SimpleDateFormat("dd MMM yyyy");
     final SimpleDateFormat dateTimeReadFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd MMM yyyy hh:mm aa");
     final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
     final SimpleDateFormat timeReadFormat = new SimpleDateFormat("hh:mm aa");
     final SimpleDateFormat SqlFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -44,6 +45,9 @@ public class DateUtils {
 
     public String getDateTimeReadFormat(java.util.Date date) {
         return dateTimeReadFormat.format(date);
+    }
+    public String getDateTimeFormat(java.util.Date date) {
+        return dateTimeFormat.format(date);
     }
 
     public String getLocalTimeInReadableFormat(java.util.Date date) {

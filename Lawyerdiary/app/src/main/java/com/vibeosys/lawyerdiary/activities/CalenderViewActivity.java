@@ -62,6 +62,7 @@ public class CalenderViewActivity extends AppCompatActivity {
             @Override
             public void onEventClick(WeekViewEvent event, RectF eventRect) {
                 Intent iSchedule = new Intent(getApplicationContext(), EventDetailsActivity.class);
+                iSchedule.putExtra(EventDetailsActivity.EVENT_ID, event.getId());
                 startActivity(iSchedule);
             }
         });
@@ -87,20 +88,20 @@ public class CalenderViewActivity extends AppCompatActivity {
 
     private List<WeekViewEvent> retrieveData() {
         List<WeekViewEvent> events = new ArrayList<>();
-        Cursor clientCursor = getApplicationContext().getContentResolver().query(LawyerContract.Reminder.CONTENT_URI,
+        Cursor eventCursor = getApplicationContext().getContentResolver().query(LawyerContract.Reminder.CONTENT_URI,
                 new String[]{LawyerContract.Reminder._ID, LawyerContract.Reminder.REMINDER_NAME,
                         LawyerContract.Reminder.START_DATE_TIME, LawyerContract.Reminder.END_DATE_TIME,
                         LawyerContract.Reminder.LOCATION, LawyerContract.Reminder.NOTE, LawyerContract.Reminder.COLOUR
                 }, null, null, null);
 
-        if (clientCursor.getCount() > 0) {
-            clientCursor.moveToFirst();
+        if (eventCursor.getCount() > 0) {
+            eventCursor.moveToFirst();
             WeekViewEvent event = new WeekViewEvent();
             do {
-                long eventId = clientCursor.getLong(clientCursor.getColumnIndex(LawyerContract.Reminder._ID));
-                String name = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Reminder.REMINDER_NAME));
-                String strStartTime = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Reminder.START_DATE_TIME));
-                String strEndTime = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Reminder.END_DATE_TIME));
+                long eventId = eventCursor.getLong(eventCursor.getColumnIndex(LawyerContract.Reminder._ID));
+                String name = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.REMINDER_NAME));
+                String strStartTime = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.START_DATE_TIME));
+                String strEndTime = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.END_DATE_TIME));
                 Date startDate = dateUtils.getFormattedDate(strStartTime);
                 Date endDate = dateUtils.getFormattedDate(strEndTime);
                 Calendar startCalender = Calendar.getInstance();
@@ -111,7 +112,7 @@ public class CalenderViewActivity extends AppCompatActivity {
                 event.setColor(getResources().getColor(R.color.event_color_01));
                 events.add(event);
             }
-            while (clientCursor.moveToNext());
+            while (eventCursor.moveToNext());
         }
         return events;
     }

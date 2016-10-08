@@ -120,4 +120,6 @@
     <string name="str_new_event_added">New event is added</string>
     <string name="str_err_date">Please enter date</string>
     <string name="str_err_time">Please enter time</string>
+    <string name="str_not_defined_location">Location is not given</string>
+    <string name="str_not_defined_note">Note is not given</string>
 </resources>
