@@ -36,7 +36,7 @@ import java.util.Locale;
 public class NewEventActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText mReminderName,mLocation, mNote, mDefaultColour,mStartDatePicker,mStartTimePicker
-            ,mEndDatePicker,mEndTimePicker;
+            ,mEndDatePicker,mEndTimePicker,mCaseIdEditText;
     private String mReminderStr;
     private Button mSaveBtn, mCancelBtn;
     /*private TextView mStartDatePicker;*/
@@ -59,6 +59,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         mStartTimePicker = (EditText) findViewById(R.id.timeMeetingStart);
         mEndDatePicker = (EditText) findViewById(R.id.dateEndMeeting);
         mEndTimePicker = (EditText) findViewById(R.id.timeMeetingEnd);
+        mCaseIdEditText =(EditText) findViewById(R.id.CaseId);
         myCalendar = Calendar.getInstance();
 
         mSaveBtn.setOnClickListener(NewEventActivity.this);
@@ -139,6 +140,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
 
                             mcurrentTime.set(Calendar.HOUR_OF_DAY,selectedHour);
                             mcurrentTime.set(Calendar.MINUTE,selectedMinute);
+                            int val= selectedHour;
                             if(selectedHour > 12)
                             {   int timeIn12 = selectedHour-12;
                                 mEndTimePicker.setText( timeIn12 + ":" + selectedMinute+" PM");
@@ -216,7 +218,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
                     String EndDateTime = mEndDatePicker.getText().toString().trim()+
                             "-"+mEndTimePicker.getText().toString().trim();
                     String Colour = mDefaultColour.getText().toString().trim();
-                    String CaseId = "1";
+                    String CaseId = mCaseIdEditText.getText().toString().trim();
                     onClickAddEvent(ReminderStr,LocationStr,NoteStr,StartDateTime,EndDateTime,Colour,CaseId);
                 }
                 break;
@@ -301,13 +303,16 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         String finalUr = LawyerContract.BASE_CONTENT_URI +"/"+LawyerContract.PATH_REMINDER;
         Uri uriFirst = Uri.parse(finalUr);
         Uri uri = getContentResolver().insert(uriFirst, contentValues);
+        Log.d("String","String");
+        Log.d("String","String");
+
     }
 
     public void onClickRetriverData() {
 
         String URL = LawyerContract.BASE_CONTENT_URI + "/"+LawyerContract.PATH_REMINDER;
         Uri uriFetch = Uri.parse(URL);
-        Cursor cursor = getContentResolver().query(uriFetch, null, null, null, "name");
+        Cursor cursor = getContentResolver().query(uriFetch, null, null, null,"name" );
         if (cursor.moveToFirst()) {
             do {
 

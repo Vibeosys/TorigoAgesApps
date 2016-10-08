@@ -1,7 +1,9 @@
 package com.vibeosys.lawyerdiary.activities;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.RectF;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +15,7 @@ import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 import com.vibeosys.lawyerdiary.R;
+import com.vibeosys.lawyerdiary.database.LawyerContract;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +43,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calender_view);
         setTitle("Calendar");
 
+        onClickRetriverData();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,6 +189,22 @@ public class CalenderViewActivity extends AppCompatActivity {
 
     protected String getEventTitle(Calendar time) {
         return String.format("On %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));
+    }
+
+    public void onClickRetriverData() {
+
+        String URL = LawyerContract.BASE_CONTENT_URI + "/"+LawyerContract.PATH_REMINDER;
+        Uri uriFetch = Uri.parse(URL);
+        Cursor cursor = getContentResolver().query(uriFetch, null, null, null, LawyerContract.Reminder.START_DATE_TIME+" ASC");
+        if (cursor.moveToFirst()) {
+            do {
+
+                String Name = cursor.getString(cursor.getColumnIndex("name"));
+                String startDate = cursor.getString(cursor.getColumnIndex("start_date_time"));
+                String endDate = cursor.getString(cursor.getColumnIndex("end_date_time"));
+                String Colour = cursor.getString(cursor.getColumnIndex("location"));
+            } while (cursor.moveToNext());
+        }
     }
 }
 
