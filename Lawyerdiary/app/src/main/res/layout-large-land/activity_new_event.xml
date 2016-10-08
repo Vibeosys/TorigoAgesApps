@@ -44,7 +44,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="16dp"
                         android:background="@android:color/white"
-                        android:hint="Remainder Name" />
+                        android:hint="Reminder Name" />
                 </LinearLayout>
 
                 <View

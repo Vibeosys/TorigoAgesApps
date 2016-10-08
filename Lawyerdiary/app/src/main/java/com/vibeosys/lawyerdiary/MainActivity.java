@@ -1,10 +1,12 @@
 package com.vibeosys.lawyerdiary;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,24 +17,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.AdListener;
+import com.vibeosys.lawyerdiary.Adapter.NewsFeedAdapter;
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
 import com.vibeosys.lawyerdiary.activities.ClientActivity;
 import com.vibeosys.lawyerdiary.activities.LoginActivity;
 import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
+import com.vibeosys.lawyerdiary.data.NewsFeedData;
+import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.utils.DateUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private AdView mAdView;
+    private GridView gridNews;
+    private NewsFeedAdapter adapter;
+    private DateUtils dateUtils = new DateUtils();
+    Calendar todayCalender = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         mAdView.loadAd(adRequest);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        gridNews = (GridView) findViewById(R.id.newsFeedGrid);
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,14 +69,15 @@ public class MainActivity extends AppCompatActivity
         });*/
         String android_id = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
         String deviceId = md5(android_id).toUpperCase();
-        Log.i("device id=",deviceId);
+        Log.i("device id=", deviceId);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        adapter = new NewsFeedAdapter(retrieveData(), getApplicationContext());
+        gridNews.setAdapter(adapter);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -133,8 +150,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onPause() {
-        if(mAdView!=null)
-        {
+        if (mAdView != null) {
             mAdView.pause();
         }
         super.onPause();
@@ -143,8 +159,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
 
-        if(mAdView!=null)
-        {
+        if (mAdView != null) {
             mAdView.resume();
         }
         super.onResume();
@@ -152,12 +167,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-        if(mAdView!=null)
-        {
+        if (mAdView != null) {
             mAdView.destroy();
         }
         super.onDestroy();
     }
+
     public String md5(String s) {
         try {
             // Create MD5 Hash
@@ -167,7 +182,7 @@ public class MainActivity extends AppCompatActivity
 
             // Create Hex String
             StringBuffer hexString = new StringBuffer();
-            for (int i=0; i<messageDigest.length; i++)
+            for (int i = 0; i < messageDigest.length; i++)
                 hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
             return hexString.toString();
 
@@ -177,4 +192,44 @@ public class MainActivity extends AppCompatActivity
         return "";
     }
 
+    private ArrayList<NewsFeedData> retrieveData() {
+        ArrayList<NewsFeedData> events = new ArrayList<>();
+        Cursor eventCursor = getApplicationContext().getContentResolver().query(LawyerContract.Reminder.CONTENT_URI,
+                new String[]{LawyerContract.Reminder._ID, LawyerContract.Reminder.REMINDER_NAME,
+                        LawyerContract.Reminder.START_DATE_TIME, LawyerContract.Reminder.END_DATE_TIME,
+                        LawyerContract.Reminder.LOCATION, LawyerContract.Reminder.NOTE, LawyerContract.Reminder.COLOUR
+                }, null, null, null);
+
+        if (eventCursor.getCount() > 0) {
+            eventCursor.moveToFirst();
+            do {
+                long eventId = eventCursor.getLong(eventCursor.getColumnIndex(LawyerContract.Reminder._ID));
+                String name = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.REMINDER_NAME));
+                String strStartTime = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.START_DATE_TIME));
+                String strEndTime = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.END_DATE_TIME));
+                Date startDate = dateUtils.getFormattedDate(strStartTime);
+                Date endDate = dateUtils.getFormattedDate(strEndTime);
+                String location = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.LOCATION));
+                String note = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.NOTE));
+                if (dateUtils.getLocalDateInFormat(startDate).equals(dateUtils.getLocalDateInFormat(todayCalender.getTime()))) {
+                    String desc = "Start on " + dateUtils.getLocalTimeInReadableFormat(startDate) + " to " + dateUtils.getLocalTimeInReadableFormat(endDate);
+                    if (!TextUtils.isEmpty(location)) {
+                        desc = desc + "\nlocation will be " + location;
+                    } else {
+                        desc = desc + "\n";
+                    }
+                    if (!TextUtils.isEmpty(note)) {
+                        desc = desc + "\nNote - " + note;
+                    } else {
+                        desc = desc + "\n";
+                    }
+                    NewsFeedData event = new NewsFeedData(eventId, name, desc);
+                    events.add(event);
+                }
+
+            }
+            while (eventCursor.moveToNext());
+        }
+        return events;
+    }
 }
