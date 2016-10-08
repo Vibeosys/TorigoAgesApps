@@ -16,6 +16,7 @@ public class DateUtils {
     private static final String TAG = DateUtils.class.getSimpleName();
     final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     final SimpleDateFormat dateReadFormat = new SimpleDateFormat("dd MMM yyyy");
+    final SimpleDateFormat dateTimeReadFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
     final SimpleDateFormat timeReadFormat = new SimpleDateFormat("hh:mm aa");
     final SimpleDateFormat SqlFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -39,6 +40,10 @@ public class DateUtils {
 
     public String getLocalDateInReadableFormat(java.util.Date date) {
         return dateReadFormat.format(date);
+    }
+
+    public String getDateTimeReadFormat(java.util.Date date) {
+        return dateTimeReadFormat.format(date);
     }
 
     public String getLocalTimeInReadableFormat(java.util.Date date) {
@@ -79,10 +84,9 @@ public class DateUtils {
     }
 
     public java.util.Date getFormattedDate(String strDate) {
-        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
         java.util.Date date = null;
         try {
-            date = df2.parse(strDate);
+            date = dateTimeReadFormat.parse(strDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -106,6 +110,7 @@ public class DateUtils {
             return date.getTime();
         else return 0;
     }
+
     public long getLongDate(String time) {
         java.util.Date date = null;
         try {

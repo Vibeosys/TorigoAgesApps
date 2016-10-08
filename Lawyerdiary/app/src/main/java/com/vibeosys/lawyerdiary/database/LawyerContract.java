@@ -32,6 +32,8 @@ public class LawyerContract {
         public final static String EMAIL = "email";
         public final static String PH_NUMBER = "phone_number";
         public final static String ADDRESS = "address";
+        public final static String IMG = "client_image";
+        public final static String DATE_TIME = "added_date";
 
         public static Uri buildClientUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);

@@ -113,7 +113,11 @@
     <string name="str_clients">Clients</string>
 
     <!-- New Event -->
-    <string name="str_reminder_name">Please enter name</string>
+    <string name="str_reminder_name">Please enter reminder name</string>
     <string name="str_location">Please enter location</string>
     <string name="str_note">Please enter note</string>
+    <string name="str_click_to_time">Click here to add time</string>
+    <string name="str_new_event_added">New event is added</string>
+    <string name="str_err_date">Please enter date</string>
+    <string name="str_err_time">Please enter time</string>
 </resources>

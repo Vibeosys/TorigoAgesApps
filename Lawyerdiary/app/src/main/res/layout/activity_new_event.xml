@@ -54,125 +54,112 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:layout_marginLeft="16dp"
-                    android:orientation="vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/ic_access_time_black_24dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:layout_marginBottom="12dp"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:src="@drawable/ic_access_time_black_24dp" />
-
-                       <!-- <Switch
+                        <Switch
                             android:id="@+id/switch1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="16dp"
-                            android:text="All-Day" />-->
-                    </LinearLayout>
+                            android:layout_marginTop="4dp"
+                            android:text="All-Day" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="4dp"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/dateStartMeeting"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Click here to select date"
-                            android:textColor="@android:color/black"
-                            android:background="@android:color/white"
-                            android:textSize="15sp" />
-
-
-                        <!--<TextView
-                            android:id="@+id/dateStartMeeting"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Click here to select date"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp" />-->
-                        <EditText
-                            android:id="@+id/timeMeetingStart"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:hint="4:30pm"
-                            android:background="@android:color/white"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp" />
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
 
-                        <!--<TextView
-                            android:id="@+id/timeMeetingStart"
+                            <EditText
+                                android:id="@+id/dateStartMeeting"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                android:hint="Click here to select date"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+
+                            <EditText
+                                android:id="@+id/timeMeetingStart"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                android:gravity="end"
+                                android:hint="@string/str_click_to_time"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+
+                            <!--<TextView
+                                android:id="@+id/timeMeetingStart"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="4:30pm"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />-->
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:text="4:30pm"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp" />-->
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
 
+                            <EditText
+                                android:id="@+id/dateEndMeeting"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                android:hint="Click here to select date"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="4dp"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/dateEndMeeting"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Click here to select date"
-                            android:textColor="@android:color/black"
-                            android:background="@android:color/white"
-                            android:textSize="15sp" />
-                        <!--<TextView
-                            android:id="@+id/dateEndMeeting"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tue, Apr 26, 2016"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp" />-->
-
-                        <EditText
-                            android:id="@+id/timeMeetingEnd"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:hint="4:30pm"
-                            android:background="@android:color/white"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp" />
-                        <!--<TextView
-                            android:id="@+id/timeMeetingEnd"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="65dp"
-                            android:gravity="end"
-                            android:text="5:30pm"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp" />-->
+                            <EditText
+                                android:id="@+id/timeMeetingEnd"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                android:gravity="end"
+                                android:hint="@string/str_click_to_time"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+                            <!--<TextView
+                                android:id="@+id/timeMeetingEnd"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="65dp"
+                                android:gravity="end"
+                                android:text="5:30pm"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />-->
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+
 
                 <View
                     android:layout_width="match_parent"

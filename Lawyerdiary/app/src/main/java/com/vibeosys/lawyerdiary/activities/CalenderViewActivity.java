@@ -15,10 +15,13 @@ import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 import com.vibeosys.lawyerdiary.R;
+import com.vibeosys.lawyerdiary.data.Client;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.utils.DateUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /*Copyright 2014 Raquib-ul-Alam
@@ -36,6 +39,7 @@ import java.util.List;
         limitations under the License.*/
 public class CalenderViewActivity extends AppCompatActivity {
     WeekView mWeekView;
+    private DateUtils dateUtils = new DateUtils();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calender_view);
         setTitle("Calendar");
 
-        onClickRetriverData();
+        //retrieveData();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +71,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
             public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-                List<WeekViewEvent> week = getEvents(newYear, newMonth);
+                List<WeekViewEvent> week = retrieveData();
                 return week;
             }
         });
@@ -81,7 +85,38 @@ public class CalenderViewActivity extends AppCompatActivity {
         });
     }
 
-    private List<WeekViewEvent> getEvents(int newYear, int newMonth) {
+    private List<WeekViewEvent> retrieveData() {
+        List<WeekViewEvent> events = new ArrayList<>();
+        Cursor clientCursor = getApplicationContext().getContentResolver().query(LawyerContract.Reminder.CONTENT_URI,
+                new String[]{LawyerContract.Reminder._ID, LawyerContract.Reminder.REMINDER_NAME,
+                        LawyerContract.Reminder.START_DATE_TIME, LawyerContract.Reminder.END_DATE_TIME,
+                        LawyerContract.Reminder.LOCATION, LawyerContract.Reminder.NOTE, LawyerContract.Reminder.COLOUR
+                }, null, null, null);
+
+        if (clientCursor.getCount() > 0) {
+            clientCursor.moveToFirst();
+            WeekViewEvent event = new WeekViewEvent();
+            do {
+                long eventId = clientCursor.getLong(clientCursor.getColumnIndex(LawyerContract.Reminder._ID));
+                String name = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Reminder.REMINDER_NAME));
+                String strStartTime = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Reminder.START_DATE_TIME));
+                String strEndTime = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Reminder.END_DATE_TIME));
+                Date startDate = dateUtils.getFormattedDate(strStartTime);
+                Date endDate = dateUtils.getFormattedDate(strEndTime);
+                Calendar startCalender = Calendar.getInstance();
+                startCalender.setTime(startDate);
+                Calendar endCalender = (Calendar) startCalender.clone();
+                endCalender.setTime(endDate);
+                event = new WeekViewEvent(eventId, name + getEventTitle(startCalender), startCalender, endCalender);
+                event.setColor(getResources().getColor(R.color.event_color_01));
+                events.add(event);
+            }
+            while (clientCursor.moveToNext());
+        }
+        return events;
+    }
+
+    /*private List<WeekViewEvent> getEvents(int newYear, int newMonth) {
         List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
         Calendar startTime = Calendar.getInstance();
         startTime.set(Calendar.HOUR_OF_DAY, 10);
@@ -187,24 +222,11 @@ public class CalenderViewActivity extends AppCompatActivity {
         return events;
     }
 
+    */
+
     protected String getEventTitle(Calendar time) {
-        return String.format("On %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));
+        return String.format(" On %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));
     }
 
-    public void onClickRetriverData() {
-
-        String URL = LawyerContract.BASE_CONTENT_URI + "/"+LawyerContract.PATH_REMINDER;
-        Uri uriFetch = Uri.parse(URL);
-        Cursor cursor = getContentResolver().query(uriFetch, null, null, null, LawyerContract.Reminder.START_DATE_TIME+" ASC");
-        if (cursor.moveToFirst()) {
-            do {
-
-                String Name = cursor.getString(cursor.getColumnIndex("name"));
-                String startDate = cursor.getString(cursor.getColumnIndex("start_date_time"));
-                String endDate = cursor.getString(cursor.getColumnIndex("end_date_time"));
-                String Colour = cursor.getString(cursor.getColumnIndex("location"));
-            } while (cursor.moveToNext());
-        }
-    }
 }
 

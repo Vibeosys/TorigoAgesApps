@@ -23,7 +23,8 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Client.NAME + " TEXT NOT NULL," +
             LawyerContract.Client.EMAIL + " TEXT NOT NULL UNIQUE," +
             LawyerContract.Client.PH_NUMBER + " TEXT NOT NULL UNIQUE," +
-            LawyerContract.Client.ADDRESS + " TEXT);";
+            LawyerContract.Client.ADDRESS + " TEXT," + LawyerContract.Client.IMG + " TEXT," +
+            LawyerContract.Client.DATE_TIME + " INTEGER);";
 
     private String CREATE_CASE_TABLE = "CREATE TABLE " + LawyerContract.Case.TABLE_NAME + "(" +
             LawyerContract.Case._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -57,7 +58,7 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Reminder.LOCATION + " TEXT NOT NULL," +
             LawyerContract.Reminder.NOTE + " TEXT," +
             LawyerContract.Reminder.COLOUR + " TEXT NOT NULL," +
-            LawyerContract.Reminder.CASE_ID + " INTEGER)" ;
+            LawyerContract.Reminder.CASE_ID + " INTEGER)";
            /* +
             "FOREIGN KEY(" + LawyerContract.Reminder.CASE_ID + ") REFERENCES " +
             LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";*/
