@@ -70,9 +70,6 @@
                         android:drawablePadding="10dp"
                         android:drawableStart="@drawable/ic_lock_outline_black_24dp"
                         android:hint="Password"
-                        android:imeActionId="@+id/login"
-                        android:imeActionLabel="Password"
-                        android:imeOptions="actionUnspecified"
                         android:inputType="textPassword"
                         android:maxLines="1"
                         android:singleLine="true"
@@ -92,6 +89,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/newUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"

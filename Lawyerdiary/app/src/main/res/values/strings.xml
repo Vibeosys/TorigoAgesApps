@@ -125,4 +125,7 @@
     <string name="str_email_validation">Please enter email id</string>
     <string name="str_email_pattern_validation">Invalid email id</string>
     <string name="str_pwd_validation">Please enter password</string>
+    <string name="str_conf_pwd_validation">Please reenter your password</string>
+    <string name="str_conf_pwd">Password did not match</string>
+    <string name="str_user_name_val">Please enter user name</string>
 </resources>

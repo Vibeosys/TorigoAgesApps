@@ -68,7 +68,8 @@
 
         <activity
             android:name=".activities.ClientDetailsActivity"
-            android:parentActivityName=".activities.ClientActivity"></activity>
+            android:parentActivityName=".activities.ClientActivity" />
+        <activity android:name=".activities.RegisterUser"></activity>
     </application>
 
 </manifest>
