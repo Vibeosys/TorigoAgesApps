@@ -127,6 +127,7 @@ public class LawyerContract {
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
                 + CONTENT_AUTHORITY + "/" + PATH_USER_LOGIN;
         public final static  String TABLE_NAME="user";
+        public final static String  USER_NAME="user_name";
         public final static String  USER_EMAIL_ID="email_id";
         public final static String  USER_ID="user_id";
         public final static String  USER_PASSWORD="user_password";

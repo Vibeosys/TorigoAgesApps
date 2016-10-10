@@ -62,6 +62,7 @@ public class DbRepository extends SQLiteOpenHelper {
 
     private String CREATE_USER_TABLE= "CREATE TABLE "+LawyerContract.UserLogin.TABLE_NAME+"("+
             LawyerContract.UserLogin.USER_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            LawyerContract.UserLogin.USER_NAME+" TEXT NOT NULL,"+
             LawyerContract.UserLogin.USER_EMAIL_ID+" TEXT NOT NULL UNIQUE,"+
             LawyerContract.UserLogin.USER_PASSWORD+" TEXT NOT NULL)";
            /* +
