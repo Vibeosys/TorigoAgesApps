@@ -78,7 +78,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_custom"
-                android:onClick="callMain"
                 android:text="Log In"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
