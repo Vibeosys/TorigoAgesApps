@@ -159,6 +159,9 @@ public class LawyerProvider extends ContentProvider {
             case REMINDER:
                 rowDeleted = db.delete(LawyerContract.Reminder.TABLE_NAME, selection, selectionArgs);
                 break;
+            case USER_LOGIN:
+                rowDeleted = db.delete(LawyerContract.UserLogin.TABLE_NAME,selection,selectionArgs);
+                break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in delete: " + uri);
         }
@@ -211,6 +214,13 @@ public class LawyerProvider extends ContentProvider {
                 retCursor = mDbRepository.getReadableDatabase().query(
                         LawyerContract.Reminder.TABLE_NAME, projection, selection,
                         selectionArgs, null, null, sortOrder);
+                break;
+            }
+            case USER_LOGIN:
+            {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        LawyerContract.UserLogin.TABLE_NAME,projection,selection,selectionArgs
+                        ,null,null,sortOrder);
                 break;
             }
             default:
@@ -268,6 +278,9 @@ public class LawyerProvider extends ContentProvider {
                 break;
             case REMINDER:
                 rowUpdated = db.delete(LawyerContract.Reminder.TABLE_NAME, selection, selectionArgs);
+                break;
+            case USER_LOGIN:
+                rowUpdated = db.delete(LawyerContract.UserLogin.TABLE_NAME,selection,selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in update: " + uri);
