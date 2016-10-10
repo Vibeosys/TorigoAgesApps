@@ -47,7 +47,8 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
     private int mYear, mMonth, mDay;
     Calendar myCalendar, myCalendar2;
     private DateUtils dateUtils = new DateUtils();
-    private long _eventId;
+    private long eventId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,8 +188,8 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         int id = v.getId();
         switch (id) {
             case R.id.AddRemiderSave:
-                _eventId = addEvent();
-                if (_eventId > 0) {
+                eventId = addEvent();
+                if (eventId > 0) {
                     Toast.makeText(getApplicationContext(), getResources().
                             getString(R.string.str_new_event_added), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), CalenderViewActivity.class));
@@ -249,11 +250,11 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
             reminderValues.put(LawyerContract.Reminder.CASE_ID, caseId);
             try {
                 Uri insertEvent = getContentResolver().insert(LawyerContract.Reminder.CONTENT_URI, reminderValues);
-                _eventId = ContentUris.parseId(insertEvent);
+                eventId = ContentUris.parseId(insertEvent);
             } catch (SQLException e) {
                 Log.e(TAG, "Event is not added " + e.toString());
             }
-            return _eventId;
+            return eventId;
         }
     }
 }

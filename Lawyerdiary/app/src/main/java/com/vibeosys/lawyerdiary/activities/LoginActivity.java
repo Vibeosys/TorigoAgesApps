@@ -1,8 +1,13 @@
 package com.vibeosys.lawyerdiary.activities;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteException;
+import android.net.Uri;
+import android.nfc.Tag;
 import android.os.PatternMatcher;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,11 +21,14 @@ import android.widget.Toast;
 
 import com.vibeosys.lawyerdiary.MainActivity;
 import com.vibeosys.lawyerdiary.R;
+import com.vibeosys.lawyerdiary.database.LawyerContract;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mUserName,mPassword;
     private Button mLoginBtn;
+    private static final String TAG = LoginActivity.class.getSimpleName();
+    long userLoginEventId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +52,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     Toast toast = Toast.makeText(getApplicationContext(),"All Validations are done",Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
+                    callToInsertData();
                     Intent login = new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(login);
                     finish();
@@ -75,5 +84,21 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
         return true;
     }
+    private boolean callToInsertData()
+    {
+        String mUserEmail= mUserName.getText().toString().trim();
+        String mUserPwd = mPassword.getText().toString().trim();
+        ContentValues userLoginVal = new ContentValues();
+        userLoginVal.put(LawyerContract.UserLogin.USER_EMAIL_ID,mUserEmail);
+        userLoginVal.put(LawyerContract.UserLogin.USER_PASSWORD,mUserPwd);
+        try {
 
+            Uri insertUserLogin = getContentResolver().insert(LawyerContract.UserLogin.CONTENT_URI,userLoginVal);
+            userLoginEventId = ContentUris.parseId(insertUserLogin);
+        }catch (SQLiteException e)
+        {
+            Log.e(TAG,"Login data is not inserted"+e.toString());
+        }
+        return false;
+    }
 }

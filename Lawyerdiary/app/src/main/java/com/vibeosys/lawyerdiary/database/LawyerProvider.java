@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 public class LawyerProvider extends ContentProvider {
 
@@ -19,6 +20,7 @@ public class LawyerProvider extends ContentProvider {
     static final int CASE_DETAILS = 201;
     static final int DOCUMENT = 300;
     static final int REMINDER = 400;
+    static  final int USER_LOGIN=500;
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -30,6 +32,7 @@ public class LawyerProvider extends ContentProvider {
         matcher.addURI(authority, LawyerContract.PATH_REMINDER, REMINDER);
         matcher.addURI(authority, LawyerContract.PATH_CLIENT + "/*", CLIENT_MATCH_PH_NO);
         matcher.addURI(authority, LawyerContract.PATH_CASE + "/#", CASE_DETAILS);
+        matcher.addURI(authority,LawyerContract.PATH_USER_LOGIN,USER_LOGIN);
 
         return matcher;
     }
@@ -71,6 +74,8 @@ public class LawyerProvider extends ContentProvider {
                 return LawyerContract.Document.CONTENT_TYPE;
             case REMINDER:
                 return LawyerContract.Reminder.CONTENT_TYPE;
+            case USER_LOGIN:
+                return LawyerContract.UserLogin.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri in getType: " + uri);
         }
@@ -113,6 +118,19 @@ public class LawyerProvider extends ContentProvider {
                     returnUri = LawyerContract.Reminder.buildReminderUri(_id);
                 else
                     throw new android.database.SQLException("Failed to insert row into " + uri);
+                break;
+            }
+            case USER_LOGIN:{
+                long returnId = db.insert(LawyerContract.UserLogin.TABLE_NAME, null ,values);
+                if(returnId >0)
+                {
+                    returnUri =LawyerContract.UserLogin.userLoginUri(returnId);
+                }
+                else
+                {    Log.d("TAG","TAG");
+                    throw new android.database.SQLException("Fail to insert user login into"+uri);
+
+                }
                 break;
             }
             default:

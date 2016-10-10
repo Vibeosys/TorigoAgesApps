@@ -59,6 +59,11 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Reminder.NOTE + " TEXT," +
             LawyerContract.Reminder.COLOUR + " TEXT NOT NULL," +
             LawyerContract.Reminder.CASE_ID + " INTEGER)";
+
+    private String CREATE_USER_TABLE= "CREATE TABLE "+LawyerContract.UserLogin.TABLE_NAME+"("+
+            LawyerContract.UserLogin.USER_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            LawyerContract.UserLogin.USER_EMAIL_ID+" TEXT NOT NULL,"+
+            LawyerContract.UserLogin.USER_PASSWORD+" TEXT NOT NULL)";
            /* +
             "FOREIGN KEY(" + LawyerContract.Reminder.CASE_ID + ") REFERENCES " +
             LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";*/
@@ -92,6 +97,13 @@ public class DbRepository extends SQLiteOpenHelper {
             Log.d(TAG, "##Reminder Table Create " + CREATE_REMINDER_TABLE);
         } catch (SQLiteException e) {
             Log.e(TAG, "##Could not create reminder table" + e.toString());
+        }
+        try {
+            db.execSQL(CREATE_USER_TABLE);
+            Log.d(TAG,"User Table is created ");
+        }catch (SQLiteException e)
+        {
+            Log.e(TAG,"Cannot create table"+e.toString());
         }
     }
 
