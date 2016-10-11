@@ -53,13 +53,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.email_sign_in_button:
                 boolean returnVal = callToValidation();
                 if (returnVal == true) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "All Validations are done", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                    callToInsertData();
-                    Intent login = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(login);
-                    finish();
+                    boolean insertReturnVal=callToInsertData();
+                    if(insertReturnVal==true)
+                    {
+                        Intent login = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(login);
+                        finish();
+                    }
+                    else if(insertReturnVal==false)
+                    {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Please register first,it seems user is not available in database ", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
+
                 }
                 break;
             case R.id.newUser:
@@ -96,39 +103,31 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         ContentValues userLoginVal = new ContentValues();
         userLoginVal.put(LawyerContract.UserLogin.USER_EMAIL_ID, mUserEmail);
         userLoginVal.put(LawyerContract.UserLogin.USER_PASSWORD, mUserPwd);
-        /*try {
-
-            Uri insertUserLogin = getContentResolver().insert(LawyerContract.UserLogin.CONTENT_URI,userLoginVal);
-            userLoginEventId = ContentUris.parseId(insertUserLogin);
-        }catch (SQLiteException e)
-        {
-            Log.e(TAG,"Login data is not inserted"+e.toString());
-        }*/
+       
         try {
             String[] projection = {LawyerContract.UserLogin.USER_EMAIL_ID, LawyerContract.UserLogin.USER_ID, LawyerContract.UserLogin.USER_PASSWORD};
             String[] selectionArg = {mUserEmail};
 
             Cursor cursor = getApplicationContext().getContentResolver().query(LawyerContract.UserLogin.CONTENT_URI, projection, LawyerContract.UserLogin.USER_EMAIL_ID + "=?", selectionArg, null);
+            int cursorCount = cursor.getCount();
+            Log.d("TAG", "TAG");
+            Log.d("TAG", "TAG");
             if (cursor.getCount() > 0) {
                 int cnt = cursor.getCount();
                 cursor.moveToFirst();
                 do {
                     String email = cursor.getString(cursor.getColumnIndex(LawyerContract.UserLogin.USER_EMAIL_ID));
                     String Pwd = cursor.getString(cursor.getColumnIndex(LawyerContract.UserLogin.USER_PASSWORD));
-                    Log.d("TAG", "TAG");
-                    Log.d("TAG", "TAG");
-                    Log.d("TAG", "TAG");
                 } while (cursor.moveToNext());
 
-            } else {
+            } else if(cursor.getCount()==0){
+                Log.d("TAG", "Cannot perform insert operation");
                 Log.d("TAG", "TAG");
-                Log.d("TAG", "TAG");
+                return false;
             }
         } catch (SQLiteException e) {
-            Log.e(TAG, "Login data  problem");
-            Log.e(TAG, "Login data  problem");
-            Log.e(TAG, "Login data  problem");
+            return false;
         }
-        return false;
+        return true;
     }
 }

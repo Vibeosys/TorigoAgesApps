@@ -57,9 +57,18 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
                     }
                     else if(databaseVal ==false)
                     {
-                        Toast toast = Toast.makeText(getApplicationContext(), "User cannot register.Some thing went wrong", Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+                        if(userRegisterId==-1)
+                        {
+                            Toast toast = Toast.makeText(getApplicationContext(), "User may be already register", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+
+                        }else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "User cannot register.Some thing went wrong", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                        }
+
                     }
                 }
                 break;
@@ -118,6 +127,10 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
 
             Uri insertUserLogin = getContentResolver().insert(LawyerContract.UserLogin.CONTENT_URI, registerUser);
             userRegisterId = ContentUris.parseId(insertUserLogin);
+            if(userRegisterId==-1)
+            {
+                return false;
+            }
         } catch (SQLiteException e) {
             Log.e(TAG, "Login data is not inserted" + e.toString());
             return false;

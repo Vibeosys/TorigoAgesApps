@@ -4,6 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
@@ -123,6 +124,10 @@ public class LawyerProvider extends ContentProvider {
             case USER_LOGIN:{
                 long returnId = db.insert(LawyerContract.UserLogin.TABLE_NAME, null ,values);
                 if(returnId >0)
+                {
+                    returnUri =LawyerContract.UserLogin.userLoginUri(returnId);
+                }
+                else if(returnId==-1)
                 {
                     returnUri =LawyerContract.UserLogin.userLoginUri(returnId);
                 }
