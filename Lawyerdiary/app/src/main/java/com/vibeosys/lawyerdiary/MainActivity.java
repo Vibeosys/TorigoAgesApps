@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -52,6 +53,7 @@ public class MainActivity extends BaseActivity
     private NewsFeedAdapter adapter;
     private DateUtils dateUtils = new DateUtils();
     Calendar todayCalender = Calendar.getInstance();
+    private TextView mUserNameNavigation,mUserEmailIdNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,13 @@ public class MainActivity extends BaseActivity
         gridNews.setAdapter(adapter);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        mUserNameNavigation =(TextView) headerView.findViewById(R.id.nav_userName);
+        mUserEmailIdNavigation = (TextView) headerView.findViewById(R.id.nav_userEmailId);
+
+        mUserNameNavigation.setText(""+mSessionManager.gerUserName());
+        mUserEmailIdNavigation.setText(""+mSessionManager.getUserEmailId());
+
         gridNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -118,6 +127,7 @@ public class MainActivity extends BaseActivity
             UserAuth.CleanAuthenticationInfo();
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
+            finish();
             return true;
         }
 
@@ -134,13 +144,16 @@ public class MainActivity extends BaseActivity
             // Handle the camera action
             Intent i = new Intent(getApplicationContext(), CalenderViewActivity.class);
             startActivity(i);
+
         } else if (id == R.id.clients) {
             Intent client_intent = new Intent(getApplicationContext(), ClientActivity.class);
             startActivity(client_intent);
 
+
         } else if (id == R.id.my_cases) {
             Intent i = new Intent(getApplicationContext(), CasesActivity.class);
             startActivity(i);
+
 
         } else if (id == R.id.nav_manage) {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);

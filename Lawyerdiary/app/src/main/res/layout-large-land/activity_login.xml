@@ -49,7 +49,7 @@
                 android:layout_marginTop="20dp"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_perm_identity_black_24dp"
-                android:hint="User Name"
+                android:hint="@string/email_id"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -65,7 +65,7 @@
                 android:layout_marginTop="20dp"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_lock_outline_black_24dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -80,7 +80,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_custom"
-                android:text="Log In"
+                android:text="@string/login"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
@@ -97,16 +97,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="550dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lay"
-        android:layout_gravity="center"
-        android:background="@color/transperent"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Demo Version"
-        android:textColor="@android:color/white"
-        android:textSize="16dp" />
-</LinearLayout>
+    </LinearLayout>

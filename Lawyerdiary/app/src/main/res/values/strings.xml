@@ -69,7 +69,9 @@
     <string name="client_name">Client Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="email_id">Email Id</string>
+    <string name="password">Password</string>
     <string name="address">Address</string>
+    <string name="login">Login In</string>
     <string name="str_new_client">New Client</string>
     <string name="new_client_added">New Client Added successfully</string>
     <string name="new_client_not_added">Client is not added</string>
