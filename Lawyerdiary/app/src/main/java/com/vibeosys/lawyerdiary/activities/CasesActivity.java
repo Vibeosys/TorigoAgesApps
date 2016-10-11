@@ -24,6 +24,7 @@ public class CasesActivity extends BaseActivity implements CaseListFragment.Call
     private static final String TAG = CasesActivity.class.getSimpleName();
     private static final String DETAILFRAGMENT_TAG = "DFTAG";
     private boolean mTwoPane;
+    private static CasesActivity inst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +81,17 @@ public class CasesActivity extends BaseActivity implements CaseListFragment.Call
     }
 
 
+    /* public void viewCase(View v) {
+         Intent iCaseDetails = new Intent(getApplicationContext(), CaseDetailsActivity.class);
+         startActivity(iCaseDetails);
+     }*/
+    public static CasesActivity instance() {
+        return inst;
+    }
 
-   /* public void viewCase(View v) {
-        Intent iCaseDetails = new Intent(getApplicationContext(), CaseDetailsActivity.class);
-        startActivity(iCaseDetails);
-    }*/
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        inst = this;
+    }
 }

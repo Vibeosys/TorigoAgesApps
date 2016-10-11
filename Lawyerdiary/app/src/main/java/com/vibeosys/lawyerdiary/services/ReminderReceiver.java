@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
 import com.vibeosys.lawyerdiary.activities.CaseDetailsActivity;
+import com.vibeosys.lawyerdiary.activities.CasesActivity;
 
 /**
  * Created by akshay on 11-10-2016.
@@ -19,13 +20,13 @@ public class ReminderReceiver extends WakefulBroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         //this will update the UI with message
-        CaseDetailsActivity inst = CaseDetailsActivity.instance();
+        CasesActivity inst = CasesActivity.instance();
         //inst.setAlarmText("Alarm! Wake up! Wake up!");
 
         //this will sound the alarm tone
         //this will sound the alarm once, if you wish to
         //raise alarm in loop continuously then use MediaPlayer and setLooping(true)
-        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         if (alarmUri == null) {
             alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         }

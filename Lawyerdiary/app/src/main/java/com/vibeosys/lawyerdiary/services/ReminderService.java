@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.activities.CaseDetailsActivity;
+import com.vibeosys.lawyerdiary.activities.CasesActivity;
 
 /**
  * Created by akshay on 11-10-2016.
@@ -23,7 +24,7 @@ public class ReminderService extends IntentService {
 
     @Override
     public void onHandleIntent(Intent intent) {
-        sendNotification("Wake Up! Wake Up!");
+        sendNotification(getResources().getString(R.string.app_name) + " Notification");
     }
 
     private void sendNotification(String msg) {
@@ -32,15 +33,14 @@ public class ReminderService extends IntentService {
                 .getSystemService(Context.NOTIFICATION_SERVICE);
 
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, CaseDetailsActivity.class), 0);
+                new Intent(this, CasesActivity.class), 0);
 
         NotificationCompat.Builder alamNotificationBuilder = new NotificationCompat.Builder(
-                this).setContentTitle("Alarm").setSmallIcon(R.drawable.ic_icon)
+                this).setContentTitle(getResources().getString(R.string.app_name) + " Reminder").setSmallIcon(R.drawable.ic_icon)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
                 .setContentText(msg);
-
-
         alamNotificationBuilder.setContentIntent(contentIntent);
+        alamNotificationBuilder.setAutoCancel(true);
         alarmNotificationManager.notify(1, alamNotificationBuilder.build());
         Log.d("AlarmService", "Notification sent.");
     }
