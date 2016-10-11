@@ -74,7 +74,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
-        // mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.loadAd(adRequest);
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {

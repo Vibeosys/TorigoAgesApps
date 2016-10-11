@@ -7,7 +7,7 @@ android {
         applicationId "com.vibeosys.lawyerdiary"
         minSdkVersion 18
         targetSdkVersion 23
-        versionCode 2
+        versionCode 3
         versionName '2.0'
     }
     buildTypes {
