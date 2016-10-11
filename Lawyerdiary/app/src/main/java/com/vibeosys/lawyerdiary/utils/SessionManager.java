@@ -25,6 +25,12 @@ public class SessionManager {
 
         return mSessionManager;
     }
+    public static SessionManager Instance() {
+        if (mSessionManager != null)
+            return mSessionManager;
+        else
+            throw new IllegalArgumentException("No instance is yet created");
+    }
     private SessionManager() {
     }
     private static void loadProjectSharedPreferences() {

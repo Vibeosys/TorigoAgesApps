@@ -23,6 +23,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.AdListener;
 import com.vibeosys.lawyerdiary.Adapter.NewsFeedAdapter;
+import com.vibeosys.lawyerdiary.activities.BaseActivity;
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
 import com.vibeosys.lawyerdiary.activities.ClientActivity;
@@ -32,6 +33,7 @@ import com.vibeosys.lawyerdiary.activities.SheduleActivity;
 import com.vibeosys.lawyerdiary.data.NewsFeedData;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 import com.vibeosys.lawyerdiary.utils.DateUtils;
+import com.vibeosys.lawyerdiary.utils.UserAuth;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -40,7 +42,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private AdView mAdView;
@@ -59,17 +61,12 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         gridNews = (GridView) findViewById(R.id.newsFeedGrid);
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-        String android_id = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
-        String deviceId = md5(android_id).toUpperCase();
-        Log.i("device id=", deviceId);
+        boolean checkLogin= UserAuth.isUserLoggedIn();
+        if(!checkLogin)
+        {
+            callToLogin();
+            return;
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -108,6 +105,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_log_out) {
+            UserAuth.CleanAuthenticationInfo();
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             return true;
@@ -173,24 +171,6 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
     }
 
-    public String md5(String s) {
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuffer hexString = new StringBuffer();
-            for (int i = 0; i < messageDigest.length; i++)
-                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-            return hexString.toString();
-
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
     private ArrayList<NewsFeedData> retrieveData() {
         ArrayList<NewsFeedData> events = new ArrayList<>();
@@ -231,5 +211,15 @@ public class MainActivity extends AppCompatActivity
             while (eventCursor.moveToNext());
         }
         return events;
+    }
+    private void callToLogin() {
+        Intent loginactivity = new Intent(MainActivity.this, LoginActivity.class);
+        /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
+        loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
+        startActivity(loginactivity);
+        // moveTaskToBack(true);
+        finish();
+
     }
 }
