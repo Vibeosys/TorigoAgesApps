@@ -13,6 +13,7 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 import com.vibeosys.lawyerdiary.fragments.CaseDetailFragment;
 
 public class CaseDetailsActivity extends AppCompatActivity {
+    private static CaseDetailsActivity inst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +39,14 @@ public class CaseDetailsActivity extends AppCompatActivity {
 
     }
 
+    public static CaseDetailsActivity instance() {
+        return inst;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        inst = this;
+    }
 
 }

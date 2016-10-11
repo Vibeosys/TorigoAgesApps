@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -27,6 +28,7 @@ import com.vibeosys.lawyerdiary.activities.BaseActivity;
 import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
 import com.vibeosys.lawyerdiary.activities.ClientActivity;
+import com.vibeosys.lawyerdiary.activities.EventDetailsActivity;
 import com.vibeosys.lawyerdiary.activities.LoginActivity;
 import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
@@ -61,9 +63,8 @@ public class MainActivity extends BaseActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         gridNews = (GridView) findViewById(R.id.newsFeedGrid);
-        boolean checkLogin= UserAuth.isUserLoggedIn();
-        if(!checkLogin)
-        {
+        boolean checkLogin = UserAuth.isUserLoggedIn();
+        if (!checkLogin) {
             callToLogin();
             return;
         }
@@ -77,6 +78,15 @@ public class MainActivity extends BaseActivity
         gridNews.setAdapter(adapter);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        gridNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                NewsFeedData data = (NewsFeedData) adapter.getItem(position);
+                Intent iSchedule = new Intent(getApplicationContext(), EventDetailsActivity.class);
+                iSchedule.putExtra(EventDetailsActivity.EVENT_ID, data.get_id());
+                startActivity(iSchedule);
+            }
+        });
     }
 
     @Override
@@ -212,6 +222,7 @@ public class MainActivity extends BaseActivity
         }
         return events;
     }
+
     private void callToLogin() {
         Intent loginactivity = new Intent(MainActivity.this, LoginActivity.class);
         /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/

@@ -46,6 +46,7 @@ public class DateUtils {
     public String getDateTimeReadFormat(java.util.Date date) {
         return dateTimeReadFormat.format(date);
     }
+
     public String getDateTimeFormat(java.util.Date date) {
         return dateTimeFormat.format(date);
     }
@@ -127,5 +128,16 @@ public class DateUtils {
         if (date != null)
             return date.getTime();
         else return 0;
+    }
+
+    public java.util.Date convertTimeToDate(String strDate) {
+        DateFormat df2 = new SimpleDateFormat("dd MMM yyyy hh:mm aa", Locale.ENGLISH);
+        java.util.Date date = null;
+        try {
+            date = df2.parse(strDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 }

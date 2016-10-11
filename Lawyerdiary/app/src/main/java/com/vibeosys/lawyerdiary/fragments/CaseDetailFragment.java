@@ -1,5 +1,9 @@
 package com.vibeosys.lawyerdiary.fragments;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
@@ -11,18 +15,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.vibeosys.lawyerdiary.R;
+import com.vibeosys.lawyerdiary.activities.CaseDetailsActivity;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.services.ReminderReceiver;
 import com.vibeosys.lawyerdiary.utils.DateUtils;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Created by akshay on 13-09-2016.
  */
-public class CaseDetailFragment extends BaseFragment {
+public class CaseDetailFragment extends BaseFragment implements View.OnClickListener {
 
     private static final String TAG = CaseDetailFragment.class.getSimpleName();
     public static final String DETAIL_URI = "URI";
@@ -31,6 +39,9 @@ public class CaseDetailFragment extends BaseFragment {
     private Uri mUri;
     private DateUtils dateUtils = new DateUtils();
     private long _caseId;
+    private Button btnRemindMe;
+    private PendingIntent pendingIntent;
+    AlarmManager alarmManager;
 
     @Nullable
     @Override
@@ -50,8 +61,10 @@ public class CaseDetailFragment extends BaseFragment {
             txtKeyPoints = (TextView) rootView.findViewById(R.id.txtKeyPoints);
             txtFiles = (TextView) rootView.findViewById(R.id.txtFiles);
             txtDescription = (TextView) rootView.findViewById(R.id.txtDescription);
+            btnRemindMe = (Button) rootView.findViewById(R.id.btnRemindMe);
+            alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
             loadAndDisplayData();
-
+            btnRemindMe.setOnClickListener(this);
             return rootView;
         } else {
             return super.onCreateView(inflater, container, savedInstanceState);
@@ -132,5 +145,22 @@ public class CaseDetailFragment extends BaseFragment {
         }
 
         txtFiles.setText(allFiles);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.btnRemindMe:
+                String dateNTime = txtDate.getText().toString();
+                Date caseDate = dateUtils.convertTimeToDate(dateNTime);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(caseDate);
+                Intent myIntent = new Intent(getContext(), ReminderReceiver.class);
+                pendingIntent = PendingIntent.getBroadcast(getContext(), 0, myIntent, 0);
+
+                alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+                break;
+        }
     }
 }
