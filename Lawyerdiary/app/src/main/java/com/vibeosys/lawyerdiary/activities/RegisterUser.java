@@ -51,7 +51,7 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
                         Intent loginScreen = new Intent(RegisterUser.this,LoginActivity.class);
                         startActivity(loginScreen);
                         finish();
-                        Toast toast = Toast.makeText(getApplicationContext(), "User Register Successfully", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_user_register_successfully), Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
@@ -59,12 +59,12 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
                     {
                         if(userRegisterId==-1)
                         {
-                            Toast toast = Toast.makeText(getApplicationContext(), "User may be already register", Toast.LENGTH_LONG);
+                            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_user_already), Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
 
                         }else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "User cannot register.Some thing went wrong", Toast.LENGTH_LONG);
+                            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_user_something_went), Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
                         }

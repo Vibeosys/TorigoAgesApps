@@ -62,7 +62,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     }
                     else if(insertReturnVal==false)
                     {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Please register first,it seems user is not available in database ", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getApplicationContext(),getResources().getString(R.string.str_register_validation), Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
@@ -103,21 +103,23 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         ContentValues userLoginVal = new ContentValues();
         userLoginVal.put(LawyerContract.UserLogin.USER_EMAIL_ID, mUserEmail);
         userLoginVal.put(LawyerContract.UserLogin.USER_PASSWORD, mUserPwd);
-       
+
         try {
-            String[] projection = {LawyerContract.UserLogin.USER_EMAIL_ID, LawyerContract.UserLogin.USER_ID, LawyerContract.UserLogin.USER_PASSWORD};
+            String[] projection = {LawyerContract.UserLogin.USER_EMAIL_ID, LawyerContract.UserLogin.USER_ID, LawyerContract.UserLogin.USER_PASSWORD,LawyerContract.UserLogin.USER_NAME};
             String[] selectionArg = {mUserEmail};
 
             Cursor cursor = getApplicationContext().getContentResolver().query(LawyerContract.UserLogin.CONTENT_URI, projection, LawyerContract.UserLogin.USER_EMAIL_ID + "=?", selectionArg, null);
             int cursorCount = cursor.getCount();
-            Log.d("TAG", "TAG");
-            Log.d("TAG", "TAG");
             if (cursor.getCount() > 0) {
                 int cnt = cursor.getCount();
                 cursor.moveToFirst();
                 do {
+
                     String email = cursor.getString(cursor.getColumnIndex(LawyerContract.UserLogin.USER_EMAIL_ID));
                     String Pwd = cursor.getString(cursor.getColumnIndex(LawyerContract.UserLogin.USER_PASSWORD));
+                    String UserId = cursor.getString(cursor.getColumnIndex(LawyerContract.UserLogin.USER_ID));
+                    String userName =cursor.getString(cursor.getColumnIndex(LawyerContract.UserLogin.USER_NAME));
+                    callToSessionManager(userName,email,Pwd,UserId);
                 } while (cursor.moveToNext());
 
             } else if(cursor.getCount()==0){
@@ -129,5 +131,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             return false;
         }
         return true;
+    }
+
+    private void callToSessionManager(String userName,String email, String pwd, String userId) {
+        mSessionManager.setUserId(userId);
+        mSessionManager.setUserEmailId(email);
+        mSessionManager.setUserName(userName);
+        mSessionManager.setUserPassword(pwd);
     }
 }

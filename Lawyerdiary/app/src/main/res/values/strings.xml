@@ -128,4 +128,8 @@
     <string name="str_conf_pwd_validation">Please reenter your password</string>
     <string name="str_conf_pwd">Password did not match</string>
     <string name="str_user_name_val">Please enter user name</string>
+    <string name="str_register_validation">Please register first,it seems user is not register</string>
+    <string name="str_user_already">User may be already register</string>
+    <string name="str_user_something_went">User cannot register.Some thing went wrong</string>
+    <string name="str_user_register_successfully">User Register Successfully</string>
 </resources>
