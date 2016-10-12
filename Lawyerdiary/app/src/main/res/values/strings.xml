@@ -134,4 +134,5 @@
     <string name="str_user_already">User may be already register</string>
     <string name="str_user_something_went">User cannot register.Some thing went wrong</string>
     <string name="str_user_register_successfully">User Register Successfully</string>
+    <string name="str_regiseter">Register</string>
 </resources>

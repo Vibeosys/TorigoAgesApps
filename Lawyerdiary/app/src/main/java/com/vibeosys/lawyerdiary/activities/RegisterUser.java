@@ -35,6 +35,7 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
         mUserPassword = (EditText) findViewById(R.id.UserPassword);
         mConfirmPassword = (EditText) findViewById(R.id.UserConfPassword);
         mUserRegisterBtn = (Button) findViewById(R.id.registerUser);
+        setTitle(getResources().getString(R.string.str_regiseter));
         mUserRegisterBtn.setOnClickListener(RegisterUser.this);
     }
 

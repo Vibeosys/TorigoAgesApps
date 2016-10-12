@@ -70,7 +70,9 @@
         <activity
             android:name=".activities.ClientDetailsActivity"
             android:parentActivityName=".activities.ClientActivity" />
-        <activity android:name=".activities.RegisterUser"></activity>
+        <activity android:name=".activities.RegisterUser"
+            android:parentActivityName=".activities.LoginActivity">
+        </activity>
 
         <service
             android:name=".services.ReminderService"

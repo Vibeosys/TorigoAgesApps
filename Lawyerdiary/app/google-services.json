@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "856205830013",
+    "firebase_url": "https://lawyerdiary-cf5b4.firebaseio.com",
+    "project_id": "lawyerdiary-cf5b4",
+    "storage_bucket": "lawyerdiary-cf5b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856205830013:android:c2922853ac395ede",
+        "android_client_info": {
+          "package_name": "com.vibeosys.lawyerdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856205830013-i0j5u7khrqoq3lsigqfnup4o3t7mneo8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxFjbVE6VoanQd4wQXavbZeiQ9mphMXo0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
