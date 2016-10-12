@@ -72,7 +72,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
             public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-                List<WeekViewEvent> week = retrieveData();
+                List<WeekViewEvent> week = retrieveData(newYear, newMonth);
                 return week;
             }
         });
@@ -86,7 +86,7 @@ public class CalenderViewActivity extends AppCompatActivity {
         });
     }
 
-    private List<WeekViewEvent> retrieveData() {
+    private List<WeekViewEvent> retrieveData(int year, int newMonth) {
         List<WeekViewEvent> events = new ArrayList<>();
         Cursor eventCursor = getApplicationContext().getContentResolver().query(LawyerContract.Reminder.CONTENT_URI,
                 new String[]{LawyerContract.Reminder._ID, LawyerContract.Reminder.REMINDER_NAME,
@@ -110,7 +110,8 @@ public class CalenderViewActivity extends AppCompatActivity {
                 endCalender.setTime(endDate);
                 event = new WeekViewEvent(eventId, name + getEventTitle(startCalender), startCalender, endCalender);
                 event.setColor(getResources().getColor(R.color.event_color_01));
-                events.add(event);
+                if (startCalender.get(Calendar.MONTH) == newMonth && startCalender.get(Calendar.YEAR) == year)
+                    events.add(event);
             }
             while (eventCursor.moveToNext());
         }

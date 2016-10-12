@@ -76,7 +76,7 @@ public class NewsFeedAdapter extends BaseAdapter {
             }
         }
 
-        viewHolder.txtLogo.setText(caseLogo);
+        viewHolder.txtLogo.setText(caseLogo.toUpperCase());
         viewHolder.txtNewsHeading.setText(heading);
         return row;
     }
