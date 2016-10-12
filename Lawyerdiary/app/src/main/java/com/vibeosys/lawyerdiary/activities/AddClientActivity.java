@@ -24,6 +24,8 @@ import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 import com.vibeosys.lawyerdiary.utils.Validator;
 
+import java.util.Calendar;
+
 /**
  * Created by shrinivas on 27-04-2016.
  */
@@ -34,6 +36,7 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
     private Button mBtnCancel, mBtnSave;
     private Validator validator = new Validator();
     InterstitialAd mInterstitialAd;
+    Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +140,7 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
             values.put(LawyerContract.Client.PH_NUMBER, phoneNumber);
             values.put(LawyerContract.Client.EMAIL, email);
             values.put(LawyerContract.Client.ADDRESS, address);
-
+            values.put(LawyerContract.Client.DATE_TIME, calendar.getTime().getTime());
             try {
                 Uri insertClient = getContentResolver().insert(LawyerContract.Client.CONTENT_URI, values);
                 clientId = ContentUris.parseId(insertClient);

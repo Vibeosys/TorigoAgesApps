@@ -27,7 +27,8 @@
         android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profilePic">
+        android:layout_below="@+id/profilePic"
+        android:background="@android:color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,13 +63,15 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtCaseName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="Case 1"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -102,13 +105,15 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtClientName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="Sunil Bonde"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -142,13 +147,15 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtOppositionName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="Rudra Dhankawade"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -182,13 +189,15 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtCourtLocation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="Shivaji Nagar Court, Pune"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -223,13 +232,15 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtStatus"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="Active"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -242,13 +253,15 @@
                     android:text="@string/str_status"
                     android:textSize="13sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="28/04/2016   12:00 PM"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -261,13 +274,15 @@
                     android:text="@string/case_date"
                     android:textSize="13sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtKeyPoints"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="Hearing on Subject 2"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -280,13 +295,15 @@
                     android:text="@string/key_points"
                     android:textSize="13sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtFiles"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="sunil_bonde_reference1.doc\nCase1_points.doc"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -328,14 +345,16 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtDescription"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
                     android:gravity="center_vertical"
+                    android:padding="3dp"
                     android:text="file.doc\ncase1.doc\nSunil_bonde_fee.xlsx"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />

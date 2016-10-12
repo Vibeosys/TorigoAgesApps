@@ -42,6 +42,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class MainActivity extends BaseActivity
     private NewsFeedAdapter adapter;
     private DateUtils dateUtils = new DateUtils();
     Calendar todayCalender = Calendar.getInstance();
-    private TextView mUserNameNavigation,mUserEmailIdNavigation;
+    private TextView mUserNameNavigation, mUserEmailIdNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +82,11 @@ public class MainActivity extends BaseActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
-        mUserNameNavigation =(TextView) headerView.findViewById(R.id.nav_userName);
+        mUserNameNavigation = (TextView) headerView.findViewById(R.id.nav_userName);
         mUserEmailIdNavigation = (TextView) headerView.findViewById(R.id.nav_userEmailId);
 
-        mUserNameNavigation.setText(""+mSessionManager.gerUserName());
-        mUserEmailIdNavigation.setText(""+mSessionManager.getUserEmailId());
+        mUserNameNavigation.setText("" + mSessionManager.gerUserName());
+        mUserEmailIdNavigation.setText("" + mSessionManager.getUserEmailId());
 
         gridNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -214,25 +215,61 @@ public class MainActivity extends BaseActivity
                 Date endDate = dateUtils.getFormattedDate(strEndTime);
                 String location = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.LOCATION));
                 String note = eventCursor.getString(eventCursor.getColumnIndex(LawyerContract.Reminder.NOTE));
-                if (dateUtils.getLocalDateInFormat(startDate).equals(dateUtils.getLocalDateInFormat(todayCalender.getTime()))) {
-                    String desc = "Start on " + dateUtils.getLocalTimeInReadableFormat(startDate) + " to " + dateUtils.getLocalTimeInReadableFormat(endDate);
-                    if (!TextUtils.isEmpty(location)) {
-                        desc = desc + "\nlocation will be " + location;
-                    } else {
-                        desc = desc + "\n";
-                    }
-                    if (!TextUtils.isEmpty(note)) {
-                        desc = desc + "\nNote - " + note;
-                    } else {
-                        desc = desc + "\n";
-                    }
-                    NewsFeedData event = new NewsFeedData(eventId, name, desc);
-                    events.add(event);
+                String desc = "Start on " + dateUtils.getLocalTimeInReadableFormat(startDate) + " to " + dateUtils.getLocalTimeInReadableFormat(endDate);
+                if (!TextUtils.isEmpty(location)) {
+                    desc = desc + "\nlocation will be " + location;
+                } else {
+                    desc = desc + "\n";
                 }
+                if (!TextUtils.isEmpty(note)) {
+                    desc = desc + "\nNote - " + note;
+                } else {
+                    desc = desc + "\n";
+                }
+               /* if (dateUtils.getLocalDateInFormat(startDate).equals(dateUtils.getLocalDateInFormat(todayCalender.getTime())))
+
+                }*/
+                NewsFeedData event = new NewsFeedData(eventId, "Reminder Details", name, desc, startDate.getTime());
+                events.add(event);
 
             }
             while (eventCursor.moveToNext());
         }
+        eventCursor.close();
+
+
+        Cursor clientCursor = getApplicationContext().getContentResolver().query(LawyerContract.Client.CONTENT_URI,
+                new String[]{LawyerContract.Client._ID, LawyerContract.Client.NAME,
+                        LawyerContract.Client.PH_NUMBER, LawyerContract.Client.EMAIL,
+                        LawyerContract.Client.DATE_TIME, LawyerContract.Client.ADDRESS}, null, null, null);
+
+        if (clientCursor.getCount() > 0) {
+            clientCursor.moveToFirst();
+            do {
+                long clientId = clientCursor.getLong(clientCursor.getColumnIndex(LawyerContract.Client._ID));
+                long dateTime = clientCursor.getLong(clientCursor.getColumnIndex(LawyerContract.Client.DATE_TIME));
+                String clientName = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.NAME));
+                String phNo = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.PH_NUMBER));
+                String email = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.EMAIL));
+                String address = clientCursor.getString(clientCursor.getColumnIndex(LawyerContract.Client.ADDRESS));
+                String desc = "Ph No:" + phNo;
+                if (!TextUtils.isEmpty(email)) {
+                    desc = desc + "\nEmail Id:" + email;
+                } else {
+                    desc = desc + "\n";
+                }
+                if (!TextUtils.isEmpty(address)) {
+                    desc = desc + "\nAddress:" + address;
+                } else {
+                    desc = desc + "\n";
+                }
+                NewsFeedData event = new NewsFeedData(clientId, "New Client", clientName, desc, dateTime);
+                events.add(event);
+            } while (clientCursor.moveToNext());
+        }
+
+        clientCursor.close();
+        Collections.sort(events);
         return events;
     }
 

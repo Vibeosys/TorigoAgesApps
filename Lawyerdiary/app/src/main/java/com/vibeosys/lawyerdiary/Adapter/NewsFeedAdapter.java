@@ -62,6 +62,7 @@ public class NewsFeedAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         NewsFeedData newsData = mData.get(position);
         String name = newsData.getTitle();
+        String heading = newsData.getHeading();
         String description = newsData.getDesc();
         viewHolder.txtNewsTitle.setText(name);
         viewHolder.txtDesc.setText(description);
@@ -76,7 +77,7 @@ public class NewsFeedAdapter extends BaseAdapter {
         }
 
         viewHolder.txtLogo.setText(caseLogo);
-        viewHolder.txtNewsHeading.setText(name);
+        viewHolder.txtNewsHeading.setText(heading);
         return row;
     }
 

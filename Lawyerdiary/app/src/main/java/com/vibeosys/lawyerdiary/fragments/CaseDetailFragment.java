@@ -2,9 +2,12 @@ package com.vibeosys.lawyerdiary.fragments;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,10 +19,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.activities.CaseDetailsActivity;
+import com.vibeosys.lawyerdiary.activities.NewCaseActivity;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 import com.vibeosys.lawyerdiary.services.ReminderReceiver;
 import com.vibeosys.lawyerdiary.utils.DateUtils;
@@ -34,12 +39,12 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
 
     private static final String TAG = CaseDetailFragment.class.getSimpleName();
     public static final String DETAIL_URI = "URI";
-    private TextView txtCaseName, txtClientName, txtOppositionName,
+    private EditText txtCaseName, txtClientName, txtOppositionName,
             txtCourtLocation, txtStatus, txtDate, txtKeyPoints, txtFiles, txtDescription;
     private Uri mUri;
     private DateUtils dateUtils = new DateUtils();
     private long _caseId;
-    private Button btnRemindMe;
+    private Button btnRemindMe, btnEdit;
     private PendingIntent pendingIntent;
     AlarmManager alarmManager;
 
@@ -52,24 +57,39 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
         if (arguments != null) {
             _caseId = arguments.getLong(CaseDetailFragment.DETAIL_URI);
             mUri = LawyerContract.Case.buildCaseUri(_caseId);
-            txtCaseName = (TextView) rootView.findViewById(R.id.txtCaseName);
-            txtClientName = (TextView) rootView.findViewById(R.id.txtClientName);
-            txtOppositionName = (TextView) rootView.findViewById(R.id.txtOppositionName);
-            txtCourtLocation = (TextView) rootView.findViewById(R.id.txtCourtLocation);
-            txtStatus = (TextView) rootView.findViewById(R.id.txtStatus);
-            txtDate = (TextView) rootView.findViewById(R.id.txtDate);
-            txtKeyPoints = (TextView) rootView.findViewById(R.id.txtKeyPoints);
-            txtFiles = (TextView) rootView.findViewById(R.id.txtFiles);
-            txtDescription = (TextView) rootView.findViewById(R.id.txtDescription);
+            txtCaseName = (EditText) rootView.findViewById(R.id.txtCaseName);
+            txtClientName = (EditText) rootView.findViewById(R.id.txtClientName);
+            txtOppositionName = (EditText) rootView.findViewById(R.id.txtOppositionName);
+            txtCourtLocation = (EditText) rootView.findViewById(R.id.txtCourtLocation);
+            txtStatus = (EditText) rootView.findViewById(R.id.txtStatus);
+            txtDate = (EditText) rootView.findViewById(R.id.txtDate);
+            txtKeyPoints = (EditText) rootView.findViewById(R.id.txtKeyPoints);
+            txtFiles = (EditText) rootView.findViewById(R.id.txtFiles);
+            txtDescription = (EditText) rootView.findViewById(R.id.txtDescription);
             btnRemindMe = (Button) rootView.findViewById(R.id.btnRemindMe);
+            btnEdit = (Button) rootView.findViewById(R.id.btnEdit);
             alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
             loadAndDisplayData();
+            disableAll();
+            btnEdit.setOnClickListener(this);
             btnRemindMe.setOnClickListener(this);
             return rootView;
         } else {
             return super.onCreateView(inflater, container, savedInstanceState);
         }
 
+    }
+
+    private void disableAll() {
+        txtCaseName.setEnabled(false);
+        txtClientName.setEnabled(false);
+        txtOppositionName.setEnabled(false);
+        txtCourtLocation.setEnabled(false);
+        txtStatus.setEnabled(false);
+        txtDate.setEnabled(false);
+        txtKeyPoints.setEnabled(false);
+        txtFiles.setEnabled(false);
+        txtDescription.setEnabled(false);
     }
 
     private void loadAndDisplayData() {
@@ -161,6 +181,58 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
 
                 alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
                 break;
+            case R.id.btnEdit:
+                if (btnEdit.getText().toString().equals("Edit")) {
+                    editCase();
+                    btnEdit.setText("Save");
+                } else if (btnEdit.getText().toString().equals("Save")) {
+                    updateCaseDate();
+                    btnEdit.setText("Edit");
+                    disableAll();
+                }
+                break;
         }
+    }
+
+    private void updateCaseDate() {
+        View focusView = null;
+        boolean cancelFlag = false;
+        String caseName = txtCaseName.getText().toString();
+        String location = txtCourtLocation.getText().toString();
+        String keyPoints = txtKeyPoints.getText().toString();
+        String decs = txtDescription.getText().toString();
+        if (TextUtils.isEmpty(caseName)) {
+            cancelFlag = true;
+            focusView = txtCaseName;
+            txtCaseName.setError(getResources().getString(R.string.str_err_case_name_required));
+        } else if (TextUtils.isEmpty(location)) {
+            cancelFlag = true;
+            focusView = txtCourtLocation;
+            txtCourtLocation.setError(getResources().getString(R.string.str_error_court_location_reqired));
+        }
+
+        if (cancelFlag) {
+            focusView.requestFocus();
+        } else {
+            ContentValues clientValues = new ContentValues();
+            clientValues.put(LawyerContract.Case.CASE_NAME, caseName);
+            clientValues.put(LawyerContract.Case.DESCRIPTION, decs);
+            clientValues.put(LawyerContract.Case.COURT_LOCATION, location);
+            clientValues.put(LawyerContract.Case.KEY_POINTS, keyPoints);
+            try {
+                int insertCase = getContext().getContentResolver().update(LawyerContract.Case.CONTENT_URI, clientValues,
+                        LawyerContract.Case._ID + "=?", new String[]{String.valueOf(_caseId)});
+                Log.d(TAG, "Case is updated " + insertCase);
+            } catch (SQLException e) {
+                Log.e(TAG, "Case is not updated " + e.toString());
+            }
+        }
+    }
+
+    private void editCase() {
+        txtCaseName.setEnabled(true);
+        txtCourtLocation.setEnabled(true);
+        txtKeyPoints.setEnabled(true);
+        txtDescription.setEnabled(true);
     }
 }
