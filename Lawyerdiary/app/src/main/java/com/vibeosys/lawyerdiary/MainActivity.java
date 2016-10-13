@@ -31,6 +31,7 @@ import com.vibeosys.lawyerdiary.activities.CasesActivity;
 import com.vibeosys.lawyerdiary.activities.ClientActivity;
 import com.vibeosys.lawyerdiary.activities.EventDetailsActivity;
 import com.vibeosys.lawyerdiary.activities.LoginActivity;
+import com.vibeosys.lawyerdiary.activities.RemoveAdsActivity;
 import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
 import com.vibeosys.lawyerdiary.data.NewsFeedData;
@@ -160,6 +161,10 @@ public class MainActivity extends BaseActivity
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivity(i);
 
+        } else if(id==R.id.nav_removeAds)
+        {
+            Intent removeAd = new Intent(getApplicationContext(), RemoveAdsActivity.class);
+            startActivity(removeAd);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

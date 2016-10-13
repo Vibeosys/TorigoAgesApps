@@ -28,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.SheduleActivity" />
         <activity
             android:name=".activities.CalenderViewActivity"
@@ -70,15 +70,18 @@
         <activity
             android:name=".activities.ClientDetailsActivity"
             android:parentActivityName=".activities.ClientActivity" />
-        <activity android:name=".activities.RegisterUser"
-            android:parentActivityName=".activities.LoginActivity">
-        </activity>
+        <activity
+            android:name=".activities.RegisterUser"
+            android:parentActivityName=".activities.LoginActivity"></activity>
 
         <service
             android:name=".services.ReminderService"
             android:enabled="true" />
+
         <receiver android:name=".services.ReminderReceiver" />
 
+        <activity android:name=".activities.RemoveAdsActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
