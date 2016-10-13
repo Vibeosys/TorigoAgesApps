@@ -16,10 +16,13 @@
             android:title="Cases" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Setting" />
+            android:icon="@drawable/ic_settings_applications_black_24dp"
+            android:title="Settings" />
         <item android:id="@+id/nav_removeAds"
             android:icon="@drawable/ic_touch_app_black_24dp"
             android:title="Remove Ads"/>
+        <item android:id="@+id/nav_log_out"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Log out"/>
     </group>
 </menu>
