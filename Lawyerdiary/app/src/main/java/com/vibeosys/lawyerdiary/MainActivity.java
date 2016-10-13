@@ -165,6 +165,7 @@ public class MainActivity extends BaseActivity
         {
             Intent removeAd = new Intent(getApplicationContext(), RemoveAdsActivity.class);
             startActivity(removeAd);
+            finish();
         }
         else if(id==R.id.nav_log_out)
         {
