@@ -71,17 +71,21 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_case);
         setTitle(getResources().getString(R.string.add_new_case_title));
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
-        mInterstitialAd.loadAd(adRequest);
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // super.onAdLoaded();
-                showIntestititalCase();
-            }
-        });
+        if(mSessionManager.getInAppPurchase()!=1)
+        {
+            mInterstitialAd = new InterstitialAd(this);
+            mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
+            mInterstitialAd.loadAd(adRequest);
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    // super.onAdLoaded();
+                    showIntestititalCase();
+                }
+            });
+        }
+
 
         txtCaseName = (EditText) findViewById(R.id.txtCaseName);
         txtClientName = (AutoCompleteTextView) findViewById(R.id.txtClientName);

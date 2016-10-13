@@ -9,4 +9,5 @@ public class PropertyTypeConstants {
     public static final String USER_NAME = "user.name";
     public static final String USER_EMAIL_ID = "user.email";
     public static final String USER_PASSWORD="user.password";
+    public static final String USER_PURCHASE="user.purchase";
 }

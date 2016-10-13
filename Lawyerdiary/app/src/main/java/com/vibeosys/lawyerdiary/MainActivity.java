@@ -1,8 +1,13 @@
 package com.vibeosys.lawyerdiary;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,7 +25,9 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.vending.billing.IInAppBillingService;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.AdListener;
@@ -36,6 +43,7 @@ import com.vibeosys.lawyerdiary.activities.SettingsActivity;
 import com.vibeosys.lawyerdiary.activities.SheduleActivity;
 import com.vibeosys.lawyerdiary.data.NewsFeedData;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
+import com.vibeosys.lawyerdiary.utils.AppConstant;
 import com.vibeosys.lawyerdiary.utils.DateUtils;
 import com.vibeosys.lawyerdiary.utils.UserAuth;
 
@@ -56,18 +64,44 @@ public class MainActivity extends BaseActivity
     private DateUtils dateUtils = new DateUtils();
     Calendar todayCalender = Calendar.getInstance();
     private TextView mUserNameNavigation, mUserEmailIdNavigation;
+    IInAppBillingService mService;
+
+    ServiceConnection mServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mService= IInAppBillingService.Stub.asInterface(service);
+            isPurchase();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+            mService=null;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
-        mAdView.loadAd(adRequest);
+        if(mSessionManager.getInAppPurchase()!=1)
+        {
+            int test  = mSessionManager.getInAppPurchase();
+            Log.d("TAG","TAG");
+            Log.d("TAG","TAG");
+            mAdView = (AdView) findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
+            mAdView.loadAd(adRequest);
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         gridNews = (GridView) findViewById(R.id.newsFeedGrid);
         boolean checkLogin = UserAuth.isUserLoggedIn();
+        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.android.vending");
+        bindService(serviceIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+
         if (!checkLogin) {
             callToLogin();
             return;
@@ -296,4 +330,38 @@ public class MainActivity extends BaseActivity
         finish();
 
     }
+    public void isPurchase()
+    {
+        int isBillingSupported = -1;
+        try {
+            isBillingSupported = mService.isBillingSupported(6, getPackageName(), "inapp");
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        if (isBillingSupported != 0) {
+            Intent mainAct = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainAct);
+            finish();
+        } else
+            getInAppPurchases();
+
+    }
+    public void getInAppPurchases() {
+        try {
+            Bundle purchaseItems = mService.getPurchases(6, getPackageName(), "inapp", null);
+            int responseCode = purchaseItems.getInt("RESPONSE_CODE");
+            if (responseCode == 0) {
+                ArrayList<String> items = purchaseItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                if (items.contains("com.lawyerdiary.noads")) {
+                    Toast.makeText(getApplicationContext(), "Product is already purchased", Toast.LENGTH_SHORT).show();
+                    mSessionManager.setInAppPurchase(AppConstant.ITEM_PURCHASED);
+                } else {
+                    mSessionManager.setInAppPurchase(AppConstant.ITEM_NOT_PURCHASED);
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

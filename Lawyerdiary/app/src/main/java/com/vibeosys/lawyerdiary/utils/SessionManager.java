@@ -45,6 +45,11 @@ public class SessionManager {
         editor.putString(sharedPrefKey, sharedPrefValue);
         editor.apply();
     }
+    private static void setValuesInSharedPrefs(String sharedPrefKey, int sharedPrefValue) {
+        SharedPreferences.Editor editor = mProjectSharedPref.edit();
+        editor.putInt(sharedPrefKey, sharedPrefValue);
+        editor.apply();
+    }
     public String getUserId()
     {
         return mProjectSharedPref.getString(PropertyTypeConstants.USER_ID,null);
@@ -76,5 +81,13 @@ public class SessionManager {
     public void setUserPassword(String userPassword)
     {
         setValuesInSharedPrefs(PropertyTypeConstants.USER_PASSWORD,userPassword);
+    }
+    public void setInAppPurchase(int purchase)
+    {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_PURCHASE,purchase);
+    }
+    public int getInAppPurchase()
+    {
+        return mProjectSharedPref.getInt(PropertyTypeConstants.USER_PURCHASE,0);
     }
 }

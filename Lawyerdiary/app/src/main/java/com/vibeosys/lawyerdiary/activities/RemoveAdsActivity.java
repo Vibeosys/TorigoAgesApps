@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.vibeosys.lawyerdiary.MainActivity;
 import com.vibeosys.lawyerdiary.R;
 import com.android.vending.billing.IInAppBillingService;
+import com.vibeosys.lawyerdiary.utils.AppConstant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -96,6 +97,7 @@ public class RemoveAdsActivity extends BaseActivity implements View.OnClickListe
                 ArrayList<String> items = purchaseItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                 if (items.contains("com.lawyerdiary.noads")) {
                     Toast.makeText(getApplicationContext(), "Product is already purchased", Toast.LENGTH_SHORT).show();
+                    mSessionManager.setInAppPurchase(AppConstant.ITEM_PURCHASED);
                 } else {
                     purchaseProducts();
                 }
@@ -185,7 +187,7 @@ public class RemoveAdsActivity extends BaseActivity implements View.OnClickListe
                         if (sku.equals("com.lawyerdiary.noads")) {
                             Toast.makeText(getApplicationContext(), "You have purchase the ads free " +
                                     "application. Thank you!", Toast.LENGTH_LONG).show();
-                            
+                            mSessionManager.setInAppPurchase(AppConstant.ITEM_PURCHASED);
                         }
 
                     } catch (JSONException e) {

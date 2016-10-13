@@ -29,7 +29,7 @@ import java.util.Calendar;
 /**
  * Created by shrinivas on 27-04-2016.
  */
-public class AddClientActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddClientActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = AddClientActivity.class.getSimpleName();
     private EditText mTxtName, mTxtPhNo, mTxtEmail, mTxtAddress;
@@ -43,7 +43,21 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_client);
         setTitle(getResources().getString(R.string.str_new_client));
-        mInterstitialAd = new InterstitialAd(this);
+        if(mSessionManager.getInAppPurchase()!=1)
+        {
+            mInterstitialAd = new InterstitialAd(this);
+            mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
+            mInterstitialAd.loadAd(adRequest);
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    // super.onAdLoaded();
+                    showIntestititalAd();
+                }
+            });
+        }
+       /* mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
         mInterstitialAd.loadAd(adRequest);
@@ -53,7 +67,7 @@ public class AddClientActivity extends AppCompatActivity implements View.OnClick
                 // super.onAdLoaded();
                 showIntestititalAd();
             }
-        });
+        });*/
         mTxtName = (EditText) findViewById(R.id.txtName);
         mTxtPhNo = (EditText) findViewById(R.id.txtPhNo);
         mTxtEmail = (EditText) findViewById(R.id.txtEmail);
