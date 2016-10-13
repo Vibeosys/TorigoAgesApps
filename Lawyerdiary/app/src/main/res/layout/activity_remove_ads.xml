@@ -40,8 +40,6 @@
                 android:gravity="center|clip_horizontal"
                 android:orientation="vertical">
 
-
-
                 <LinearLayout
                     android:layout_width="190dp"
                     android:layout_height="wrap_content"
@@ -49,7 +47,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/purchase"
+                        android:id="@+id/removeAds"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="28dp"
@@ -83,7 +81,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/cancelProduct"
+                        android:id="@+id/cancelPurchase"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="28dp"
