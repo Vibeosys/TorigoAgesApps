@@ -13,6 +13,7 @@ public class FriendTransactions implements Serializable {
     private double amount;
     private BorrowType type;
     ArrayList<FriendBills> bills;
+    private String date;
 
     public FriendTransactions() {
     }
@@ -133,5 +134,15 @@ public class FriendTransactions implements Serializable {
             }
             return filterBills;
         }
+    }
+
+    public String getDate() {
+        if (this.bills.size() <= 0) {
+            return null;
+        } else {
+            FriendBills bills = this.bills.get(this.bills.size() - 1);
+            return bills.getDate();
+        }
+
     }
 }
