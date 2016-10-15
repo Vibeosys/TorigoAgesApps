@@ -66,13 +66,14 @@ public class MainActivity extends BaseActivity
     Calendar todayCalender = Calendar.getInstance();
     private TextView mUserNameNavigation, mUserEmailIdNavigation;
     IInAppBillingService mService;
+    ServiceConnection mServiceConnection;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ServiceConnection mServiceConnection = new ServiceConnection() {
+        mServiceConnection  = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 mService= IInAppBillingService.Stub.asInterface(service);
@@ -102,7 +103,7 @@ public class MainActivity extends BaseActivity
         boolean checkLogin = UserAuth.isUserLoggedIn();
         Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         serviceIntent.setPackage("com.android.vending");
-        bindService(serviceIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+        getApplicationContext().bindService(serviceIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
 
         if (!checkLogin) {
             callToLogin();
@@ -121,7 +122,17 @@ public class MainActivity extends BaseActivity
         View headerView = navigationView.getHeaderView(0);
         mUserNameNavigation = (TextView) headerView.findViewById(R.id.nav_userName);
         mUserEmailIdNavigation = (TextView) headerView.findViewById(R.id.nav_userEmailId);
-
+            /*Check for purchase item*/
+        if(mSessionManager.getInAppPurchase()==AppConstant.ITEM_PURCHASED)
+        {
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.activity_main_subscriber);
+        }
+        else
+        {
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.activity_main_drawer);
+        }
         mUserNameNavigation.setText("" + mSessionManager.gerUserName());
         mUserEmailIdNavigation.setText("" + mSessionManager.getUserEmailId());
 
@@ -341,7 +352,7 @@ public class MainActivity extends BaseActivity
     {
         int isBillingSupported = -1;
         try {
-            isBillingSupported = mService.isBillingSupported(6, getPackageName(), "inapp");
+            isBillingSupported = mService.isBillingSupported(3, getPackageName(), "inapp");
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -355,12 +366,12 @@ public class MainActivity extends BaseActivity
     }
     public void getInAppPurchases() {
         try {
-            Bundle purchaseItems = mService.getPurchases(6, getPackageName(), "inapp", null);
+            Bundle purchaseItems = mService.getPurchases(3, getPackageName(), "inapp", null);
             int responseCode = purchaseItems.getInt("RESPONSE_CODE");
             if (responseCode == 0) {
                 ArrayList<String> items = purchaseItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                 if (items.contains("com.lawyerdiary.noads")) {
-                    Toast.makeText(getApplicationContext(), "Product is already purchased", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(getApplicationContext(), "Product is already purchased", Toast.LENGTH_SHORT).show();
                     mSessionManager.setInAppPurchase(AppConstant.ITEM_PURCHASED);
                 } else {
                     mSessionManager.setInAppPurchase(AppConstant.ITEM_NOT_PURCHASED);
