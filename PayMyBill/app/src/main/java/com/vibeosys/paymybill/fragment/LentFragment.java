@@ -52,7 +52,7 @@ public class LentFragment extends FriendListBaseFragment {
         Log.d(TAG, mFriends.toString());
         IOweFilter iOweFilter = new IOweFilter();
 
-        listAdapter = new FriendListAdapter(getContext(), iOweFilter.filterBillsByAmount(mFriends));
+        listAdapter = new FriendListAdapter(getContext(), iOweFilter.filterBillsByAmount(mFriends), mSessionManager.getUserCurrencySymbol());
         mFriendList.setAdapter(listAdapter);
 
     }

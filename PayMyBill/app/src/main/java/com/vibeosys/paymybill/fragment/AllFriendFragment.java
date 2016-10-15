@@ -53,7 +53,7 @@ public class AllFriendFragment extends FriendListBaseFragment {
 
     private void createList() {
         Log.d(TAG, mFriends.toString());
-        listAdapter = new FriendListAdapter(getContext(), mFriends);
+        listAdapter = new FriendListAdapter(getContext(), mFriends, mSessionManager.getUserCurrencySymbol());
         mFriendList.setAdapter(listAdapter);
 
     }

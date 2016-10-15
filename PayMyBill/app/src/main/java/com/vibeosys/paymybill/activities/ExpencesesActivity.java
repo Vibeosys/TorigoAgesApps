@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vibeosys.paymybill.MainActivity;
@@ -27,6 +28,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
     private EditText mTxtDate, mTxtAmt, mTxtBillDesc;
     Calendar myCalendar = Calendar.getInstance();
     private Button mBtnSave;
+    private TextView txtCurrencySymbol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,8 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
         mTxtBillDesc = (EditText) findViewById(R.id.txtBillDesc);
         mBtnSave = (Button) findViewById(R.id.btnSave);
         mBtnSave.setOnClickListener(this);
-
+        txtCurrencySymbol = (TextView) findViewById(R.id.txtCurrencySymbol);
+        txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
         mImgBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

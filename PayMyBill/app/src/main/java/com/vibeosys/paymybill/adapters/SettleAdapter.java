@@ -24,10 +24,12 @@ public class SettleAdapter extends BaseAdapter {
     private final static String TAG = SettleAdapter.class.getSimpleName();
     private Context mContext;
     private ArrayList<FriendBills> historyDTOs;
+    private String currencySymbol;
 
-    public SettleAdapter(Context mContext, ArrayList<FriendBills> historyDTOs) {
+    public SettleAdapter(Context mContext, ArrayList<FriendBills> historyDTOs, String currencySymbol) {
         this.mContext = mContext;
         this.historyDTOs = historyDTOs;
+        this.currencySymbol = currencySymbol;
     }
 
     @Override
@@ -69,7 +71,7 @@ public class SettleAdapter extends BaseAdapter {
         viewHolder.txtDate.setText(friendBills.getDate());
         double amount = friendBills.getFriendBillAmount();
         amount = amount < 0 ? -(amount) : amount;
-        viewHolder.txtAmount.setText(String.format("%.2f", amount));
+        viewHolder.txtAmount.setText(currencySymbol + " " + String.format("%.2f", amount));
         if (friendBills.getBillType() == AppConstants.BILL_TYPE_SETTLEMENT) {
             viewHolder.txtType.setText("Settled with");
             viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.secondaryText));

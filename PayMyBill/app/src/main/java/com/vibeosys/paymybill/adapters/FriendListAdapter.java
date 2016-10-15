@@ -26,10 +26,12 @@ public class FriendListAdapter extends BaseAdapter {
     private final static String TAG = FriendListAdapter.class.getSimpleName();
     private Context mContext;
     private ArrayList<FriendTransactions> mFriends;
+    private String currencySymbol;
 
-    public FriendListAdapter(Context mContext, ArrayList<FriendTransactions> mFriendsDTOs) {
+    public FriendListAdapter(Context mContext, ArrayList<FriendTransactions> mFriendsDTOs, String currencySymbol) {
         this.mContext = mContext;
         this.mFriends = mFriendsDTOs;
+        this.currencySymbol = currencySymbol;
     }
 
     @Override
@@ -72,9 +74,9 @@ public class FriendListAdapter extends BaseAdapter {
         //viewHolder.billDate.setText(dateUtils.getLocalDateInReadableFormat(friend.getDate()));
         double amount = Math.round(friend.getAmount());
         if (amount < 0) {
-            viewHolder.billAmount.setText("$ " + String.format("%.2f", -(amount)));
+            viewHolder.billAmount.setText(currencySymbol + " " + String.format("%.2f", -(amount)));
         } else if (amount > 0) {
-            viewHolder.billAmount.setText("$ " + String.format("%.2f", amount));
+            viewHolder.billAmount.setText(currencySymbol + " " + String.format("%.2f", amount));
         }
         if (friend.getType() == BorrowType.YOU_OWE) {
             viewHolder.billOwed.setText("You Owe");

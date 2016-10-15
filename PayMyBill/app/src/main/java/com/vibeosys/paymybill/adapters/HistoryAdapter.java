@@ -22,10 +22,12 @@ public class HistoryAdapter extends BaseAdapter {
     private final static String TAG = HistoryAdapter.class.getSimpleName();
     private Context mContext;
     private ArrayList<HistoryDTO> historyDTOs;
+    private String currencySymbol;
 
-    public HistoryAdapter(Context mContext, ArrayList<HistoryDTO> historyDTOs) {
+    public HistoryAdapter(Context mContext, ArrayList<HistoryDTO> historyDTOs, String currencySymbol) {
         this.mContext = mContext;
         this.historyDTOs = historyDTOs;
+        this.currencySymbol = currencySymbol;
     }
 
     @Override
@@ -65,7 +67,7 @@ public class HistoryAdapter extends BaseAdapter {
         Log.d(TAG, history.toString());
         viewHolder.txtBillDesc.setText(history.getBillDesc());
         viewHolder.txtDate.setText(history.getBillDate());
-        viewHolder.txtAmount.setText(String.format("%.2f", history.getAmount()));
+        viewHolder.txtAmount.setText(currencySymbol + " " + String.format("%.2f", history.getAmount()));
         return row;
     }
 

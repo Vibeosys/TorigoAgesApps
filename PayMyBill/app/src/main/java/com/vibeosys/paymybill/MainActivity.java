@@ -163,7 +163,6 @@ public class MainActivity extends BaseActivity
         }
 
 
-
     }
 
     private void calculateAmounts() {
@@ -179,9 +178,9 @@ public class MainActivity extends BaseActivity
                 owesYouAmount = owesYouAmount + amount;
             }
         }
-        txtOwesYouAmount.setText(String.format("%.2f", owesYouAmount));
+        txtOwesYouAmount.setText(mSessionManager.getUserCurrencySymbol() + " " + String.format("%.2f", owesYouAmount));
         youOwesAmount = youOwesAmount < 0 ? -(youOwesAmount) : youOwesAmount;
-        txtYouOwesAmount.setText(String.format("%.2f", youOwesAmount));
+        txtYouOwesAmount.setText(String.format(mSessionManager.getUserCurrencySymbol() + " " + "%.2f", youOwesAmount));
 
     }
 
@@ -191,7 +190,7 @@ public class MainActivity extends BaseActivity
         loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
         startActivity(loginactivity);
-       // moveTaskToBack(true);
+        // moveTaskToBack(true);
         finish();
 
     }
@@ -236,7 +235,7 @@ public class MainActivity extends BaseActivity
         if (id == R.id.add_friend) {
             Intent intent = new Intent(getApplicationContext(), AddFriendActivity.class);
             startActivity(intent);
-          //  finish();
+            //  finish();
         }
 
         return super.onOptionsItemSelected(item);

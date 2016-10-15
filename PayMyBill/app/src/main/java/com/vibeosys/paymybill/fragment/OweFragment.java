@@ -52,7 +52,7 @@ public class OweFragment extends FriendListBaseFragment {
         Log.d(TAG, mFriends.toString());
         FriendOweFilter friendOweFilter = new FriendOweFilter();
 
-        listAdapter = new FriendListAdapter(getContext(), friendOweFilter.filterBillsByAmount(mFriends));
+        listAdapter = new FriendListAdapter(getContext(), friendOweFilter.filterBillsByAmount(mFriends), mSessionManager.getUserCurrencySymbol());
         mFriendList.setAdapter(listAdapter);
 
     }

@@ -42,7 +42,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         btnSettle.setOnClickListener(this);
         friendTransactions = (FriendTransactions) getIntent().getExtras().getSerializable("data");
 
-        settleAdapter = new SettleAdapter(getApplicationContext(), friendTransactions.getFilterBills());
+        settleAdapter = new SettleAdapter(getApplicationContext(), friendTransactions.getFilterBills(), mSessionManager.getUserCurrencySymbol());
         mListView.setAdapter(settleAdapter);
 
         txtFriendName.setText(friendTransactions.getName());

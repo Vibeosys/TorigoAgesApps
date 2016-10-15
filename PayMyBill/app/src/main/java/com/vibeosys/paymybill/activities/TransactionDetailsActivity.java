@@ -55,11 +55,11 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
             for (FriendsDTO friend : billDetailsDTO.getShareWith()) {
                 friend.setAmount(sharedAmount);
             }
-            adapter = new TransactionListAdapter(getApplicationContext(), billDetailsDTO.getShareWith());
+            adapter = new TransactionListAdapter(getApplicationContext(), billDetailsDTO.getShareWith(), mSessionManager.getUserCurrencySymbol());
             adapter.setSpiltMode(AppConstants.EQUALLY_DIVIDED);
             calculateAndUpdateTotal();
         } else if (splitMode == AppConstants.UNEQUALLY_DIVIDED) {
-            adapter = new TransactionListAdapter(getApplicationContext(), billDetailsDTO.getShareWith());
+            adapter = new TransactionListAdapter(getApplicationContext(), billDetailsDTO.getShareWith(), mSessionManager.getUserCurrencySymbol());
             adapter.setSpiltMode(AppConstants.UNEQUALLY_DIVIDED);
         }
         mListTransaction.setAdapter(adapter);

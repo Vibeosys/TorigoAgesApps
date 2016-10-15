@@ -23,7 +23,7 @@ public class HistoryActivity extends BaseActivity {
         mListView = (ListView) findViewById(R.id.listHistory);
         ArrayList<HistoryDTO> historyDTOs = new ArrayList<>();
         historyDTOs = mDbRepository.getExpensesList();
-        mHistoryAdapter = new HistoryAdapter(getApplicationContext(), historyDTOs);
+        mHistoryAdapter = new HistoryAdapter(getApplicationContext(), historyDTOs, mSessionManager.getUserCurrencySymbol());
         mListView.setAdapter(mHistoryAdapter);
     }
 }

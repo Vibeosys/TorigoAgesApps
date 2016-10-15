@@ -30,10 +30,12 @@ public class TransactionListAdapter extends BaseAdapter {
     private List<FriendsDTO> mFriends;
     private AmountChangedListener amountChangedListener;
     private int spiltMode = 0;
+    private String currencySymbol;
 
-    public TransactionListAdapter(Context mContext, List<FriendsDTO> mFriendsDTOs) {
+    public TransactionListAdapter(Context mContext, List<FriendsDTO> mFriendsDTOs, String currencySymbol) {
         this.mContext = mContext;
         this.mFriends = mFriendsDTOs;
+        this.currencySymbol = currencySymbol;
     }
 
     public void setSpiltMode(int splitMode) {
@@ -73,7 +75,7 @@ public class TransactionListAdapter extends BaseAdapter {
         final FriendsDTO friend = mFriends.get(position);
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
-        viewHolder.txtAmount.setText(String.format("%.2f", friend.getAmount()));
+        viewHolder.txtAmount.setText(currencySymbol + " " + String.format("%.2f", friend.getAmount()));
         if (spiltMode == AppConstants.EQUALLY_DIVIDED) {
             viewHolder.txtAmount.setEnabled(false);
         } else if (spiltMode == AppConstants.UNEQUALLY_DIVIDED) {

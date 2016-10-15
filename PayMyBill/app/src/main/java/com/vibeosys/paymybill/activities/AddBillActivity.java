@@ -45,7 +45,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private EditText mTxtDate, mTxtAmt, mTxtBillDesc;
     private Button mBtnPaidBy;
     private GridView mGridFriends;
-    private TextView mTxtErrorGrid;
+    private TextView mTxtErrorGrid, txtCurrencySymbol;
     private RadioGroup mRadioGroupDived;
 
     private FriendGridAdapter mFriendGridAdapter;
@@ -70,7 +70,8 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         mGridFriends = (GridView) findViewById(R.id.gridview);
         mRadioGroupDived = (RadioGroup) findViewById(R.id.radioDivided);
         mTxtErrorGrid = (TextView) findViewById(R.id.txtErrorFriend);
-
+        txtCurrencySymbol = (TextView) findViewById(R.id.txtCurrencySymbol);
+        txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
         mBtnPaidBy.setOnClickListener(this);
         createList();
         mImgBill.setOnClickListener(this);

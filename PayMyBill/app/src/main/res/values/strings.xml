@@ -71,14 +71,14 @@
     <string name="btn_next">Next</string>
     <string name="btn_paidBy">You</string>
     <string name="str_paid_by">Paid By</string>
-    <string name="str_divided">Devided</string>
+    <string name="str_divided">Divided</string>
     <string name="str_err_enter_amt">Please Enter Amount</string>
     <string name="str_err_enter_date">Please Enter Bill Date</string>
     <string name="str_error_select_at_least_one">Please select at least one friend</string>
     <!--Add Friend -->
-    <string name="friend_name">Name</string>
-    <string name="friend_phone">Phone No</string>
-    <string name="friend_email">Email id</string>
+    <string name="friend_name">Friend name</string>
+    <string name="friend_phone">Enter phone No</string>
+    <string name="friend_email">Enter email id</string>
     <string name="friend_save">SUBMIT</string>
     <string name="friend_add">Add friend</string>
     <string name="name_validation_msg">Please enter name</string>
@@ -96,6 +96,8 @@
     <string name="str_err_bill_not_settel">Bill is not settle correctly please fill correct amounts</string>
     <string name="add_expences">Expense is added</string>
     <string name="str_err_expanses_add">Expense is not added retry!!!</string>
-    <string name="hint_no_transcaion">No trasaction yet</string>
+    <string name="hint_no_transcaion">No transaction yet</string>
+    <string name="str_country_message">You can not change the country once you selected</string>
+    <string name="select_country">Select your country</string>
 
 </resources>

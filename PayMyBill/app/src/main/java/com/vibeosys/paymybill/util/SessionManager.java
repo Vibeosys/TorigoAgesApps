@@ -1,8 +1,12 @@
 package com.vibeosys.paymybill.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
+import java.util.Currency;
+import java.util.Locale;
 
 /**
  * Class helps to retrive or set values from shared preferences.
@@ -25,7 +29,6 @@ public class SessionManager {
      */
 
 
-
     public static SessionManager getInstance(Context context) {
         if (mSessionManager != null)
             return mSessionManager;
@@ -37,8 +40,10 @@ public class SessionManager {
 
         return mSessionManager;
     }
+
     private SessionManager() {
     }
+
     /**
      * Gets singleton instance of session manager class
      *
@@ -64,6 +69,7 @@ public class SessionManager {
         setValuesInSharedPrefs(PropertyTypeConstants.API_ENDPOINT_URI, mPropertyFileReader.getEndPointUri());
 
     }
+
     public String getUserId() {
         return mProjectSharedPref.getString(PropertyTypeConstants.USER_ID, null);
     }
@@ -71,6 +77,7 @@ public class SessionManager {
     public void setUserId(String userId) {
         setValuesInSharedPrefs(PropertyTypeConstants.USER_ID, userId);
     }
+
     public String getUserName() {
         return mProjectSharedPref.getString(PropertyTypeConstants.USER_NAME, null);
     }
@@ -102,45 +109,45 @@ public class SessionManager {
     public void setUserPassword(String userPassword) {
         setValuesInSharedPrefs(PropertyTypeConstants.USER_PASSWORD, userPassword);
     }
-    public String getLoginSource()
-    {
-        return mProjectSharedPref.getString(PropertyTypeConstants.USER_LOGIN_SOURCE,null);
+
+    public String getLoginSource() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_LOGIN_SOURCE, null);
     }
-    public void setLoginSource(String LoginSource)
-    {
-        setValuesInSharedPrefs(PropertyTypeConstants.USER_LOGIN_SOURCE,LoginSource);
+
+    public void setLoginSource(String LoginSource) {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_LOGIN_SOURCE, LoginSource);
     }
-    public String getUserProfileImage()
-    {
-        return mProjectSharedPref.getString(PropertyTypeConstants.USER_PHOTO_URL,null);
+
+    public String getUserProfileImage() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_PHOTO_URL, null);
     }
-    public void setUserProfileImage(String userProfileImage)
-    {
-        setValuesInSharedPrefs(PropertyTypeConstants.USER_PHOTO_URL,userProfileImage);
+
+    public void setUserProfileImage(String userProfileImage) {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_PHOTO_URL, userProfileImage);
     }
-    public String getUserFriendId()
-    {
-        return mProjectSharedPref.getString(PropertyTypeConstants.USER_FRIEND_ID,null);
+
+    public String getUserFriendId() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_FRIEND_ID, null);
     }
-    public void setUserFriendId(String userFriendId)
-    {
-        setValuesInSharedPrefs(PropertyTypeConstants.USER_FRIEND_ID,userFriendId);
+
+    public void setUserFriendId(String userFriendId) {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_FRIEND_ID, userFriendId);
     }
-    public String getUserPhoneNo()
-    {
-        return mProjectSharedPref.getString(PropertyTypeConstants.USER_PHONE_NO,null);
+
+    public String getUserPhoneNo() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_PHONE_NO, null);
     }
-    public  void setUserPhoneNo(String userPhoneNo)
-    {
-        setValuesInSharedPrefs(PropertyTypeConstants.USER_PHONE_NO,userPhoneNo);
+
+    public void setUserPhoneNo(String userPhoneNo) {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_PHONE_NO, userPhoneNo);
     }
-    public String getUserCountry()
-    {
-        return mProjectSharedPref.getString(PropertyTypeConstants.USER_COUNTRY,null);
+
+    public String getUserCountry() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_COUNTRY, null);
     }
-    public void setUserCountry(String userCountry)
-    {
-        setValuesInSharedPrefs(PropertyTypeConstants.USER_COUNTRY,userCountry);
+
+    public void setUserCountry(String userCountry) {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_COUNTRY, userCountry);
     }
 
     private static void setValuesInSharedPrefs(String sharedPrefKey, String sharedPrefValue) {
@@ -148,4 +155,19 @@ public class SessionManager {
         editor.putString(sharedPrefKey, sharedPrefValue);
         editor.apply();
     }
+
+    @TargetApi(19)
+    public void setUserCurrency(Currency currency) {
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_CURRENCY, currency.getDisplayName());
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_CURRENCY_SYMBOL, currency.getSymbol());
+    }
+
+    public String getUserCurrencyName() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_CURRENCY, null);
+    }
+
+    public String getUserCurrencySymbol() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.USER_CURRENCY_SYMBOL, null);
+    }
+
 }
