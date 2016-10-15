@@ -159,7 +159,7 @@ public class SessionManager {
     @TargetApi(19)
     public void setUserCurrency(Currency currency) {
         setValuesInSharedPrefs(PropertyTypeConstants.USER_CURRENCY, currency.getDisplayName());
-        setValuesInSharedPrefs(PropertyTypeConstants.USER_CURRENCY_SYMBOL, currency.getSymbol());
+        setValuesInSharedPrefs(PropertyTypeConstants.USER_CURRENCY_SYMBOL, currency.getCurrencyCode());
     }
 
     public String getUserCurrencyName() {

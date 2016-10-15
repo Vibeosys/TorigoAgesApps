@@ -75,7 +75,7 @@ public class TransactionListAdapter extends BaseAdapter {
         final FriendsDTO friend = mFriends.get(position);
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
-        viewHolder.txtAmount.setText(currencySymbol + " " + String.format("%.2f", friend.getAmount()));
+        viewHolder.txtAmount.setText(String.format("%.2f", friend.getAmount()));
         if (spiltMode == AppConstants.EQUALLY_DIVIDED) {
             viewHolder.txtAmount.setEnabled(false);
         } else if (spiltMode == AppConstants.UNEQUALLY_DIVIDED) {

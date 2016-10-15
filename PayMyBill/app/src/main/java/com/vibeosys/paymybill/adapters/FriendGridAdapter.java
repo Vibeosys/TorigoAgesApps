@@ -59,6 +59,7 @@ public class FriendGridAdapter extends BaseAdapter {
             viewHolder.imgProf = (ImageView) row.findViewById(R.id.imgProf);
             viewHolder.friendName = (TextView) row.findViewById(R.id.friendName);
             viewHolder.layout = (LinearLayout) row.findViewById(R.id.item);
+            viewHolder.itemImg = (ImageView) row.findViewById(R.id.itemImg);
             row.setTag(viewHolder);
 
         } else viewHolder = (ViewHolder) row.getTag();
@@ -66,9 +67,9 @@ public class FriendGridAdapter extends BaseAdapter {
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
         if (friend.isFlagOwe()) {
-            viewHolder.layout.setBackgroundColor(Color.GRAY);
+            viewHolder.itemImg.setVisibility(View.VISIBLE);
         } else {
-            viewHolder.layout.setBackgroundColor(Color.WHITE);
+            viewHolder.itemImg.setVisibility(View.GONE);
         }
 
         return row;
@@ -83,5 +84,6 @@ public class FriendGridAdapter extends BaseAdapter {
         ImageView imgProf;
         TextView friendName;
         LinearLayout layout;
+        ImageView itemImg;
     }
 }

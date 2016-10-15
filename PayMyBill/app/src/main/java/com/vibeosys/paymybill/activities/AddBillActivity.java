@@ -13,12 +13,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.vibeosys.paymybill.R;
@@ -46,7 +48,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private Button mBtnPaidBy;
     private GridView mGridFriends;
     private TextView mTxtErrorGrid, txtCurrencySymbol;
-    private RadioGroup mRadioGroupDived;
+    //private RadioGroup mRadioGroupDived;
 
     private FriendGridAdapter mFriendGridAdapter;
     Calendar myCalendar = Calendar.getInstance();
@@ -55,6 +57,8 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private SelectedFriendCriteria mSelectedFriendCriteria = new SelectedFriends();
     private Context mContext;
     private FriendsDTO paidByFriend = null;
+    private Switch swtPayment;
+    boolean isEquallyDivided = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +72,11 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         mBtnPaidBy = (Button) findViewById(R.id.btnPaidBy);
         mImgBill = (ImageView) findViewById(R.id.imgBill);
         mGridFriends = (GridView) findViewById(R.id.gridview);
-        mRadioGroupDived = (RadioGroup) findViewById(R.id.radioDivided);
+        // mRadioGroupDived = (RadioGroup) findViewById(R.id.radioDivided);
         mTxtErrorGrid = (TextView) findViewById(R.id.txtErrorFriend);
         txtCurrencySymbol = (TextView) findViewById(R.id.txtCurrencySymbol);
+        swtPayment = (Switch) findViewById(R.id.swtPayment);
+
         txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
         mBtnPaidBy.setOnClickListener(this);
         createList();
@@ -84,6 +90,13 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
                             .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                             myCalendar.get(Calendar.DAY_OF_MONTH)).show();
                 }
+            }
+        });
+
+        swtPayment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isEquallyDivided = isChecked;
             }
         });
     }
@@ -153,12 +166,13 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
         selectedFriends.add(new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
                 , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true));
-        int radioSelectedId = 0;
+        //int radioSelectedId = 0;
         int splitMode = 0;
-        radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();
-        if (radioSelectedId == R.id.radioEqually) {
+        //radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();
+
+        if (isEquallyDivided) {
             splitMode = AppConstants.EQUALLY_DIVIDED;
-        } else if (radioSelectedId == R.id.radioUnequally) {
+        } else if (!isEquallyDivided) {
             splitMode = AppConstants.UNEQUALLY_DIVIDED;
         }
         mTxtAmt.setError(null);
