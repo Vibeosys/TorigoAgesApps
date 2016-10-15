@@ -75,7 +75,7 @@
             android:parentActivityName=".activities.ClientActivity" />
         <activity
             android:name=".activities.RegisterUser"
-            android:parentActivityName=".activities.LoginActivity"></activity>
+            android:parentActivityName=".activities.LoginActivity" />
 
         <service
             android:name=".services.ReminderService"
@@ -83,7 +83,10 @@
 
         <receiver android:name=".services.ReminderReceiver" />
 
-        <activity android:name=".activities.RemoveAdsActivity"
+        <activity
+            android:name=".activities.RemoveAdsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activities.FeedbackActivity"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

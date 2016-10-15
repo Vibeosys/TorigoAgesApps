@@ -144,7 +144,7 @@ public class RemoveAdsActivity extends BaseActivity implements View.OnClickListe
                     {
                         JSONObject object = new JSONObject(thisResponse);
                         String productId = object.getString("productId");
-                        String price = object.getString("Pirce");
+                        String price = object.getString("price");
                         if(productId.equals("com.lawyerdiary.noads"))
                         {
                             mPurchasePrice = price;

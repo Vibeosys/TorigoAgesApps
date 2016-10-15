@@ -66,7 +66,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="client_name">Client Name</string>
+    <string name="client_name">Your Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="email_id">Email Id</string>
     <string name="password">Password</string>
@@ -138,4 +138,10 @@
     <string name="str_remove_ads">Remove Ads</string>
     <string name="str_purchase_msg">IF YOU ARE TIRED OF SEEING ADS YOU CAN UPGRADE
         WITH JUST \u20B9 50 AND YOU WILL NEVER HAVE TO SEE ANOTHER AD AGAIN</string>
+    <string name="str_feedback">Your feedback</string>
+    <string name="str_feedback_title">Feedback</string>
+    <string name="str_name">Name</string>
+    <string name="str_country">Country</string>
+    <string name="str_feedback_txt_view">Feedback</string>
+    <string name="str_user_feedback_val">Please enter your feedback</string>
 </resources>

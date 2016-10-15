@@ -37,6 +37,7 @@ import com.vibeosys.lawyerdiary.activities.CalenderViewActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
 import com.vibeosys.lawyerdiary.activities.ClientActivity;
 import com.vibeosys.lawyerdiary.activities.EventDetailsActivity;
+import com.vibeosys.lawyerdiary.activities.FeedbackActivity;
 import com.vibeosys.lawyerdiary.activities.LoginActivity;
 import com.vibeosys.lawyerdiary.activities.RemoveAdsActivity;
 import com.vibeosys.lawyerdiary.activities.SettingsActivity;
@@ -66,24 +67,25 @@ public class MainActivity extends BaseActivity
     private TextView mUserNameNavigation, mUserEmailIdNavigation;
     IInAppBillingService mService;
 
-    ServiceConnection mServiceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mService= IInAppBillingService.Stub.asInterface(service);
-            isPurchase();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-            mService=null;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ServiceConnection mServiceConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                mService= IInAppBillingService.Stub.asInterface(service);
+                isPurchase();
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+
+                mService=null;
+            }
+        };
+
         if(mSessionManager.getInAppPurchase()!=1)
         {
             int test  = mSessionManager.getInAppPurchase();
@@ -200,6 +202,11 @@ public class MainActivity extends BaseActivity
             Intent removeAd = new Intent(getApplicationContext(), RemoveAdsActivity.class);
             startActivity(removeAd);
             finish();
+        }
+        else if(id== R.id.nav_feedback)
+        {
+            Intent feedback = new Intent(getApplicationContext(), FeedbackActivity.class);
+            startActivity(feedback);
         }
         else if(id==R.id.nav_log_out)
         {

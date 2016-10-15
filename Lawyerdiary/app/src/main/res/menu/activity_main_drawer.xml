@@ -18,6 +18,9 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_settings_applications_black_24dp"
             android:title="Settings" />
+        <item android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="Feedback"/>
         <item android:id="@+id/nav_removeAds"
             android:icon="@drawable/ic_touch_app_black_24dp"
             android:title="Remove Ads"/>
