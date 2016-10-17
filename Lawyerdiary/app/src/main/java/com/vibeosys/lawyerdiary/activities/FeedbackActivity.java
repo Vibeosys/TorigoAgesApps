@@ -48,8 +48,8 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         mSubmitBtn = (Button) findViewById(R.id.btnSubmit);
         mCountryName = (Spinner) findViewById(R.id.countryName);
         mCancleBtn = (Button) findViewById(R.id.btnCancel);
-        mSenderEmail="test@test.com";
-        mSenderPassword="testPassword";
+        mSenderEmail="sender@gmail.com";
+        mSenderPassword="senderPassword";
         sender = new GMailSender(mSenderEmail,mSenderPassword);
 
         Locale[] locale = Locale.getAvailableLocales();
@@ -98,7 +98,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
 
             mCustomerFeedBack = "Customer Name:"+"\t"+mClientName.getText().toString().trim()+"\n"
                     +"Country Name:"+"\t"+mCountryName.getSelectedItem().toString()+"\n"+"Feedback:"+"\t"+mClientFeedback.getText().toString().trim();
-            String test="test@receiver.com";
+            String test="reciver@gmail.com";
             new MyAsyncClass().execute(test);
 
         } catch (Exception ex) {
@@ -139,7 +139,9 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
     class MyAsyncClass extends AsyncTask<String, Void, Void> {
 
         ProgressDialog pDialog;
-
+        String customerName =mClientName.getText().toString().trim();
+        String customerCountry = mCountryName.getSelectedItem().toString();
+        String customerFeedBack = mClientFeedback.getText().toString().trim();
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -154,16 +156,79 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         protected Void doInBackground(String... mApi) {
             try {
 
-                String htmlCode="<html><head><style></style></head><body><table class=\"table\" style=\"border: 2px solid #b9b6b6;padding: 0px 0px 10px 0px;text-align: left;\"><thead style=\"background: #4DB6AC;\"><tr><th colspan=\"2\" style=\"padding: 10px 10px 10px 10px;\"><div> Lawyer Diary Feedback</div><!--<div><hr style=\"margin-left: -5px;margin-right: -5px;border: 1px solid #b9b6b6;\"></div>--></th></tr></thead><tbody><tr><td style=\"padding: 7px 10px 4px 10px;\">Customer : </td><td style=\"padding: 7px 10px 4px 0px;\"></td></tr><tr><td style=\"padding: 0px 10px 4px 10px;\">Country : </td><td style=\"padding: 7px 10px 4px 0px;\"></td></tr><tr><td colspan=\"2\" style=\"padding: 7px 10px 4px 10px;\"><div style=\"background: #f5f5f5;\"> <div>Message</div><div><hr style=\"margin-top: 4px;border: 1px solid #e0e0e0;\"></div><div style=\"height: 16px;\"></div></div></td></tr></tbody></table></body></html>";
 
-                Spannable spannableStr= (Spannable) Html.fromHtml(htmlCode);
-                spannableStr.toString();
+                String htmlCode="<html>\n" +
+                        "<head>\n" +
+                        "<style> \n" +
+                        "    @media only screen and (max-width:620px;){\n" +
+                        "        .content{\n" +
+                        "            height: 60px;\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "    @media only screen and (min-width:620px){\n" +
+                        "        .content{\n" +
+                        "            height: 40px;\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "</style>\n" +
+                        "</head>\n" +
+                        "<body>\n" +
+                        "<table class=\"table\" style=\"border: 2px solid #b9b6b6;padding: 0px 0px 10px 0px;text-align: left;\">\n" +
+                        "  <thead style=\"background: #4DB6AC;\">\n" +
+                        "    <tr>\n" +
+                        "      <th colspan=\"3\" style=\"padding: 10px 10px 10px 10px;color:#fff;\">\n" +
+                        "          <div> Lawyer Diary Feedback</div>\n" +
+                        "         </th>\n" +
+                        "    </tr>\n" +
+                        "     \n" +
+                        "  </thead>\n" +
+                        "  <tbody>\n" +
+                        "    <tr>\n" +
+                        "     \n" +
+                        "      <td style=\"padding: 7px 10px 4px 10px;\">\n" +
+                        "          <div>\n" +
+                        "          <div style=\"width:70px;display:inline-block\">\n" +
+                        "              Customer</div>\n" +
+                        "              <div style=\"width:15px;display:inline-block;\">:</div>\n" +
+                        "              <div style=\"display:inline-block;\">"+""+customerName+"</div>\n" +
+                        "          </div> </td>\n" +
+                        "     \n" +
+                        "    </tr>\n" +
+                        "    <tr>\n" +
+                        "        <td style=\"padding: 0px 10px 4px 10px;\">\n" +
+                        "     <div>\n" +
+                        "          <div style=\"width:70px;display:inline-block\">\n" +
+                        "              Country</div>\n" +
+                        "              <div style=\"width:15px;display:inline-block;\">:</div>\n" +
+                        "              <div style=\"display:inline-block;\">"+""+customerCountry+"</div>\n" +
+                        "          </div>\n" +
+                        "      </td>\n" +
+                        "\n" +
+                        "    </tr>\n" +
+                        "    <tr>\n" +
+                        "      <td colspan=\"3\" style=\"padding: 7px 10px 4px 10px;background: #f5f5f5;\">\n" +
+                        "    <div > \n" +
+                        "        <div>Message</div>\n" +
+                        "        <div><hr style=\"margin-top: 4px;border: 1px solid #efeeee;\"></div>\n" +
+                        "        <div class=\"content\">"+""+customerFeedBack+"</div>\n" +
+                        "          </div>\n" +
+                        "        </td>\n" +
+                        "\n" +
+                        "    </tr>\n" +
+                        "      \n" +
+                        "  </tbody>\n" +
+                        "</table>\n" +
+                        "\n" +
+                        "</body>\n" +
+                        "</html>";
+
+
 
               //  messageTxt= template + mUserPwd;
                 String email = mApi[0];
 
                 // Add subject, Body, your mail Id, and receiver mail Id.
-                sender.sendMail("Lawyer diary feedback", mCustomerFeedBack, mSenderEmail,email );
+                sender.sendMail("Lawyer diary feedback", htmlCode, mSenderEmail,email );
 //sender emailid and receviver emailid
 
             }

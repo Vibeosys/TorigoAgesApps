@@ -65,7 +65,7 @@ public class GMailSender extends javax.mail.Authenticator {
                                       String sender, String recipients) throws Exception {
         MimeMessage message = new MimeMessage(session);
         DataHandler handler = new DataHandler(new ByteArrayDataSource(
-                body.getBytes(), "text/plain"));
+                body.getBytes(), "text/html"));
         message.setSender(new InternetAddress(sender));
         message.setSubject(subject);
         message.setDataHandler(handler);
