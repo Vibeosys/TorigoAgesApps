@@ -15,18 +15,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:weightSum="0">
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="620dp"
-                android:layout_weight="0.7"
+                android:layout_height="150dp"
+                android:layout_weight="0"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <FrameLayout
                     android:id="@+id/viewA"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@android:color/white"
                     android:orientation="vertical">
 
@@ -37,29 +38,36 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/avatar_profile" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:background="@android:color/darker_gray">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:src="@drawable/ic_action_camera"
-                            android:text="Upload Image" />
-                    </RelativeLayout>
-
-                </RelativeLayout>
+                </FrameLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/darker_gray">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_action_camera"
+                        android:text="Upload Image" />
+                </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/viewB"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_weight="1"
                 android:background="@color/transperentWhite"
                 android:orientation="vertical">
 
@@ -71,8 +79,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
                     android:padding="20dp">
 
                     <TextView
@@ -182,7 +190,6 @@
                         android:weightSum="2">
 
 
-
                         <Button
                             android:id="@+id/cancelBtn"
                             android:layout_width="wrap_content"
@@ -194,6 +201,7 @@
                             android:text="@string/register_cancel_btn"
                             android:textColor="@android:color/white"
                             android:textStyle="bold" />
+
                         <Button
                             android:id="@+id/updateBtn"
                             android:layout_width="wrap_content"

@@ -39,34 +39,60 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/friendName"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:hint="@string/friend_name"
-                    android:singleLine="true"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:textSize="16sp" />
+                    android:layout_marginTop="15dp">
 
-                <EditText
-                    android:id="@+id/friendPhoneNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:hint="@string/friend_phone"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:textColorHint="@android:color/darker_gray" />
+                    <EditText
+                        android:id="@+id/friendName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                        android:drawablePadding="10dp"
+                        android:hint="@string/friend_name"
+                        android:singleLine="true"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="18sp" />
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/friendEmailId"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:hint="@string/friend_email"
-                    android:inputType="textEmailAddress"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:layout_marginTop="15dp">
+
+                    <EditText
+                        android:id="@+id/friendPhoneNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:drawableLeft="@drawable/ic_phone_black_24dp"
+                        android:hint="@string/friend_phone"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:drawablePadding="10dp"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="18sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <EditText
+                        android:id="@+id/friendEmailId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="@string/friend_email"
+                        android:drawableLeft="@drawable/ic_email_black"
+                        android:drawablePadding="10dp"
+                        android:inputType="textEmailAddress"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="18sp" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
 

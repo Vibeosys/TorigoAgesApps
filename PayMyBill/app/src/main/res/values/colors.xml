@@ -9,4 +9,5 @@
     <color name="transperent">#00ffffff</color>
     <color name="flatRed">#c0392b</color>
     <color name="flatGreen">#27ae60</color>
+    <color name="over_layer">#9d000000</color>
 </resources>

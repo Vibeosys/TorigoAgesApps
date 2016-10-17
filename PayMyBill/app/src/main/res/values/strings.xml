@@ -58,10 +58,12 @@
     <!--settle up-->
     <string name="btn_settle_up">Settle Up</string>
     <string name="my_profile">My Profile</string>
-    <string name="forgotpass_btn">Get your Password</string>
+    <string name="forgotpass_btn">Send Password</string>
     <string name="forgotpass_title">Forgot Password</string>
     <string name="my_profile_update">Update</string>
     <string name="edit_my_profile">Edit Profile</string>
+    <string name="forgot_password_title">Your password will be send
+        on following email address,Please validate your email address</string>>
 
     <!--Facebook App Key -->
     <string name="facebook_app_id">1134020779954080</string>
