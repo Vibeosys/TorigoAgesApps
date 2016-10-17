@@ -144,4 +144,5 @@
     <string name="str_country">Country</string>
     <string name="str_feedback_txt_view">Feedback</string>
     <string name="str_user_feedback_val">Please enter your feedback</string>
+    <string name="str_select_country">Please select your country name</string>
 </resources>

@@ -1,8 +1,16 @@
 package com.vibeosys.lawyerdiary.activities;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,26 +21,36 @@ import android.widget.Toast;
 
 import com.vibeosys.lawyerdiary.MainActivity;
 import com.vibeosys.lawyerdiary.R;
+import com.vibeosys.lawyerdiary.utils.GMailSender;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
+
+import javax.xml.transform.Templates;
 
 public class FeedbackActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mClientName,mClientFeedback;
     private Spinner mCountryName;
     private Button mSubmitBtn,mCancleBtn;
+    GMailSender sender;
+    private String mSenderEmail,mSenderPassword,mCustomerFeedBack,TAG;
+    private int SEND_EMAIL_PERMISSION_CODE=1001;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+        TAG = getClass().getName();
         setTitle(getResources().getString(R.string.str_feedback_title));
         mClientName = (EditText) findViewById(R.id.clientName);
         mClientFeedback =(EditText) findViewById(R.id.feedback);
         mSubmitBtn = (Button) findViewById(R.id.btnSubmit);
         mCountryName = (Spinner) findViewById(R.id.countryName);
         mCancleBtn = (Button) findViewById(R.id.btnCancel);
+        mSenderEmail="test@test.com";
+        mSenderPassword="testPassword";
+        sender = new GMailSender(mSenderEmail,mSenderPassword);
 
         Locale[] locale = Locale.getAvailableLocales();
         ArrayList<String> countries = new ArrayList<String>();
@@ -58,13 +76,34 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         switch (id)
         {
             case R.id.btnSubmit:
-                callToValidation();
+                boolean returnVal = callToValidation();
+                if(returnVal==true)
+                {
+                    //requestGrantPermission();
+                    callToSendEmail();
+                }
                 break;
             case R.id.btnCancel:
                 Intent mainActivity =new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(mainActivity);
                 finish();
                 break;
+        }
+    }
+    public void callToSendEmail()
+    {
+        try {
+           // mReceiverEmail= mEmailid.getText().toString().trim();
+
+
+            mCustomerFeedBack = "Customer Name:"+"\t"+mClientName.getText().toString().trim()+"\n"
+                    +"Country Name:"+"\t"+mCountryName.getSelectedItem().toString()+"\n"+"Feedback:"+"\t"+mClientFeedback.getText().toString().trim();
+            String test="test@receiver.com";
+            new MyAsyncClass().execute(test);
+
+        } catch (Exception ex) {
+            Log.d(TAG,ex.toString());
+
         }
     }
     public boolean callToValidation()
@@ -84,8 +123,66 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
             mClientFeedback.setError(getResources().getString(R.string.str_user_feedback_val));
             return false;
         }
+        else if(mCountryName.getSelectedItemPosition()==0)
+        {
+            createAlertDialog("Lawyer diary",getResources().getString(R.string.str_select_country));
+            return false;
+        }
 
         return true;
+    }
+
+
+
+
+
+    class MyAsyncClass extends AsyncTask<String, Void, Void> {
+
+        ProgressDialog pDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pDialog = new ProgressDialog(FeedbackActivity.this);
+            pDialog.setMessage("Please wait...");
+            pDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(String... mApi) {
+            try {
+
+                String htmlCode="<html><head><style></style></head><body><table class=\"table\" style=\"border: 2px solid #b9b6b6;padding: 0px 0px 10px 0px;text-align: left;\"><thead style=\"background: #4DB6AC;\"><tr><th colspan=\"2\" style=\"padding: 10px 10px 10px 10px;\"><div> Lawyer Diary Feedback</div><!--<div><hr style=\"margin-left: -5px;margin-right: -5px;border: 1px solid #b9b6b6;\"></div>--></th></tr></thead><tbody><tr><td style=\"padding: 7px 10px 4px 10px;\">Customer : </td><td style=\"padding: 7px 10px 4px 0px;\"></td></tr><tr><td style=\"padding: 0px 10px 4px 10px;\">Country : </td><td style=\"padding: 7px 10px 4px 0px;\"></td></tr><tr><td colspan=\"2\" style=\"padding: 7px 10px 4px 10px;\"><div style=\"background: #f5f5f5;\"> <div>Message</div><div><hr style=\"margin-top: 4px;border: 1px solid #e0e0e0;\"></div><div style=\"height: 16px;\"></div></div></td></tr></tbody></table></body></html>";
+
+                Spannable spannableStr= (Spannable) Html.fromHtml(htmlCode);
+                spannableStr.toString();
+
+              //  messageTxt= template + mUserPwd;
+                String email = mApi[0];
+
+                // Add subject, Body, your mail Id, and receiver mail Id.
+                sender.sendMail("Lawyer diary feedback", mCustomerFeedBack, mSenderEmail,email );
+//sender emailid and receviver emailid
+
+            }
+
+            catch (Exception ex) {
+
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            pDialog.cancel();
+            Toast toast=Toast.makeText(getApplicationContext(), "Thank you for your feedback", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+            finish();
+        }
     }
 
 }

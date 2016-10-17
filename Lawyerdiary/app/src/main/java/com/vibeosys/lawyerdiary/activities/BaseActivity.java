@@ -1,5 +1,7 @@
 package com.vibeosys.lawyerdiary.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,5 +22,17 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mSessionManager = SessionManager.getInstance(getApplicationContext());
         mDbRepository = new DbRepository(getApplicationContext());
+    }
+    protected void createAlertDialog(String title, String message) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // whatever...
+                    }
+                }).create().show();
     }
 }
