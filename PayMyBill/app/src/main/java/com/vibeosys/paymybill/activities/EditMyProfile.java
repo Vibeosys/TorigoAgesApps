@@ -28,7 +28,7 @@ public class EditMyProfile extends BaseActivity implements View.OnClickListener 
     private Button mUpdate, mCancel;
     private EditText mUserName, mUserEmailId, mUserPhone, mUserPassword, mUserCountry;
     private String mUserPhotoUri;
-    private ImageView mUserPhoto;
+    private ImageView mUserPhoto,mEditUserPhoto;
     private boolean setFlag = true;
     private int EDIT_PROFILE_MEDIA_PERMISSION_CODE = 19;
     private int EDIT_SELECT_IMAGE=20;
@@ -46,12 +46,13 @@ public class EditMyProfile extends BaseActivity implements View.OnClickListener 
         mUserPassword = (EditText) findViewById(R.id.password);
         mUserCountry = (EditText) findViewById(R.id.country);
         mUserPhoto = (ImageView) findViewById(R.id.userEditPhoto);
-
+        mEditUserPhoto = (ImageView) findViewById(R.id.edit_btn);
 
         mUserEmailId.setEnabled(false);
         mUpdate.setOnClickListener(this);
         mCancel.setOnClickListener(this);
         mUserPhoto.setOnClickListener(this);
+        mEditUserPhoto.setOnClickListener(this);
         setTitle(R.string.edit_my_profile);
 
 
@@ -122,6 +123,9 @@ public class EditMyProfile extends BaseActivity implements View.OnClickListener 
                 finish();
                 break;
             case R.id.userEditPhoto:
+                requestGrantPermission();
+                break;
+            case R.id.edit_btn:
                 requestGrantPermission();
 
         }

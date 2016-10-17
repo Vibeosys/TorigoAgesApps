@@ -34,6 +34,12 @@
                     android:src="@drawable/ic_person_white_36dp" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,10 +74,10 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:drawableLeft="@drawable/ic_phone_black_24dp"
+                        android:drawablePadding="10dp"
                         android:hint="@string/friend_phone"
                         android:inputType="number"
                         android:maxLength="10"
-                        android:drawablePadding="10dp"
                         android:textColorHint="@android:color/darker_gray"
                         android:textSize="18sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -86,9 +92,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:hint="@string/friend_email"
                         android:drawableLeft="@drawable/ic_email_black"
                         android:drawablePadding="10dp"
+                        android:hint="@string/friend_email"
                         android:inputType="textEmailAddress"
                         android:textColorHint="@android:color/darker_gray"
                         android:textSize="18sp" />

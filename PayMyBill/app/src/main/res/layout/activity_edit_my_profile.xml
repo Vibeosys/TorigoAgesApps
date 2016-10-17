@@ -55,6 +55,7 @@
                     android:background="@android:color/darker_gray">
 
                     <ImageView
+                        android:id="@+id/edit_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
