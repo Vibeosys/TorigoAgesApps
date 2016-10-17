@@ -2,31 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="56dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:padding="2dp"
             android:src="@drawable/ic_receipt_black_48dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="2dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txtBillDesc"
@@ -37,25 +40,26 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/txtType"
-                    android:layout_width="match_parent"
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="@string/hint_bill_description"
+                    android:hint="@string/hint_bill_date"
                     android:textColor="@color/secondaryText"
                     android:textSize="13sp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtDate"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtType"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_bill_date"
+                    android:gravity="right"
+                    android:hint="@string/hint_bill_description"
                     android:textColor="@color/secondaryText"
                     android:textSize="13sp" />
 
