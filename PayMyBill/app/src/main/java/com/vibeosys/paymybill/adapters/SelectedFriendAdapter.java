@@ -1,7 +1,10 @@
 package com.vibeosys.paymybill.adapters;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,6 +60,7 @@ public class SelectedFriendAdapter extends BaseAdapter {
             row = theLayoutInflator.inflate(R.layout.row_selected_friend, null);
             viewHolder = new ViewHolder();
             viewHolder.imgProf = (ImageView) row.findViewById(R.id.imgProf);
+            viewHolder.imgTickMark = (ImageView) row.findViewById(R.id.imgIsSelected);
             viewHolder.friendName = (TextView) row.findViewById(R.id.friendName);
             viewHolder.layout = (LinearLayout) row.findViewById(R.id.item);
             row.setTag(viewHolder);
@@ -65,12 +69,53 @@ public class SelectedFriendAdapter extends BaseAdapter {
         FriendsDTO friend = mFriends.get(position);
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
+        String imagePath = friend.getImgSource();
+       if (imagePath != null || !TextUtils.isEmpty(imagePath)) {
+            viewHolder.imgProf.setImageURI(Uri.parse(imagePath));
+        } else {
+            viewHolder.imgProf.setImageResource(R.drawable.ic_avtar);
+        }
+
+        if (friend.isSelected()) {
+            viewHolder.imgTickMark.setVisibility(View.VISIBLE);
+        } else if (!friend.isSelected()) {
+            viewHolder.imgTickMark.setVisibility(View.GONE);
+        }
         return row;
     }
 
     private class ViewHolder {
-        ImageView imgProf;
+        ImageView imgProf, imgTickMark;
         TextView friendName;
         LinearLayout layout;
+    }
+
+    public void selectOneUser(int position) {
+        for (int i = 0; i < mFriends.size(); i++) {
+            FriendsDTO friend = mFriends.get(i);
+            if (i == position) {
+                friend.setSelected(true);
+            } else {
+                friend.setSelected(false);
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    public static int calculateInSampleSize(BitmapFactory.Options options,
+                                            int reqWidth, int reqHeight) {
+
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+            if (width > height) {
+                inSampleSize = Math.round((float) height / (float) reqHeight);
+            } else {
+                inSampleSize = Math.round((float) width / (float) reqWidth);
+            }
+        }
+        return inSampleSize;
     }
 }

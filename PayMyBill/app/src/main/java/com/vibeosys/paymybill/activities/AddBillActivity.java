@@ -59,6 +59,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private FriendsDTO paidByFriend = null;
     private Switch swtPayment;
     boolean isEquallyDivided = false;
+    private FriendsDTO friendsDTO = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +166,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         List<FriendsDTO> selectedFriends = new ArrayList<>();
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
         selectedFriends.add(new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
-                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true));
+                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true, false));
         //int radioSelectedId = 0;
         int splitMode = 0;
         //radioSelectedId = mRadioGroupDived.getCheckedRadioButtonId();
@@ -237,21 +238,23 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
     private void openSelectedDialog() {
         List<FriendsDTO> selectedFriends = new ArrayList<>();
+
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
         selectedFriends.add(new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
-                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true));
+                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true, true));
         final Dialog dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.dialog_paid_by_list);
         dialog.setTitle(getResources().getString(R.string.str_dialog_title_select_paid_by));
         ListView friendListView = (ListView) dialog.findViewById(R.id.listSelectedFriends);
+        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
+        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
         final SelectedFriendAdapter adapter = new SelectedFriendAdapter(mContext, selectedFriends);
         friendListView.setAdapter(adapter);
         friendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                paidByFriend = (FriendsDTO) adapter.getItem(position);
-                mBtnPaidBy.setText(paidByFriend.getName());
-                dialog.dismiss();
+                friendsDTO = (FriendsDTO) adapter.getItem(position);
+                adapter.selectOneUser(position);
             }
         });
         if (selectedFriends.size() == 0) {
@@ -260,6 +263,20 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         } else {
             dialog.show();
         }
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paidByFriend = friendsDTO;
+                mBtnPaidBy.setText(paidByFriend.getName());
+                dialog.dismiss();
+            }
+        });
 
     }
 

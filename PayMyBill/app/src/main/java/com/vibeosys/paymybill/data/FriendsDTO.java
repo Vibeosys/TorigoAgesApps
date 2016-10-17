@@ -14,6 +14,7 @@ public class FriendsDTO implements Serializable {
     private double mAmount;
     private Date mDate;
     private boolean flagOwe;
+    private boolean isSelected;
 
     public FriendsDTO(int mId, String mName, String mImgSource, double mAmount) {
         this.mId = mId;
@@ -22,12 +23,13 @@ public class FriendsDTO implements Serializable {
         this.mAmount = mAmount;
     }
 
-    public FriendsDTO(int mId, String mName, String mImgSource, double mAmount, boolean flagOwe) {
+    public FriendsDTO(int mId, String mName, String mImgSource, double mAmount, boolean flagOwe, boolean isSelected) {
         this.mId = mId;
         this.mName = mName;
         this.mImgSource = mImgSource;
         this.mAmount = mAmount;
         this.flagOwe = flagOwe;
+        this.isSelected = isSelected;
     }
 
     public FriendsDTO(int mId, String mName, String mImgSource, double mAmount, Date mDate, boolean flagOwe) {
@@ -85,6 +87,14 @@ public class FriendsDTO implements Serializable {
 
     public void setFlagOwe(boolean flagOwe) {
         this.flagOwe = flagOwe;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     @Override

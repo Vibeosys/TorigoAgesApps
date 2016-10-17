@@ -21,7 +21,8 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.vibeosys.paymybill.views.RoundedImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgUser"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_avtar" />

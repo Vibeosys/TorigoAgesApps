@@ -3,11 +3,14 @@ package com.vibeosys.paymybill.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +31,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
     private TextView txtFriendName, txtAmount, txtType;
     private Button btnSettle;
     private FriendTransactions friendTransactions;
+    private ImageView imgUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +43,18 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         txtAmount = (TextView) findViewById(R.id.txtAmount);
         txtType = (TextView) findViewById(R.id.txtType);
         btnSettle = (Button) findViewById(R.id.btnSettle);
+        imgUser = (ImageView) findViewById(R.id.imgUser);
         btnSettle.setOnClickListener(this);
         friendTransactions = (FriendTransactions) getIntent().getExtras().getSerializable("data");
 
         settleAdapter = new SettleAdapter(getApplicationContext(), friendTransactions.getFilterBills(), mSessionManager.getUserCurrencySymbol());
         mListView.setAdapter(settleAdapter);
-
+        String imagePath = friendTransactions.getImage();
+        if (imagePath != null || !TextUtils.isEmpty(imagePath)) {
+            imgUser.setImageURI(Uri.parse(imagePath));
+        } else {
+            imgUser.setImageResource(R.drawable.ic_avtar);
+        }
         txtFriendName.setText(friendTransactions.getName());
         double amount = Math.round(friendTransactions.getAmount());
         amount = amount < 0 ? -(amount) : amount;
@@ -73,7 +83,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         int id = v.getId();
         switch (id) {
             case R.id.btnSettle:
-                createAlertDialog("Confirmation", "Are you sure to settle this amount");
+                createAlertDialog("Confirmation",getResources().getString(R.string.str_settel_sure));
                 break;
         }
     }

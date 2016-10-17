@@ -332,7 +332,7 @@ public class DbRepository extends SQLiteOpenHelper {
                             String contact = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_CONTACT_NO));
                             String email = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_EMAIL));
                             String image = cursor.getString(cursor.getColumnIndex(SqlContract.SqlFriend.FRIEND_PHOTO));
-                            FriendsDTO friendsDT = new FriendsDTO(friendId, name, image, 0, false);
+                            FriendsDTO friendsDT = new FriendsDTO(friendId, name, image, 0, false, false);
                             friendDbDTOs.add(friendsDT);
 
                         } while (cursor.moveToNext());
@@ -675,8 +675,8 @@ public class DbRepository extends SQLiteOpenHelper {
         } finally {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
-            }if(cursor!=null)
-            {
+            }
+            if (cursor != null) {
                 cursor.close();
             }
         }
@@ -689,8 +689,8 @@ public class DbRepository extends SQLiteOpenHelper {
         long count = -1;
         int returnVal = -2;
         int countVal;
-        String Password,firstName,LastName;
-        UserRegisterDbDTO UserRegisterDbDTO=null;
+        String Password, firstName, LastName;
+        UserRegisterDbDTO UserRegisterDbDTO = null;
         try {
             sqLiteDatabase = getReadableDatabase();
             synchronized (sqLiteDatabase) {
@@ -703,8 +703,8 @@ public class DbRepository extends SQLiteOpenHelper {
                         do {
                             Password = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_PASSWORD));
                             firstName = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_FIRST_NAME));
-                            LastName =cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_LAST_NAME));
-                            UserRegisterDbDTO = new UserRegisterDbDTO(userName,password,firstName,LastName,"",0,"","");
+                            LastName = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_LAST_NAME));
+                            UserRegisterDbDTO = new UserRegisterDbDTO(userName, password, firstName, LastName, "", 0, "", "");
                             return UserRegisterDbDTO;
                         } while (cursor.moveToNext());
                         /*if (TextUtils.equals(password, Password)) {
@@ -717,14 +717,14 @@ public class DbRepository extends SQLiteOpenHelper {
                         }*/
                     } else if (countVal == 0) {
                         returnVal = 3;
-                       // return returnVal;
+                        // return returnVal;
                     }
 
 
                 } catch (SQLiteException e) {
                     Log.d(TAG, "user Login problem");
                     returnVal = 4;
-                   // return returnVal;
+                    // return returnVal;
                 }
             }
 
@@ -735,8 +735,7 @@ public class DbRepository extends SQLiteOpenHelper {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
-            if(cursor!=null)
-            {
+            if (cursor != null) {
                 cursor.close();
             }
         }
@@ -827,8 +826,7 @@ public class DbRepository extends SQLiteOpenHelper {
             if (sqLiteDatabase.isOpen()) {
                 sqLiteDatabase.close();
             }
-            if(cursor!=null)
-            {
+            if (cursor != null) {
                 cursor.close();
             }
         }
@@ -1319,46 +1317,39 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         return bills;
     }
-    public String getPassword(String emailId)
-    {
-        SQLiteDatabase sqLiteDatabase=null;
+
+    public String getPassword(String emailId) {
+        SQLiteDatabase sqLiteDatabase = null;
         Cursor cursor = null;
-        int count =-1;
-        String returnVal="";
-        try
-        {
+        int count = -1;
+        String returnVal = "";
+        try {
             sqLiteDatabase = getReadableDatabase();
-            synchronized (sqLiteDatabase)
-            {
-                try
-                {
+            synchronized (sqLiteDatabase) {
+                try {
                     String[] whereArg = {emailId};
-                    cursor = sqLiteDatabase.rawQuery("select Pwd from "+SqlContract.SqlRegisterUser.TABLE_NAME+" where "
-                            +SqlContract.SqlRegisterUser.USER_EMAIL_ID+" = ?",whereArg);
+                    cursor = sqLiteDatabase.rawQuery("select Pwd from " + SqlContract.SqlRegisterUser.TABLE_NAME + " where "
+                            + SqlContract.SqlRegisterUser.USER_EMAIL_ID + " = ?", whereArg);
                     count = cursor.getCount();
-                    if ( count > 0) {
+                    if (count > 0) {
                         cursor.moveToFirst();
                         do {
                             returnVal = cursor.getString(cursor.getColumnIndex(SqlContract.SqlRegisterUser.USER_PASSWORD));
                         } while (cursor.moveToNext());
                     }
                     return returnVal;
-                }catch (SQLiteConstraintException e)
-                {
-                    Log.d(TAG,"error while getting Pwd");
-                }
-                catch (SQLiteException e)
-                {
-                    Log.d(TAG,"error while getting Pwd");
+                } catch (SQLiteConstraintException e) {
+                    Log.d(TAG, "error while getting Pwd");
+                } catch (SQLiteException e) {
+                    Log.d(TAG, "error while getting Pwd");
                 }
 
             }
 
-        }catch (Exception e)
-        {
-            Log.d(TAG,"error while getting Pwd");
+        } catch (Exception e) {
+            Log.d(TAG, "error while getting Pwd");
 
-        }finally {
+        } finally {
             if (cursor != null)
                 cursor.close();
             if (sqLiteDatabase != null && sqLiteDatabase.isOpen())

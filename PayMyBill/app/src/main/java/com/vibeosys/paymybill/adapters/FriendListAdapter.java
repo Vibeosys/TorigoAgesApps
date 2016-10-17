@@ -1,7 +1,11 @@
 package com.vibeosys.paymybill.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,6 +75,15 @@ public class FriendListAdapter extends BaseAdapter {
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
         DateUtils dateUtils = new DateUtils();
+
+        String imagePath = friend.getImage();
+        if (imagePath != null || !TextUtils.isEmpty(imagePath)) {
+            //viewHolder.imgProf.setImageURI(Uri.parse(imagePath));
+            viewHolder.imgProf.setImageBitmap(decodeSampledBitmapFromPath(imagePath, 50, 50));
+        } else {
+            viewHolder.imgProf.setImageResource(R.drawable.ic_avtar);
+        }
+
         //viewHolder.billDate.setText(dateUtils.getLocalDateInReadableFormat(friend.getDate()));
         double amount = Math.round(friend.getAmount());
         if (amount < 0) {
@@ -107,5 +120,38 @@ public class FriendListAdapter extends BaseAdapter {
         TextView billDate;
         TextView billAmount;
         TextView billOwed;
+    }
+
+    public static Bitmap decodeSampledBitmapFromPath(String path, int reqWidth,
+                                                     int reqHeight) {
+
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+
+        options.inSampleSize = calculateInSampleSize(options, reqWidth,
+                reqHeight);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        Bitmap bmp = BitmapFactory.decodeFile(path, options);
+        return bmp;
+    }
+
+    public static int calculateInSampleSize(BitmapFactory.Options options,
+                                            int reqWidth, int reqHeight) {
+
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+            if (width > height) {
+                inSampleSize = Math.round((float) height / (float) reqHeight);
+            } else {
+                inSampleSize = Math.round((float) width / (float) reqWidth);
+            }
+        }
+        return inSampleSize;
     }
 }
