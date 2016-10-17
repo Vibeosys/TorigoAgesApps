@@ -131,9 +131,9 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
             mTxtRemains.setTextColor(getResources().getColor(R.color.secondaryText));
         }
 
-        String strTotal = "Total:" + String.format("%.2f", mTotalFriendAmount) + " Of " + String.format("%.2f", mBillTotalAmount);
+        String strTotal = "Total:   " + String.format("%.2f", mTotalFriendAmount);// + " Of " + String.format("%.2f", mBillTotalAmount);
         mTxtTotal.setText(strTotal);
-        String strRemains = "Remains:" + String.format("%.2f", mRemainingAmount);
+        String strRemains = "Remains:   " + String.format("%.2f", mRemainingAmount);
         mTxtRemains.setText(strRemains);
     }
 
