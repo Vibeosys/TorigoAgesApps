@@ -45,12 +45,18 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.*;
 import com.google.android.gms.*;
+import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
@@ -83,7 +89,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private CallbackManager callbackManager;
     protected GoogleApiClient mGoogleApiClient;
     private ConnectionResult mConnectionResult;
-    private static int RC_SIGN_IN = 0;
+    private static int RC_SIGN_IN = 405;
     private boolean mIntentInProgress;
     private boolean mSignInClicked;
     private EditText mEmailId, mPassword;
@@ -92,6 +98,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private int count = 0;
     private Context context = this;
     private Locale selectedLocale = null;
+    GoogleSignInOptions gso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +108,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_login);
         setTitle(getResources().getString(R.string.login_title));
-
+        googlePlusAPIInit();
         mForgotPassword = (TextView) findViewById(R.id.forgot_password);
         mFacebbokLogin = (LoginButton) findViewById(R.id.login_with_Facebook);
         mGoogSignInButton = (SignInButton) findViewById(R.id.google_Plus_signIn);
@@ -276,12 +283,16 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
     /*Google login initialization functions*/
     private void googlePlusAPIInit() {
-        mGoogleApiClient = new GoogleApiClient.Builder(LoginActivity.this)
-                .addConnectionCallbacks(LoginActivity.this)
-                .addOnConnectionFailedListener(LoginActivity.this)
-                .addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addScope(Plus.SCOPE_PLUS_PROFILE)
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestScopes(new Scope(Scopes.PLUS_ME))
+                .requestScopes(new Scope(Scopes.PLUS_LOGIN))
+                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(LoginActivity.this, LoginActivity.this)
+                .addScope(new Scope(Scopes.PLUS_LOGIN))
+                .addScope(new Scope(Scopes.PLUS_ME))
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
     }
 
@@ -289,8 +300,10 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RC_SIGN_IN) {
-            mSignInClicked = false;
+        if (requestCode == RC_SIGN_IN) {
+            //mSignInClicked = false;
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            getProfileInformation(result);
         } else {
             if (mGoogleApiClient != null)
                 mGoogleApiClient.connect();
@@ -327,7 +340,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     /*Google login functions*/
     @Override
     public void onConnected(Bundle bundle) {
-        getProfileInformation();
+       // getProfileInformation();
         Log.d("TAG", "LOGIN");
     }
 
@@ -357,7 +370,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     /*Google login get profile*/
-    private void getProfileInformation() {
+    /*private void getProfileInformation() {
         try {
             if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
                 Person currentPerson = Plus.PeopleApi
@@ -371,6 +384,28 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             } else {
                 Log.e("user profile is null", "profile is null");
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+    private void getProfileInformation(GoogleSignInResult result) {
+        try {
+            if (result.isSuccess()) {
+
+                GoogleSignInAccount acct = result.getSignInAccount();
+                String email = acct.getEmail();
+                Uri Img = acct.getPhotoUrl();
+                String profileImg=null;
+                if (Img != null) {
+                    profileImg = String.valueOf(Img);
+                }
+                String id = acct.getId();
+               String  name = acct.getDisplayName();
+                callFromGoogleRegisterUser(email, name, 2, id,profileImg);
+
+
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -512,8 +547,9 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                                            @NonNull int[] grantResults) {
         //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == ACCOUNT_PERMISSION_CODE && grantResults[0] == 0) {
-            googlePlusAPIInit();
-            if (!mGoogleApiClient.isConnecting()) {
+            signInGooglePluse();
+           // googlePlusAPIInit();
+            /*if (!mGoogleApiClient.isConnecting()) {
                 if (mGoogleApiClient.isConnected()) {
                     mSignInClicked = true;
                     resolveSignInError();
@@ -524,7 +560,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                         resolveSignInError();
                     }
                 }
-            }
+            }*/
         } else {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "User denied permission", Toast.LENGTH_SHORT);
@@ -559,5 +595,13 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
 
         }
+    }
+    private void signInGooglePluse() {
+        if (mGoogleApiClient != null) {
+            Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+
+        }
+
     }
 }
