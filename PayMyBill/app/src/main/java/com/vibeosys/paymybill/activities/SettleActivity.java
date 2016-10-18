@@ -15,6 +15,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.adapters.SettleAdapter;
@@ -24,14 +29,15 @@ import com.vibeosys.paymybill.data.HistoryDTO;
 
 import java.util.ArrayList;
 
-public class SettleActivity extends BaseActivity implements View.OnClickListener {
+public class SettleActivity extends BaseActivity implements View.OnClickListener, InterstitialAdListener {
 
     private ListView mListView;
     private SettleAdapter settleAdapter;
-    private TextView txtFriendName, txtAmount, txtType,txtTransactionError;
+    private TextView txtFriendName, txtAmount, txtType, txtTransactionError;
     private Button btnSettle;
     private FriendTransactions friendTransactions;
     private ImageView imgUser;
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         imgUser = (ImageView) findViewById(R.id.imgUser);
         btnSettle.setOnClickListener(this);
         friendTransactions = (FriendTransactions) getIntent().getExtras().getSerializable("data");
-
+        loadInterstitialAd();
         settleAdapter = new SettleAdapter(getApplicationContext(), friendTransactions.getFilterBills(), mSessionManager.getUserCurrencySymbol());
         mListView.setAdapter(settleAdapter);
         String imagePath = friendTransactions.getImage();
@@ -85,10 +91,10 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         }
         if (friendTransactions.getFilterBills().size() == 0) {
             txtTransactionError.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             txtTransactionError.setVisibility(View.GONE);
         }
+
     }
 
     @Override
@@ -127,6 +133,16 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         insert.execute();
     }
 
+    @Override
+    public void onInterstitialDisplayed(Ad ad) {
+
+    }
+
+    @Override
+    public void onInterstitialDismissed(Ad ad) {
+
+    }
+
     private class InsertDbAsync extends AsyncTask<Void, Void, Integer> {
 
         @Override
@@ -152,5 +168,29 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
                 Toast.makeText(getApplicationContext(), "Bills are not settle please try again", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void loadInterstitialAd() {
+        interstitialAd = new InterstitialAd(this, "1134020779954080_1216209525068538");
+        AdSettings.addTestDevice("HASHED ID");
+        interstitialAd.setAdListener(this);
+        interstitialAd.loadAd();
+    }
+
+    @Override
+    public void onError(Ad ad, AdError error) {
+        // Ad failed to load
+    }
+
+    @Override
+    public void onAdLoaded(Ad ad) {
+        // Ad is loaded and ready to be displayed
+        // You can now display the full screen add using this code:
+        interstitialAd.show();
+    }
+
+    @Override
+    public void onAdClicked(Ad ad) {
+
     }
 }

@@ -25,8 +25,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.AddFriendActivity;
 import com.vibeosys.paymybill.activities.AllFriendsActivity;
@@ -59,6 +63,7 @@ public class MainActivity extends BaseActivity
     private ImageView mUserProfile;
     private String mImageUri;
     private TextView txtOwesYouAmount, txtYouOwesAmount;
+    private RelativeLayout adViewContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +84,7 @@ public class MainActivity extends BaseActivity
         fab1 = (LinearLayout) findViewById(R.id.fab_1);
         fab2 = (LinearLayout) findViewById(R.id.fab_2);
         mFrameLayout = (FrameLayout) findViewById(R.id.frameLayout);
-
+        adViewContainer = (RelativeLayout) findViewById(R.id.adViewContainer);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -121,6 +126,10 @@ public class MainActivity extends BaseActivity
                 new MainActivityAdapter(getSupportFragmentManager(), tab_layout.getTabCount());
         viewPager.setAdapter(mainActivityAdapteradapter);
 
+        AdView adView = new AdView(getApplicationContext(), "1134020779954080_1216169785072512", AdSize.BANNER_320_50);
+        adViewContainer.addView(adView);
+        AdSettings.addTestDevice("HASHED ID");
+        adView.loadAd();
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
         tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

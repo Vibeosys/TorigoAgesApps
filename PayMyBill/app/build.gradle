@@ -36,6 +36,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:9.2.0'
     compile 'com.android.support:multidex:1.0.0'
     compile 'de.hdodenhof:circleimageview:1.2.1'
+    compile 'com.facebook.android:audience-network-sdk:4.+'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.google.android.gms:play-services-ads:9.2.0'
     compile 'com.google.android.gms:play-services-auth:9.2.0'
