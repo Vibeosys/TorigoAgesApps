@@ -19,6 +19,9 @@ import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.HistoryDTO;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -60,8 +63,8 @@ public class FriendGridAdapter extends BaseAdapter {
                     (Context.LAYOUT_INFLATER_SERVICE);
             row = theLayoutInflator.inflate(R.layout.row_friend_grid, null);
             viewHolder = new ViewHolder();
-            viewHolder.imgProf = (ImageView) row.findViewById(R.id.imgProf);
             viewHolder.friendName = (TextView) row.findViewById(R.id.friendName);
+            viewHolder.friendLogo = (TextView) row.findViewById(R.id.friendLogo);
             viewHolder.layout = (LinearLayout) row.findViewById(R.id.item);
             viewHolder.itemImg = (ImageView) row.findViewById(R.id.itemImg);
             row.setTag(viewHolder);
@@ -70,18 +73,22 @@ public class FriendGridAdapter extends BaseAdapter {
         FriendsDTO friend = mFriends.get(position);
         Log.d(TAG, friend.toString());
         viewHolder.friendName.setText(friend.getName());
+        String name = friend.getName();
         if (friend.isFlagOwe()) {
             viewHolder.itemImg.setVisibility(View.VISIBLE);
         } else {
             viewHolder.itemImg.setVisibility(View.GONE);
         }
-        String imagePath = friend.getImgSource();
-        if (imagePath != null || !TextUtils.isEmpty(imagePath)) {
-            //viewHolder.imgProf.setImageURI(Uri.parse(imagePath));
-            viewHolder.imgProf.setImageBitmap(decodeSampledBitmapFromPath(imagePath, 50, 50));
-        } else {
-            viewHolder.imgProf.setImageResource(R.drawable.ic_avtar);
+        String[] logos = name.split(" ", 2);
+        String logo1 = logos[0];
+        String caseLogo = "" + logo1.charAt(0);
+        if (logos.length > 1) {
+            String logo2 = logos[1];
+            if (!TextUtils.isEmpty(logo2)) {
+                caseLogo = caseLogo + logo2.charAt(0);
+            }
         }
+        viewHolder.friendLogo.setText(caseLogo);
         return row;
     }
 
@@ -91,42 +98,8 @@ public class FriendGridAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        ImageView imgProf;
-        TextView friendName;
+        TextView friendName, friendLogo;
         LinearLayout layout;
         ImageView itemImg;
-    }
-
-    public static Bitmap decodeSampledBitmapFromPath(String path, int reqWidth,
-                                                     int reqHeight) {
-
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, options);
-
-        options.inSampleSize = calculateInSampleSize(options, reqWidth,
-                reqHeight);
-
-        // Decode bitmap with inSampleSize set
-        options.inJustDecodeBounds = false;
-        Bitmap bmp = BitmapFactory.decodeFile(path, options);
-        return bmp;
-    }
-
-    public static int calculateInSampleSize(BitmapFactory.Options options,
-                                            int reqWidth, int reqHeight) {
-
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-
-        if (height > reqHeight || width > reqWidth) {
-            if (width > height) {
-                inSampleSize = Math.round((float) height / (float) reqHeight);
-            } else {
-                inSampleSize = Math.round((float) width / (float) reqWidth);
-            }
-        }
-        return inSampleSize;
     }
 }

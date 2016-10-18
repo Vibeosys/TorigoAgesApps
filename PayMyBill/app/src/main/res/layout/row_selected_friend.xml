@@ -8,12 +8,20 @@
     android:orientation="horizontal"
     android:padding="4dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgProf"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="4dp"
-        android:src="@drawable/ic_avtar" />
+    <TextView
+        android:id="@+id/friendLogo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/friend_logo"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="A"
+        android:textColor="@android:color/white"
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/friendName"

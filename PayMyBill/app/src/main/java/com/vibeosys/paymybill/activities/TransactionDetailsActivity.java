@@ -37,7 +37,7 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
         setContentView(R.layout.activity_transaction_details);
         billDetailsDTO = (BillDetailsDTO) getIntent().getExtras().getSerializable("BillDetails");
         splitMode = getIntent().getExtras().getInt("Split");
-
+        setTitle("Divide " + billDetailsDTO.getAmount());
         mListTransaction = (ListView) findViewById(R.id.transactionList);
         mBtnCancel = (Button) findViewById(R.id.btnCancel);
         mBtnSave = (Button) findViewById(R.id.btnSave);

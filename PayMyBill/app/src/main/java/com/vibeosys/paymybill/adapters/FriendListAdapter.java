@@ -63,8 +63,9 @@ public class FriendListAdapter extends BaseAdapter {
                     (Context.LAYOUT_INFLATER_SERVICE);
             row = theLayoutInflator.inflate(R.layout.row_friend_list, null);
             viewHolder = new ViewHolder();
-            viewHolder.imgProf = (ImageView) row.findViewById(R.id.imgProf);
+           /* viewHolder.imgProf = (ImageView) row.findViewById(R.id.imgProf);*/
             viewHolder.friendName = (TextView) row.findViewById(R.id.friendName);
+            viewHolder.friendLogo = (TextView) row.findViewById(R.id.friendLogo);
             viewHolder.billDate = (TextView) row.findViewById(R.id.billDate);
             viewHolder.billAmount = (TextView) row.findViewById(R.id.billAmount);
             viewHolder.billOwed = (TextView) row.findViewById(R.id.billOwed);
@@ -76,13 +77,13 @@ public class FriendListAdapter extends BaseAdapter {
         viewHolder.friendName.setText(friend.getName());
         DateUtils dateUtils = new DateUtils();
 
-        String imagePath = friend.getImage();
+        /*String imagePath = friend.getImage();
         if (imagePath != null || !TextUtils.isEmpty(imagePath)) {
             //viewHolder.imgProf.setImageURI(Uri.parse(imagePath));
             viewHolder.imgProf.setImageBitmap(decodeSampledBitmapFromPath(imagePath, 50, 50));
         } else {
             viewHolder.imgProf.setImageResource(R.drawable.ic_avtar);
-        }
+        }*/
 
         //viewHolder.billDate.setText(dateUtils.getLocalDateInReadableFormat(friend.getDate()));
         double amount = Math.round(friend.getAmount());
@@ -114,22 +115,33 @@ public class FriendListAdapter extends BaseAdapter {
         }
         if (friend.getFilterBills().size() == 0) {
             viewHolder.billOwed.setText("No Bills");
-            viewHolder.billAmount.setText("No Transactions Yet");
+            viewHolder.billAmount.setText(" ");
             viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
             viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
         }
+        String name = friend.getName();
+        String[] logos = name.split(" ", 2);
+        String logo1 = logos[0];
+        String caseLogo = "" + logo1.charAt(0);
+        if (logos.length > 1) {
+            String logo2 = logos[1];
+            if (!TextUtils.isEmpty(logo2)) {
+                caseLogo = caseLogo + logo2.charAt(0);
+            }
+        }
+        viewHolder.friendLogo.setText(caseLogo);
         return row;
     }
 
     private class ViewHolder {
-        ImageView imgProf;
-        TextView friendName;
+        /*ImageView imgProf;*/
+        TextView friendName, friendLogo;
         TextView billDate;
         TextView billAmount;
         TextView billOwed;
     }
 
-    public static Bitmap decodeSampledBitmapFromPath(String path, int reqWidth,
+    /*public static Bitmap decodeSampledBitmapFromPath(String path, int reqWidth,
                                                      int reqHeight) {
 
         final BitmapFactory.Options options = new BitmapFactory.Options();
@@ -160,5 +172,5 @@ public class FriendListAdapter extends BaseAdapter {
             }
         }
         return inSampleSize;
-    }
+    }*/
 }
