@@ -10,8 +10,9 @@ import android.view.WindowManager;
 
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
+import com.vibeosys.paymybill.util.UserAuth;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends BaseActivity {
     private static int SPLASH_TIME_OUT = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,22 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent mainRun = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(mainRun);
+                boolean test = UserAuth.isUserLoggedIn();
+                if (!test) {
+                    Intent mainRun = new Intent(SplashScreen.this, CarouselActivity.class);
+                    startActivity(mainRun);
+                    // close this activity
+                    finish();
+                }
+                else
+                {
+                    Intent mainRun = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(mainRun);
 
-                // close this activity
-                finish();
+                    // close this activity
+                    finish();
+                }
+
             }
         }, SPLASH_TIME_OUT);
     }

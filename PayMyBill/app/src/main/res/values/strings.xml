@@ -103,5 +103,11 @@
     <string name="select_country">Select your country</string>
     <string name="str_divide_payment">Divide payment equally</string>
     <string name="str_settel_sure">Are you sure you want to settle this amount?</string>
+    <string name="title_activity_carousel">CarouselActivity</string>
 
+    <!--Carousel -->
+
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">Start</string>
 </resources>
