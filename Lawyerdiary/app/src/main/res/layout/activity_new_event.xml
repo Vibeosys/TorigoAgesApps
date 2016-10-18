@@ -52,7 +52,7 @@
                     android:background="@color/colorPrimaryDark" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:gravity="center_vertical"
@@ -65,7 +65,7 @@
                         android:src="@drawable/ic_access_time_black_24dp" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:orientation="vertical">
@@ -81,18 +81,20 @@
                             android:text="All-Day" />
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginTop="4dp"
+                            android:weightSum="2"
                             android:orientation="horizontal">
 
                             <EditText
                                 android:id="@+id/dateStartMeeting"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:background="@android:color/white"
                                 android:hint="Click here to select date"
                                 android:textColor="@android:color/black"
@@ -100,10 +102,11 @@
 
                             <EditText
                                 android:id="@+id/timeMeetingStart"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:paddingStart="4dp"
                                 android:background="@android:color/white"
-                                android:gravity="end"
+                                android:layout_weight="1"
                                 android:hint="@string/str_click_to_time"
                                 android:textColor="@android:color/black"
                                 android:textSize="15sp" />
@@ -121,18 +124,20 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginTop="4dp"
+                            android:weightSum="2"
                             android:orientation="horizontal">
 
                             <EditText
                                 android:id="@+id/dateEndMeeting"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:background="@android:color/white"
                                 android:hint="Click here to select date"
                                 android:textColor="@android:color/black"
@@ -143,7 +148,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/white"
-                                android:gravity="end"
+                                android:layout_weight="1"
+                                android:paddingStart="4dp"
                                 android:hint="@string/str_click_to_time"
                                 android:textColor="@android:color/black"
                                 android:textSize="15sp" />

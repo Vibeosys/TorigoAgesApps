@@ -72,6 +72,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.newUser:
                 Intent registerUser = new Intent(LoginActivity.this, RegisterUser.class);
                 startActivity(registerUser);
+                finish();
                 break;
         }
     }

@@ -224,7 +224,7 @@ public class MainActivity extends BaseActivity
             UserAuth.CleanAuthenticationInfo();
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
-            finish();
+            ///finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
