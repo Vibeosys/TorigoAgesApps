@@ -23,8 +23,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgUser"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/ic_avtar" />
 
             <LinearLayout
@@ -32,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="6dp">
 
                 <TextView
                     android:id="@+id/txtFriendName"
@@ -94,6 +95,18 @@
             android:layout_marginBottom="3dp"
             android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/txtTransactionError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@string/hint_no_transcaion"
+            android:textColor="@color/secondaryText"
+            android:textSize="20sp"
+            android:visibility="gone" />
 
         <ListView
             android:id="@+id/settleList"

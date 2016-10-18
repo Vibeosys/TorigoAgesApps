@@ -3,13 +3,17 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_perm_identity_black_24dp"
+            android:title="My Profile" />
+        <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_history_black_24dp"
             android:title="History" />
         <item
-            android:id="@+id/nav_profile"
+            android:id="@+id/nav_my_friends"
             android:icon="@drawable/ic_perm_identity_black_24dp"
-            android:title="My Profile" />
+            android:title="My Friends" />
         <item
             android:id="@+id/sign_out"
             android:icon="@drawable/ic_action_io"

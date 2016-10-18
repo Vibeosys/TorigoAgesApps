@@ -28,7 +28,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
 
     private ListView mListView;
     private SettleAdapter settleAdapter;
-    private TextView txtFriendName, txtAmount, txtType;
+    private TextView txtFriendName, txtAmount, txtType,txtTransactionError;
     private Button btnSettle;
     private FriendTransactions friendTransactions;
     private ImageView imgUser;
@@ -42,6 +42,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         txtFriendName = (TextView) findViewById(R.id.txtFriendName);
         txtAmount = (TextView) findViewById(R.id.txtAmount);
         txtType = (TextView) findViewById(R.id.txtType);
+        txtTransactionError = (TextView) findViewById(R.id.txtTransactionError);
         btnSettle = (Button) findViewById(R.id.btnSettle);
         imgUser = (ImageView) findViewById(R.id.imgUser);
         btnSettle.setOnClickListener(this);
@@ -76,6 +77,18 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
             txtType.setTextColor(getResources().getColor(R.color.secondaryText));
             txtAmount.setTextColor(getResources().getColor(R.color.secondaryText));
         }
+        if (friendTransactions.getFilterBills().size() == 0) {
+            txtType.setText("No Bills");
+            txtAmount.setText("");
+            txtType.setTextColor(getResources().getColor(R.color.secondaryText));
+            txtAmount.setTextColor(getResources().getColor(R.color.secondaryText));
+        }
+        if (friendTransactions.getFilterBills().size() == 0) {
+            txtTransactionError.setVisibility(View.VISIBLE);
+        }
+        else {
+            txtTransactionError.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -83,7 +96,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         int id = v.getId();
         switch (id) {
             case R.id.btnSettle:
-                createAlertDialog("Confirmation",getResources().getString(R.string.str_settel_sure));
+                createAlertDialog("Confirmation", getResources().getString(R.string.str_settel_sure));
                 break;
         }
     }

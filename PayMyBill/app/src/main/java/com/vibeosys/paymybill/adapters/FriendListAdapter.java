@@ -106,10 +106,17 @@ public class FriendListAdapter extends BaseAdapter {
             viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
             viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
         }
-        if (friend.getDate() != null) {
-            viewHolder.billDate.setText(mContext.getResources().getString(R.string.hint_bill_date) + " " + friend.getDate());
+        String date = friend.getDate();
+        if (date != null) {
+            viewHolder.billDate.setText(mContext.getResources().getString(R.string.hint_bill_date) + " " + date);
         } else {
             viewHolder.billDate.setText(mContext.getResources().getString(R.string.hint_no_transcaion));
+        }
+        if (friend.getFilterBills().size() == 0) {
+            viewHolder.billOwed.setText("No Bills");
+            viewHolder.billAmount.setText("No Transactions Yet");
+            viewHolder.billOwed.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
+            viewHolder.billAmount.setTextColor(mContext.getResources().getColor(R.color.secondaryText));
         }
         return row;
     }

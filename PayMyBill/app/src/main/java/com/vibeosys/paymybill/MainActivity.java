@@ -29,6 +29,7 @@ import android.widget.TextView;
 
 import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.AddFriendActivity;
+import com.vibeosys.paymybill.activities.AllFriendsActivity;
 import com.vibeosys.paymybill.activities.BaseActivity;
 import com.vibeosys.paymybill.activities.ExpencesesActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
@@ -252,8 +253,13 @@ public class MainActivity extends BaseActivity
             // Handle the camera action
         } else if (id == R.id.nav_profile) {
             /*startActivity(new Intent(getApplicationContext(), ProfileActivity.class));*/
-            Intent signInIntent = new Intent(getApplicationContext(), MyProfileActivity.class);
-            startActivity(signInIntent);
+            Intent myProfile = new Intent(getApplicationContext(), MyProfileActivity.class);
+            startActivity(myProfile);
+
+        } else if (id == R.id.nav_my_friends) {
+            /*startActivity(new Intent(getApplicationContext(), ProfileActivity.class));*/
+            Intent allFriend = new Intent(getApplicationContext(), AllFriendsActivity.class);
+            startActivity(allFriend);
 
         } /*else if (id == R.id.nav_share) {
 

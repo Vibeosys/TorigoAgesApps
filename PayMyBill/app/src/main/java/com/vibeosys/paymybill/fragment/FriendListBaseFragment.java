@@ -21,8 +21,10 @@ public class FriendListBaseFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         friendTransactionHandler = new FriendTransactionHandler(mDbRepository);
-        BillFilterByAmount zeroAmount = new FilterMyName();
-        mFriends = zeroAmount.filterBillsByAmount(friendTransactionHandler.getFriendList());
+        BillFilterByAmount filterMyName = new FilterMyName();
+        mFriends = filterMyName.filterBillsByAmount(friendTransactionHandler.getFriendList());
+        BillFilterByAmount zeroAmount = new FilterZeroAmount();
+        mFriends = zeroAmount.filterBillsByAmount(mFriends);
     }
 
     private class FilterZeroAmount implements BillFilterByAmount {

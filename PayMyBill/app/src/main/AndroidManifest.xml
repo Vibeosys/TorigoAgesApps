@@ -30,9 +30,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.LoginActivity"
             android:windowSoftInputMode="stateHidden" />
@@ -78,7 +76,10 @@
         <activity
             android:name=".activities.TransactionDetailsActivity"
             android:parentActivityName=".activities.AddBillActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.AllFriendsActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

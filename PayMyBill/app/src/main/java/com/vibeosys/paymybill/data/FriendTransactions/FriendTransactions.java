@@ -137,11 +137,13 @@ public class FriendTransactions implements Serializable {
     }
 
     public String getDate() {
-        if (this.bills.size() <= 0) {
-            return null;
+        if (this.getFilterBills().size() <= 0) {
+            this.date = null;
+            return this.date;
         } else {
-            FriendBills bills = this.bills.get(this.bills.size() - 1);
-            return bills.getDate();
+            FriendBills bills = this.getFilterBills().get(this.getFilterBills().size() - 1);
+            this.date = bills.getDate();
+            return this.date;
         }
 
     }
