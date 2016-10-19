@@ -10,6 +10,7 @@ import android.content.IntentSender;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -107,7 +108,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_login);
-        setTitle(getResources().getString(R.string.login_title));
+        setTitle(getResources().getString(R.string.app_name));
         googlePlusAPIInit();
         mForgotPassword = (TextView) findViewById(R.id.forgot_password);
         mFacebbokLogin = (LoginButton) findViewById(R.id.login_with_Facebook);
@@ -116,6 +117,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         mSignIn = (Button) findViewById(R.id.sign_in_user_btn);
         mEmailId = (EditText) findViewById(R.id.emailIdEditText);
         mPassword = (EditText) findViewById(R.id.passwordEditText);
+        mForgotPassword.setPaintFlags(mForgotPassword.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
         setGooglePlusButtonText(mGoogSignInButton, "Log in with Google");
         mFacebbokLogin.setReadPermissions(Arrays.asList("public_profile", "email"));
         mGoogSignInButton.setOnClickListener(this);

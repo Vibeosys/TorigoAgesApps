@@ -27,7 +27,7 @@
     <string name="btn_register">REGISTER</string>
     <string name="btn_facebook">LOG IN WITH FACEBOOK</string>
     <string name="login_title">Login</string>
-    <string name="tv_forgot_password">Forgot your password ?</string>
+    <string name="tv_forgot_password"><u>Forgot your password ?</u></string>
     <string name="login_or">-------- OR ---------</string>
     <string name="OtpMessage">You will receive OTP on your email address, Please enter OTP below to verify your email address</string>
 
@@ -41,8 +41,8 @@
     <string name="register_title">User Registration</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="email_id">Enter Your Email Id</string>
-    <string name="user_password">Enter Your Password</string>
+    <string name="email_id">Email id</string>
+    <string name="user_password">Password</string>
     <string name="user_confirm_password">Re-Enter Your Password</string>
     <string name="register_cancel_btn">CANCEL</string>
     <string name="register_btn">REGISTER</string>
@@ -62,7 +62,7 @@
     <string name="forgotpass_title">Forgot Password</string>
     <string name="my_profile_update">Update</string>
     <string name="edit_my_profile">Edit Profile</string>
-    <string name="forgot_password_title">Your password will be send
+    <string name="forgot_password_title">Your password will be sent
         on following email address,Please validate your email address</string>>
 
     <!--Facebook App Key -->
