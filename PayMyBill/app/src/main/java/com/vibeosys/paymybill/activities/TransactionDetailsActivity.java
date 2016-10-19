@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,15 +20,16 @@ import com.vibeosys.paymybill.data.BillDetailsDTO;
 import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.util.AppConstants;
 
-public class TransactionDetailsActivity extends BaseActivity implements View.OnClickListener, TransactionListAdapter.AmountChangedListener {
+public class TransactionDetailsActivity extends BaseActivity implements /*View.OnClickListener,*/ TransactionListAdapter.AmountChangedListener {
 
     private static final String TAG = TransactionDetailsActivity.class.getSimpleName();
     private BillDetailsDTO billDetailsDTO;
     private int splitMode = 0;
     private ListView mListTransaction;
-    private Button mBtnCancel, mBtnSave;
+    //private Button mBtnCancel, mBtnSave;
     private TransactionListAdapter adapter;
-    private TextView mTxtTotal, mTxtRemains, mTxtError;
+    private TextView mTxtTotal, /*mTxtRemains,*/
+            mTxtError;
     private double mBillTotalAmount;
     private double mTotalFriendAmount = 0;
     private double mRemainingAmount = 0;
@@ -37,18 +40,18 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
         setContentView(R.layout.activity_transaction_details);
         billDetailsDTO = (BillDetailsDTO) getIntent().getExtras().getSerializable("BillDetails");
         splitMode = getIntent().getExtras().getInt("Split");
-        setTitle("Divide " + billDetailsDTO.getAmount());
+        setTitle(mSessionManager.getUserCurrencySymbol() + " " + billDetailsDTO.getAmount());
         mListTransaction = (ListView) findViewById(R.id.transactionList);
-        mBtnCancel = (Button) findViewById(R.id.btnCancel);
-        mBtnSave = (Button) findViewById(R.id.btnSave);
+        //mBtnCancel = (Button) findViewById(R.id.btnCancel);
+        //mBtnSave = (Button) findViewById(R.id.btnSave);
         mTxtTotal = (TextView) findViewById(R.id.txtTotal);
-        mTxtRemains = (TextView) findViewById(R.id.txtRemains);
+        //mTxtRemains = (TextView) findViewById(R.id.txtRemains);
         mTxtError = (TextView) findViewById(R.id.txtErrorAmount);
         mBillTotalAmount = billDetailsDTO.getAmount();
         calculateAndUpdateTotal();
 
-        mBtnCancel.setOnClickListener(this);
-        mBtnSave.setOnClickListener(this);
+        //mBtnCancel.setOnClickListener(this);
+        //mBtnSave.setOnClickListener(this);
 
         if (splitMode == AppConstants.EQUALLY_DIVIDED) {
             double sharedAmount = mBillTotalAmount / billDetailsDTO.getShareWith().size();
@@ -66,7 +69,7 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
         adapter.setAmountChangedListener(this);
     }
 
-    @Override
+   /* @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
@@ -78,26 +81,33 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
                 saveData();
                 break;
         }
-    }
+    }*/
 
     private void saveData() {
         boolean cancelFlag = false;
         View focusView = null;
         if (mRemainingAmount < 0) {
             cancelFlag = true;
-            focusView = mTxtRemains;
-            mTxtRemains.setError(getResources().getString(R.string.str_err_amount));
+            /*focusView = mTxtRemains;
+            mTxtRemains.setError(getResources().getString(R.string.str_err_amount));*/
+            focusView = mTxtError;
+            mTxtError.setText(getResources().getString(R.string.str_err_amount));
+            mTxtError.setVisibility(View.VISIBLE);
         } else if (mRemainingAmount > 0) {
             cancelFlag = true;
-            focusView = mTxtRemains;
-            mTxtRemains.setError(getResources().getString(R.string.str_err_bill_not_settel));
+           /* focusView = mTxtRemains;
+            mTxtRemains.setError(getResources().getString(R.string.str_err_bill_not_settel));*/
+            focusView = mTxtError;
+            mTxtError.setText(getResources().getString(R.string.str_err_amount));
+            mTxtError.setVisibility(View.VISIBLE);
         } else if (mTotalFriendAmount != billDetailsDTO.getAmount()) {
             cancelFlag = true;
-            focusView = mTxtTotal;
-            mTxtTotal.setError(getResources().getString(R.string.str_err_bill_not_settel));
+            mTxtError.setText(getResources().getString(R.string.str_err_amount));
+            mTxtError.setVisibility(View.VISIBLE);
         }
         if (cancelFlag) {
-            focusView.requestFocus();
+            if (focusView != null)
+                focusView.requestFocus();
         } else {
             AsyncInsertDb insertDb = new AsyncInsertDb();
             insertDb.execute();
@@ -119,22 +129,23 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
 
     private void calculateAndUpdateTotal() {
         //Logic to update the total Amount
+        mTxtError.setVisibility(View.INVISIBLE);
         mTotalFriendAmount = 0;
         mRemainingAmount = 0;
         for (FriendsDTO friend : billDetailsDTO.getShareWith()) {
             mTotalFriendAmount = mTotalFriendAmount + friend.getAmount();
         }
         mRemainingAmount = mBillTotalAmount - mTotalFriendAmount;
-        if (mRemainingAmount < 0) {
+        /*if (mRemainingAmount < 0) {
             mTxtRemains.setTextColor(getResources().getColor(android.R.color.holo_red_light));
         } else {
             mTxtRemains.setTextColor(getResources().getColor(R.color.secondaryText));
-        }
+        }*/
 
         String strTotal = "Total:   " + String.format("%.2f", mTotalFriendAmount);// + " Of " + String.format("%.2f", mBillTotalAmount);
         mTxtTotal.setText(strTotal);
         String strRemains = "Remains:   " + String.format("%.2f", mRemainingAmount);
-        mTxtRemains.setText(strRemains);
+        //mTxtRemains.setText(strRemains);
     }
 
     private class AsyncInsertDb extends AsyncTask<Void, Void, Integer> {
@@ -165,5 +176,31 @@ public class TransactionDetailsActivity extends BaseActivity implements View.OnC
                 mDbRepository.deleteBillAndTransactions(billDetailsDTO);
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.trasaction_details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_save) {
+            saveData();
+            return true;
+        }
+        if (id == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

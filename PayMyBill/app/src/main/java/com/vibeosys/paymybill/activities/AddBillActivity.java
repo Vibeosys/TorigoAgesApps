@@ -43,7 +43,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
 
     private static final int CAMERA_REQUEST = 100;
 
-    private ImageView mImgBill;
+    // private ImageView mImgBill;
     private EditText mTxtDate, mTxtAmt, mTxtBillDesc;
     private Button mBtnPaidBy;
     private GridView mGridFriends;
@@ -58,7 +58,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private Context mContext;
     private FriendsDTO paidByFriend = null;
     private Switch swtPayment;
-    boolean isEquallyDivided = false;
+    boolean isEquallyDivided = true;
     private FriendsDTO friendsDTO = null;
 
     @Override
@@ -71,7 +71,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         mTxtAmt = (EditText) findViewById(R.id.txtAmount);
         mTxtBillDesc = (EditText) findViewById(R.id.txtBillDesc);
         mBtnPaidBy = (Button) findViewById(R.id.btnPaidBy);
-        mImgBill = (ImageView) findViewById(R.id.imgBill);
+        // mImgBill = (ImageView) findViewById(R.id.imgBill);
         mGridFriends = (GridView) findViewById(R.id.gridview);
         // mRadioGroupDived = (RadioGroup) findViewById(R.id.radioDivided);
         mTxtErrorGrid = (TextView) findViewById(R.id.txtErrorFriend);
@@ -81,7 +81,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
         mBtnPaidBy.setOnClickListener(this);
         createList();
-        mImgBill.setOnClickListener(this);
+        // mImgBill.setOnClickListener(this);
         mGridFriends.setOnItemClickListener(this);
         mTxtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -93,7 +93,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
                 }
             }
         });
-
+        swtPayment.setChecked(isEquallyDivided);
         swtPayment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -112,7 +112,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            mImgBill.setImageBitmap(photo);
+            //mImgBill.setImageBitmap(photo);
         }
     }
 
@@ -240,8 +240,9 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         List<FriendsDTO> selectedFriends = new ArrayList<>();
 
         selectedFriends = mSelectedFriendCriteria.meetCriteria(friendsDTOs);
-        selectedFriends.add(new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
-                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true, true));
+        friendsDTO = new FriendsDTO(Integer.parseInt(mSessionManager.getUserFriendId())
+                , mSessionManager.getUserName(), mSessionManager.getUserProfileImage(), 0, true, true);
+        selectedFriends.add(friendsDTO);
         final Dialog dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.dialog_paid_by_list);
         dialog.setTitle(getResources().getString(R.string.str_dialog_title_select_paid_by));

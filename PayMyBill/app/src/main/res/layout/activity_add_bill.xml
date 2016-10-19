@@ -5,7 +5,10 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:paddingBottom="16dp"
+    android:paddingRight="22dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
     tools:context="com.vibeosys.paymybill.activities.AddBillActivity">
 
 
@@ -20,13 +23,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imgBill"
-                android:layout_width="76dp"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:padding="0dp"
-                android:src="@drawable/ic_receipt_black_48dp" />
+            <!-- <ImageView
+                 android:id="@+id/imgBill"
+                 android:layout_width="76dp"
+                 android:layout_height="match_parent"
+                 android:layout_margin="4dp"
+                 android:padding="0dp"
+                 android:src="@drawable/ic_receipt_black_48dp" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,59 +40,96 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/txtCurrencySymbol"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:text="Rs."
-                        android:textColor="@color/primaryText"
-                        android:textSize="20sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="4dp"
+                            android:padding="4dp"
+                            android:src="@drawable/money" />
+
+                        <TextView
+                            android:id="@+id/txtCurrencySymbol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:paddingLeft="4dp"
+                            android:text="Rs."
+                            android:textColor="@color/secondaryText"
+                            android:textSize="20sp" />
+
 
                         <EditText
                             android:id="@+id/txtAmount"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
+                            android:backgroundTint="@color/lightGrey"
                             android:hint="@string/hint_bill_amount"
                             android:inputType="numberDecimal"
                             android:singleLine="true"
-                            android:textSize="20dp"
+                            android:textSize="24dp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/txtDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:hint="@string/hint_bill_date"
-                            android:singleLine="true" />
                     </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_margin="4dp"
+                        android:padding="4dp"
+                        android:src="@drawable/calender" />
+
+                    <EditText
+                        android:id="@+id/txtDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/lightGrey"
+                        android:hint="@string/hint_bill_date"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:padding="4dp"
+                        android:src="@drawable/bill_desc" />
+
+                    <EditText
+                        android:id="@+id/txtBillDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/lightGrey"
+                        android:hint="@string/hint_bill_description"
+                        android:inputType="text"
+                        android:singleLine="true" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/txtBillDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:hint="@string/hint_bill_description"
-            android:inputType="text"
-            android:singleLine="true" />
 
         <!--<LinearLayout
             android:layout_width="match_parent"
@@ -142,8 +182,10 @@
             android:id="@+id/swtPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/str_divide_payment"
+            android:layout_marginTop="8dp"
+            android:background="@color/lightGrey"
+            android:padding="12dp"
+            android:text="@string/str_divide_bill"
             android:textSize="15sp" />
 
         <GridView
@@ -208,7 +250,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="4dp"
-            android:background="@drawable/button_custom"
+            android:background="@drawable/button_custom_round_corner"
             android:text="@string/btn_paidBy"
             android:textColor="@android:color/white"
             android:translationZ="4dp" />
