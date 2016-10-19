@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.vibeosys.paymybill.activities.HistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightGrey"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:gravity="left"
+            android:paddingBottom="4dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="4dp"
+            android:paddingTop="4dp"
+            android:text="Bill Description"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtCurrency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:gravity="right"
+            android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:text="INR"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listHistory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
-</RelativeLayout>
+</LinearLayout>

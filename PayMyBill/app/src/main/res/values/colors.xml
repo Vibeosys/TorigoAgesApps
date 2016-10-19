@@ -6,12 +6,12 @@
     <color name="primaryText">#e7000000</color>
     <color name="secondaryText">#9e000000</color>
     <color name="lightGrey">#e2e1e1</color>
+    <color name="ternaryText">#9e737373</color>
     <color name="transperentWhite">#c8ffffff</color>
     <color name="transperent">#00ffffff</color>
     <color name="flatRed">#c0392b</color>
     <color name="flatGreen">#27ae60</color>
     <color name="over_layer">#9d000000</color>
-
 
 
     <!-- Screens background color-->

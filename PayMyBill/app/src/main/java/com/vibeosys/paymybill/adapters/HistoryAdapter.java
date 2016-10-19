@@ -1,6 +1,7 @@
 package com.vibeosys.paymybill.adapters;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,9 +66,14 @@ public class HistoryAdapter extends BaseAdapter {
         } else viewHolder = (ViewHolder) row.getTag();
         HistoryDTO history = historyDTOs.get(position);
         Log.d(TAG, history.toString());
-        viewHolder.txtBillDesc.setText(history.getBillDesc());
+        String billDesc = history.getBillDesc();
+        if (TextUtils.isEmpty(billDesc)) {
+            billDesc = "No description";
+        }
+        viewHolder.txtBillDesc.setText(billDesc);
         viewHolder.txtDate.setText(history.getBillDate());
-        viewHolder.txtAmount.setText(currencySymbol + " " + String.format("%.2f", history.getAmount()));
+        viewHolder.txtAmount.setText(String.format("%.2f", history.getAmount()));
+        viewHolder.txtType.setText("You spend");
         return row;
     }
 

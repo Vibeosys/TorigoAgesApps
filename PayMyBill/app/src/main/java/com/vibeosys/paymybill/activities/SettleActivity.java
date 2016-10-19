@@ -35,7 +35,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
 
     private ListView mListView;
     private SettleAdapter settleAdapter;
-    private TextView txtFriendName, txtAmount, txtType, txtTransactionError;
+    private TextView txtFriendName, txtAmount, txtType, txtTransactionError, txtCurrency;
     private Button btnSettle;
     private FriendTransactions friendTransactions;
     private ImageView imgUser;
@@ -50,6 +50,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         txtFriendName = (TextView) findViewById(R.id.txtFriendName);
         txtAmount = (TextView) findViewById(R.id.txtAmount);
         txtType = (TextView) findViewById(R.id.txtType);
+        txtCurrency = (TextView) findViewById(R.id.txtCurrency);
         txtTransactionError = (TextView) findViewById(R.id.txtTransactionError);
         btnSettle = (Button) findViewById(R.id.btnSettle);
         imgUser = (ImageView) findViewById(R.id.imgUser);
@@ -64,6 +65,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
         } else {
             imgUser.setImageResource(R.drawable.ic_avtar);
         }
+        txtCurrency.setText(mSessionManager.getUserCurrencySymbol());
         txtFriendName.setText(friendTransactions.getName());
         double amount = Math.round(friendTransactions.getAmount());
         amount = amount < 0 ? -(amount) : amount;

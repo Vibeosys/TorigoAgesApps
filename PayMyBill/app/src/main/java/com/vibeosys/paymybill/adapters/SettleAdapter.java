@@ -1,6 +1,7 @@
 package com.vibeosys.paymybill.adapters;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,11 +68,16 @@ public class SettleAdapter extends BaseAdapter {
         } else viewHolder = (ViewHolder) row.getTag();
         FriendBills friendBills = historyDTOs.get(position);
         Log.d(TAG, friendBills.toString());
-        viewHolder.txtBillDesc.setText(friendBills.getBillDesc());
+        String billDesc = friendBills.getBillDesc();
+        if (TextUtils.isEmpty(billDesc)) {
+            billDesc = "No description";
+        }
+        viewHolder.txtBillDesc.setText(billDesc);
         viewHolder.txtDate.setText(friendBills.getDate());
         double amount = friendBills.getFriendBillAmount();
         amount = amount < 0 ? -(amount) : amount;
-        viewHolder.txtAmount.setText(currencySymbol + " " + String.format("%.2f", amount));
+
+        viewHolder.txtAmount.setText(String.format("%.2f", amount));
         if (friendBills.getBillType() == AppConstants.BILL_TYPE_SETTLEMENT) {
             viewHolder.txtType.setText("Settled with");
             viewHolder.txtType.setTextColor(mContext.getResources().getColor(R.color.secondaryText));

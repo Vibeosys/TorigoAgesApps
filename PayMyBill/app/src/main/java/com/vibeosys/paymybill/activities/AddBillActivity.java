@@ -226,10 +226,10 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.imgBill:
+           /* case R.id.imgBill:
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
-                break;
+                break;*/
             case R.id.btnPaidBy:
                 openSelectedDialog();
                 break;

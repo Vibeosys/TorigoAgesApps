@@ -114,7 +114,7 @@ public class MainActivity extends BaseActivity
                 startAddExpenses();
             }
         });
-        tab_layout.addTab(tab_layout.newTab().setText("All Friends"));
+        tab_layout.addTab(tab_layout.newTab().setText("All Bills"));
 
         tab_layout.addTab(tab_layout.newTab().setText("I Owe"));
 
@@ -127,10 +127,10 @@ public class MainActivity extends BaseActivity
                 new MainActivityAdapter(getSupportFragmentManager(), tab_layout.getTabCount());
         viewPager.setAdapter(mainActivityAdapteradapter);
 
-        AdView adView = new AdView(getApplicationContext(), "1134020779954080_1216169785072512", AdSize.BANNER_320_50);
+       /* AdView adView = new AdView(getApplicationContext(), "1134020779954080_1216169785072512", AdSize.BANNER_320_50);
         adViewContainer.addView(adView);
         AdSettings.addTestDevice("HASHED ID");
-        adView.loadAd();
+        adView.loadAd();*/
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
         tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -169,13 +169,11 @@ public class MainActivity extends BaseActivity
         mNavigationUserName.setText("" + mSessionManager.getUserName());
 
         if (!TextUtils.isEmpty(mImageUri)) {
-            try
-            {
+            try {
                 Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
                 mUserProfile.setImageBitmap(mBitmapString);
-            }catch (Exception e)
-            {
-                Log.d(TAG,"drawer profile exception");
+            } catch (Exception e) {
+                Log.d(TAG, "drawer profile exception");
             }
 
         }

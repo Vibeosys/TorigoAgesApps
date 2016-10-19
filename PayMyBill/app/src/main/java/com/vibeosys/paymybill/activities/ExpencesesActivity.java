@@ -23,7 +23,7 @@ import java.util.Calendar;
 
 public class ExpencesesActivity extends BaseActivity implements View.OnClickListener {
 
-    private ImageView mImgBill;
+    //private ImageView mImgBill;
     private static final int CAMERA_REQUEST = 100;
     private EditText mTxtDate, mTxtAmt, mTxtBillDesc;
     Calendar myCalendar = Calendar.getInstance();
@@ -36,20 +36,20 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
         setContentView(R.layout.activity_expenceses);
         setTitle(getResources().getString(R.string.expenses_activity));
         mTxtDate = (EditText) findViewById(R.id.txtDate);
-        mImgBill = (ImageView) findViewById(R.id.imgBill);
+        //mImgBill = (ImageView) findViewById(R.id.imgBill);
         mTxtAmt = (EditText) findViewById(R.id.txtAmount);
         mTxtBillDesc = (EditText) findViewById(R.id.txtBillDesc);
         mBtnSave = (Button) findViewById(R.id.btnSave);
         mBtnSave.setOnClickListener(this);
         txtCurrencySymbol = (TextView) findViewById(R.id.txtCurrencySymbol);
         txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
-        mImgBill.setOnClickListener(new View.OnClickListener() {
+        /*mImgBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }
-        });
+        });*/
 
         mTxtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -66,7 +66,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            mImgBill.setImageBitmap(photo);
+            //mImgBill.setImageBitmap(photo);
         }
     }
 
