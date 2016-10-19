@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -168,8 +169,15 @@ public class MainActivity extends BaseActivity
         mNavigationUserName.setText("" + mSessionManager.getUserName());
 
         if (!TextUtils.isEmpty(mImageUri)) {
-            Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
-            mUserProfile.setImageBitmap(mBitmapString);
+            try
+            {
+                Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
+                mUserProfile.setImageBitmap(mBitmapString);
+            }catch (Exception e)
+            {
+                Log.d(TAG,"drawer profile exception");
+            }
+
         }
 
 

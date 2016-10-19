@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@drawable/avatar_profile"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.vibeosys.paymybill.views.AbelTextViewFont
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Don't forgot to share bills,"
+            android:textSize="24sp"
+            android:gravity="center"/>
+        <com.vibeosys.paymybill.views.AbelTextViewFont
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="dues with Pay My Bill App"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/second_screen_carousel"/>
+        <com.vibeosys.paymybill.views.AbelTextViewFont
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Easy to use, quick option"
+            android:textSize="24sp"
+            android:gravity="center"/>
+        <com.vibeosys.paymybill.views.AbelTextViewFont
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="to share, Try Now..."
+            android:gravity="center"/>
+    </LinearLayout>
+
+
 </LinearLayout>

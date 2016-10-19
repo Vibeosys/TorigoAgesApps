@@ -83,7 +83,8 @@
         <activity
             android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation" />
-        <activity android:name=".activities.CarouselActivity">
+        <activity android:name=".activities.CarouselActivity"
+            android:screenOrientation="portrait">
 
         </activity>
     </application>

@@ -841,7 +841,15 @@ public class DbRepository extends SQLiteOpenHelper {
             sqLiteDatabase = getWritableDatabase();
             synchronized (sqLiteDatabase) {
                 try {
+
+                    sqLiteDatabase.delete(SqlContract.SqlTransaction.TABLE_NAME,null,null);
+                    sqLiteDatabase.delete(SqlContract.SqlBill.TABLE_NAME,null,null);
                     sqLiteDatabase.delete(SqlContract.SqlFriend.TABLE_NAME, null, null);
+                    sqLiteDatabase.delete(SqlContract.SqlBillType.TABLE_NAME, null, null);
+                    sqLiteDatabase.delete(SqlContract.SqlCurrency.TABLE_NAME, null, null);
+                    sqLiteDatabase.delete(SqlContract.SqlLoginSource.TABLE_NAME,null,null);
+                    sqLiteDatabase.delete(SqlContract.SqlRegisterUser.TABLE_NAME,null,null);
+
                     sqLiteDatabase.close();
                 } catch (SQLiteConstraintException e) {
                     Log.d(TAG, "Sql deleting friends record");

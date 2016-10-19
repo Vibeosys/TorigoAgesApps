@@ -58,6 +58,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.*;
 import com.google.android.gms.*;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.fitness.data.Application;
 import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
@@ -98,6 +99,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     private int ACCOUNT_PERMISSION_CODE = 14;
     private int count = 0;
     private Context context = this;
+    private static Context mContext ;
     private Locale selectedLocale = null;
     GoogleSignInOptions gso;
 
@@ -110,6 +112,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         setContentView(R.layout.activity_login);
         setTitle(getResources().getString(R.string.app_name));
         googlePlusAPIInit();
+        mContext =getApplicationContext();
         mForgotPassword = (TextView) findViewById(R.id.forgot_password);
         mFacebbokLogin = (LoginButton) findViewById(R.id.login_with_Facebook);
         mGoogSignInButton = (SignInButton) findViewById(R.id.google_Plus_signIn);
@@ -315,15 +318,21 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
     public static void LogoutFacebook() {
         try {
+            FacebookSdk.sdkInitialize(mContext);
             LoginManager.getInstance().logOut();
             Log.d("FBLOGIN", "Log out");
 
         } catch (FacebookException e) {
             e.printStackTrace();
             Log.d(TAG, "Facebook logout exception");
+        }catch (Exception e)
+        {
+            Log.d(TAG,"Log out facebook exception");
         }
 
     }
+
+
 
     @Override
     protected void onStop() {

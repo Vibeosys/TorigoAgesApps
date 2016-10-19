@@ -250,7 +250,7 @@
                 android:textColor="#3232FF"
                 android:text="@string/tv_forgot_password"
                 android:textSize="15sp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="35dp"
                 android:focusable="true"
                 android:textStyle="italic" />
 

@@ -121,13 +121,13 @@ public class CarouselActivity extends BaseActivity {
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 // last page. make button text to GOT IT
-                btnNext.setText("GOT IT");
-                //btnSkip.setVisibility(View.GONE);
-            } else if(position!=0) {
+                btnNext.setText("GO");
                 btnSkip.setVisibility(View.GONE);
-                // still pages are left
-               /* btnNext.setText(getString(R.string.next));
-                btnSkip.setVisibility(View.VISIBLE);*/
+            } else  {
+               // btnSkip.setVisibility(View.GONE);
+                // still pages are leftif(position!=0)
+                btnNext.setText(getString(R.string.next));
+                btnSkip.setVisibility(View.VISIBLE);
             }
         }
 
