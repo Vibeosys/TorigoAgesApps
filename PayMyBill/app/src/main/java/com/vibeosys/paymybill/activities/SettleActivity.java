@@ -176,7 +176,7 @@ public class SettleActivity extends BaseActivity implements View.OnClickListener
 
     private void loadInterstitialAd() {
         interstitialAd = new InterstitialAd(this, "1134020779954080_1216209525068538");
-        AdSettings.addTestDevice("HASHED ID");
+        // AdSettings.addTestDevice("HASHED ID");
         interstitialAd.setAdListener(this);
         interstitialAd.loadAd();
     }

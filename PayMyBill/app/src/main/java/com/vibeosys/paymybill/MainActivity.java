@@ -134,7 +134,7 @@ public class MainActivity extends BaseActivity
 
         AdView adView = new AdView(getApplicationContext(), "1134020779954080_1216169785072512", AdSize.BANNER_320_50);
         adViewContainer.addView(adView);
-        AdSettings.addTestDevice("HASHED ID");
+        //AdSettings.addTestDevice("HASHED ID");
         adView.loadAd();
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
@@ -179,9 +179,8 @@ public class MainActivity extends BaseActivity
                 downloadImage.execute(mImageUri);
 
 
-        }catch (Exception e)
-            {
-                Log.e(TAG,e.toString());
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
             }
         }
 
@@ -290,13 +289,11 @@ public class MainActivity extends BaseActivity
 
         }*/ else if (id == R.id.sign_out) {
             if (mSessionManager.getLoginSource().equals("1")) {
-                try
-                {
+                try {
                     FacebookSdk.sdkInitialize(getApplicationContext());
                     LoginManager.getInstance().logOut();
-                }catch (FacebookException e)
-                {
-                    Log.e(TAG,e.toString());
+                } catch (FacebookException e) {
+                    Log.e(TAG, e.toString());
                 }
 
                 boolean returnVal = mDbRepository.deleteAllUserFriendRecords();
@@ -364,8 +361,8 @@ public class MainActivity extends BaseActivity
         fab2.startAnimation(hide_fab_2);
         fab2.setClickable(false);
     }
-    private class DownloadImage extends AsyncTask<String ,Void,Bitmap>
-    {
+
+    private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(String... URL) {
@@ -381,8 +378,9 @@ public class MainActivity extends BaseActivity
                 e.printStackTrace();
                 bitmap = null;
             }
-            return  bitmap;
+            return bitmap;
         }
+
         @Override
         protected void onPostExecute(Bitmap result) {
             if (result != null) {
