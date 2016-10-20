@@ -112,4 +112,5 @@
     <string name="start">Start</string>
     <string name="str_divide_bill">Divide bill equally</string>
     <string name="first_logo">Logo</string>
+    <string name="str_select_currency">Select your currency</string>
 </resources>

@@ -12,6 +12,7 @@ import com.vibeosys.paymybill.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 
@@ -26,8 +27,14 @@ public class CountryAdapter extends BaseAdapter {
         this.mContext = mContext;
         Locale[] locale = Locale.getAvailableLocales();
         for (Locale loc : locale) {
-            String country = loc.getDisplayCountry();
-            if (country.length() > 0 && !locales.contains(loc)) {
+            Currency currency = null;
+            try {
+                currency = Currency.getInstance(loc);
+            } catch (IllegalArgumentException e) {
+                currency = null;
+            }
+            /*String country = loc.getDisplayCountry();*/
+            if (currency != null) {
                 locales.add(loc);
             }
         }
@@ -64,7 +71,8 @@ public class CountryAdapter extends BaseAdapter {
         } else
             viewHolder = (ViewHolder) convertView.getTag();
         Locale locale = locales.get(position);
-        viewHolder.spinnerChild.setText(locale.getDisplayCountry());
+        Currency currency = Currency.getInstance(locale);
+        viewHolder.spinnerChild.setText(currency.getCurrencyCode() + " - " + currency.getDisplayName(locale));
 
         return row;
     }

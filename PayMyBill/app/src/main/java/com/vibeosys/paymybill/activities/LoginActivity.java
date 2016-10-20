@@ -179,7 +179,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     private void selectUserCurrency() {
-        final Dialog currencyDialog = new Dialog(context);
+        final Dialog currencyDialog = new Dialog(context,android.R.style.Theme_Holo_Light_NoActionBar_Fullscreen);
         currencyDialog.setTitle(getResources().getString(R.string.select_country));
         currencyDialog.setContentView(R.layout.dialog_select_country);
         currencyDialog.setCancelable(false);
