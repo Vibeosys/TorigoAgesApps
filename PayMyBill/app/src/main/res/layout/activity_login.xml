@@ -13,103 +13,57 @@
         android:paddingRight="24dp"
         android:paddingTop="20dp">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:background="#ffffff"
-            android:orientation="vertical"
-            android:layout_marginBottom="15dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <com.facebook.login.widget.LoginButton
+                android:layout_height="wrap_content">
+
+
+                <Button
                     android:id="@+id/login_with_Facebook"
-                    android:layout_height="match_parent"
+                    style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:layout_gravity="center"
-                    android:paddingBottom="10dp"
-                    android:textSize="16sp"
-                    android:paddingTop="10dp"
-                    />
-            </LinearLayout>
+                    android:layout_height="60dp"
+                    android:background="@drawable/facebook_login_img" />
 
-
-            <!--<Button
-                android:id="@+id/btn_fbLogin"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:background="#3b579d"
-                android:drawableLeft="@drawable/fbbtn_logo"
-                android:text="@string/btn_facebook"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />-->
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/textOR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/login_with_Facebook"
+                    android:layout_margin="8dp"
+
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/login_or"
                     android:textSize="15sp" />
-                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <com.google.android.gms.common.SignInButton
+                <Button
                     android:id="@+id/google_Plus_signIn"
-                    android:layout_height="match_parent"
+                    style="?android:attr/buttonStyleSmall"
                     android:layout_width="match_parent"
-                    android:layout_marginStart="-8dp"
-                    android:layout_marginEnd="-8dp"
-                    />
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/textOR"
+                    android:background="@drawable/google_login_image" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/textOR1"
+                    android:id="@+id/textOR2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/google_Plus_signIn"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/login_or"
                     android:textSize="15sp" />
-            </LinearLayout>
-            <!--<Button
-                android:id="@+id/btn_GPLogin"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-15dp"
-                android:background="#dd4b39"
-                android:drawableLeft="@drawable/btn_google"
-                android:text="Log in with Google+"
-                android:textColor="#ffffff" />-->
-            <!--<TextView
-                android:id="@+id/textOREmail"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="15dp"
-                android:gravity="center"
-                android:text="No account yet? Create one"
-                android:textSize="15sp" />-->
+
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -142,7 +96,7 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/email_id"
                     android:inputType="textEmailAddress"
-                    android:singleLine="true"/>
+                    android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -167,47 +121,6 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-            <!--<Button
-                android:id="@+id/btn_sendotp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/button_custom"
-                android:padding="10dp"
-                android:text="Send OTP"
-                android:textColor="#ffffff" />
-
-            <TextView
-                android:id="@+id/link_signup"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="top|start"
-                android:text="@string/OtpMessage"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/input_otp"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:hint="OTP"
-                android:inputType="numberPassword"
-                android:numeric="integer"
-                android:singleLine="true"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/btn_verifyotp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/button_custom"
-                android:padding="10dp"
-                android:text="Verify OTP"
-                android:textColor="#ffffff" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -245,13 +158,13 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:textColor="#3232FF"
-                android:text="@string/tv_forgot_password"
-                android:textSize="15sp"
                 android:layout_marginBottom="35dp"
+                android:layout_marginTop="22dp"
                 android:focusable="true"
+                android:gravity="center"
+                android:text="@string/tv_forgot_password"
+                android:textColor="#3232FF"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
 

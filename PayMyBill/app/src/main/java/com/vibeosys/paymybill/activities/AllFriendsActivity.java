@@ -27,6 +27,7 @@ public class AllFriendsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_friends);
+        setTitle(getResources().getString(R.string.str_my_friennd));
         mFriendList = (ListView) findViewById(R.id.dashBoard_list);
         createList();
         mFriendList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

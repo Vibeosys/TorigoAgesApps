@@ -29,11 +29,12 @@
     <string name="login_title">Login</string>
     <string name="tv_forgot_password"><u>Forgot your password ?</u></string>
     <string name="login_or">-------- OR ---------</string>
-    <string name="OtpMessage">You will receive OTP on your email address, Please enter OTP below to verify your email address</string>
+    <string name="OtpMessage">You will receive OTP on your email address,
+        Please enter OTP below to verify your email address</string>
 
     <!--Profile activity -->
     <string name="txt_profile_name">Name</string>
-    <string name="txt_profile_email_id">Email Id</string>
+    <string name="txt_profile_email_id">Email id</string>
     <string name="txt_profile_mob_no">Mobile Number</string>
     <string name="txt_profile_country">Country</string>
 
@@ -63,7 +64,7 @@
     <string name="my_profile_update">Update</string>
     <string name="edit_my_profile">Edit Profile</string>
     <string name="forgot_password_title">Your password will be sent
-        on following email address,Please validate your email address</string>>
+        on following email address, Please validate your email address</string>>
 
     <!--Facebook App Key -->
     <string name="facebook_app_id">1134020779954080</string>
@@ -99,7 +100,7 @@
     <string name="add_expences">Expense is added</string>
     <string name="str_err_expanses_add">Expense is not added retry!!!</string>
     <string name="hint_no_transcaion">No transaction yet</string>
-    <string name="str_country_message">You can not change the country once you selected</string>
+    <string name="str_country_message">You can not change the currency once you selected</string>
     <string name="select_country">Select your country</string>
     <string name="str_divide_payment">Divide payment equally</string>
     <string name="str_settel_sure">Are you sure you want to settle this amount?</string>
@@ -113,4 +114,5 @@
     <string name="str_divide_bill">Divide bill equally</string>
     <string name="first_logo">Logo</string>
     <string name="str_select_currency">Select your currency</string>
+    <string name="str_my_friennd">My Friends</string>
 </resources>

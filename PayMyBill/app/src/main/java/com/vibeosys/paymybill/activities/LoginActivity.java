@@ -27,6 +27,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,8 +84,8 @@ import java.util.Set;
 public class LoginActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks, View.OnClickListener {
 
-    private LoginButton mFacebbokLogin;
-    private SignInButton mGoogSignInButton;
+    private Button mFacebookLogin;
+    private Button mGoogSignInButton;
     private TextView mForgotPassword;
     private Button mRegisterUser;
     private Button mSignIn;
@@ -114,23 +115,24 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         googlePlusAPIInit();
         mContext =getApplicationContext();
         mForgotPassword = (TextView) findViewById(R.id.forgot_password);
-        mFacebbokLogin = (LoginButton) findViewById(R.id.login_with_Facebook);
-        mGoogSignInButton = (SignInButton) findViewById(R.id.google_Plus_signIn);
+        mFacebookLogin = (Button) findViewById(R.id.login_with_Facebook);
+        mGoogSignInButton = (Button) findViewById(R.id.google_Plus_signIn);
         mRegisterUser = (Button) findViewById(R.id.register_user);
         mSignIn = (Button) findViewById(R.id.sign_in_user_btn);
         mEmailId = (EditText) findViewById(R.id.emailIdEditText);
         mPassword = (EditText) findViewById(R.id.passwordEditText);
         mForgotPassword.setPaintFlags(mForgotPassword.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
 
-        setGooglePlusButtonText(mGoogSignInButton, "Log in with Google");
-        mFacebbokLogin.setReadPermissions(Arrays.asList("public_profile", "email"));
+        //setGooglePlusButtonText(mGoogSignInButton, "Log in with Google");
+        //mFacebookLogin.setReadPermissions(Arrays.asList("public_profile", "email"));
+        mFacebookLogin.setOnClickListener(this);
         mGoogSignInButton.setOnClickListener(this);
         mRegisterUser.setOnClickListener(this);
         mSignIn.setOnClickListener(this);
         mForgotPassword.setOnClickListener(this);
         selectUserCurrency();
         /*Facebook login function*/
-        mFacebbokLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
@@ -381,25 +383,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         }
     }
 
-    /*Google login get profile*/
-    /*private void getProfileInformation() {
-        try {
-            if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
-                Person currentPerson = Plus.PeopleApi
-                        .getCurrentPerson(mGoogleApiClient);
-                String email = Plus.AccountApi.getAccountName(mGoogleApiClient);
-                String personName = currentPerson.getDisplayName();
-                String personPhotoUrl = currentPerson.getImage().getUrl();
-                String personGooglePlusProfile = currentPerson.getUrl();
-                String personGoogleId = currentPerson.getId();
-                callFromGoogleRegisterUser(email, personName, 2, personGoogleId, personPhotoUrl);
-            } else {
-                Log.e("user profile is null", "profile is null");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
+
     private void getProfileInformation(GoogleSignInResult result) {
         try {
             if (result.isSuccess()) {
@@ -456,28 +440,16 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
     }
 
-    /*Alignment for google login button */
-    protected void setGooglePlusButtonText(SignInButton mGoogSignInButton,
-                                           String buttonText) {
-        for (int i = 0; i < mGoogSignInButton.getChildCount(); i++) {
-            View v = mGoogSignInButton.getChildAt(i);
 
-            if (v instanceof TextView) {
-                TextView tv = (TextView) v;
-                tv.setTextSize(14);
-                tv.setPadding(0, 0, 14, 0);
-                tv.setTypeface(null, Typeface.BOLD);
-                tv.setText(buttonText);
-                return;
-            }
-        }
-    }
 
     @Override
     public void onClick(View v) {
         int btnId = v.getId();
 
         switch (btnId) {
+            case R.id.login_with_Facebook:
+                LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
+                break;
             case R.id.google_Plus_signIn:
                 getAccountPermission();
                 break;

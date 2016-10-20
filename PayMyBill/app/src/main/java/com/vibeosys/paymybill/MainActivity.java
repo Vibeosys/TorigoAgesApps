@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -29,9 +30,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.ads.AdSettings;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
+import com.facebook.login.LoginManager;
 import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.AddFriendActivity;
 import com.vibeosys.paymybill.activities.AllFriendsActivity;
@@ -48,6 +52,7 @@ import com.vibeosys.paymybill.util.UserAuth;
 
 import org.w3c.dom.Text;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity
@@ -127,10 +132,10 @@ public class MainActivity extends BaseActivity
                 new MainActivityAdapter(getSupportFragmentManager(), tab_layout.getTabCount());
         viewPager.setAdapter(mainActivityAdapteradapter);
 
-       /* AdView adView = new AdView(getApplicationContext(), "1134020779954080_1216169785072512", AdSize.BANNER_320_50);
+        AdView adView = new AdView(getApplicationContext(), "1134020779954080_1216169785072512", AdSize.BANNER_320_50);
         adViewContainer.addView(adView);
         AdSettings.addTestDevice("HASHED ID");
-        adView.loadAd();*/
+        adView.loadAd();
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
         tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -170,12 +175,14 @@ public class MainActivity extends BaseActivity
 
         if (!TextUtils.isEmpty(mImageUri)) {
             try {
-                Bitmap mBitmapString = BitmapFactory.decodeFile(mImageUri);
-                mUserProfile.setImageBitmap(mBitmapString);
-            } catch (Exception e) {
-                Log.d(TAG, "drawer profile exception");
-            }
+                DownloadImage downloadImage = new DownloadImage();
+                downloadImage.execute(mImageUri);
 
+
+        }catch (Exception e)
+            {
+                Log.e(TAG,e.toString());
+            }
         }
 
 
@@ -283,7 +290,15 @@ public class MainActivity extends BaseActivity
 
         }*/ else if (id == R.id.sign_out) {
             if (mSessionManager.getLoginSource().equals("1")) {
-                LoginActivity.LogoutFacebook();
+                try
+                {
+                    FacebookSdk.sdkInitialize(getApplicationContext());
+                    LoginManager.getInstance().logOut();
+                }catch (FacebookException e)
+                {
+                    Log.e(TAG,e.toString());
+                }
+
                 boolean returnVal = mDbRepository.deleteAllUserFriendRecords();
                 UserAuth.CleanAuthenticationInfo();
             }
@@ -349,5 +364,32 @@ public class MainActivity extends BaseActivity
         fab2.startAnimation(hide_fab_2);
         fab2.setClickable(false);
     }
+    private class DownloadImage extends AsyncTask<String ,Void,Bitmap>
+    {
 
+        @Override
+        protected Bitmap doInBackground(String... URL) {
+
+
+            Bitmap bitmap = null;
+
+            String imgStr = URL[0].toString();
+            try {
+
+                bitmap = BitmapFactory.decodeFile(imgStr);
+            } catch (Exception e) {
+                e.printStackTrace();
+                bitmap = null;
+            }
+            return  bitmap;
+        }
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                mUserProfile.setImageBitmap(result);
+            } /*else {
+                mUserProfile.setImageResource(R.drawable.avatar_profile);
+            }*/
+        }
+    }
 }
