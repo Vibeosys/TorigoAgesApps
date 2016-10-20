@@ -73,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/button_custom"
+        android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_24dp"
         android:text="@string/btn_next"
         android:textColor="@android:color/white"
         android:translationZ="4dp" />
