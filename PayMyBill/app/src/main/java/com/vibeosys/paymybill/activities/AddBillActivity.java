@@ -31,6 +31,7 @@ import com.vibeosys.paymybill.data.FriendsDTO;
 import com.vibeosys.paymybill.data.SelectedFriends;
 import com.vibeosys.paymybill.data.TransactionDetailsDTO;
 import com.vibeosys.paymybill.interfaces.SelectedFriendCriteria;
+import com.vibeosys.paymybill.presenter.AddBillPresenter;
 import com.vibeosys.paymybill.util.AppConstants;
 import com.vibeosys.paymybill.util.DateUtils;
 
@@ -60,6 +61,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     private Switch swtPayment;
     boolean isEquallyDivided = true;
     private FriendsDTO friendsDTO = null;
+    private AddBillPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
         mTxtErrorGrid = (TextView) findViewById(R.id.txtErrorFriend);
         txtCurrencySymbol = (TextView) findViewById(R.id.txtCurrencySymbol);
         swtPayment = (Switch) findViewById(R.id.swtPayment);
-
+        presenter = new AddBillPresenter(this, mDbRepository);
         txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
         mBtnPaidBy.setOnClickListener(this);
         createList();
@@ -103,7 +105,7 @@ public class AddBillActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void createList() {
-        friendsDTOs = mDbRepository.getFriendList(mSessionManager.getUserFriendId());
+        friendsDTOs = presenter.getFriendList(mSessionManager.getUserFriendId());
         mFriendGridAdapter = new FriendGridAdapter(getApplicationContext(), friendsDTOs);
         mGridFriends.setAdapter(mFriendGridAdapter);
 
