@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.databasedto.UserRegisterDbDTO;
 import com.vibeosys.paymybill.database.DbRepository;
+import com.vibeosys.paymybill.presenter.RegisterUserPresenter;
 
 public class UserRegisterActivity extends BaseActivity {
 
@@ -137,7 +138,9 @@ public class UserRegisterActivity extends BaseActivity {
     }
     public void insertUser(UserRegisterDbDTO UserRegisterDbDTO)
     {
-        int returnVal=mDbRepository.userRegister(UserRegisterDbDTO);
+
+        RegisterUserPresenter presenter=new RegisterUserPresenter(this,mDbRepository);
+        int returnVal = presenter.userRegistration(UserRegisterDbDTO);
         if(returnVal ==1)
         {
             Toast toast = Toast.makeText(getApplicationContext(),"Registration is successfully ",Toast.LENGTH_LONG);
