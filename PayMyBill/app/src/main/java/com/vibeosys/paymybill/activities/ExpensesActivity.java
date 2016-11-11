@@ -9,19 +9,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.BillDetailsDTO;
+import com.vibeosys.paymybill.presenter.ExpensesPresenter;
 import com.vibeosys.paymybill.util.AppConstants;
 import com.vibeosys.paymybill.util.DateUtils;
 
 import java.util.Calendar;
 
-public class ExpencesesActivity extends BaseActivity implements View.OnClickListener {
+public class ExpensesActivity extends BaseActivity implements View.OnClickListener {
 
     //private ImageView mImgBill;
     private static final int CAMERA_REQUEST = 100;
@@ -29,6 +29,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
     Calendar myCalendar = Calendar.getInstance();
     private Button mBtnSave;
     private TextView txtCurrencySymbol;
+    private ExpensesPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
         mTxtBillDesc = (EditText) findViewById(R.id.txtBillDesc);
         mBtnSave = (Button) findViewById(R.id.btnSave);
         mBtnSave.setOnClickListener(this);
+        presenter = new ExpensesPresenter(this, mDbRepository);
         txtCurrencySymbol = (TextView) findViewById(R.id.txtCurrencySymbol);
         txtCurrencySymbol.setText(mSessionManager.getUserCurrencySymbol());
         /*mImgBill.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +57,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    new DatePickerDialog(ExpencesesActivity.this, date, myCalendar
+                    new DatePickerDialog(ExpensesActivity.this, date, myCalendar
                             .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                             myCalendar.get(Calendar.DAY_OF_MONTH)).show();
                 }
@@ -136,7 +138,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
             int paidBy = Integer.parseInt(mSessionManager.getUserFriendId());
 
             BillDetailsDTO newBill = new BillDetailsDTO(billNo, strDate, billAmount, strDesc, typeId, currencyId, paidBy);
-            int result = mDbRepository.insertMyExpances(newBill);
+            int result = presenter.insertMyExpances(newBill);
             if (result == 1) {
                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.add_expences), Toast.LENGTH_SHORT).show();
                 Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
@@ -146,7 +148,7 @@ public class ExpencesesActivity extends BaseActivity implements View.OnClickList
             } else {
                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_err_expanses_add), Toast.LENGTH_SHORT).show();
                 //Write function to rollback the data;
-                mDbRepository.deleteBillAndTransactions(newBill);
+                presenter.deleteBillAndTransactions(newBill);
             }
             //Start new List activity
         }

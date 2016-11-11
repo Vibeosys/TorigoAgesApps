@@ -18,7 +18,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +31,6 @@ import android.widget.TextView;
 
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.ads.AdSettings;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.facebook.login.LoginManager;
@@ -40,19 +38,15 @@ import com.vibeosys.paymybill.activities.AddBillActivity;
 import com.vibeosys.paymybill.activities.AddFriendActivity;
 import com.vibeosys.paymybill.activities.AllFriendsActivity;
 import com.vibeosys.paymybill.activities.BaseActivity;
-import com.vibeosys.paymybill.activities.ExpencesesActivity;
+import com.vibeosys.paymybill.activities.ExpensesActivity;
 import com.vibeosys.paymybill.activities.HistoryActivity;
 import com.vibeosys.paymybill.activities.LoginActivity;
 import com.vibeosys.paymybill.activities.MyProfileActivity;
 import com.vibeosys.paymybill.adapters.MainActivityAdapter;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactionHandler;
 import com.vibeosys.paymybill.data.FriendTransactions.FriendTransactions;
-import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
 import com.vibeosys.paymybill.util.UserAuth;
 
-import org.w3c.dom.Text;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity
@@ -224,7 +218,7 @@ public class MainActivity extends BaseActivity
     }
 
     private void startAddExpenses() {
-        Intent iAddBill = new Intent(getApplicationContext(), ExpencesesActivity.class);
+        Intent iAddBill = new Intent(getApplicationContext(), ExpensesActivity.class);
         startActivity(iAddBill);
         hideFloating();
     }

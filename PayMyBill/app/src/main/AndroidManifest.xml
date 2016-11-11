@@ -48,7 +48,7 @@
             android:name=".activities.UserRegisterActivity"
             android:parentActivityName=".activities.LoginActivity" />
         <activity
-            android:name=".activities.ExpencesesActivity"
+            android:name=".activities.ExpensesActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activities.MyProfileActivity"
