@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.vibeosys.paymybill.MainActivity;
 import com.vibeosys.paymybill.R;
 import com.vibeosys.paymybill.data.databasedto.FriendDbDTO;
+import com.vibeosys.paymybill.presenter.AddFriendPresenter;
 
 import java.io.IOException;
 
@@ -37,6 +38,7 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
     private EditText mFriendName, mFriendPhoneNo, mFriendEmailId;
     private Button mSubmit, mCancel;
     private String mImageUri;
+    private AddFriendPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
         mFriendName = (EditText) findViewById(R.id.friendName);
         mFriendPhoneNo = (EditText) findViewById(R.id.friendPhoneNo);
         mFriendEmailId = (EditText) findViewById(R.id.friendEmailId);
+        presenter = new AddFriendPresenter(this, mDbRepository);
         setTitle(getResources().getString(R.string.friend_add));
         mSubmit.setOnClickListener(this);
         mCancel.setOnClickListener(this);
@@ -109,7 +112,7 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                 // Set the Image in ImageView after decoding the String
                 try {
                     Bitmap mBitmapString = BitmapFactory.decodeFile(imgDecodableString);
-                    mImageUri=imgDecodableString.toString();
+                    mImageUri = imgDecodableString.toString();
                     mUserPhoto.setImageBitmap(mBitmapString);
                 } catch (Exception e) {
                     e.toString();
@@ -168,40 +171,39 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                         mFriendEmailId.setError(getResources().getString(R.string.invalid_email_id));
                         validationFlag = false;
                     }
-                } if (validationFlag==true) {
+                }
+                if (validationFlag == true) {
 
-                        FriendDbDTO friendDbDTO=
-                                new FriendDbDTO(0,userName,userPhoneNo,userEmailId,mImageUri);
-                        insertFriend(friendDbDTO);
-                    }
+                    FriendDbDTO friendDbDTO =
+                            new FriendDbDTO(0, userName, userPhoneNo, userEmailId, mImageUri);
+                    insertFriend(friendDbDTO);
+                }
                 break;
             case R.id.cancel_friend_details:
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
                 break;
         }
     }
-    private void insertFriend(FriendDbDTO friendDbDTO)
-    {
-       int returnVal= mDbRepository.insertFriend(friendDbDTO);
-        if(returnVal==1)
-        {
+
+    private void insertFriend(FriendDbDTO friendDbDTO) {
+        int returnVal = presenter.insertFriend(friendDbDTO);
+        if (returnVal == 1) {
             /*Log.d("AddFirend","Successfully inserted friend record");
             Toast toast = Toast.makeText(getApplicationContext(), "Record insert successfully", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();*/
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
-        }if(returnVal==2)
-        {
+        }
+        if (returnVal == 2) {
             mFriendPhoneNo.requestFocus();
             mFriendPhoneNo.setError(getResources().getString(R.string.ph_already_present));
         }
-        if(returnVal==3)
-        {
-            Log.d("AddFirend","Error while inserted friend record");
+        if (returnVal == 3) {
+            Log.d("AddFirend", "Error while inserted friend record");
             Toast toast = Toast.makeText(getApplicationContext(), "Error while inserting record", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
