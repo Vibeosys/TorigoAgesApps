@@ -9,8 +9,9 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/shoppingCart"
-        android:icon="@drawable/ic_shopping_cart_white_24dp"
+        android:id="@+id/shoppingcart"
+        android:icon="@drawable/ic_menu_notification"
+        android:orderInCategory="100"
         android:title="@string/your_cart"
         app:showAsAction="always" />
 </menu>

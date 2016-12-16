@@ -10,14 +10,22 @@
     <string name="cake_one">Chocolate</string>
     <string name="company_name_one"><![CDATA[By S & O Pvt Ltd.]]></string>
     <string name="review_one">(30 Reviews)</string>
+    <string name="review_two">(80 Reviews)</string>
+    <string name="review_three">(100 Reviews)</string>
+    <string name="review_four">(50 Reviews)</string>
     <string name="sar">SAR</string>
     <string name="price">320</string>
 
     <string name="salad_name_first">Waldorf Salad</string>
     <string name="salad_name_second">Urnebes Salad</string>
-    <string name="salad_review">30 Reviews</string>
+    <string name="salad_review">112 Reviews</string>
     <string name="salad_by">By</string>
-    <string name="salad_distance">Km</string>
+    <string name="salad_distance">Km away</string>
     <string name="salad_time">mins</string>
     <string name="cake_two">Vanilla</string>
+    <string name="cake_three">Lime </string>
+    <string name="cake_four">Mango </string>
+    <string name="ice_name_first">Caramel Swirl</string>
+    <string name="ice_cream_two">Coconut Milk</string>
+    <string name="salad_review_two">196 Reviews</string>
 </resources>

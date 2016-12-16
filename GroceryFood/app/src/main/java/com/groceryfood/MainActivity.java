@@ -1,5 +1,8 @@
 package com.groceryfood;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,10 +19,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.groceryfood.adapters.MainActivityAdapter;
+import com.groceryfood.views.BadgeDrawable;
+import com.groceryfood.views.Utils2;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TabLayout tab_layout;
+    public static Utils2 notificationUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +48,15 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        setTitle("");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         tab_layout.addTab(tab_layout.newTab().setText("CAKES"));
 
-        tab_layout.addTab(tab_layout.newTab().setText("SALAD"));
+        tab_layout.addTab(tab_layout.newTab().setText("DESSERT"));
 
-        tab_layout.addTab(tab_layout.newTab().setText("BAKERY"));
+        tab_layout.addTab(tab_layout.newTab().setText("BISCUIT"));
         tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
         tab_layout.setSelectedTabIndicatorHeight(4);
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -91,6 +97,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem item = menu.findItem(R.id.shoppingcart);
+        LayerDrawable icon = (LayerDrawable) item.getIcon();
+
+        // Update LayerDrawable's BadgeDrawable
+        notificationUtil = new Utils2(this, icon);
+        notificationUtil.setBadgeCount(2);
+
         return true;
     }
 
@@ -130,4 +143,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
