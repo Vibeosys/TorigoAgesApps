@@ -75,7 +75,8 @@
                                 android:isIndicator="false"
                                 android:numStars="5"
                                 android:padding="2dp"
-                                android:rating="3.5" />
+                                android:rating="3.5"
+                                android:theme="@style/RatingBar" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -207,14 +208,32 @@
                             android:layout_gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <RatingBar
-                                style="?android:attr/ratingBarStyleSmall"
+                            <!-- <RatingBar
+                                 style="?android:attr/ratingBarStyleIndicator"
+                                 android:layout_width="100dp"
+                                 android:layout_height="40dp"
+                                 android:isIndicator="false"
+                                 android:numStars="5"
+                                 android:paddingBottom="4dp"
+                                 android:paddingEnd="0dp"
+                                 android:paddingStart="0dp"
+                                 android:paddingTop="4dp"
+                                 android:rating="3.5"
+                                 android:scaleX=".7"
+                                 android:scaleY=".7"
+                                 android:theme="@style/RatingBar" />-->
+
+                            <com.iarcuschin.simpleratingbar.SimpleRatingBar
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:isIndicator="false"
-                                android:numStars="5"
                                 android:padding="2dp"
-                                android:rating="3.5" />
+                                app:srb_borderColor="@color/colorAccent"
+                                app:srb_fillColor="@color/colorAccent"
+                                app:srb_numberOfStars="5"
+                                app:srb_rating="3"
+                                app:srb_starBorderWidth="1"
+                                app:srb_starSize="18dp"
+                                app:srb_stepSize="0.5" />
 
                             <TextView
                                 android:layout_width="match_parent"
