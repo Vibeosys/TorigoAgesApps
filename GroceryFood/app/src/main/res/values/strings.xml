@@ -7,7 +7,7 @@
     <string name="action_settings">Settings</string>
     <string name="search_items">Search</string>
     <string name="your_cart">My Cart</string>
-    <string name="cake_one">Mix Fruite</string>
+    <string name="cake_one">Chocolate</string>
     <string name="company_name_one"><![CDATA[By S & O Pvt Ltd.]]></string>
     <string name="review_one">(30 Reviews)</string>
     <string name="sar">SAR</string>
@@ -19,4 +19,5 @@
     <string name="salad_by">By</string>
     <string name="salad_distance">Km</string>
     <string name="salad_time">mins</string>
+    <string name="cake_two">Vanilla</string>
 </resources>

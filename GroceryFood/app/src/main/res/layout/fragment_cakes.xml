@@ -34,7 +34,7 @@
                     <RelativeLayout
                         android:layout_width="110dp"
                         android:layout_height="match_parent"
-                        android:background="@drawable/cake_one" />
+                        android:background="@drawable/cake_two" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -46,17 +46,18 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <TextView
+                        <com.groceryfood.views.Nunito
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="2dp"
-                            android:text="@string/cake_one"
+                            android:text="@string/cake_two"
                             android:textColor="@color/primaryText"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.groceryfood.views.Nunito
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
                             android:padding="2dp"
                             android:text="@string/company_name_one"
                             android:textColor="@color/secondaryText"
@@ -68,37 +69,58 @@
                             android:layout_gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <RatingBar
-                                style="?android:attr/ratingBarStyleSmall"
+                            <!-- <RatingBar
+                                 style="?android:attr/ratingBarStyleIndicator"
+                                 android:layout_width="100dp"
+                                 android:layout_height="40dp"
+                                 android:isIndicator="false"
+                                 android:numStars="5"
+                                 android:paddingBottom="4dp"
+                                 android:paddingEnd="0dp"
+                                 android:paddingStart="0dp"
+                                 android:paddingTop="4dp"
+                                 android:rating="3.5"
+                                 android:scaleX=".7"
+                                 android:scaleY=".7"
+                                 android:theme="@style/RatingBar" />-->
+
+                            <com.iarcuschin.simpleratingbar.SimpleRatingBar
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:isIndicator="false"
-                                android:numStars="5"
+                                android:layout_marginTop="3dp"
                                 android:padding="2dp"
-                                android:rating="3.5"
-                                android:theme="@style/RatingBar" />
+                                app:srb_borderColor="@color/colorAccent"
+                                app:srb_fillColor="@color/colorAccent"
+                                app:srb_numberOfStars="5"
+                                app:srb_rating="3"
+                                app:srb_starBorderWidth="1"
+                                app:srb_starSize="15dp"
+                                app:srb_stepSize="0.5" />
 
-                            <TextView
+                            <com.groceryfood.views.Nunito
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="6dp"
                                 android:gravity="end"
                                 android:paddingBottom="2dp"
-                                android:paddingEnd="12dp"
-                                android:paddingStart="2dp"
+                                android:paddingStart="6dp"
                                 android:paddingTop="2dp"
                                 android:text="@string/review_one"
                                 android:textColor="@color/primaryText2"
-                                android:textSize="12sp" />
+                                android:textSize="13sp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:gravity="center_vertical"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:gravity="bottom"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <com.groceryfood.views.Nunito
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="2dp"
@@ -106,7 +128,7 @@
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
-                            <TextView
+                            <com.groceryfood.views.Nunito
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingBottom="2dp"
@@ -114,40 +136,42 @@
                                 android:paddingStart="4dp"
                                 android:paddingTop="2dp"
                                 android:text="@string/price"
-                                android:textColor="@color/colorAccent"
-                                android:textSize="18sp" />
+                                android:textColor="@color/primaryText2"
+                                android:textSize="22sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="12dp"
                                 android:gravity="end"
                                 android:orientation="horizontal">
 
-                                <ImageView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/border_one"
-                                    android:src="@drawable/ic_minus_black_24" />
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:background="@drawable/border_middle"
-                                    android:paddingBottom="3dp"
-                                    android:paddingEnd="10dp"
-                                    android:paddingStart="10dp"
-                                    android:paddingTop="3dp"
-                                    android:text="3"
-                                    android:textColor="@color/primaryText"
-                                    android:textSize="16sp" />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_minus_black_24" />
+
+                                    <com.groceryfood.views.Nunito
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:paddingEnd="10dp"
+                                        android:paddingStart="10dp"
+                                        android:text="4"
+                                        android:textColor="@color/primaryText"
+                                        android:textSize="18sp" />
 
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/border_two"
-                                    android:src="@drawable/ic_plus_black_24" />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_plus_black_24" />
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -186,7 +210,7 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <TextView
+                        <com.groceryfood.views.Nunito
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="2dp"
@@ -194,9 +218,10 @@
                             android:textColor="@color/primaryText"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.groceryfood.views.Nunito
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
                             android:padding="2dp"
                             android:text="@string/company_name_one"
                             android:textColor="@color/secondaryText"
@@ -226,22 +251,23 @@
                             <com.iarcuschin.simpleratingbar.SimpleRatingBar
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
                                 android:padding="2dp"
                                 app:srb_borderColor="@color/colorAccent"
                                 app:srb_fillColor="@color/colorAccent"
                                 app:srb_numberOfStars="5"
                                 app:srb_rating="3"
                                 app:srb_starBorderWidth="1"
-                                app:srb_starSize="18dp"
+                                app:srb_starSize="15dp"
                                 app:srb_stepSize="0.5" />
 
-                            <TextView
+                            <com.groceryfood.views.Nunito
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="6dp"
                                 android:gravity="end"
                                 android:paddingBottom="2dp"
-                                android:paddingEnd="12dp"
-                                android:paddingStart="2dp"
+                                android:paddingStart="6dp"
                                 android:paddingTop="2dp"
                                 android:text="@string/review_one"
                                 android:textColor="@color/primaryText2"
@@ -251,11 +277,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:gravity="center_vertical"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:gravity="bottom"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <com.groceryfood.views.Nunito
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="2dp"
@@ -263,7 +292,7 @@
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
-                            <TextView
+                            <com.groceryfood.views.Nunito
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingBottom="2dp"
@@ -271,40 +300,42 @@
                                 android:paddingStart="4dp"
                                 android:paddingTop="2dp"
                                 android:text="@string/price"
-                                android:textColor="@color/colorAccent"
-                                android:textSize="18sp" />
+                                android:textColor="@color/primaryText2"
+                                android:textSize="22sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="12dp"
                                 android:gravity="end"
                                 android:orientation="horizontal">
 
-                                <ImageView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/border_one"
-                                    android:src="@drawable/ic_minus_black_24" />
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:background="@drawable/border_middle"
-                                    android:paddingBottom="3dp"
-                                    android:paddingEnd="10dp"
-                                    android:paddingStart="10dp"
-                                    android:paddingTop="3dp"
-                                    android:text="3"
-                                    android:textColor="@color/primaryText"
-                                    android:textSize="16sp" />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_minus_black_24" />
+
+                                    <com.groceryfood.views.Nunito
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:paddingEnd="10dp"
+                                        android:paddingStart="10dp"
+                                        android:text="2"
+                                        android:textColor="@color/primaryText"
+                                        android:textSize="18sp" />
 
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/border_two"
-                                    android:src="@drawable/ic_plus_black_24" />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_plus_black_24" />
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
