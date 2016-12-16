@@ -8,4 +8,5 @@
     <color name="accentText">#FF4081</color>
     <color name="secondaryText">#d863666b</color>
     <color name="colorRating">#ffcc00</color>
+    <color name="over_layer">#a82e2b28</color>
 </resources>
