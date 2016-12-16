@@ -6,5 +6,11 @@
         android:icon="@drawable/search_button_white"
         android:title="@string/search_items"
         app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="always|withText" />
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/shoppingCart"
+        android:icon="@drawable/ic_shopping_cart_white_24dp"
+        android:title="@string/your_cart"
+        app:showAsAction="always" />
 </menu>
