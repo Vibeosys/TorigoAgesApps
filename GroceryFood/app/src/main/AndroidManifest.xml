@@ -20,7 +20,11 @@
         </activity>
         <activity
             android:name=".LanguageActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CheckOutActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".OrederFinishActivity"></activity>
     </application>
 
 </manifest>

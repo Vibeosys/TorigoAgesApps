@@ -15,8 +15,7 @@
     <string name="review_three">(100 مراجعات)</string>
     <string name="review_four">(50 مشاركات)</string>
     <string name="sar">ريال</string>
-    <string name="price">
-320</string>
+    <string name="price">320</string>
 
     <string name="salad_name_first">والدورف صلاد</string>
     <string name="salad_name_second">Urnebes سلطة</string>
@@ -60,4 +59,26 @@
     <string name="cakes">الكعك</string>
     <string name="desserts">حلوى</string>
     <string name="biscut">بسكويت</string>
+
+    <string name="str_your_cart">عربتك</string>
+    <string name="str_edit">تحرير</string>
+    <string name="cart_one_qty">x 4</string>
+    <string name="cart_one_item">برجر الجبن</string>
+    <string name="cart_one_item_price">20</string>
+    <string name="cart_two_item">الكولا</string>
+    <string name="cart_three_item">فرايز مجعد</string>
+    <string name="cart_two_item_price">6</string>
+    <string name="cart_three_item_price">16</string>
+    <string name="add_more">أضف المزيد</string>
+    <string name="cart_one_details">رسوم الخدمة (0٪)</string>
+    <string name="cart_one_details_value">حر</string>
+    <string name="cart_two_details">رسوم الحاويات</string>
+    <string name="cart_three_details">رسوم التوصيل</string>
+    <string name="cart_four_details">حاصل الجمع</string>
+    <string name="cart_details_item_price">3</string>
+    <string name="cart_details_item_two_price">42</string>
+    <string name="str_total">مجموع</string>
+    <string name="btn_check_out">باشرالخروج من الفندق</string>
+    <string name="cart_total_price">45</string>
+
 </resources>

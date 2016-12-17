@@ -116,7 +116,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-
+        if (id == R.id.shoppingcart) {
+            Intent i = new Intent(getApplicationContext(), CheckOutActivity.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 

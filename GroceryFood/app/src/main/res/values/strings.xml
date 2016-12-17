@@ -56,4 +56,24 @@
     <string name="cakes">CAKES</string>
     <string name="desserts">DESSERT</string>
     <string name="biscut">BISCUIT</string>
+    <string name="str_your_cart">Your Cart</string>
+    <string name="str_edit">Edit</string>
+    <string name="cart_one_qty">4 x</string>
+    <string name="cart_one_item">Cheese Burger</string>
+    <string name="cart_one_item_price">20</string>
+    <string name="cart_two_item">Cola</string>
+    <string name="cart_three_item">Curly Fries</string>
+    <string name="cart_two_item_price">6</string>
+    <string name="cart_three_item_price">16</string>
+    <string name="add_more">Add more</string>
+    <string name="cart_one_details">Service fee (0%)</string>
+    <string name="cart_one_details_value">Free</string>
+    <string name="cart_two_details">Container Charges</string>
+    <string name="cart_three_details">Delivery Fee</string>
+    <string name="cart_four_details">Subtotal</string>
+    <string name="cart_details_item_price">3</string>
+    <string name="cart_details_item_two_price">42</string>
+    <string name="str_total">Total</string>
+    <string name="btn_check_out">Proceed to checkout</string>
+    <string name="cart_total_price">45</string>
 </resources>
