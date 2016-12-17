@@ -1,6 +1,7 @@
 package com.groceryfood;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
@@ -52,11 +53,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
-        tab_layout.addTab(tab_layout.newTab().setText("CAKES"));
+        tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.cakes)));
 
-        tab_layout.addTab(tab_layout.newTab().setText("DESSERT"));
+        tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.desserts)));
 
-        tab_layout.addTab(tab_layout.newTab().setText("BISCUIT"));
+        tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.biscut)));
         tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
         tab_layout.setSelectedTabIndicatorHeight(4);
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -125,18 +126,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.language) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            Intent intent = new Intent(getApplicationContext(), LanguageActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

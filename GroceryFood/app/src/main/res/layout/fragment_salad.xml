@@ -52,7 +52,7 @@
                                 android:paddingEnd="5dp"
                                 android:paddingStart="5dp"
                                 android:paddingTop="12dp"
-                                android:text="50% OFF"
+                                android:text="@string/offer_on_desert"
                                 android:textColor="@android:color/white" />
 
                             <LinearLayout
@@ -130,7 +130,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="8dp"
-                                android:text="The CinnaMan"
+                                android:text="@string/str_dessert_one_cmp"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -165,7 +165,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="bottom"
                                         android:paddingStart="8dp"
-                                        android:text="32"
+                                        android:text="@string/str_one_km"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
 
@@ -206,7 +206,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="bottom"
                                         android:paddingStart="2dp"
-                                        android:text="25"
+                                        android:text="@string/str_mins_one_wait"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
 
@@ -244,7 +244,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="SAR"
+                                        android:text="@string/sar"
                                         android:textColor="@color/secondaryText"
                                         android:textSize="14sp" />
 
@@ -252,7 +252,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:paddingStart="8dp"
-                                        android:text="452"
+                                        android:text="@string/str_dessert_one_amt"
                                         android:textColor="@android:color/black"
                                         android:textSize="20sp" />
                                 </LinearLayout>
@@ -289,7 +289,7 @@
                                         android:gravity="center"
                                         android:paddingEnd="8dp"
                                         android:paddingStart="8dp"
-                                        android:text="4"
+                                        android:text="@string/str_cake_one_qty"
                                         android:textColor="@android:color/black"
                                         android:textSize="14sp" />
 
@@ -413,7 +413,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="8dp"
-                                android:text="Confection Connection"
+                                android:text="@string/str_dessert_two_cmp"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -448,7 +448,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="bottom"
                                         android:paddingStart="8dp"
-                                        android:text="45"
+                                        android:text="@string/str_two_km"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
 
@@ -489,7 +489,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="bottom"
                                         android:paddingStart="2dp"
-                                        android:text="36"
+                                        android:text="@string/str_mins_two_wait"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
 
@@ -527,7 +527,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="SAR"
+                                        android:text="@string/sar"
                                         android:textColor="@color/secondaryText"
                                         android:textSize="14sp" />
 
@@ -535,7 +535,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:paddingStart="8dp"
-                                        android:text="234"
+                                        android:text="@string/str_dessert_two_amt"
                                         android:textColor="@android:color/black"
                                         android:textSize="20sp" />
                                 </LinearLayout>
@@ -572,7 +572,7 @@
                                         android:gravity="center"
                                         android:paddingEnd="8dp"
                                         android:paddingStart="8dp"
-                                        android:text="4"
+                                        android:text="@string/str_cake_one_qty"
                                         android:textColor="@android:color/black"
                                         android:textSize="14sp" />
 

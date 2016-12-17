@@ -30,4 +30,34 @@
     <string name="ice_name_first">الكرمل الدوامة</string>
     <string name="ice_cream_two">حليب جوز الهند</string>
     <string name="salad_review_two">196 من المشاركات</string>
+
+    <string name="str_language">لغة</string>
+    <string name="str_english">English</string>
+    <string name="str_arabic">العربية</string>
+
+    <string name="cake_one_star">4.2</string>
+    <string name="str_cake_one_cmp">شروق الشمس الفطائر</string>
+    <string name="str_cake_one_qty">4</string>
+    <string name="cake_two_star">5</string>
+    <string name="str_cake_two_cmp">العقده العجين</string>
+    <string name="cake_two_price">345</string>
+    <string name="cake_three_star">3</string>
+    <string name="str_cake_three_cmp">شروق الشمس الفطائر</string>
+    <string name="str_cake_three_price">260</string>
+    <string name="cake_four_star">4.5</string>
+    <string name="str_cake_four_cmp">خبز ن فليك</string>
+    <string name="cake_four_price">550</string>
+    <string name="offer_on_desert">خصم 50</string>
+    <string name="str_dessert_one_cmp">القرفة</string>
+    <string name="str_one_km">32</string>
+    <string name="str_mins_one_wait">25</string>
+    <string name="str_dessert_two_cmp">اتصال الحلوى</string>
+    <string name="str_two_km">45</string>
+    <string name="str_mins_two_wait">36</string>
+    <string name="str_dessert_one_amt">452</string>
+    <string name="str_dessert_two_amt">234</string>
+
+    <string name="cakes">الكعك</string>
+    <string name="desserts">حلوى</string>
+    <string name="biscut">بسكويت</string>
 </resources>

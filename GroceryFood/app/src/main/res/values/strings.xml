@@ -28,4 +28,32 @@
     <string name="ice_name_first">Caramel Swirl</string>
     <string name="ice_cream_two">Coconut Milk</string>
     <string name="salad_review_two">196 Reviews</string>
+
+    <string name="str_language">Language</string>
+    <string name="str_english">English</string>
+    <string name="str_arabic">العربية</string>
+    <string name="cake_one_star">4.2</string>
+    <string name="str_cake_one_cmp">Sunrise Pies</string>
+    <string name="str_cake_one_qty">4</string>
+    <string name="cake_two_star">5</string>
+    <string name="str_cake_two_cmp">The Dough Knot</string>
+    <string name="cake_two_price">345</string>
+    <string name="cake_three_star">3</string>
+    <string name="str_cake_three_cmp">Sunrise Pies</string>
+    <string name="str_cake_three_price">260</string>
+    <string name="cake_four_star">4.5</string>
+    <string name="str_cake_four_cmp">Bake n Flake</string>
+    <string name="cake_four_price">550</string>
+    <string name="offer_on_desert">50% OFF</string>
+    <string name="str_dessert_one_cmp">The CinnaMan</string>
+    <string name="str_one_km">32</string>
+    <string name="str_mins_one_wait">25</string>
+    <string name="str_dessert_two_cmp">Confection Connection</string>
+    <string name="str_two_km">45</string>
+    <string name="str_mins_two_wait">36</string>
+    <string name="str_dessert_one_amt">452</string>
+    <string name="str_dessert_two_amt">234</string>
+    <string name="cakes">CAKES</string>
+    <string name="desserts">DESSERT</string>
+    <string name="biscut">BISCUIT</string>
 </resources>
