@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GroceryFood</string>
+
+    <string name="navigation_drawer_open">فتح درج الملاحة</string>
+    <string name="navigation_drawer_close">انهيار درج الملاحة</string>
+
+    <string name="action_settings">إعدادات</string>
+    <string name="search_items">بحث</string>
+    <string name="your_cart">سلتي</string>
+    <string name="cake_one">شوكولاتة</string>
+    <string name="company_name_one"><![CDATA[بواسطة S & O الجندي المحدودة.]]></string>
+    <string name="review_one">(30 مراجعات)</string>
+    <string name="review_two">(80 مشاركات)</string>
+    <string name="review_three">(100 مراجعات)</string>
+    <string name="review_four">(50 مشاركات)</string>
+    <string name="sar">ريال</string>
+    <string name="price">
+320</string>
+
+    <string name="salad_name_first">والدورف صلاد</string>
+    <string name="salad_name_second">Urnebes سلطة</string>
+    <string name="salad_review">112 مشاركات</string>
+    <string name="salad_by">بواسطة</string>
+    <string name="salad_distance">كم</string>
+    <string name="salad_time">دقيقة</string>
+    <string name="cake_two">الفانيليا</string>
+    <string name="cake_three">كلس</string>
+    <string name="cake_four">مانجو</string>
+    <string name="ice_name_first">الكرمل الدوامة</string>
+    <string name="ice_cream_two">حليب جوز الهند</string>
+    <string name="salad_review_two">196 من المشاركات</string>
+</resources>
