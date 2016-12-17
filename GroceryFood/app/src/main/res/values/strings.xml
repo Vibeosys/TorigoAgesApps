@@ -76,4 +76,13 @@
     <string name="str_total">Total</string>
     <string name="btn_check_out">Proceed to checkout</string>
     <string name="cart_total_price">45</string>
+    <string name="str_place">Riyadh, Riyadh Province, Saudi Arabia</string>
+    <string name="str_delivery">DELIVERY</string>
+    <string name="str_asap">ASAP</string>
+    <string name="str_min">45 - 55 min</string>
+    <string name="str_schedule">Schedule</string>
+    <string name="str_pick_time"><![CDATA[Pick a date & time]]></string>
+    <string name="str_payment">PAYMENT</string>
+    <string name="str_pay_opt">Android Pay</string>
+    <string name="place_order">Place Your Order</string>
 </resources>

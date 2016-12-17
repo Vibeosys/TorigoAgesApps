@@ -3,10 +3,162 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.groceryfood.OrederFinishActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/google_map" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="start|center"
+                android:paddingBottom="8dp"
+                android:paddingEnd="4dp"
+                android:paddingStart="14dp"
+                android:paddingTop="8dp"
+                android:text="@string/str_place"
+                android:textColor="@color/primaryText2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/divider_colour1"
+                android:gravity="start|center"
+                android:paddingBottom="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingTop="4dp"
+                android:text="@string/str_delivery"
+                android:textColor="@color/secondaryText"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="start|center"
+                android:orientation="horizontal"
+                android:paddingBottom="4dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingTop="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_asap"
+                    android:textColor="@color/primaryText2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/str_min"
+                    android:textColor="@color/btn_green_colour1"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="start|center"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingTop="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_schedule"
+                    android:textColor="@color/primaryText2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/str_pick_time"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/divider_colour1"
+                android:gravity="start|center"
+                android:paddingBottom="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingTop="4dp"
+                android:text="@string/str_payment"
+                android:textColor="@color/secondaryText"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="start|center"
+                android:paddingBottom="8dp"
+                android:paddingEnd="4dp"
+                android:paddingStart="14dp"
+                android:paddingTop="8dp"
+                android:text="@string/str_pay_opt"
+                android:textColor="@color/primaryText2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/btn_red_colour1"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/place_order"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 </RelativeLayout>
