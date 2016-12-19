@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class CheckOutActivity extends AppCompatActivity {
 
-    TextView addMore;
+    TextView addMore, checkOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +16,19 @@ public class CheckOutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_out);
         setTitle("");
         addMore = (TextView) findViewById(R.id.txtAddMore);
+        checkOut = (TextView) findViewById(R.id.checkOut);
         addMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
+            }
+        });
+        checkOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), OrederFinishActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -5,9 +5,23 @@
     android:layout_height="match_parent"
     tools:context="com.groceryfood.OrederFinishActivity">
 
+    <TextView
+        android:id="@+id/bottom_button_Tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/btn_red_colour1"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/place_order"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_button_Tv"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,20 +32,103 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/google_map" />
+                android:src="@drawable/ic_google_map_marker" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:gravity="start|center"
-                android:paddingBottom="8dp"
-                android:paddingEnd="4dp"
-                android:paddingStart="14dp"
-                android:paddingTop="8dp"
-                android:text="@string/str_place"
-                android:textColor="@color/primaryText2"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:weightSum="1.5"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:paddingEnd="4dp"
+                        android:paddingStart="14dp"
+                        android:paddingTop="3dp"
+                        android:text="@string/str_place_second_line"
+                        android:textColor="@color/primaryText2"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:paddingBottom="8dp"
+                        android:paddingEnd="4dp"
+                        android:paddingStart="14dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/str_place"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="48dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radio_pirates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawableRight="@android:drawable/btn_radio"
+                        android:paddingEnd="4dp"
+                        android:paddingStart="4dp"
+                        android:text="@string/pick_up"
+                        android:textColor="@color/secondaryText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_ninjas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawableRight="@android:drawable/btn_radio"
+                        android:paddingEnd="4dp"
+                        android:paddingStart="4dp"
+                        android:text="@string/delivery"
+                        android:textColor="@color/secondaryText" />
+                </RadioGroup>
+
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,6 +146,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:background="@android:color/white"
                 android:gravity="start|center"
                 android:orientation="horizontal"
                 android:paddingBottom="4dp"
@@ -87,6 +185,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:background="@android:color/white"
                 android:gravity="start|center"
                 android:orientation="horizontal"
                 android:paddingBottom="8dp"
@@ -121,44 +220,50 @@
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:background="@color/divider_colour1"
-                android:gravity="start|center"
-                android:paddingBottom="8dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="14dp"
-                android:paddingTop="4dp"
-                android:text="@string/str_payment"
-                android:textColor="@color/secondaryText"
-                android:textSize="16sp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:gravity="start|center"
-                android:paddingBottom="8dp"
-                android:paddingEnd="4dp"
-                android:paddingStart="14dp"
-                android:paddingTop="8dp"
-                android:text="@string/str_pay_opt"
-                android:textColor="@color/primaryText2"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/divider_colour1"
+                    android:gravity="start|center"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="14dp"
+                    android:paddingTop="4dp"
+                    android:text="@string/str_payment"
+                    android:textColor="@color/secondaryText"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:gravity="start|center"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="4dp"
+                    android:paddingStart="14dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/str_pay_opt"
+                    android:textColor="@color/primaryText2"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
 
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/btn_red_colour1"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text="@string/place_order"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+
 </RelativeLayout>

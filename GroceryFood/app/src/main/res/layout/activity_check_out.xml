@@ -474,6 +474,7 @@
                     android:background="@color/divider_colour" />
 
                 <TextView
+                    android:id="@+id/checkOut"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
