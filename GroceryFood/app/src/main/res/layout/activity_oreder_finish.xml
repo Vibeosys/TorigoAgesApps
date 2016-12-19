@@ -5,22 +5,60 @@
     android:layout_height="match_parent"
     tools:context="com.groceryfood.OrederFinishActivity">
 
-    <TextView
-        android:id="@+id/bottom_button_Tv"
+    <LinearLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/btn_red_colour1"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text="@string/place_order"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bottom_button_Tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/place_order"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/priceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/price_tv"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:padding="12dp"
+                android:text="@string/price_sar"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_button_Tv"
+        android:layout_above="@+id/bottom_layout"
         android:layout_alignParentTop="true">
 
         <LinearLayout
@@ -38,15 +76,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:weightSum="1.5"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1.5">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/white"
                     android:layout_weight="1"
+                    android:background="@android:color/white"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -72,6 +111,7 @@
                         android:textSize="14sp"
                         android:textStyle="normal" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,24 +119,28 @@
                     android:layout_weight="0.5"
                     android:background="@android:color/white"
                     android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
                 </LinearLayout>
             </LinearLayout>
 
             <View
                 android:layout_width="fill_parent"
-                android:layout_height="48dp" />
+                android:layout_height="28dp"
+                android:textColor="@color/secondaryText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingEnd="4dp"
+                android:paddingStart="4dp">
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="fill_parent"
@@ -113,7 +157,8 @@
                         android:paddingEnd="4dp"
                         android:paddingStart="4dp"
                         android:text="@string/pick_up"
-                        android:textColor="@color/secondaryText" />
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/radio_ninjas"
@@ -124,7 +169,8 @@
                         android:paddingEnd="4dp"
                         android:paddingStart="4dp"
                         android:text="@string/delivery"
-                        android:textColor="@color/secondaryText" />
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -243,24 +289,83 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
                 android:background="@android:color/white"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingTop="2dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_paypal_24"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp">
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:gravity="start|center"
-                    android:paddingBottom="8dp"
-                    android:paddingEnd="4dp"
-                    android:paddingStart="14dp"
-                    android:paddingTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:text="@string/str_pay_opt"
-                    android:textColor="@color/primaryText2"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingTop="2dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_money_24"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/str_cash"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
