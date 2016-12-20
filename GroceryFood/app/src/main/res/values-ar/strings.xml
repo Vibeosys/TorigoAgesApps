@@ -90,5 +90,19 @@
     <string name="str_asap">في اسرع وقت ممكن</string>
     <string name="str_pick_time"><![CDATA[اختيار التاريخ والوقت و]]></string>
     <string name="str_min">45 - 55 دقيقة</string>
+    <string name="str_track_order">من عند</string>
+    <string name="str_track_company_name">S و S الأطعمة Pvt.ltd</string>
+    <string name="str_past_orders">أمر الماضية الخدمة</string>
+    <string name="str_order_track">ترتيب المسار</string>
+    <string name="str_order_total">مجموع</string>
+    <string name="str_order_price">542356.45</string>
+    <string name="str_order_placed">تم تقديم طلب</string>
+    <string name="str_order_id">رقم التعريف الخاص بالطلب</string>
+    <string name="str_order_id_data">2345622</string>
+    <string name="str_order_date_data">2017/05/04 20:23 PM</string>
+    <string name="str_order_date">تاريخ الطلب</string>
+    <string name="delivery">خدمه توصيل</string>
+    <string name="place_order">ضع طلبك</string>
+    <string name="pick_up">امسك</string>
 
 </resources>

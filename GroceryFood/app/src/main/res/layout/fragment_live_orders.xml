@@ -34,14 +34,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="FROM"
+                        android:text="@string/str_track_order"
                         android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="S and S Foods Pvt.ltd"
+                        android:text="@string/str_track_company_name"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -75,7 +75,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Order Date"
+                    android:text="@string/str_order_date"
                     android:textColor="@color/secondaryText"
                     android:textSize="16sp" />
 
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="Order Id"
+                    android:text="@string/str_order_id"
                     android:textColor="@color/secondaryText"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -100,7 +100,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="05-04-2017 20:23 PM"
+                    android:gravity="start"
+                    android:text="@string/str_order_date_data"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -109,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="2345622"
+                    android:text="@string/str_order_id_data"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -143,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Order has been placed"
+                    android:text="@string/str_order_placed"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -165,7 +166,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
-                    android:text="TRACK ORDER"
+                    android:text="@string/str_order_track"
                     android:textColor="@color/accentText"
                     android:textSize="16sp" />
 
@@ -174,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="TOTAL"
+                    android:text="@string/str_order_total"
                     android:textColor="@color/secondaryText"
                     android:textSize="12sp" />
 
@@ -183,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="start"
-                    android:text="SAR"
+                    android:text="@string/price_tv"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -192,7 +193,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:gravity="center"
-                    android:text="542356.45"
+                    android:text="@string/str_order_price"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
             </LinearLayout>

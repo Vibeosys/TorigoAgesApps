@@ -25,7 +25,8 @@
             android:name=".CheckOutActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".OrederFinishActivity" />
-        <activity android:name=".TrackOrdersActivity"></activity>
+        <activity android:name=".TrackOrdersActivity"
+            android:parentActivityName=".CheckOutActivity"></activity>
     </application>
 
 </manifest>

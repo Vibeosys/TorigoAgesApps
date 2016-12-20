@@ -93,4 +93,15 @@
     <string name="str_cash">CASH</string>
     <string name="str_live_track">LIVE ORDERS</string>
     <string name="str_past_orders">PAST ORDERS</string>
+    <string name="str_track_order">FROM</string>
+    <string name="str_track_company_name">S and S Foods Pvt.ltd</string>
+    <string name="str_order_date">Order Date</string>
+    <string name="str_order_date_data">05-04-2017 20:23 PM</string>
+    <string name="str_order_id">Order Id</string>
+    <string name="str_order_id_data">2345622</string>
+    <string name="str_order_placed">Order has been placed</string>
+    <string name="str_order_track">TRACK ORDER</string>
+    <string name="str_order_total">TOTAL</string>
+    <string name="str_order_price">542356.45</string>
+
 </resources>
