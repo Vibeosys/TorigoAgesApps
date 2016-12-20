@@ -103,5 +103,6 @@
     <string name="str_order_track">TRACK ORDER</string>
     <string name="str_order_total">TOTAL</string>
     <string name="str_order_price">542356.45</string>
+    <string name="str_order">ORDERS</string>
 
 </resources>

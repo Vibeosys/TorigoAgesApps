@@ -104,5 +104,7 @@
     <string name="delivery">خدمه توصيل</string>
     <string name="place_order">ضع طلبك</string>
     <string name="pick_up">امسك</string>
+    <string name="str_order">أوامر</string>
+    <string name="str_live_track">أمر الحقيقية</string>
 
 </resources>

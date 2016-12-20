@@ -15,7 +15,7 @@ public class TrackOrdersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_orders);
-        setTitle("");
+        setTitle(getResources().getString(R.string.str_order));
 
         trackOrder_Tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         trackOrder_Tab_layout.addTab(trackOrder_Tab_layout.newTab().setText(getResources().getString(R.string.str_live_track)));
