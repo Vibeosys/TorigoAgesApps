@@ -80,5 +80,15 @@
     <string name="str_total">مجموع</string>
     <string name="btn_check_out">باشرالخروج من الفندق</string>
     <string name="cart_total_price">45</string>
+    <string name="str_pay_opt">باي بال</string>
+    <string name="str_payment">دفع</string>
+    <string name="str_place">الرياض، منطقة الرياض، المملكة العربية السعودية</string>
+    <string name="str_place_second_line">2236 كاليد بن</string>
+    <string name="str_schedule">جدول</string>
+    <string name="str_cash">السيولة النقدية</string>
+    <string name="str_delivery">خدمه توصيل</string>
+    <string name="str_asap">في اسرع وقت ممكن</string>
+    <string name="str_pick_time"><![CDATA[اختيار التاريخ والوقت و]]></string>
+    <string name="str_min">45 - 55 دقيقة</string>
 
 </resources>
