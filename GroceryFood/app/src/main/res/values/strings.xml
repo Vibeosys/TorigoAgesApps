@@ -91,4 +91,6 @@
     <string name="price_tv">SAR</string>
     <string name="price_sar">3244.87</string>
     <string name="str_cash">CASH</string>
+    <string name="str_live_track">LIVE ORDERS</string>
+    <string name="str_past_orders">PAST ORDERS</string>
 </resources>
