@@ -22,40 +22,45 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom"
-                    android:text="FROM"
-                    android:textColor="@color/secondaryText"
-                    android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:padding="4dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1.5">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
+                        android:text="FROM"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="S and S Foods Pvt.ltd"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="35dp"
-                        android:layout_weight="0.5"
+                        android:gravity="center"
                         android:src="@drawable/ic_test_image"
                         android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
                 </LinearLayout>
+
             </LinearLayout>
 
 
@@ -130,9 +135,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="4dp"
                 android:layout_marginBottom="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -160,8 +165,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
-                    android:padding="8dp"
-                    android:text="TRACK ORDERS"
+                    android:text="TRACK ORDER"
                     android:textColor="@color/accentText"
                     android:textSize="16sp" />
 
@@ -179,9 +183,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="start"
-                    android:padding="4dp"
                     android:text="SAR"
-                    android:textColor="@color/secondaryText"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -190,7 +193,7 @@
                     android:layout_weight="0.6"
                     android:gravity="center"
                     android:text="542356.45"
-                    android:textColor="@color/secondaryText"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
