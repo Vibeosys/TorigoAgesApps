@@ -71,7 +71,8 @@
                                 android:layout_height="match_parent"
                                 android:text="ORDER DATE"
                                 android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -86,7 +87,8 @@
                                 android:layout_height="match_parent"
                                 android:text="ORDER NO"
                                 android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
 

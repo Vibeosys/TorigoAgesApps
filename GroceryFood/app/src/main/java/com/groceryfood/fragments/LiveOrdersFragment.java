@@ -51,7 +51,7 @@ public class LiveOrdersFragment extends Fragment {
 
         View view = getLayoutInflater(savedInstanceState).inflate(R.layout.feedback_dialog_layout, null);
         dlg.setContentView(view);
-        dlg.setTitle( Html.fromHtml("<font color='#000000'>Feed back</font>"));
+        dlg.setTitle( Html.fromHtml("<font color='#000000'>Feedback</font>"));
         dlg.getWindow().setBackgroundDrawableResource(R.color.dialog_color);
         dlg.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         dlg.show();
