@@ -91,7 +91,7 @@
     <string name="str_pick_time"><![CDATA[اختيار التاريخ والوقت و]]></string>
     <string name="str_min">45 - 55 دقيقة</string>
     <string name="str_track_order">من عند</string>
-    <string name="str_track_company_name">S و S الأطعمة Pvt.ltd</string>
+    <string name="str_track_company_name">الأغذية المتحدة Pvt.ltd</string>
     <string name="str_past_orders">أمر الماضية الخدمة</string>
     <string name="str_order_track">ترتيب المسار</string>
     <string name="str_order_total">مجموع</string>
@@ -99,12 +99,26 @@
     <string name="str_order_placed">تم تقديم طلب</string>
     <string name="str_order_id">رقم التعريف الخاص بالطلب</string>
     <string name="str_order_id_data">2345622</string>
-    <string name="str_order_date_data">2017/05/04 20:23 PM</string>
+    <string name="str_order_date_data">2016/05/04 20:23</string>
     <string name="str_order_date">تاريخ الطلب</string>
     <string name="delivery">خدمه توصيل</string>
     <string name="place_order">ضع طلبك</string>
     <string name="pick_up">امسك</string>
     <string name="str_order">أوامر</string>
     <string name="str_live_track">أمر الحقيقية</string>
+    <string name="str_order_delivery_type">نوع التوصيل</string>
+    <string name="str_order_demo_delivery_mode">خدمه توصيل</string>
+    <string name="str_order_demo_delivery_type">الانترنت-باي بال</string>
+    <string name="str_order_payment_mode">طريقة الدفع</string>
+    <string name="str_previous_delivered">تم تقديم طلب</string>
+    <string name="str_previous_orders">عرض التفاصيل</string>
+    <string name="str_previous_date_1">2016/04/04 22:23</string>
+    <string name="str_previous_1">245622</string>
+    <string name="price_tv">ريال</string>
+    <string name="str_track_order_address">7835 أبي هلال العسكري، آل المحمديه</string>
+    <string name="str_track_order_address_1">الرياض 12363 4258، المملكة العربية السعودية</string>
+    <string name="str_track_order_details">تفاصيل الطلب</string>
+    <string name="str_track_order_id">رقم التعريف الخاص بالطلب:</string>
+    <string name="str_track_order_title">أمر TRACK</string>
 
 </resources>

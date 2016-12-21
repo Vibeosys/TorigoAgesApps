@@ -30,7 +30,8 @@
             android:parentActivityName=".CheckOutActivity" />
         <activity
             android:name=".DisplayTrackOrdersActivity"
-            android:parentActivityName=".TrackOrdersActivity"></activity>
+            android:parentActivityName=".TrackOrdersActivity" />
+        <activity android:name=".OrderDetailsActivity"></activity>
     </application>
 
 </manifest>

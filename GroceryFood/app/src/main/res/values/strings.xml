@@ -94,7 +94,7 @@
     <string name="str_live_track">LIVE ORDERS</string>
     <string name="str_past_orders">PAST ORDERS</string>
     <string name="str_track_order">FROM</string>
-    <string name="str_track_company_name">S and S Foods Pvt.ltd</string>
+    <string name="str_track_company_name">United Foods Pvt.ltd</string>
     <string name="str_order_date">Order Date</string>
     <string name="str_order_date_data">05-04-2017 20:23 PM</string>
     <string name="str_order_id">Order Id</string>
@@ -112,5 +112,12 @@
     <string name="str_order_payment_mode">Payment Mode</string>
     <string name="str_order_demo_delivery_type">Online-PAYPAL</string>
     <string name="str_order_demo_delivery_mode">Delivery</string>
+    <string name="str_track_order_title">TRACK ORDERS</string>
+    <string name="str_track_order_id">Order Id:</string>
+    <string name="str_track_order_address">7835 Abi Hilal Askari,Al Mohammadiyah</string>
+    <string name="str_track_order_address_1">Riyadh 12363 4258,Saudi Arabia</string>
+    <string name="str_track_order_details">ORDER DETAILS</string>
+
+
 
 </resources>

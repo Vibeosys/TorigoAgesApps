@@ -235,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="start"
-                    android:text="@string/price_tv"
+                    android:text="@string/sar"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 

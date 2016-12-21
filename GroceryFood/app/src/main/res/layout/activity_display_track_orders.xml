@@ -44,12 +44,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="OrderId:"
+                            android:text="@string/str_track_order_id"
                             android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingStart="2dp"
                             android:text="23456"
                             android:textColor="@android:color/black"
                             android:textSize="16sp" />
@@ -77,14 +78,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="7835 Abi Hilal Askari,Al Mohammadiyah"
+                                android:text="@string/str_track_order_address"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Riyadh 12363 4258,Saudi Arabia"
+                                android:text="@string/str_track_order_address_1"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
@@ -119,7 +120,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Order has been placed"
+                            android:text="@string/str_previous_delivered"
                             android:textColor="@android:color/black"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -139,7 +140,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ORDER DETAILS"
+                            android:text="@string/str_track_order_details"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
                     </LinearLayout>
