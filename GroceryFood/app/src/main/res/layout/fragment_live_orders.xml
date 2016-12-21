@@ -213,6 +213,7 @@
                 android:weightSum="2.5">
 
                 <TextView
+                    android:id="@+id/trackOrders"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"

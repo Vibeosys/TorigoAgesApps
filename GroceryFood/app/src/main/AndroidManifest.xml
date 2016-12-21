@@ -28,6 +28,9 @@
         <activity
             android:name=".TrackOrdersActivity"
             android:parentActivityName=".CheckOutActivity" />
+        <activity
+            android:name=".DisplayTrackOrdersActivity"
+            android:parentActivityName=".TrackOrdersActivity"></activity>
     </application>
 
 </manifest>
