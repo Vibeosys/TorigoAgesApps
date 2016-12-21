@@ -104,5 +104,9 @@
     <string name="str_order_total">TOTAL</string>
     <string name="str_order_price">542356.45</string>
     <string name="str_order">ORDERS</string>
+    <string name="str_previous_orders">VIEW DETAILS</string>
+    <string name="str_previous_delivered">Order has been placed</string>
+    <string name="str_previous_date_1">04-04-2016 10:23 PM</string>
+    <string name="str_previous_1">245622</string>
 
 </resources>
