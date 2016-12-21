@@ -108,5 +108,9 @@
     <string name="str_previous_delivered">Order has been placed</string>
     <string name="str_previous_date_1">04-04-2016 10:23 PM</string>
     <string name="str_previous_1">245622</string>
+    <string name="str_order_delivery_type">Delivery Type</string>
+    <string name="str_order_payment_mode">Payment Mode</string>
+    <string name="str_order_demo_delivery_type">Online-PAYPAL</string>
+    <string name="str_order_demo_delivery_mode">Delivery</string>
 
 </resources>
