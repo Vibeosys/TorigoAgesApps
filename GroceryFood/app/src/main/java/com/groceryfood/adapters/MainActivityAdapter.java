@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.groceryfood.fragments.BiscuitFragment;
 import com.groceryfood.fragments.CakesFragment;
 import com.groceryfood.fragments.SaladFragment;
 
@@ -22,14 +23,14 @@ public class MainActivityAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                CakesFragment cakesFragment = new CakesFragment();
-                return cakesFragment;
-            case 1:
                 SaladFragment saladFragment = new SaladFragment();
                 return saladFragment;
+            case 1:
+                CakesFragment cakesFragment = new CakesFragment();
+                return cakesFragment;
             case 2:
-                CakesFragment cakesFragment1 = new CakesFragment();
-                return cakesFragment1;
+                BiscuitFragment biscuitFragment = new BiscuitFragment();
+                return biscuitFragment;
             default:
                 return null;
         }

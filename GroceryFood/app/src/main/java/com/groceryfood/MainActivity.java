@@ -64,9 +64,10 @@ public class MainActivity extends AppCompatActivity
         //This method will initialize the count value
         initializeCountDrawer();
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
-        tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.cakes)));
 
         tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.desserts)));
+
+        tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.cakes)));
 
         tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.biscut)));
         tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
