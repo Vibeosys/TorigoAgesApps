@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_mayCart"
+        android:icon="@drawable/ic_new_shopping_cart_24dp"
+        app:actionViewClass="android.widget.TextView"
+        android:title="My Cart" />
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/language"
-            android:icon="@drawable/ic_language_black_24dp"
-            android:title="@string/str_language" />
-    </group>
+    <item
+        android:id="@+id/nav_trackMyOrders"
+        android:icon="@drawable/ic_receipt_white_24dp"
+        android:title="Track my Orders" />
+    <item
+        android:id="@+id/nav_myOrders"
+        android:icon="@drawable/ic_shopping_basket_white_24dp"
+        android:title="My Orders" />
+    <item
+        android:id="@+id/nav_favourite"
+        android:icon="@drawable/ic_favourite_24dp"
+        android:title="Favourite List" />
+    <item
+        android:id="@+id/language"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="Settings" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_account_box_white_24dp"
+        android:title="My Profile" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_power_settings_new_white_24dp"
+        android:title="LOGOUT" />
+    <!-- <group android:checkableBehavior="single">
+         <item
+             android:id="@+id/language"
+             android:icon="@drawable/ic_language_black_24dp"
+             android:title="@string/str_language" />
+     </group>-->
     <!--<item
         android:id="@+id/nav_gallery"
         android:icon="@drawable/ic_menu_gallery"

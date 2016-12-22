@@ -2,13 +2,19 @@ package com.groceryfood;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.groceryfood.adapters.MainActivityAdapter;
 import com.groceryfood.views.BadgeDrawable;
@@ -27,6 +34,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TabLayout tab_layout;
     public static Utils2 notificationUtil;
+    public TextView myCart_nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +60,9 @@ public class MainActivity extends AppCompatActivity
         setTitle("");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        myCart_nav = (TextView) MenuItemCompat.getActionView(navigationView.getMenu().findItem(R.id.nav_mayCart));
+        //This method will initialize the count value
+        initializeCountDrawer();
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.cakes)));
 
@@ -82,6 +93,14 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+    }
+
+    private void initializeCountDrawer() {
+        myCart_nav.setGravity(Gravity.CENTER_VERTICAL);
+        myCart_nav.setTypeface(null, Typeface.BOLD);
+        myCart_nav.setTextColor(getResources().getColor(R.color.colorAccent));
+        myCart_nav.setText("14");
+
     }
 
     @Override
