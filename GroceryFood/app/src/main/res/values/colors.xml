@@ -15,4 +15,5 @@
     <color name="divider_colour1">#a8e7e6e5</color>
     <color name="btn_red_colour1">#ff5e58</color>
     <color name="dialog_color">#ffffff</color>
+    <color name="drawer_background">#df252626</color>
 </resources>
