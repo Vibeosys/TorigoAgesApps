@@ -7,10 +7,10 @@
         app:actionViewClass="android.widget.TextView"
         android:title="My Cart" />
 
-    <item
+    <!--<item
         android:id="@+id/nav_trackMyOrders"
         android:icon="@drawable/ic_receipt_white_24dp"
-        android:title="Track my Orders" />
+        android:title="Track my Orders" />-->
     <item
         android:id="@+id/nav_myOrders"
         android:icon="@drawable/ic_shopping_basket_white_24dp"

@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity
     private void initializeCountDrawer() {
         myCart_nav.setGravity(Gravity.CENTER_VERTICAL);
         myCart_nav.setTypeface(null, Typeface.BOLD);
+       /* myCart_nav.setTextColor(getResources().getColor(R.color.dialog_color));
+        myCart_nav.setBackgroundResource(R.drawable.testing_image_nav);*/
         myCart_nav.setTextColor(getResources().getColor(R.color.accentText));
         myCart_nav.setText("14");
 
@@ -158,15 +160,18 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), CheckOutActivity.class);
             startActivity(i);
         }
-        if (id == R.id.nav_trackMyOrders) {
+        /*if (id == R.id.nav_trackMyOrders) {
             Intent intent = new Intent(getApplicationContext(), DisplayTrackOrdersActivity.class);
             startActivity(intent);
-        }
+        }*/
         if (id == R.id.nav_myOrders) {
             Intent intent = new Intent(getApplicationContext(), TrackOrdersActivity.class);
             startActivity(intent);
         }
-
+        if (id == R.id.nav_favourite) {
+            Intent intent = new Intent(getApplicationContext(), MyFavouritesActivity.class);
+            startActivity(intent);
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -33,7 +33,10 @@
             android:parentActivityName=".TrackOrdersActivity" />
         <activity
             android:name=".OrderDetailsActivity"
-            android:parentActivityName=".DisplayTrackOrdersActivity"></activity>
+            android:parentActivityName=".DisplayTrackOrdersActivity" />
+        <activity
+            android:name=".MyFavouritesActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

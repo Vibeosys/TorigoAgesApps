@@ -117,7 +117,7 @@
     <string name="str_track_order_address">7835 Abi Hilal Askari,Al Mohammadiyah</string>
     <string name="str_track_order_address_1">Riyadh 12363 4258,Saudi Arabia</string>
     <string name="str_track_order_details">ORDER DETAILS</string>
-
+    <string name="title_activity_my_favourites">MyFavouritesActivity</string>
 
 
 </resources>
