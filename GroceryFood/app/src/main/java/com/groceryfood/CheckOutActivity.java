@@ -14,7 +14,7 @@ public class CheckOutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
-        setTitle("");
+        setTitle("My Cart");
         addMore = (TextView) findViewById(R.id.txtAddMore);
         checkOut = (TextView) findViewById(R.id.checkOut);
         addMore.setOnClickListener(new View.OnClickListener() {
