@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.vibeosys.paymybill.activities.EditMyProfile">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/viewA"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/userEditPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/salada_first" />
+
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/darker_gray">
+
+                    <ImageView
+                        android:id="@+id/edit_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_action_camera"
+                        android:text="Upload Image" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/viewB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/cardview_light_background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"></LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/NameTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="12dp"
+                        android:text="Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/NameTitle"
+                        android:singleLine="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:id="@+id/emailIdTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/product_name"
+                        android:layout_marginTop="4dp"
+                        android:text="Details"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/product_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/emailIdTitle"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+                    <TextView
+                        android:id="@+id/PhoneTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/product_details"
+                        android:layout_marginTop="4dp"
+                        android:text="Price"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/PhoneTitle"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+                    <!--<ToggleButton
+                        android:id="@+id/passwordTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/price"
+                        android:layout_marginTop="12dp"
+                        android:text="Available for sell"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />-->
+                    <Switch
+                        android:id="@+id/passwordTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/price"
+                        android:layout_marginTop="12dp"
+                        android:text="Available for sell"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/passwordTitle"
+                        android:layout_marginTop="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <Button
+                            android:id="@+id/cancelBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_custom_cancel"
+                            android:text="CANCEL"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/updateBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/custome_btn_save"
+                            android:text="SAVE"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
