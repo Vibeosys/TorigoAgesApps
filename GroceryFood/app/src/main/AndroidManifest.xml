@@ -42,8 +42,9 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".PartnerLoginActivity" />
         <activity android:name=".PartnerRegistrationActivity" />
-        <activity android:name=".ProductDetailsActivity"></activity>
-        <activity android:name=".RegisterShopDetailsActivity"></activity>
+        <activity android:name=".ProductDetailsActivity" />
+        <activity android:name=".RegisterShopDetailsActivity" />
+        <activity android:name=".SubscriptionActivity"></activity>
     </application>
 
 </manifest>
