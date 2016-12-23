@@ -21,13 +21,13 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
-        setTitle("");
+        setTitle(getResources().getString(R.string.lang_setting));
         mSpinner = (Spinner) findViewById(R.id.spinner);
         List<String> spineerData = new ArrayList<>();
         spineerData.add(getResources().getString(R.string.str_english));
         spineerData.add(getResources().getString(R.string.str_arabic));
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
-                (getApplicationContext(), android.R.layout.simple_spinner_item, spineerData);
+                (getBaseContext(), android.R.layout.simple_spinner_item, spineerData);
 
         dataAdapter.setDropDownViewResource
                 (android.R.layout.simple_spinner_dropdown_item);

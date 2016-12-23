@@ -36,6 +36,8 @@
             android:parentActivityName=".DisplayTrackOrdersActivity" />
         <activity
             android:name=".MyFavouritesActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".AddProductActivity"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

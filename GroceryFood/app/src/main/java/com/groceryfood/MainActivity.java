@@ -142,6 +142,10 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), CheckOutActivity.class);
             startActivity(i);
         }
+        if (id == R.id.filter) {
+            Intent i = new Intent(getApplicationContext(), AddProductActivity.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 
