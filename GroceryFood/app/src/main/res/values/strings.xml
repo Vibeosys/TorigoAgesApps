@@ -122,8 +122,18 @@
     <string name="str_user_password">Password</string>
     <string name="str_user_forgot_password">Forgot Password?</string>
     <string name="str_login_btn">Login</string>
-    <string name="str_create_acc">New to qadmini? Create account</string>
+    <string name="str_create_acc">Create account</string>
     <string name="str_name_hint">Name</string>
+    <string name="str_confirm_user_password">Confirm Password</string>
+    <string name="str_email_hint">Email</string>
+    <string name="str_ph_hint">Phone</string>
+    <string name="str_subscribe_btn">Subscribe Now</string>
+    <string name="str_shop_details">Shop details</string>
+    <string name="str_shop_name_hint">Shop Name</string>
+    <string name="str_shop_location_hint">Shop Location</string>
+    <string name="lang_setting">Setting</string>
+    <string name="str_new_quadmni">New to qadmni? </string>
+    <string name="str_next">Next</string>
 
 
 </resources>

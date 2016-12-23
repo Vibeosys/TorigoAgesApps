@@ -43,6 +43,7 @@
         <activity android:name=".PartnerLoginActivity" />
         <activity android:name=".PartnerRegistrationActivity" />
         <activity android:name=".ProductDetailsActivity"></activity>
+        <activity android:name=".RegisterShopDetailsActivity"></activity>
     </application>
 
 </manifest>

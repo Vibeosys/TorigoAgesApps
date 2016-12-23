@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_back"
-    tools:context="com.groceryfood.PartnerRegistrationActivity">
+    tools:context="com.groceryfood.RegisterShopDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,28 +42,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
-                    android:text="@string/str_name_hint"
+                    android:text="@string/str_shop_details"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textSize="22sp" />
 
-                <EditText
-                    android:id="@+id/user_email_id_editText"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="0.5dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="2dp"
-                    android:background="@drawable/custom_white_border"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/str_name_hint"
-                    android:inputType="text"
-                    android:paddingStart="5dp"
-                    android:singleLine="true"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="16sp" />
+                    android:background="@android:color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,72 +63,18 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
-                    android:text="@string/str_user_password"
+                    android:text="@string/str_shop_name_hint"
                     android:textColor="@android:color/white" />
 
                 <EditText
-                    android:id="@+id/user_password_editText"
+                    android:id="@+id/edt_shop_name"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/custom_white_border"
                     android:drawablePadding="10dp"
-                    android:focusableInTouchMode="true"
-                    android:hint="@string/str_user_password"
-                    android:inputType="textPassword"
-                    android:paddingStart="5dp"
-                    android:singleLine="true"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:paddingStart="5dp"
-                    android:text="@string/str_confirm_user_password"
-                    android:textColor="@android:color/white" />
-
-                <EditText
-                    android:id="@+id/edt_confirm_pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/custom_white_border"
-                    android:drawablePadding="10dp"
-                    android:focusableInTouchMode="true"
-                    android:hint="@string/str_confirm_user_password"
-                    android:inputType="textPassword"
-                    android:paddingStart="5dp"
-                    android:singleLine="true"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:paddingStart="5dp"
-                    android:text="@string/str_email_hint"
-                    android:textColor="@android:color/white" />
-
-                <EditText
-                    android:id="@+id/edt_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/custom_white_border"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/str_email_hint"
+                    android:hint="@string/str_shop_name_hint"
                     android:inputType="textEmailAddress"
                     android:paddingStart="5dp"
                     android:singleLine="true"
@@ -152,19 +89,21 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
-                    android:text="@string/str_ph_hint"
+                    android:text="@string/str_shop_location_hint"
                     android:textColor="@android:color/white" />
 
                 <EditText
-                    android:id="@+id/edt_phone"
+                    android:id="@+id/edt_shop_location"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/custom_white_border"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_24dp"
                     android:drawablePadding="10dp"
-                    android:hint="@string/str_ph_hint"
-                    android:inputType="phone"
+                    android:hint="@string/str_shop_location_hint"
+                    android:inputType="textEmailAddress"
+                    android:paddingEnd="4dp"
                     android:paddingStart="5dp"
                     android:singleLine="true"
                     android:textColor="@android:color/white"
@@ -172,14 +111,14 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/btn_next"
+                    android:id="@+id/login_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:background="@drawable/custom_white_border"
-                    android:text="@string/str_next"
+                    android:text="@string/str_subscribe_btn"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
