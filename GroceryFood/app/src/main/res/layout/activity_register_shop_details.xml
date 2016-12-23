@@ -117,7 +117,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
-                    android:background="@drawable/custom_white_border"
+                    android:background="@color/btn_red_colour1"
                     android:text="@string/str_subscribe_btn"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
