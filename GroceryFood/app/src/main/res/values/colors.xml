@@ -16,4 +16,5 @@
     <color name="btn_red_colour1">#ff5e58</color>
     <color name="dialog_color">#ffffff</color>
     <color name="drawer_background">#df252626</color>
+    <color name="loginTransparnt">#9e000000</color>
 </resources>

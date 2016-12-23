@@ -37,8 +37,11 @@
         <activity
             android:name=".MyFavouritesActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".AddProductActivity"
+        <activity
+            android:name=".AddProductActivity"
             android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".PartnerLoginActivity" />
+        <activity android:name=".PartnerRegistrationActivity"></activity>
     </application>
 
 </manifest>

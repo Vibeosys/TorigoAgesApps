@@ -172,6 +172,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), TrackOrdersActivity.class);
             startActivity(intent);
         }
+        if (id == R.id.nav_partner_login) {
+            Intent intent = new Intent(getApplicationContext(), PartnerLoginActivity.class);
+            startActivity(intent);
+        }
         if (id == R.id.nav_favourite) {
             Intent intent = new Intent(getApplicationContext(), MyFavouritesActivity.class);
             startActivity(intent);

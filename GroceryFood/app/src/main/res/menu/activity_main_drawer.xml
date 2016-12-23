@@ -4,8 +4,8 @@
     <item
         android:id="@+id/nav_mayCart"
         android:icon="@drawable/ic_new_shopping_cart_24dp"
-        app:actionViewClass="android.widget.TextView"
-        android:title="My Cart" />
+        android:title="My Cart"
+        app:actionViewClass="android.widget.TextView" />
 
     <!--<item
         android:id="@+id/nav_trackMyOrders"
@@ -27,6 +27,11 @@
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_account_box_white_24dp"
         android:title="My Profile" />
+
+    <item
+        android:id="@+id/nav_partner_login"
+        android:icon="@drawable/ic_account_box_white_24dp"
+        android:title="Partner Login" />
     <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_power_settings_new_white_24dp"

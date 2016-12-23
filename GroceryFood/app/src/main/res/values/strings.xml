@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GroceryFood</string>
+    <string name="app_name">Qadmni</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -118,6 +118,12 @@
     <string name="str_track_order_address_1">Riyadh 12363 4258,Saudi Arabia</string>
     <string name="str_track_order_details">ORDER DETAILS</string>
     <string name="title_activity_my_favourites">MyFavouritesActivity</string>
+    <string name="str_user_name_hint">User Name</string>
+    <string name="str_user_password">Password</string>
+    <string name="str_user_forgot_password">Forgot Password?</string>
+    <string name="str_login_btn">Login</string>
+    <string name="str_create_acc">New to qadmini? Create account</string>
+    <string name="str_name_hint">Name</string>
 
 
 </resources>
