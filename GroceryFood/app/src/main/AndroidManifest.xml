@@ -45,6 +45,8 @@
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".RegisterShopDetailsActivity" />
         <activity android:name=".SubscriptionActivity"></activity>
+
+        <activity android:name=".VenderTrackOrder"></activity>
     </application>
 
 </manifest>

@@ -28,7 +28,7 @@ public class AddProductActivity extends AppCompatActivity {
         mEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ProductDetailsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VenderTrackOrder.class);
                 startActivity(intent);
             }
         });
