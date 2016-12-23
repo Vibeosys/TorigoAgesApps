@@ -16,9 +16,10 @@
         <LinearLayout
             android:id="@+id/addProductTitle"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="0.2dp"
             android:layout_marginStart="0.2dp"
+            android:gravity="center_vertical"
             android:background="@android:color/white"
             android:orientation="horizontal">
 
@@ -26,7 +27,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
+                android:padding="10dp"
                 android:gravity="center"
                 android:src="@drawable/ic_add_circle_black_24dp" />
 
@@ -35,15 +37,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Add Product"
+                android:gravity="start"
+                android:text="Add New Product"
                 android:textSize="21sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.5"
+
                 android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
         </LinearLayout>
@@ -188,7 +191,7 @@
                                             android:paddingStart="2dp"
                                             android:text="available for sell"
                                             android:textAllCaps="true"
-                                            android:textColor="@color/secondaryText"
+                                            android:textColor="@color/btn_green_colour1"
                                             android:textSize="14sp" />
                                     </LinearLayout>
                                 </LinearLayout>
@@ -214,8 +217,9 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/edit_btn_border"
                                 android:padding="6dp"
-                                android:text="Edit"
-                                android:textAllCaps="false" />
+                                android:text="UPDATE"
+                                android:textSize="18sp"
+                                android:textAllCaps="true" />
                         </LinearLayout>
                     </LinearLayout>
 
