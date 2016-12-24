@@ -46,8 +46,10 @@
         <activity android:name=".RegisterShopDetailsActivity" />
         <activity android:name=".SubscriptionActivity" />
         <activity android:name=".VenderTrackOrder" />
-        <activity android:name=".UserLoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".UserLoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ForgotPassword"></activity>
     </application>
 
 </manifest>
