@@ -237,10 +237,11 @@
                                     android:layout_marginTop="4dp"
                                     android:layout_weight="0.8"
                                     android:padding="2dp"
+                                    android:gravity="end"
                                     android:text="Show on Map"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="16sp"
-                                    android:textStyle="italic" />
+                                    android:textStyle="normal" />
                             </LinearLayout>
 
 
@@ -266,12 +267,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
+                            android:layout_height="match_parent"
                             android:src="@drawable/ic_track_order_2_image" />
                     </LinearLayout>
 
@@ -280,7 +281,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="4dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -308,7 +309,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:padding="8dp">
+                        >
 
                         <TextView
                             android:id="@+id/orderStatus"
@@ -336,25 +337,35 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:padding="8dp">
 
                         <TextView
                             android:id="@+id/orderDetails"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.4"
                             android:text="@string/str_track_order_details"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+
 
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.8"
                             android:background="@drawable/custome_with_blue"
-                            android:minHeight="29sp"
-                            android:text="Save" />
+                            android:minHeight="32sp"
+                            android:text="Update status" />
                     </LinearLayout>
 
                 </LinearLayout>
