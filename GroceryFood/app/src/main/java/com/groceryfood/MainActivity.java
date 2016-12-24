@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         }
         if (id == R.id.filter) {
-            Intent i = new Intent(getApplicationContext(), AddProductActivity.class);
+            Intent i = new Intent(getApplicationContext(), FilterActivity.class);
             startActivity(i);
         }
         return super.onOptionsItemSelected(item);

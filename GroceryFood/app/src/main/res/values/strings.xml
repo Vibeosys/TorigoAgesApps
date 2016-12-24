@@ -135,6 +135,19 @@
     <string name="str_new_quadmni">New to qadmni? </string>
     <string name="str_next">Next</string>
     <string name="str_payment_details">Pay SAR 200 per month</string>
+    <string name="str_nearest_shop">Distance</string>
+    <string name="raduis_selected">km.</string>
+    <string name="str_price">Price</string>
+    <string name="filter">Filter product</string>
+    <string name="str_sort">SORT BY</string>
+    <string name="str_review">Review</string>
+    <string name="str_filter">FILTER BY</string>
+    <string name="str_high">High</string>
+    <string name="str_low">Low</string>
+    <string name="str_nearer">Nearer</string>
+    <string name="str_farther">Farther</string>
+    <string name="btn_apply">APPLY</string>
+    <string name="str_clear">CLEAR</string>
 
 
 </resources>

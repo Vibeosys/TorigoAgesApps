@@ -46,6 +46,7 @@
         <activity android:name=".RegisterShopDetailsActivity" />
         <activity android:name=".SubscriptionActivity" />
         <activity android:name=".VenderTrackOrder" />
+        <activity android:name=".FilterActivity"></activity>
         <activity
             android:name=".UserLoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
