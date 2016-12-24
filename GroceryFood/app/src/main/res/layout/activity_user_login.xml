@@ -20,11 +20,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
                 android:layout_marginTop="140dp"
                 android:text="WelCome To Qadmni"
                 android:textColor="@android:color/white"
                 android:textSize="29sp"
-                android:layout_marginBottom="16dp"
                 android:textStyle="bold" />
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,10 +37,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:background="@drawable/white_with_curve"
                     android:orientation="vertical"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
                     android:padding="8dp">
 
                     <EditText
@@ -96,12 +96,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/white_with_curve"
-                        android:text="Sign in"
+                        android:text="Login to your account"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>
@@ -111,12 +112,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:paddingStart="5dp"
-                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"
                     android:text="Cannot access your account ?"
                     android:textColor="@android:color/white"
+                    android:textSize="16sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -137,10 +138,11 @@
                     android:textStyle="italic" />
             </RelativeLayout>
         </LinearLayout>
-        
+
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/newUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -155,8 +157,8 @@
             android:gravity="center"
             android:paddingStart="5dp"
             android:text="New To Qadmni?"
-            android:textSize="16sp"
             android:textColor="@color/colorRating"
+            android:textSize="16sp"
             android:textStyle="normal" />
 
         <TextView
@@ -165,9 +167,9 @@
             android:layout_gravity="bottom"
             android:gravity="center"
             android:paddingStart="5dp"
-            android:textSize="16sp"
             android:text="Create a account"
             android:textColor="@android:color/white"
+            android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
 

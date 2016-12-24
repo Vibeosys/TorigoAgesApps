@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class UserLoginActivity extends AppCompatActivity {
     TextView mForgotPwd;
+    LinearLayout mNewUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +22,18 @@ public class UserLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
         mForgotPwd = (TextView) findViewById(R.id.forgotPw);
+        mNewUser = (LinearLayout) findViewById(R.id.newUser);
         mForgotPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
+        mNewUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), RegisterUserActivity.class);
                 startActivity(intent);
             }
         });

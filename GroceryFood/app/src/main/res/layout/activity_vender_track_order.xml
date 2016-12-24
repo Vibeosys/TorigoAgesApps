@@ -217,13 +217,31 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:padding="2dp"
-                                android:text="Customer Address"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_weight="0.4"
+                                    android:padding="2dp"
+                                    android:text="Customer Address"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_weight="0.8"
+                                    android:padding="2dp"
+                                    android:text="Show on Map"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="16sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
 
 
                             <TextView
@@ -318,17 +336,25 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
+                        android:orientation="horizontal"
                         android:padding="8dp">
 
                         <TextView
                             android:id="@+id/orderDetails"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
                             android:text="@string/str_track_order_details"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:background="@drawable/custome_with_blue"
+                            android:minHeight="29sp"
+                            android:text="Save" />
                     </LinearLayout>
 
                 </LinearLayout>
