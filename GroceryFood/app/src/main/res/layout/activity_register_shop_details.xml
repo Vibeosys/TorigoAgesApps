@@ -32,97 +32,103 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="22dp"
-                android:layout_marginEnd="22dp"
-                android:layout_marginStart="22dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:paddingStart="5dp"
-                    android:text="@string/str_shop_details"
-                    android:textColor="@android:color/white"
-                    android:textSize="22sp" />
-
-                <View
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@android:color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:paddingStart="5dp"
-                    android:text="@string/str_shop_name_hint"
-                    android:textColor="@android:color/white" />
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginStart="22dp"
+                    android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/edt_shop_name"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:paddingStart="5dp"
+                        android:text="@string/str_shop_details"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/custom_white_border"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/str_shop_name_hint"
-                    android:inputType="textEmailAddress"
-                    android:paddingStart="5dp"
-                    android:singleLine="true"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:paddingStart="5dp"
-                    android:text="@string/str_shop_location_hint"
-                    android:textColor="@android:color/white" />
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/white_with_curve"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <EditText
-                    android:id="@+id/edt_shop_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/custom_white_border"
-                    android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_24dp"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/str_shop_location_hint"
-                    android:inputType="textEmailAddress"
-                    android:paddingEnd="4dp"
-                    android:paddingStart="5dp"
-                    android:singleLine="true"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edt_shop_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@android:color/transparent"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_shop_24_white"
+                        android:hint="@string/str_shop_name_hint"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="5dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/white" />
+
+                    <EditText
+                        android:id="@+id/edt_shop_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_24dp"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_marker_24_white"
+                        android:hint="@string/str_shop_location_hint"
+                        android:inputType="textEmailAddress"
+                        android:paddingEnd="4dp"
+                        android:paddingStart="5dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/brn_subscribe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
                     android:layout_weight="1"
-                    android:background="@color/btn_red_colour1"
+                    android:background="@drawable/white_with_curve"
                     android:text="@string/str_subscribe_btn"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
 
         </ScrollView>
     </LinearLayout>

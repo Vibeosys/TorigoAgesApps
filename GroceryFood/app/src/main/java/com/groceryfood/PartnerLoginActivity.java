@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class PartnerLoginActivity extends AppCompatActivity {
 
-    TextView txtNewUser;
+    TextView txtNewUser, txtForgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +25,19 @@ public class PartnerLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_patner_login);
         getSupportActionBar().hide();
         txtNewUser = (TextView) findViewById(R.id.create_account_text);
+        txtForgotPass = (TextView) findViewById(R.id.forgot_password_textview);
 
         txtNewUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent iRegister = new Intent(getApplicationContext(), PartnerRegistrationActivity.class);
+                startActivity(iRegister);
+            }
+        });
+        txtForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent iRegister = new Intent(getApplicationContext(), ForgotPassword.class);
                 startActivity(iRegister);
             }
         });
