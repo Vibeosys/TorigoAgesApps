@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.groceryfood.adapters.MainActivityAdapter;
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TabLayout tab_layout;
     public static Utils2 notificationUtil;
-    public TextView myCart_nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +60,17 @@ public class MainActivity extends AppCompatActivity
         setTitle("");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        myCart_nav = (TextView) MenuItemCompat.getActionView(navigationView.getMenu().findItem(R.id.nav_mayCart));
-        //This method will initialize the count value
-        initializeCountDrawer();
+
+
         tab_layout = (TabLayout) findViewById(R.id.tab_layout);
 
         tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.desserts)));
 
         tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.cakes)));
-
+        LinearLayout view = (LinearLayout) navigationView.getMenu().findItem(R.id.nav_myCart).getActionView();
+        TextView textView = (TextView) view.findViewById(R.id.counter);
+        int cartItemCount = 14;
+        textView.setText(String.valueOf(cartItemCount));
         tab_layout.addTab(tab_layout.newTab().setText(getResources().getString(R.string.biscut)));
         tab_layout.setTabGravity(TabLayout.GRAVITY_FILL);
         tab_layout.setSelectedTabIndicatorHeight(4);
@@ -97,12 +99,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initializeCountDrawer() {
-        myCart_nav.setGravity(Gravity.CENTER_VERTICAL);
+       /* myCart_nav.setGravity(Gravity.CENTER_VERTICAL);
         myCart_nav.setTypeface(null, Typeface.BOLD);
-       /* myCart_nav.setTextColor(getResources().getColor(R.color.dialog_color));
-        myCart_nav.setBackgroundResource(R.drawable.testing_image_nav);*/
+       *//* myCart_nav.setTextColor(getResources().getColor(R.color.dialog_color));
+        myCart_nav.setBackgroundResource(R.drawable.testing_image_nav);*//*
         myCart_nav.setTextColor(getResources().getColor(R.color.accentText));
-        myCart_nav.setText("14");
+        myCart_nav.setText("14");*/
+
 
     }
 
@@ -160,7 +163,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), LanguageActivity.class);
             startActivity(intent);
         }
-        if (id == R.id.nav_mayCart) {
+        if (id == R.id.nav_myCart) {
             Intent i = new Intent(getApplicationContext(), CheckOutActivity.class);
             startActivity(i);
         }
