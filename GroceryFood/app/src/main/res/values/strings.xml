@@ -148,6 +148,11 @@
     <string name="str_farther">Farther</string>
     <string name="btn_apply">APPLY</string>
     <string name="str_clear">CLEAR</string>
+    <string name="str_vender_login">Vendor Login</string>
+    <string name="str_quick_start">Quick Start</string>
+    <string name="str_login">Login</string>
+    <string name="str_start_quickly">Get started quickly</string>
+    <string name="str_login_to_acc">Login to your account</string>
 
 
 </resources>
