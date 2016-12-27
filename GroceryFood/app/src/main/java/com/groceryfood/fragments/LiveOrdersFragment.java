@@ -10,6 +10,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import com.groceryfood.R;
  * Created by shrinivas on 20-12-2016.
  */
 public class LiveOrdersFragment extends Fragment {
-    TextView mTrackOrders,mFeedBack;
+    TextView mTrackOrders, mFeedBack;
 
     @Nullable
     @Override
@@ -45,13 +46,13 @@ public class LiveOrdersFragment extends Fragment {
         return view;
 
     }
-    public void OpenFeedBackDialog(Bundle savedInstanceState)
-    {
-        final Dialog dlg = new Dialog(getActivity(), android.R.style.Theme_DeviceDefault_Dialog_MinWidth);
 
-        View view = getLayoutInflater(savedInstanceState).inflate(R.layout.feedback_dialog_layout, null);
-        dlg.setContentView(view);
-        dlg.setTitle( Html.fromHtml("<font color='#000000'>Feedback</font>"));
+    public void OpenFeedBackDialog(Bundle savedInstanceState) {
+        final Dialog dlg = new Dialog(getActivity(), android.R.style.Theme_DeviceDefault_Dialog_MinWidth);
+        dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //View view = getLayoutInflater(savedInstanceState).inflate(R.layout.feedback_dialog_layout, null);
+        dlg.setContentView(R.layout.feedback_dialog_layout);
+
         dlg.getWindow().setBackgroundDrawableResource(R.color.dialog_color);
         dlg.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         dlg.show();

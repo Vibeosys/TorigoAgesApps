@@ -165,6 +165,17 @@
     <string name="str_logout">Logout</string>
     <string name="str_prduct_list">Product List</string>
     <string name="str_btn_save">Save</string>
+    <string name="str_feed_back">Feedback</string>
+    <string name="str_feed_back_imp">Your feedback is important to us</string>
+    <string name="str_profile_save">Save Profile</string>
+    <string name="str_customer_name">Simon Jones</string>
+    <string name="str_first_name">First Name</string>
+    <string name="str_customer_email">simon.jones@test.com</string>
+    <string name="str_user_address"><![CDATA[3602 Al Farawi St, Al Murabba, Riyadh 12612 8214, Saudi Arabia]]></string>
+    <string name="str_address">Address</string>
+    <string name="str_my_profile">My Profile</string>
+    <string name="str_shop_address">Shop Address</string>
+    <string name="str_user_ph_no">879654356</string>
 
 
 </resources>

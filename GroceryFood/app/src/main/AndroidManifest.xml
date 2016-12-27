@@ -71,7 +71,13 @@
         <activity
             android:name=".PartnerMainActivity"
             android:label="@string/title_activity_partner_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserProfileActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PartnerProfileActivity"
+            android:parentActivityName=".PartnerMainActivity"></activity>
     </application>
 
 </manifest>

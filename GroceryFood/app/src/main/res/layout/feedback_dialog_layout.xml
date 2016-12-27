@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
     android:background="@android:color/white"
+    android:gravity="center"
     android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/str_feed_back"
+        android:textColor="@color/primaryText"
+        android:textSize="26sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/str_feed_back_imp"
+        android:textColor="@color/secondaryText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/divider_colour" />
 
     <com.iarcuschin.simpleratingbar.SimpleRatingBar
         android:layout_width="wrap_content"
@@ -19,33 +43,33 @@
         app:srb_starBorderWidth="1"
         app:srb_starSize="50dp"
         app:srb_stepSize="0.5" />
+
     <EditText
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:inputType="text"
+        android:layout_margin="10dp"
         android:hint="Write something"
         android:imeOptions="actionDone"
-        android:layout_margin="10dp"
-        android:layout_marginTop="5dp"/>
+        android:inputType="text" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/btnDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_weight="1"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             android:background="@color/btn_red_colour1"
+            android:text="Submit"
             android:textColor="#fff"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>
