@@ -42,7 +42,7 @@
         <activity android:name=".SubscriptionActivity" />
         <activity
             android:name=".VenderTrackOrder"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".PartnerMainActivity" />
         <activity
             android:name=".FilterActivity"
             android:parentActivityName=".MainActivity" />
@@ -77,7 +77,8 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PartnerProfileActivity"
-            android:parentActivityName=".PartnerMainActivity"></activity>
+            android:parentActivityName=".PartnerMainActivity" />
+        <activity android:name=".PatnerRenewActivity"></activity>
     </application>
 
 </manifest>

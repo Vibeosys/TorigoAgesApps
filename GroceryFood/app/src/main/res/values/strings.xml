@@ -135,6 +135,7 @@
     <string name="str_new_quadmni">New to qadmni? </string>
     <string name="str_next">Next</string>
     <string name="str_payment_details">Pay SAR 200 per month</string>
+
     <string name="str_nearest_shop">Distance</string>
     <string name="raduis_selected">km.</string>
     <string name="str_price">Price</string>
@@ -153,7 +154,7 @@
     <string name="str_login">Login</string>
     <string name="str_start_quickly">Get started quickly</string>
     <string name="str_login_to_acc">Login to your account</string>
-    <string name="str_btn_pay">Pay</string>
+    <string name="str_btn_pay">PAY</string>
     <string name="str_my_cart">My Cart</string>
     <string name="confirm_and_pay">Confirm and pay</string>
     <string name="title_activity_partner_main">PartnerMainActivity</string>
@@ -176,6 +177,12 @@
     <string name="str_my_profile">My Profile</string>
     <string name="str_shop_address">Shop Address</string>
     <string name="str_user_ph_no">879654356</string>
+    <string name="str_write_something">Write something</string>
+    <string name="str_renew_btn">Renew Now</string>
+    <string name="str_renew_details">Your subscription is valid upto</string>
+    <string name="str_renew_date">29-JAN 2017</string>
+    <string name="my_subscription">My Subscription</string>
+    <string name="str_provide_feedback">Provide Feedback</string>
 
 
 </resources>

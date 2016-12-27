@@ -81,7 +81,6 @@
                     </LinearLayout>
 
                     <View
-                        android:id="@+id/SplitLine_hor1"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@android:color/darker_gray" />
@@ -115,7 +114,6 @@
                     </LinearLayout>
 
                     <View
-                        android:id="@+id/SplitLine_hor2"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@android:color/darker_gray" />
@@ -176,7 +174,7 @@
                             android:id="@+id/provideFeedback"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Provide Feedback"
+                            android:text="@string/str_provide_feedback"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="16sp"
@@ -346,10 +344,10 @@
                             android:id="@+id/provideFeedback1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Provide Feedback"
+                            android:text="@string/str_provide_feedback"
+                            android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="16sp"
-                            android:textAllCaps="true"
                             android:textStyle="normal" />
                     </LinearLayout>
                 </LinearLayout>

@@ -80,11 +80,11 @@
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="end"
                                         android:layout_weight="2.5"
                                         android:gravity="end"
-                                        android:layout_gravity="end"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_favourites_pink_24" />
+                                        android:src="@drawable/ic_like_24_red" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -383,7 +383,7 @@
                                         android:layout_weight="2.5"
                                         android:gravity="center|end"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_favourites_pink_24" />
+                                        android:src="@drawable/ic_like_24_red" />
                                 </LinearLayout>
 
 

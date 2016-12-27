@@ -108,6 +108,10 @@ public class PartnerMainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), PartnerProfileActivity.class);
             startActivity(intent);
         }
+        if (id == R.id.nav_subscription) {
+            Intent intent = new Intent(getApplicationContext(), PatnerRenewActivity.class);
+            startActivity(intent);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

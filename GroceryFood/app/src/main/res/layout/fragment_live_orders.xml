@@ -259,7 +259,7 @@
                     android:id="@+id/provideFeedback"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Provide Feedback"
+                    android:text="@string/str_provide_feedback"
                     android:textStyle="normal"
                     android:textAllCaps="true"
                     android:textSize="16sp"

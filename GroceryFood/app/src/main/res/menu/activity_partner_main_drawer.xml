@@ -14,6 +14,10 @@
         android:icon="@drawable/ic_account_box_white_24dp"
         android:title="@string/my_profile" />
     <item
+        android:id="@+id/nav_subscription"
+        android:icon="@drawable/ic_renew_sub_24_white"
+        android:title="@string/my_subscription" />
+    <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_power_settings_new_white_24dp"
         android:title="@string/str_logout" />
