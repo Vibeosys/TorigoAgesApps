@@ -11,19 +11,19 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".LanguageActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".CheckOutActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".OrederFinishActivity" />
+        <activity
+            android:name=".OrderFinishActivity"
+            android:parentActivityName=".CheckOutActivity" />
         <activity
             android:name=".TrackOrdersActivity"
-            android:parentActivityName=".CheckOutActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DisplayTrackOrdersActivity"
             android:parentActivityName=".TrackOrdersActivity" />
@@ -38,11 +38,17 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".PartnerLoginActivity" />
         <activity android:name=".PartnerRegistrationActivity" />
-        <activity android:name=".ProductDetailsActivity" />
+        <activity
+            android:name=".ProductDetailsActivity"
+            android:parentActivityName=".AddProductActivity" />
         <activity android:name=".RegisterShopDetailsActivity" />
         <activity android:name=".SubscriptionActivity" />
-        <activity android:name=".VenderTrackOrder" />
-        <activity android:name=".FilterActivity" />
+        <activity
+            android:name=".VenderTrackOrder"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".FilterActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".UserLoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -61,7 +67,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainLoginActivity"></activity>
+        <activity android:name=".MainLoginActivity" />
+        <activity
+            android:name=".FinalPaymentActivity"
+            android:parentActivityName=".OrderFinishActivity"></activity>
     </application>
 
 </manifest>

@@ -19,8 +19,8 @@
             android:layout_height="48dp"
             android:layout_marginEnd="0.2dp"
             android:layout_marginStart="0.2dp"
-            android:gravity="center_vertical"
             android:background="@android:color/white"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
@@ -28,15 +28,15 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.4"
-                android:padding="10dp"
                 android:gravity="center"
+                android:padding="10dp"
                 android:src="@drawable/ic_add_circle_black_24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:gravity="start"
                 android:text="Add New Product"
                 android:textSize="21sp" />
@@ -211,15 +211,15 @@
                             android:weightSum="1">
 
                             <Button
-                                android:id="@+id/edit_btn"
+                                android:id="@+id/update_btn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@drawable/edit_btn_border"
                                 android:padding="6dp"
                                 android:text="UPDATE"
-                                android:textSize="18sp"
-                                android:textAllCaps="true" />
+                                android:textAllCaps="true"
+                                android:textSize="18sp" />
                         </LinearLayout>
                     </LinearLayout>
 

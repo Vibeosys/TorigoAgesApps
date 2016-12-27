@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 public class AddProductActivity extends AppCompatActivity {
     LinearLayout mLinearLayout;
-    Button mEdit;
+    Button btnUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class AddProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_product);
         setTitle("Product List");
         mLinearLayout = (LinearLayout) findViewById(R.id.addProductTitle);
-        mEdit = (Button) findViewById(R.id.edit_btn);
+        btnUpdate = (Button) findViewById(R.id.update_btn);
         mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,7 +25,7 @@ public class AddProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mEdit.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VenderTrackOrder.class);

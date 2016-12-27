@@ -153,6 +153,9 @@
     <string name="str_login">Login</string>
     <string name="str_start_quickly">Get started quickly</string>
     <string name="str_login_to_acc">Login to your account</string>
+    <string name="str_btn_pay">Pay</string>
+    <string name="str_my_cart">My Cart</string>
+    <string name="confirm_and_pay">Confirm and pay</string>
 
 
 </resources>
