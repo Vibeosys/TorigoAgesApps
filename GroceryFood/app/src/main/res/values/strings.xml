@@ -164,6 +164,7 @@
     <string name="str_partner_login">Partner Login</string>
     <string name="str_logout">Logout</string>
     <string name="str_prduct_list">Product List</string>
+    <string name="str_btn_save">Save</string>
 
 
 </resources>
