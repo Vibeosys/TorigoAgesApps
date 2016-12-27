@@ -9,6 +9,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
-        setTitle("ORDER DETAILS");
+        setTitle(getString(R.string.str_track_order_details));
     }
 }

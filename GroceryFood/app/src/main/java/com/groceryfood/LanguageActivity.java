@@ -25,7 +25,7 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
-        setTitle("Settings");
+        setTitle(getResources().getString(R.string.action_settings));
         mSpinner = (Spinner) findViewById(R.id.spinner);
         btnSave = (TextView) findViewById(R.id.btn_save);
         List<String> spineerData = new ArrayList<>();

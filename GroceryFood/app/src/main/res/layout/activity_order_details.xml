@@ -69,7 +69,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="ORDER DATE"
+                                android:text="@string/str_order_date"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -85,7 +85,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="ORDER NO"
+                                android:text="@string/str_order_no"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -175,7 +175,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Vanila "
+                                android:text="@string/str_product1"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
@@ -238,7 +238,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Caramel Swirl"
+                                android:text="@string/str_caremal"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
@@ -302,7 +302,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Coconut Milk"
+                                android:text="@string/str_coconut"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
@@ -366,7 +366,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Mango Chocolate cake"
+                                android:text="@string/str_mango"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
@@ -429,7 +429,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="TAX"
+                                android:text="@string/str_tax"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
@@ -492,7 +492,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:padding="4dp"
-                                android:text="Total"
+                                android:text="@string/str_total"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 
@@ -508,7 +508,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:padding="4dp"
-                                android:text="SAR"
+                                android:text="@string/sar"
                                 android:textSize="16sp" />
 
                             <TextView

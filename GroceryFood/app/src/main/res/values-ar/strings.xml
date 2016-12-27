@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GroceryFood</string>
+    <string name="app_name">قدمني </string>
 
     <string name="navigation_drawer_open">فتح درج الملاحة</string>
     <string name="navigation_drawer_close">انهيار درج الملاحة</string>
@@ -119,7 +119,7 @@
     <string name="str_track_order_address_1">الرياض 12363 4258، المملكة العربية السعودية</string>
     <string name="str_track_order_details">تفاصيل الطلب</string>
     <string name="str_track_order_id">رقم التعريف الخاص بالطلب:</string>
-    <string name="str_track_order_title">أمر TRACK</string>
+    <string name="str_track_order_title">أوامر المسار</string>
 
     <string name="title_activity_my_favourites">المفضله آخر</string>
     <string name="str_user_name_hint">اسم المستخدم</string>
@@ -136,7 +136,7 @@
     <string name="str_shop_name_hint">اسم المحل</string>
     <string name="str_shop_location_hint">متجر الموقع</string>
     <string name="lang_setting">ضبط</string>
-    <string name="str_new_quadmni">جديدة لqadmni؟ </string>
+    <string name="str_new_quadmni">جديد في قدمني؟ </string>
     <string name="str_next">التالى</string>
     <string name="str_payment_details">دفع 200 ريال شهريا</string>
 
@@ -209,7 +209,17 @@
     <string name="str_avail_soon">متاحة للبيع</string>
     <string name="str_update">تحديث</string>
     <string name="str_cancel">إلغاء</string>
-    <string name="str_welcome_to_qadmni">مرحبا بكم في Qadmni</string>
+    <string name="str_welcome_to_qadmni">مرحبا بكم في قدمني</string>
     <string name="str_register">تسجيل</string>
 
+    <string name="str_order_no">أجل لا</string>
+    <string name="str_product1">فانيلا</string>
+    <string name="str_caremal">الكرمل الدوامة</string>
+    <string name="str_coconut">حليب جوز الهند</string>
+    <string name="str_mango">كعكة الشوكولاته المانجو</string>
+    <string name="str_tax">ضريبة</string>
+    <string name="str_renew">تجديد التطبيق</string>
+    <string name="str_forgot_msg">سوف تتلقى بيانات الاعتماد الخاصة بك، إذا معرف البريد الإلكتروني الخاص بك مباريات مع المسجلين معرف البريد الإلكتروني</string>
+    <string name="str_btn_send_email">نقر هنا للحصول على كلمة المرور</string>
+    <string name="str_forgot_password">هل نسيت كلمة المرور</string>
 </resources>

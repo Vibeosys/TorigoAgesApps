@@ -206,6 +206,16 @@
     <string name="str_cancel">Cancel</string>
     <string name="str_welcome_to_qadmni">WelCome To Qadmni</string>
     <string name="str_register">Register</string>
+    <string name="str_order_no">Order No</string>
+    <string name="str_product1">Vanila</string>
+    <string name="str_caremal">Caramel Swirl</string>
+    <string name="str_coconut">Coconut Milk</string>
+    <string name="str_mango">Mango Chocolate cake</string>
+    <string name="str_tax">TAX</string>
+    <string name="str_renew">Renew Subscription</string>
+    <string name="str_forgot_msg">You will receive your credentials,if your email id matches with registered email id</string>
+    <string name="str_btn_send_email">Click here to get your password</string>
+    <string name="str_forgot_password">Forgot password</string>
 
 
 </resources>

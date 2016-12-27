@@ -13,7 +13,7 @@ public class MyFavouritesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_favourites);
-        setTitle("Favourite List");
+        setTitle(getResources().getString(R.string.str_fav_list));
 
     }
 
