@@ -11,7 +11,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LanguageActivity"
             android:parentActivityName=".MainActivity" />
@@ -33,14 +33,11 @@
         <activity
             android:name=".MyFavouritesActivity"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".AddProductActivity"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".PartnerLoginActivity" />
         <activity android:name=".PartnerRegistrationActivity" />
         <activity
             android:name=".ProductDetailsActivity"
-            android:parentActivityName=".AddProductActivity" />
+            android:parentActivityName=".PartnerMainActivity" />
         <activity android:name=".RegisterShopDetailsActivity" />
         <activity android:name=".SubscriptionActivity" />
         <activity
@@ -70,7 +67,11 @@
         <activity android:name=".MainLoginActivity" />
         <activity
             android:name=".FinalPaymentActivity"
-            android:parentActivityName=".OrderFinishActivity"></activity>
+            android:parentActivityName=".OrderFinishActivity" />
+        <activity
+            android:name=".PartnerMainActivity"
+            android:label="@string/title_activity_partner_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

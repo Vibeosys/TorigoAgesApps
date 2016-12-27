@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/nav_myCart"
-        android:icon="@drawable/ic_new_shopping_cart_24dp"
-        android:title="@string/str_my_cart"
-        app:actionLayout="@layout/cart_counter" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/nav_myOrders"
         android:icon="@drawable/ic_shopping_basket_white_24dp"
         android:title="@string/str_my_orders" />
-    <item
-        android:id="@+id/nav_favourite"
-        android:icon="@drawable/ic_favourite_24dp"
-        android:title="@string/str_fav_list" />
     <item
         android:id="@+id/language"
         android:icon="@drawable/ic_settings_white_24dp"
@@ -22,13 +13,9 @@
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_account_box_white_24dp"
         android:title="@string/my_profile" />
-
-    <item
-        android:id="@+id/nav_partner_login"
-        android:icon="@drawable/ic_shop_24_white"
-        android:title="@string/str_partner_login" />
     <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_power_settings_new_white_24dp"
         android:title="@string/str_logout" />
+
 </menu>

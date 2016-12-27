@@ -156,6 +156,14 @@
     <string name="str_btn_pay">Pay</string>
     <string name="str_my_cart">My Cart</string>
     <string name="confirm_and_pay">Confirm and pay</string>
+    <string name="title_activity_partner_main">PartnerMainActivity</string>
+    <string name="str_my_orders">My Orders</string>
+    <string name="str_fav_list">Favourite List</string>
+    <string name="str_settings">Settings</string>
+    <string name="my_profile">My Profile</string>
+    <string name="str_partner_login">Partner Login</string>
+    <string name="str_logout">Logout</string>
+    <string name="str_prduct_list">Product List</string>
 
 
 </resources>

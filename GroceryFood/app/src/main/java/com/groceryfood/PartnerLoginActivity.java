@@ -47,7 +47,7 @@ public class PartnerLoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddProductActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PartnerMainActivity.class);
                 startActivity(intent);
             }
         });
