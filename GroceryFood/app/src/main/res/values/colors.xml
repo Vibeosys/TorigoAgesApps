@@ -19,6 +19,7 @@
     <color name="drawer_background">#df252626</color>
     <color name="loginTransparnt">#9e000000</color>
     <color name="subscribeTransparnt">#64838383</color>
+    <color name="profileTransparnt">#940b0b0b</color>
     <color name="loginTransparntUser">#bb000000</color>
     <color name="hyperlinkColour">#dc3392ff</color>
     <color name="transperentWhite">#c8ffffff</color>
