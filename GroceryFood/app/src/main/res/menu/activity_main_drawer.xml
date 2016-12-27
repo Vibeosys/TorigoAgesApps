@@ -15,13 +15,13 @@
         android:icon="@drawable/ic_favourite_24dp"
         android:title="@string/str_fav_list" />
     <item
-        android:id="@+id/language"
-        android:icon="@drawable/ic_settings_white_24dp"
-        android:title="@string/str_settings" />
-    <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_account_box_white_24dp"
         android:title="@string/my_profile" />
+    <item
+        android:id="@+id/language"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="@string/str_settings" />
 
     <item
         android:id="@+id/nav_partner_login"

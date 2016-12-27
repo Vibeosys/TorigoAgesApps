@@ -15,12 +15,12 @@ public class VenderTrackOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vender_track_order);
-        setTitle("Order status");
+        setTitle(getResources().getString(R.string.str_order_status));
         mSpinner = (Spinner) findViewById(R.id.spinner_status);
         List<String> spineerData = new ArrayList<>();
-        spineerData.add("Cooking");
-        spineerData.add("On the way");
-        spineerData.add("Delivered");
+        spineerData.add(getResources().getString(R.string.str_cooking));
+        spineerData.add(getResources().getString(R.string.str_on_the_way));
+        spineerData.add(getResources().getString(R.string.str_dilivered));
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
                 (getBaseContext(), android.R.layout.simple_spinner_item, spineerData);
 

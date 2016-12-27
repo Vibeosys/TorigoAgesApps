@@ -67,7 +67,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@color/btn_red_colour1"
-            android:text="Submit"
+            android:text="@string/str_submit_btn"
             android:textColor="#fff"
             android:textStyle="bold" />
 

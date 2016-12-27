@@ -163,7 +163,7 @@
     <string name="confirm_and_pay">اكد و ادفع</string>
     <string name="title_activity_partner_main">PartnerMainActivity</string>
     <string name="str_my_orders">طلباتي</string>
-    <string name="str_fav_list">قائمة المفضلة</string>
+    <string name="str_fav_list">المفضله</string>
     <string name="str_settings">إعدادات</string>
     <string name="my_profile">ملفي الشخصي</string>
     <string name="str_partner_login">دخول شريك</string>
@@ -183,9 +183,33 @@
     <string name="str_user_ph_no">879654356</string>
     <string name="str_write_something">أكتب شيئا</string>
     <string name="str_renew_btn">تجديد الآن</string>
-    <string name="str_renew_details">اشتراكك ساري تصل</string>
-    <string name="str_renew_date">29-JAN 2017</string>
-    <string name="my_subscription">اشتراكي</string>
+    <string name="str_renew_details">اشتراكك ساري حتى</string>
+    <string name="str_renew_date">29</string>
+    <string name="my_subscription">اشتراكاتي</string>
     <string name="str_provide_feedback">تقديم التغذية الراجعة</string>
+
+    <string name="str_submit_btn">عرض</string>
+    <string name="str_dessert_one_desc">واحدة فطيرة كافية لمدة 2-3 الناس</string>
+    <string name="str_order_status">حالة الطلب</string>
+    <string name="str_cooking">طهي الطعام</string>
+    <string name="str_on_the_way">علي الطريق</string>
+    <string name="str_dilivered">تم التوصيل</string>
+    <string name="str_customer_name_hint">اسم الزبون</string>
+    <string name="str_credit_card">بطاقة ائتمان</string>
+    <string name="str_home_delivery">توصيل منزلي</string>
+    <string name="str_customer_address">عنوان العملاء</string>
+    <string name="str_show_on_map">عرض على الخريطة</string>
+    <string name="str_change_status">تغيير الوضع</string>
+    <string name="str_update_status">تحديث الحالة</string>
+    <string name="str_renew_date_month">يوليو</string>
+    <string name="str_renew_date_year">2017</string>
+    <string name="str_add_new_product">إضافة منتج جديد</string>
+    <string name="str_details">تفاصيل</string>
+    <string name="str_details_product">كريم لذيذ الجليد تتكون من جوز الهند وكريم ...</string>
+    <string name="str_avail_soon">متاحة للبيع</string>
+    <string name="str_update">تحديث</string>
+    <string name="str_cancel">إلغاء</string>
+    <string name="str_welcome_to_qadmni">مرحبا بكم في Qadmni</string>
+    <string name="str_register">تسجيل</string>
 
 </resources>

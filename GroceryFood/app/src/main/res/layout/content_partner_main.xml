@@ -7,6 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.groceryfood.PartnerMainActivity"
     tools:showIn="@layout/app_bar_partner_main">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +39,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="start"
-                android:text="Add New Product"
+                android:text="@string/str_add_new_product"
                 android:textSize="21sp" />
 
             <ImageView
@@ -130,7 +131,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Details"
+                                android:text="@string/str_details"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="14sp" />
 
@@ -138,7 +139,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="8dp"
-                                android:text="delicious ice cream made up of coconut and cream ..."
+                                android:text="@string/str_details_product"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -189,7 +190,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="bottom"
                                             android:paddingStart="2dp"
-                                            android:text="available for sell"
+                                            android:text="@string/str_avail_soon"
                                             android:textAllCaps="true"
                                             android:textColor="@color/btn_green_colour1"
                                             android:textSize="14sp" />
@@ -217,7 +218,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/edit_btn_border"
                                 android:padding="6dp"
-                                android:text="UPDATE"
+                                android:text="@string/str_update"
                                 android:textAllCaps="true"
                                 android:textSize="18sp" />
                         </LinearLayout>

@@ -22,7 +22,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="140dp"
-                android:text="WelCome To Qadmni"
+                android:text="@string/str_welcome_to_qadmni"
                 android:textColor="@android:color/white"
                 android:textSize="29sp"
                 android:textStyle="bold" />
@@ -52,7 +52,7 @@
                         android:background="@android:color/transparent"
                         android:drawablePadding="10dp"
                         android:drawableStart="@drawable/ic_user_login"
-                        android:hint="User Name"
+                        android:hint="@string/str_user_name_hint"
                         android:inputType="textEmailAddress"
                         android:paddingStart="8dp"
                         android:singleLine="true"
@@ -76,7 +76,7 @@
                         android:background="@android:color/transparent"
                         android:drawablePadding="10dp"
                         android:drawableStart="@drawable/ic_password_24"
-                        android:hint="Password"
+                        android:hint="@string/str_user_password"
                         android:inputType="textEmailAddress"
                         android:paddingStart="8dp"
                         android:singleLine="true"
@@ -101,7 +101,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/white_with_curve"
-                        android:text="Login to your account"
+                        android:text="@string/str_login_to_acc"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
@@ -112,10 +112,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:paddingStart="5dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Cannot access your account ?"
+                    android:text="@string/str_user_forgot_password"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="normal" />
@@ -156,7 +156,7 @@
             android:layout_gravity="bottom"
             android:gravity="center"
             android:paddingStart="5dp"
-            android:text="New To Qadmni?"
+            android:text="@string/str_new_quadmni"
             android:textColor="@color/colorRating"
             android:textSize="16sp"
             android:textStyle="normal" />
@@ -167,7 +167,7 @@
             android:layout_gravity="bottom"
             android:gravity="center"
             android:paddingStart="5dp"
-            android:text="Create a account"
+            android:text="@string/str_create_acc"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="normal" />

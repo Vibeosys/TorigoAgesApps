@@ -159,7 +159,7 @@
     <string name="confirm_and_pay">Confirm and pay</string>
     <string name="title_activity_partner_main">PartnerMainActivity</string>
     <string name="str_my_orders">My Orders</string>
-    <string name="str_fav_list">Favourite List</string>
+    <string name="str_fav_list">My Favourites</string>
     <string name="str_settings">Settings</string>
     <string name="my_profile">My Profile</string>
     <string name="str_partner_login">Partner Login</string>
@@ -179,10 +179,33 @@
     <string name="str_user_ph_no">879654356</string>
     <string name="str_write_something">Write something</string>
     <string name="str_renew_btn">Renew Now</string>
-    <string name="str_renew_details">Your subscription is valid upto</string>
-    <string name="str_renew_date">29-JAN 2017</string>
-    <string name="my_subscription">My Subscription</string>
+    <string name="str_renew_details">Your subscription is valid till</string>
+    <string name="str_renew_date">29</string>
+    <string name="my_subscription">My Subscriptions</string>
     <string name="str_provide_feedback">Provide Feedback</string>
+    <string name="str_submit_btn">Submit</string>
+    <string name="str_dessert_one_desc">One pancake is sufficient for 2-3 people</string>
+    <string name="str_order_status">Order status</string>
+    <string name="str_cooking">Cooking</string>
+    <string name="str_on_the_way">On the way</string>
+    <string name="str_dilivered">Delivered</string>
+    <string name="str_customer_name_hint">Customer Name</string>
+    <string name="str_credit_card">Credit card</string>
+    <string name="str_home_delivery">Home delivery</string>
+    <string name="str_customer_address">Customer Address</string>
+    <string name="str_show_on_map">Show on Map</string>
+    <string name="str_change_status">Change status</string>
+    <string name="str_update_status">Update status</string>
+    <string name="str_renew_date_month">July</string>
+    <string name="str_renew_date_year">2017</string>
+    <string name="str_add_new_product">Add New Product</string>
+    <string name="str_details">Details</string>
+    <string name="str_details_product">delicious ice cream made up of coconut and cream ...</string>
+    <string name="str_avail_soon">Available for sell</string>
+    <string name="str_update">UPDATE</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_welcome_to_qadmni">WelCome To Qadmni</string>
+    <string name="str_register">Register</string>
 
 
 </resources>
