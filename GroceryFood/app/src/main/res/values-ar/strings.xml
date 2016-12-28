@@ -133,8 +133,8 @@
     <string name="str_ph_hint">هاتف</string>
     <string name="str_subscribe_btn">إشترك الآن</string>
     <string name="str_shop_details">تفاصيل المحل</string>
-    <string name="str_shop_name_hint">اسم المحل</string>
-    <string name="str_shop_location_hint">متجر الموقع</string>
+    <string name="str_shop_name_hint">الاسم التجاري</string>
+    <string name="str_shop_location_hint">موقع العمل</string>
     <string name="lang_setting">ضبط</string>
     <string name="str_new_quadmni">جديد في قدمني؟ </string>
     <string name="str_next">التالى</string>
@@ -222,4 +222,5 @@
     <string name="str_forgot_msg">سوف تتلقى بيانات الاعتماد الخاصة بك، إذا معرف البريد الإلكتروني الخاص بك مباريات مع المسجلين معرف البريد الإلكتروني</string>
     <string name="str_btn_send_email">نقر هنا للحصول على كلمة المرور</string>
     <string name="str_forgot_password">هل نسيت كلمة المرور</string>
+    <string name="str_register_now">سجل الان</string>
 </resources>

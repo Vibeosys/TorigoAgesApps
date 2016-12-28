@@ -129,8 +129,8 @@
     <string name="str_ph_hint">Phone</string>
     <string name="str_subscribe_btn">Subscribe Now</string>
     <string name="str_shop_details">Shop details</string>
-    <string name="str_shop_name_hint">Shop Name</string>
-    <string name="str_shop_location_hint">Shop Location</string>
+    <string name="str_shop_name_hint">Business Name</string>
+    <string name="str_shop_location_hint">Business Location</string>
     <string name="lang_setting">Setting</string>
     <string name="str_new_quadmni">New to qadmni? </string>
     <string name="str_next">Next</string>
@@ -216,6 +216,7 @@
     <string name="str_forgot_msg">You will receive your credentials,if your email id matches with registered email id</string>
     <string name="str_btn_send_email">Click here to get your password</string>
     <string name="str_forgot_password">Forgot password</string>
+    <string name="str_register_now">Register Now</string>
 
 
 </resources>
