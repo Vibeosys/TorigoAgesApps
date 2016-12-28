@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:padding="4dp"
-        android:text="Select Language"
+        android:text="@string/str_select_language"
         android:textColor="@color/secondaryText"
         android:textSize="16sp"
         android:textStyle="normal" />

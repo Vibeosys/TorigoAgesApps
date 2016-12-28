@@ -217,6 +217,7 @@
     <string name="str_btn_send_email">Click here to get your password</string>
     <string name="str_forgot_password">Forgot password</string>
     <string name="str_register_now">Register Now</string>
+    <string name="str_select_language">Select Language</string>
 
 
 </resources>
