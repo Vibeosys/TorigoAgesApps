@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="show_details_btn">#d1d1d1</color>
     <color name="over_layer">#e82b2926</color>
+    <color name="over_layer_registration">#b52b2926</color>
+    <color name="over_layer_registration_1">#952b2926</color>
 </resources>

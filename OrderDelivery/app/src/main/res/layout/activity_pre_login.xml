@@ -38,6 +38,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="55dp"
                 android:layout_margin="12dp"
@@ -46,6 +47,7 @@
                 android:text="SIGN IN" />
 
             <Button
+                android:id="@+id/signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="55dp"
                 android:layout_margin="12dp"
@@ -55,18 +57,7 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#c0c0c0" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +66,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+           <!-- <TextView
                 android:id="@+id/appLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +74,7 @@
                 android:paddingBottom="8dp"
                 android:paddingTop="4dp"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="18sp" />-->
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
