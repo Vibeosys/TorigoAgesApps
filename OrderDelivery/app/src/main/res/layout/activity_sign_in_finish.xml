@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.orderdelivery.views.SignInActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/registration_background_img"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/over_layer_registration"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Registration"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/test_img_register"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/over_layer_registration_1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/white_with_curve"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="8dp"
+                            android:text="Do you have driving license"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radio_pirates"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_ninjas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+
+                        </RadioGroup>
+
+                        <View
+                            android:id="@+id/SplitLine_hor1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@android:color/white" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@android:color/transparent"
+                            android:drawablePadding="10dp"
+                            android:drawableStart="@drawable/ic_no_license"
+                            android:hint="@string/str_no_driving"
+                            android:inputType="text"
+                            android:paddingStart="8dp"
+                            android:singleLine="true"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:id="@+id/SplitLine_hor3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@android:color/white" />
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="21dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/contBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/white_with_curve"
+                        android:text="@string/str_no_approve"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/cancelBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/white_with_curve"
+                        android:text="@string/str_no_cancel"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

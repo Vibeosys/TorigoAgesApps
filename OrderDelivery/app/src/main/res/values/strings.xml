@@ -11,4 +11,9 @@
     <string name="str_email_hint">Email</string>
     <string name="str_ph_hint">Phone</string>
     <string name="str_continue">continue</string>
+    <string name="str_no_driving">Number of license</string>
+    <string name="str_no_cancel">Cancel</string>
+    <string name="str_no_approve">Send for approval</string>
+    <string name="str_login">Sign in</string>
+    <string name="str_new_user">New user! create account</string>
 </resources>

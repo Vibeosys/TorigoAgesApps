@@ -22,7 +22,8 @@ public class PreLoginActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_pre_login);
-      //  mTextView = (TextView) findViewById(R.id.appLink);
+
+        //  mTextView = (TextView) findViewById(R.id.appLink);
         mSignUpBtn = (Button) findViewById(R.id.signUp);
         mSignInBtn = (Button) findViewById(R.id.signIn);
        /* mTextView.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +37,14 @@ public class PreLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        mSignInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
