@@ -84,6 +84,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Yes"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp" />
 
@@ -92,6 +94,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="No"
+                                android:paddingStart="8dp"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp" />
 

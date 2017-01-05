@@ -2,6 +2,7 @@ package com.orderdelivery.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -12,9 +13,13 @@ import java.util.Locale;
 
 public class SignInFinishActivity extends AppCompatActivity {
     private Spinner mSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_sign_in_finish);
         mSpinner = (Spinner) findViewById(R.id.spinner);
         Locale.getDefault().getCountry();
