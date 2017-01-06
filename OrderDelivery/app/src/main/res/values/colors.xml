@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+   <!-- <color name="colorPrimary">#f14742</color>
+    <color name="colorPrimaryDark">#e12d28</color>
+    <color name="colorAccent">#d1d1d1</color>-->
     <color name="show_details_btn">#d1d1d1</color>
     <color name="over_layer">#e82b2926</color>
     <color name="over_layer_registration">#b52b2926</color>
     <color name="over_layer_registration_1">#952b2926</color>
+    <color name="secondaryText">#d863666b</color>
+    <color name="dividercolor">#e8eaec</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>
