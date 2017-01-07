@@ -10,8 +10,8 @@
     <color name="secondaryText">#d863666b</color>
     <color name="dividercolor">#e8eaec</color>
     <color name="over_layer_2">#080807</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#00DCCF</color>
+    <color name="colorPrimaryDark">#009c93</color>
     <color name="colorAccent">#FF4081</color>
      <color name="holo_orange_dark_btn">#ff9900</color>
 </resources>

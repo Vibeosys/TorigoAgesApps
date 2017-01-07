@@ -72,7 +72,7 @@
                             android:paddingStart="8dp"
                             android:text="Do you have driving license"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                            android:textSize="21sp" />
 
                         <RadioGroup
                             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                                 android:paddingStart="8dp"
                                 android:text="Yes"
                                 android:textColor="@android:color/white"
-                                android:textSize="16sp" />
+                                android:textSize="21sp" />
 
                             <RadioButton
                                 android:id="@+id/radio_ninjas"
@@ -96,17 +96,11 @@
                                 android:paddingStart="8dp"
                                 android:text="No"
                                 android:textColor="@android:color/white"
-                                android:textSize="16sp" />
+                                android:textSize="21sp" />
 
                         </RadioGroup>
 
-                        <View
-                            android:id="@+id/SplitLine_hor1"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginStart="8dp"
-                            android:background="@android:color/white" />
+
 
                         <EditText
                             android:layout_width="match_parent"

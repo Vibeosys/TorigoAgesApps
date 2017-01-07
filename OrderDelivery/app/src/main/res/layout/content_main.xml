@@ -36,23 +36,30 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:padding="4dp">
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12 Jun 17"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -62,8 +69,118 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_today_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_customer_name_24" />
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10:02"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="3dp"
+                                    android:text="AM"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_clock_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery time"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Robert pattinson"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_customer_name_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -76,13 +193,6 @@
                             </LinearLayout>
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Robert pattinson"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
-
                         </LinearLayout>
 
 
@@ -93,6 +203,13 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Al Wurud"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -101,8 +218,12 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_marker_24" />
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_marker_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -115,12 +236,6 @@
 
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Baner road"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
 
                         </LinearLayout>
 
@@ -130,110 +245,33 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_delivery_type_24" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:paddingStart="4dp"
-                                    android:text="Delivery type"
-                                    android:textColor="@color/secondaryText"
-                                    android:textSize="16sp" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ASAP"
-                                android:textColor="@android:color/holo_red_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_today_24" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:paddingStart="4dp"
-                                    android:text="Delivery date"
-                                    android:textColor="@color/secondaryText"
-                                    android:textSize="16sp" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="12/01/2017 10:30PM"
-                                android:textColor="@android:color/holo_red_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
-                        android:background="#c0c0c0" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:background="@color/colorPrimaryDark"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
 
                         <TextView
                             android:id="@+id/details"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:padding="8dp"
+                            android:text="SHOW DETAILS"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="show details"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="18sp" />
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_chevron_right_white_24dp" />
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/card_view2"
+                android:id="@+id/card_view1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -243,23 +281,33 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:padding="4dp">
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorAccent"
+                                android:paddingEnd="4dp"
+                                android:paddingStart="4dp"
+                                android:text="Right now"
+                                android:textColor="@android:color/white"
+                                android:textSize="20sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -269,8 +317,121 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_today_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_customer_name_24" />
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/colorAccent"
+                                    android:paddingEnd="4dp"
+                                    android:paddingStart="4dp"
+                                    android:text="Right Now"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="3dp"
+                                    android:text=""
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_clock_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery time"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Robert pattinson"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_customer_name_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -282,14 +443,9 @@
                                     android:textSize="16sp" />
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Johnny depp"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -297,6 +453,13 @@
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Al Olaya"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -306,8 +469,12 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_marker_24" />
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_marker_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -321,64 +488,74 @@
                             </LinearLayout>
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pashan"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
-
                         </LinearLayout>
+
                     </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimaryDark"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:id="@+id/details"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:padding="8dp"
+                            android:text="SHOW DETAILS"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_chevron_right_white_24dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:padding="8dp"
+                card_view:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_delivery_type_24" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:paddingStart="4dp"
-                                    android:text="Delivery type"
-                                    android:textColor="@color/secondaryText"
-                                    android:textSize="16sp" />
-                            </LinearLayout>
+                            android:padding="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Schedule"
+                                android:text="16 Jun 17"
                                 android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
+                                android:textSize="20sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -388,8 +565,12 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_today_24" />
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_today_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -401,36 +582,185 @@
                                     android:textSize="16sp" />
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="19/02/2017 8:34PM"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
                         </LinearLayout>
-                    </LinearLayout>
 
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
-                        android:background="#c0c0c0" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10:42"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="3dp"
+                                    android:text="AM"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_clock_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery time"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Robert pattinson"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_customer_name_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Customer Name"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Al Maather"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_marker_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Area"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimaryDark"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
 
                         <TextView
-                            android:id="@+id/details1"
+                            android:id="@+id/details"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:padding="8dp"
+                            android:text="SHOW DETAILS"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="show details"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="18sp" />
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_chevron_right_white_24dp" />
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -446,23 +776,30 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:padding="4dp">
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12 Jun 17"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -472,8 +809,118 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_today_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_customer_name_24" />
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10:02"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="3dp"
+                                    android:text="AM"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_clock_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery time"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Robert pattinson"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_customer_name_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -485,12 +932,6 @@
                                     android:textSize="16sp" />
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Robert pattinson"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
 
                         </LinearLayout>
 
@@ -502,6 +943,12 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Al Wurud"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -511,8 +958,12 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_marker_24" />
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_marker_24"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -526,13 +977,6 @@
                             </LinearLayout>
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Baner road"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
-
                         </LinearLayout>
 
                     </LinearLayout>
@@ -541,103 +985,26 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_delivery_type_24" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:paddingStart="4dp"
-                                    android:text="Delivery type"
-                                    android:textColor="@color/secondaryText"
-                                    android:textSize="16sp" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ASAP"
-                                android:textColor="@android:color/holo_red_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:src="@drawable/ic_today_24" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom"
-                                    android:paddingStart="4dp"
-                                    android:text="Delivery date"
-                                    android:textColor="@color/secondaryText"
-                                    android:textSize="16sp" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="12/01/2017 10:30PM"
-                                android:textColor="@android:color/holo_red_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
-                        android:background="#c0c0c0" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:background="@color/colorPrimaryDark"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
 
                         <TextView
-                            android:id="@+id/details3"
+                            android:id="@+id/details"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:padding="8dp"
+                            android:text="SHOW DETAILS"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="show details"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="18sp" />
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_chevron_right_white_24dp" />
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -653,16 +1020,122 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12 Jun 17"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_today_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10:02"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="3dp"
+                                    android:text="AM"
+                                    android:textColor="@android:color/primary_text_light"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_clock_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery time"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -670,20 +1143,39 @@
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Customer Name"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Robert pattinson"
                                 android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_customer_name_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Customer Name"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
@@ -693,23 +1185,41 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:padding="4dp">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Area"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
-
+                            android:padding="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Baner road"
+                                android:text="Al Olaya"
                                 android:textColor="@android:color/primary_text_light"
-                                android:textSize="16sp" />
+                                android:textSize="20sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    android:maxHeight="16dp"
+                                    android:maxWidth="16dp"
+                                    android:src="@drawable/ic_marker_24"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Area"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
@@ -719,75 +1229,26 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Delivery type"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ASAP"
-                                android:textColor="@android:color/holo_red_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Delivery date"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="12/01/2017 10:30PM"
-                                android:textColor="@android:color/holo_red_light"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
-                        android:background="#c0c0c0" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:background="@color/colorPrimaryDark"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
 
                         <TextView
                             android:id="@+id/details"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:padding="8dp"
+                            android:text="SHOW DETAILS"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="show details"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="18sp" />
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_chevron_right_white_24dp" />
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
