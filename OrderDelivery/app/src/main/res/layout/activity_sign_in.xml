@@ -34,7 +34,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/test_img_register"
+        android:background="@drawable/baked_sampler_large"
         android:orientation="vertical">
 
         <ScrollView
@@ -190,7 +190,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/white_with_curve"
+                        android:background="@drawable/tilt_color"
                         android:text="@string/str_continue"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
