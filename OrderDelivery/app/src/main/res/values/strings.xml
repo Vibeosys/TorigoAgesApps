@@ -15,5 +15,6 @@
     <string name="str_no_cancel">Cancel</string>
     <string name="str_no_approve">Send for approval</string>
     <string name="str_login">Sign in</string>
-    <string name="str_new_user">New user! create account</string>
+    <string name="str_new_user">New user!</string>
+    <string name="str_creat_acc"> create account</string>
 </resources>

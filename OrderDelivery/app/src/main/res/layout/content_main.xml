@@ -54,12 +54,27 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Customer Name"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_customer_name_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Customer Name"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -78,14 +93,27 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Area"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_marker_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Area"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -112,12 +140,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Delivery type"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_delivery_type_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery type"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -134,12 +176,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Delivery date"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_today_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -205,12 +261,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Customer Name"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_customer_name_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Customer Name"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -228,12 +298,28 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Area"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_marker_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Area"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+
+                            </LinearLayout>
+
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -258,12 +344,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Delivery type"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_delivery_type_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery type"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -280,12 +380,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Delivery date"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_today_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -350,12 +464,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Customer Name"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_customer_name_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Customer Name"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -375,12 +503,27 @@
                             android:padding="4dp">
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Area"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_marker_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Area"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+
+                            </LinearLayout>
 
 
                             <TextView
@@ -408,12 +551,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Delivery type"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_delivery_type_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery type"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -430,12 +587,26 @@
                             android:orientation="vertical"
                             android:padding="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Delivery date"
-                                android:textColor="@color/secondaryText"
-                                android:textSize="16sp" />
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:src="@drawable/ic_today_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:paddingStart="4dp"
+                                    android:text="Delivery date"
+                                    android:textColor="@color/secondaryText"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"

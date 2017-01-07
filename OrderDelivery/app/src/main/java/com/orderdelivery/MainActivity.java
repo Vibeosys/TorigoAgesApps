@@ -1,9 +1,13 @@
 package com.orderdelivery;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +24,8 @@ import com.orderdelivery.views.DetailsActivity;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView mSelectDetails;
+    private TextView showmyOrders;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         mSelectDetails = (TextView) findViewById(R.id.details);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         mSelectDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +50,9 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+        showmyOrders = (TextView) MenuItemCompat.getActionView(navigationView.getMenu().findItem(R.id.nav_camera));
+        initializeCountDrawer();
+        // setNavItemCount(R.id.nav_camera, 10);
     }
 
     @Override
@@ -92,14 +101,27 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } /*else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void initializeCountDrawer() {
+        //Gravity property aligns the text
+        showmyOrders.setGravity(Gravity.CENTER_VERTICAL);
+        showmyOrders.setTypeface(null, Typeface.NORMAL);
+        showmyOrders.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        showmyOrders.setText("99+");
+        showmyOrders.setTextColor(getResources().getColor(android.R.color.white));
+    }
+    /*private void setNavItemCount(@IdRes int itemId, int count) {
+        TextView view = (TextView) navigationView.getMenu().findItem(itemId).getActionView();
+        view.setText("99+");
+    }*/
 }
