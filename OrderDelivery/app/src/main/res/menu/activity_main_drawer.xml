@@ -9,6 +9,11 @@
             app:actionLayout="@layout/nav_order_layout"
             app:actionViewClass="android.widget.TextView"
             android:title="Order" />
+
+        <item
+            android:id="@+id/nav_mySchedule"
+            android:icon="@drawable/ic_myschedule_24"
+            android:title="My Schedule" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_payment_24"
