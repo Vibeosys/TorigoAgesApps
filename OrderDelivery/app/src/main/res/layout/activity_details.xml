@@ -117,17 +117,20 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/test_image_2" />
+                            android:padding="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@drawable/test_image_1_1" />
+
+                        <ImageView
+                            android:padding="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/test_image_2_2" />
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/test_image_1" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/test_image_3" />
+                            android:src="@drawable/test_image_3_1" />
 
                     </LinearLayout>
 
@@ -146,16 +149,35 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:padding="4dp"
                                 android:text="M and M Foods Pvt."
                                 android:textColor="@android:color/primary_text_light"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Al Wurud"
-                                android:textColor="@android:color/secondary_text_light"
-                                android:textSize="14sp" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Al Wurud"
+                                    android:textColor="@android:color/secondary_text_light"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/details_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:padding="4dp"
+                                    android:text="Details"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -168,16 +190,35 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:padding="4dp"
                                 android:text="Food plaza.pvt."
                                 android:textColor="@android:color/primary_text_light"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Al Olaya"
-                                android:textColor="@android:color/secondary_text_light"
-                                android:textSize="14sp" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Al Olaya"
+                                    android:textColor="@android:color/secondary_text_light"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/details_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:padding="4dp"
+                                    android:text="Details"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -190,16 +231,36 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:padding="4dp"
                                 android:text="Sheikh Zayed Rd"
                                 android:textColor="@android:color/primary_text_light"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Jumeriah"
-                                android:textColor="@android:color/secondary_text_light"
-                                android:textSize="14sp" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Jumeriah"
+                                    android:textColor="@android:color/secondary_text_light"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/details_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:padding="4dp"
+                                    android:text="Details"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

@@ -31,7 +31,10 @@
         <activity android:name=".views.SignInFinishActivity" />
         <activity android:name=".views.LoginActivity" />
         <activity android:name=".views.DetailsActivity" />
-        <activity android:name=".views.OrderDetailsActivity"></activity>
+        <activity android:name=".views.OrderDetailsActivity" />
+        <activity
+            android:name=".views.MenuDetailsActivity"
+            android:theme="@style/translucentDialog"></activity>
     </application>
 
 </manifest>
