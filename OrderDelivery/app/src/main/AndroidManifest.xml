@@ -34,7 +34,8 @@
         <activity android:name=".views.OrderDetailsActivity" />
         <activity
             android:name=".views.MenuDetailsActivity"
-            android:theme="@style/translucentDialog"></activity>
+            android:theme="@style/translucentDialog" />
+        <activity android:name=".views.ViewTripDetails"></activity>
     </application>
 
 </manifest>
