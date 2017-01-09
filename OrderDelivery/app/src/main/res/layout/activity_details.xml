@@ -5,150 +5,216 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
+    android:weightSum="3"
     tools:context="com.orderdelivery.views.DetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="2.5"
         android:orientation="vertical">
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:padding="8dp"
-            card_view:cardCornerRadius="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
                 android:layout_weight="1"
-                android:gravity="end"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:padding="8dp"
+                card_view:cardCornerRadius="4dp">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_map_image"
-                    android:scaleType="fitXY"/>
-            </LinearLayout>
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:maxHeight="16dp"
+                            android:maxWidth="16dp"
+                            android:src="@drawable/ic_today_24"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:paddingStart="4dp"
+                            android:text="23 Apr 2017"
+                            android:textColor="@android:color/primary_text_light"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:maxHeight="16dp"
+                            android:maxWidth="16dp"
+                            android:src="@drawable/ic_clock_24"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:paddingStart="4dp"
+                            android:text="10.03 AM"
+                            android:textColor="@android:color/primary_text_light"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/white"
+                android:layout_height="0dp"
+                android:layout_weight="2"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@color/dividercolor"
-                    android:gravity="center_vertical"
+                    android:layout_weight="2"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="4dp"
-                        android:text="Trade center road"
-                        android:textColor="@android:color/primary_text_light"
-                        android:textSize="18sp" />
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_location_24"/>
-                </LinearLayout>
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/test_image_2" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:padding="4dp"
-                        android:text="Bur Dubai"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/primary_text_light"
-                        android:textSize="18sp" />
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_delete_24"/>
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/test_image_1" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:background="@color/dividercolor"
-                    android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/test_image_3" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:padding="4dp"
-                        android:layout_weight="1"
-                        android:text="Plant road Al wasal"
-                        android:textColor="@android:color/primary_text_light"
-                        android:textSize="18sp" />
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_marker_24"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="M and M Foods Pvt."
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Al Wurud"
+                                android:textColor="@android:color/secondary_text_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Food plaza.pvt."
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Al Olaya"
+                                android:textColor="@android:color/secondary_text_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sheikh Zayed Rd"
+                                android:textColor="@android:color/primary_text_light"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jumeriah"
+                                android:textColor="@android:color/secondary_text_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="38dp"
-            android:background="@color/colorAccent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:orientation="vertical"
-        android:background="@drawable/google_map_img">
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_gravity="bottom"
         android:layout_weight="0.5"
         android:background="@android:color/white"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/rejectBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_border"
-            android:text="Reject" />
 
         <Button
             android:id="@+id/acceptBtn"
@@ -156,9 +222,20 @@
             android:layout_height="55dp"
             android:layout_margin="12dp"
             android:layout_weight="1"
-            android:background="@drawable/register_btn_background"
+            android:background="@drawable/button_border"
             android:text="Accept"
             android:textColor="@android:color/white" />
-    </LinearLayout>
 
+        <Button
+            android:id="@+id/rejectBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/register_btn_background"
+            android:text="Reject"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
 </LinearLayout>
