@@ -110,7 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="forgot password?"
+                    android:text="@string/forgot_pwd"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="italic" />

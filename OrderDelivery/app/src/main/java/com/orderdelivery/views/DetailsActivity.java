@@ -17,7 +17,8 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        setTitle("Order details");
+       // setTitle("Order details");
+        setTitle(getResources().getString(R.string.order_title));
         mAccept = (Button) findViewById(R.id.acceptBtn);
         mReject = (Button) findViewById(R.id.rejectBtn);
         mDetails = (TextView) findViewById(R.id.details_1);

@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Smith Johns"
+                android:text="@string/user_name"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="smith@gmail.com"
+                android:text="@string/user_email"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -96,7 +96,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="70"
+                                    android:text="@string/trip_no"
                                     android:textColor="@android:color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -119,7 +119,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Total trips"
+                                    android:text="@string/total_rides"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -166,7 +166,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="70"
+                                    android:text="@string/trip_no_1"
                                     android:textColor="@android:color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -188,7 +188,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Upcoming rides"
+                                    android:text="@string/up_rides"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -246,7 +246,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="SAR"
+                                    android:text="@string/sar_unit"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
 
@@ -254,7 +254,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="4570"
+                                    android:text="@string/sar_price"
                                     android:textColor="@android:color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -276,7 +276,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Trip payment"
+                                    android:text="@string/str_trip_payment"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -322,7 +322,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="SAR"
+                                    android:text="@string/sar_unit"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
 
@@ -330,7 +330,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="4000"
+                                    android:text="@string/sar_price_1"
                                     android:textColor="@android:color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -352,7 +352,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Total credit"
+                                    android:text="@string/total_crdt"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
                             </LinearLayout>

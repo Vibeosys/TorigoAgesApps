@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:paddingBottom="8dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
@@ -34,9 +35,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="4dp"
                         android:gravity="center"
-                        android:text="Order Details"
+                        android:padding="4dp"
+                        android:text="Delivery Details"
                         android:textColor="@color/colorAccent"
                         android:textSize="18sp" />
 
@@ -74,15 +75,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Trip :"
-                                    android:textSize="16sp"
-                                    android:textColor="@android:color/white"/>
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="2190"
-                                    android:textSize="20sp"
-                                    android:textColor="@android:color/white"/>
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -130,8 +131,6 @@
 
                         </LinearLayout>
                     </LinearLayout>
-
-
 
 
                     <LinearLayout

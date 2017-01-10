@@ -20,5 +20,29 @@
     <string name="str_select_language">Select language</string>
     <string name="str_english">English</string>
     <string name="str_arabic">Arabic</string>
+    <string name="dash_date">23 Apr 2017</string>
+    <string name="dash_time">10.03 AM</string>
+    <string name="m_m">M and M Foods Pvt.</string>
+    <string name="str_area1">Al Wurud</string>
+    <string name="details">Details</string>
+    <string name="food_n">Food plaza.pvt.</string>
+    <string name="str_area2">Al Olaya</string>
+    <string name="demo_name">Sheikh Zayed Rd</string>
+    <string name="str_area3">Jumeriah</string>
+    <string name="btn_accept">Accept</string>
+    <string name="bt_reject">Reject</string>
+    <string name="order_title">Order details</string>
+    <string name="forgot_pwd">forgot password?</string>
+    <string name="user_name">Smith Johns</string>
+    <string name="user_email">smith@gmail.com</string>
+    <string name="trip_no">70</string>
+    <string name="sar_unit">SAR</string>
+    <string name="sar_price">4570</string>
+    <string name="trip_no_1">75</string>
+    <string name="sar_price_1">4000</string>
+    <string name="total_rides">Total trips</string>
+    <string name="str_trip_payment">Trip payment</string>
+    <string name="up_rides">Upcoming rides</string>
+    <string name="total_crdt">Total credit</string>
 
 </resources>
