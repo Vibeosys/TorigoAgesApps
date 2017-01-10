@@ -253,7 +253,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            android:background="@drawable/button_border"
+                            android:background="@drawable/tilt_color"
                             android:padding="8dp"
                             android:text="Start my trip"
                             android:textColor="@android:color/white" />
