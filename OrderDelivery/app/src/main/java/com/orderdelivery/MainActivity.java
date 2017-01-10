@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.orderdelivery.views.DetailsActivity;
+import com.orderdelivery.views.LogOutActivity;
 import com.orderdelivery.views.MyProfileActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -106,12 +107,16 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_mySchedule) {
 
+        } else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(getApplicationContext(), LogOutActivity.class);
+            startActivity(intent);
         }
         /*else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
         }*/
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
