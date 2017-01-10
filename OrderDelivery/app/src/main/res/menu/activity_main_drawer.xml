@@ -6,9 +6,9 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_myorders_24"
+            android:title="Order"
             app:actionLayout="@layout/nav_order_layout"
-            app:actionViewClass="android.widget.TextView"
-            android:title="Order" />
+            app:actionViewClass="android.widget.TextView" />
 
         <item
             android:id="@+id/nav_mySchedule"
@@ -23,7 +23,11 @@
             android:icon="@drawable/ic_vechical_details_24"
             android:title="Vechical details" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account_box_white_24dp"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_logout"
             android:icon="@drawable/ic_power_settings_new_white_24dp"
             android:title="Logout" />
     </group>

@@ -35,7 +35,8 @@
         <activity
             android:name=".views.MenuDetailsActivity"
             android:theme="@style/translucentDialog" />
-        <activity android:name=".views.ViewTripDetails"></activity>
+        <activity android:name=".views.ViewTripDetails" />
+        <activity android:name=".views.MyProfileActivity"></activity>
     </application>
 
 </manifest>

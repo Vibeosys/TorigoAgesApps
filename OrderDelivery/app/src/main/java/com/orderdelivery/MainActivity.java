@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.orderdelivery.views.DetailsActivity;
+import com.orderdelivery.views.MyProfileActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -99,10 +100,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_profile) {
+            Intent intent = new Intent(getApplicationContext(), MyProfileActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_mySchedule) {
-            
+
         }
         /*else if (id == R.id.nav_share) {
 

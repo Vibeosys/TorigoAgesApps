@@ -14,4 +14,7 @@
     <color name="colorPrimaryDark">#009c93</color>
     <color name="colorAccent">#FF4081</color>
      <color name="holo_orange_dark_btn">#ff9900</color>
+ <color name="purple_color">#D050D0</color>
+ <color name="light_green">#4FD14F</color>
+ <color name="light_yellow">#F9EB1E</color>
 </resources>
