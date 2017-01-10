@@ -11,5 +11,6 @@ public class ViewTripDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_trip_details);
+        setTitle("My current trip");
     }
 }

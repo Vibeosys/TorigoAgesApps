@@ -71,8 +71,7 @@
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
+
                         android:layout_marginTop="24dp"
                         android:background="@color/holo_orange_dark_btn"
                         android:elevation="4dp"
@@ -87,19 +86,44 @@
                             android:paddingTop="4dp">
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="65"
-                                android:textColor="@android:color/white"
-                                android:textSize="20sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="70"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Total trips"
-                                android:textColor="@android:color/white"
-                                android:textSize="16sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingTop="4dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_briefcase_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Total trips"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
 
                         </LinearLayout>
                     </RelativeLayout>
@@ -110,7 +134,6 @@
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="21dp"
                     android:background="@android:color/transparent"
                     android:orientation="vertical"
                     android:scrollbarAlwaysDrawVerticalTrack="true">
@@ -119,8 +142,6 @@
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
                         android:layout_marginTop="24dp"
                         android:background="@color/purple_color"
                         android:elevation="4dp"
@@ -135,31 +156,48 @@
                             android:paddingTop="4dp">
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="4"
-                                android:textColor="@android:color/white"
-                                android:textSize="20sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="70"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Upcoming rides"
-                                android:textColor="@android:color/white"
-                                android:textSize="16sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingTop="4dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_pickup_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Upcoming rides"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
 
                         </LinearLayout>
                     </RelativeLayout>
-
-
                 </RelativeLayout>
-
             </LinearLayout>
-            <!-- <LinearLayout
-                 android:layout_width="1dp"
-                 android:layout_height="wrap_content"
-                 android:background="@android:color/white"></LinearLayout>-->
 
             <View
                 android:layout_width="1dp"
@@ -177,7 +215,6 @@
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:background="@android:color/transparent"
                     android:orientation="vertical"
                     android:scrollbarAlwaysDrawVerticalTrack="true">
@@ -186,8 +223,6 @@
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
                         android:layout_marginTop="24dp"
                         android:background="@color/colorPrimary"
                         android:elevation="4dp"
@@ -201,19 +236,50 @@
                             android:orientation="vertical"
                             android:paddingTop="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="SAR 4570"
-                                android:textColor="@android:color/white"
-                                android:textSize="20sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="SAR"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="4570"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Trip payment"
-                                android:textColor="@android:color/white"
-                                android:textSize="16sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingTop="4dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_total_payment_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Trip payment"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
 
                         </LinearLayout>
@@ -233,8 +299,6 @@
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginStart="4dp"
                         android:layout_marginTop="24dp"
                         android:background="@color/light_green"
                         android:elevation="4dp"
@@ -248,19 +312,50 @@
                             android:orientation="vertical"
                             android:paddingTop="4dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="SAR 4570"
-                                android:textColor="@android:color/white"
-                                android:textSize="20sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="SAR"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="4000"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Total credit"
-                                android:textColor="@android:color/white"
-                                android:textSize="16sp" />
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingTop="4dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_credit_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Total credit"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
 
                         </LinearLayout>

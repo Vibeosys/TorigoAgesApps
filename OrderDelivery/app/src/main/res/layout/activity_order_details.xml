@@ -32,9 +32,10 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
+                        android:gravity="center"
                         android:text="Order Details"
                         android:textColor="@color/colorAccent"
                         android:textSize="18sp" />
@@ -47,7 +48,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/white"
+                        android:background="@android:color/black"
                         android:orientation="vertical"
                         android:paddingBottom="8dp"
                         android:paddingEnd="@dimen/activity_horizontal_margin"
@@ -58,7 +59,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:background="@color/dividercolor"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
                             android:weightSum="2">
@@ -74,13 +74,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Trip :"
-                                    android:textSize="16sp" />
+                                    android:textSize="16sp"
+                                    android:textColor="@android:color/white"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="2190"
-                                    android:textSize="20sp" />
+                                    android:textSize="20sp"
+                                    android:textColor="@android:color/white"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -94,12 +96,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Time :"
+                                    android:textColor="@android:color/white"
                                     android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="9:15 AM"
+                                    android:textColor="@android:color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
 
@@ -127,18 +131,8 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="4dp"
-                        android:text="Customer Details"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
 
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/show_details_btn" />
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -250,7 +244,7 @@
 
                         <Button
                             android:id="@+id/start_trip"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             android:background="@drawable/tilt_color"

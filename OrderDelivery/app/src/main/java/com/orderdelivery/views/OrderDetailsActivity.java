@@ -15,7 +15,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
-        setTitle("Order details");
+        setTitle("Dashboard");
         mStartTrip = (Button) findViewById(R.id.start_trip);
         mStartTrip.setOnClickListener(new View.OnClickListener() {
             @Override
