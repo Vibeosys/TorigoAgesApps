@@ -25,6 +25,11 @@ import com.vibeosys.lawyerdiary.MainActivity;
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mUserName, mPassword;
@@ -77,6 +82,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
+    /**
+     * This function is use to validate the password and email id field.
+     * email id is also validated for its standard pattern.
+     * @return it returns false when email id and password is empty or not valid and returns true for valid parameter.
+     */
     private boolean callToValidation() {
         String mUserEmail = mUserName.getText().toString().trim();
         String mUserPwd = mPassword.getText().toString().trim();
@@ -97,6 +107,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         return true;
     }
 
+    /**
+     * This function is use to insert  user  email id and password in to local data base.
+     *
+     * @return it returns true on successful insertion and returns false on when it cannot insert the data.
+     */
     private boolean callToInsertData() {
         String mUserEmail = mUserName.getText().toString().trim();
         String mUserPwd = mPassword.getText().toString().trim();
@@ -133,6 +148,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         return true;
     }
 
+    /**
+     * This function is called when user is successfully login and sets the parameter in session manager.
+     * @param userName user email name in String format.
+     * @param email user email id in String format.
+     * @param pwd user password in String format.
+     * @param userId user id in String format.
+     */
     private void callToSessionManager(String userName,String email, String pwd, String userId) {
         mSessionManager.setUserId(userId);
         mSessionManager.setUserEmailId(email);

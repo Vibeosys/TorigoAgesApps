@@ -7,6 +7,13 @@ import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.fragments.CaseDetailFragment;
 import com.vibeosys.lawyerdiary.fragments.ClientDetailFragment;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * This class is use to display client details.
+ */
 public class ClientDetailsActivity extends BaseActivity {
 
     @Override

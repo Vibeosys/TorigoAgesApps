@@ -22,7 +22,12 @@ import com.vibeosys.lawyerdiary.fragments.ClientListFragment;
 import java.util.ArrayList;
 
 /**
- * Created by shrinivas on 26-04-2016.
+ * Created by Vibeosys software on 26-04-2016.
+ *
+ */
+
+/**
+ * Display the store client list.
  */
 public class ClientActivity extends BaseActivity implements ClientListFragment.CallBack {
 

@@ -14,6 +14,13 @@ import com.vibeosys.lawyerdiary.utils.DateUtils;
 
 import java.util.Date;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * Event details activity is used to display details of the case like Date, time, location and case title.
+ */
 public class EventDetailsActivity extends AppCompatActivity {
 
     public static final String EVENT_ID = "event_id";
@@ -39,6 +46,11 @@ public class EventDetailsActivity extends AppCompatActivity {
         loadAndDisplayData();
     }
 
+    /**
+     * This function is use to fetch the data from data base like case note ,case location,
+     * case id and case reminder date.
+     *
+     */
     private void loadAndDisplayData() {
         if (_eventId != 0) {
             Cursor eventCursor = null;

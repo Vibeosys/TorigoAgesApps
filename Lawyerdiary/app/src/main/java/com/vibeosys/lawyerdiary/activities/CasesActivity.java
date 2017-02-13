@@ -19,6 +19,13 @@ import com.vibeosys.lawyerdiary.fragments.CaseListFragment;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * Display the case details in list view.
+ */
 public class CasesActivity extends BaseActivity implements CaseListFragment.CallBackItem {
 
     private static final String TAG = CasesActivity.class.getSimpleName();
@@ -85,6 +92,11 @@ public class CasesActivity extends BaseActivity implements CaseListFragment.Call
          Intent iCaseDetails = new Intent(getApplicationContext(), CaseDetailsActivity.class);
          startActivity(iCaseDetails);
      }*/
+
+    /**
+     * This function will returns instance of the casesActivity class.
+     * @return instance of the caseActivity.
+     */
     public static CasesActivity instance() {
         return inst;
     }

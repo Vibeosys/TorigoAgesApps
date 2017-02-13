@@ -36,6 +36,13 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * This activity is use to add new case event.
+ */
 public class NewEventActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = NewEventActivity.class.getSimpleName();
@@ -203,6 +210,11 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /**
+     * This function is use to validate the field  and also add the case event details,like
+     * case location,case date and case id.
+     * @return after successfully insertion it returns event id.
+     */
     public long addEvent() {
 
         String reminderStr = mReminderName.getText().toString().trim();

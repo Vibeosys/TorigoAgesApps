@@ -28,6 +28,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * This activity is use to facilitate user to go for advertise free version by using In app purchase
+ * functionality.
+ */
 public class RemoveAdsActivity extends BaseActivity implements View.OnClickListener {
 
     IInAppBillingService mService;
@@ -90,6 +98,12 @@ public class RemoveAdsActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * This function is use to available product item list from play store.
+     * It also check response code whether user have already purchased product or not.
+     * if response code is equals to zero that means user have already  purchase the product.
+     * else part will move for purchase product.
+     */
     public void getInAppPurchases() {
         try {
             Bundle purchaseItems = mService.getPurchases(3, getPackageName(), "inapp", null);
@@ -108,6 +122,9 @@ public class RemoveAdsActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * This function is use to initialize item list id and package name.
+     */
     private void purchaseProducts() {
         ArrayList<String> purchaseList = new ArrayList<String>();
         purchaseList.add("com.lawyerdiary.noads");
@@ -118,6 +135,9 @@ public class RemoveAdsActivity extends BaseActivity implements View.OnClickListe
 
     }
 
+    /**
+     * This class uses background threading operation and actually perform purchase operation.
+     */
     private class PurchaseDetails extends AsyncTask<Bundle, Void, Bundle> {
         @Override
         protected Bundle doInBackground(Bundle... params) {

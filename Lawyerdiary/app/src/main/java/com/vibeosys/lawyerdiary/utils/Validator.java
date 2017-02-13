@@ -10,10 +10,22 @@ import java.util.regex.Pattern;
  */
 public class Validator {
 
+    /**
+     * It returns true when email id is matches to the standard parameter.
+     *
+     * @param email email id in String format.
+     * @return on success it returns true.
+     */
     public static boolean isValidMail(String email) {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+    /**
+     * This function validate the phone number for length.
+     *
+     * @param phone String format phone number.
+     * @return on success it returns true else returns false.
+     */
     public static boolean isValidPhone(String phone) {
         if (phone.length() > 10 || phone.length() < 10)
             return false;

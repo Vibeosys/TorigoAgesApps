@@ -48,6 +48,14 @@ import java.util.Calendar;
 import droidninja.filepicker.FilePickerBuilder;
 import droidninja.filepicker.FilePickerConst;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * This activity is use to add new case details.
+ * It also display Interstitial advertise only if user has not purchased for free advertise.
+ */
 public class NewCaseActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private static final String TAG = NewCaseActivity.class.getSimpleName();
     private InterstitialAd mInterstitialAd;
@@ -154,6 +162,9 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         }
     };
 
+    /**
+     *  This function is use to set the user selected time.
+     */
     private void updateLabel() {
         txtDate.setText(dateUtils.getLocalDateInReadableFormat(mCaseCalender.getTime()));
         txtTime.requestFocus();
@@ -169,12 +180,19 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         }
     };
 
+    /**
+     * This function is use to set the user selected time.
+     */
     private void updateTime() {
 
         txtTime.setText(dateUtils.getLocalTimeInReadableFormat(mCaseCalender.getTime()));
         txtCourtLocation.requestFocus();
     }
 
+    /**
+     * This function is used to fetch the available client data from data base and
+     * use to display in auto complete adapter.
+     */
     private void loadClientData() {
 
         Cursor clientsCursor = getContentResolver().query(LawyerContract.Client.CONTENT_URI,
@@ -194,6 +212,9 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         txtClientName.setAdapter(clientAdapter);
     }
 
+    /**
+     * This function loads the interstitial advertise from ad mob.
+     */
     public void showIntestititalCase() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -236,6 +257,12 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
 
     }
 
+    /**
+     * This function is use to save case details like case name,client name,case date and time,
+     * case location and case description in to locale data base.
+     * @return it returns true on successfully insertion
+     * and returns false while case is not added into local data base.
+     */
     private long saveCaseData() {
         long _caseId = 0;
         boolean cancelFlag = false;
@@ -331,6 +358,9 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
                 .pickDocument(this);
     }
 
+    /**
+     * This function is use to request the read and write permission for api version 6.
+     */
     private void requestGrantPermission() {
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.MEDIA_CONTENT_CONTROL,
@@ -374,6 +404,9 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         }
     }
 
+    /**
+     * This class perform background threading operation,to get the user selected document.
+     */
     private class AsyncSaveFiles extends AsyncTask<Long, Void, Void> {
 
 

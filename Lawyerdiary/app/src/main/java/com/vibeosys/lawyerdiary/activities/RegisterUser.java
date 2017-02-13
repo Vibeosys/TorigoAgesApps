@@ -19,6 +19,13 @@ import android.widget.Toast;
 import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * This activity is use to register new user.
+ */
 public class RegisterUser extends BaseActivity implements View.OnClickListener {
 
     private EditText mUserName, mUserEmailId, mUserPassword, mConfirmPassword;
@@ -76,6 +83,11 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    /**
+     * This function is use to validate user credentials such as user email id,password and confirm password.
+     * @return it returns true when all validation are successful and returns false when validation is
+     * not successful and show the error message.
+     */
     private boolean callToValidation() {
         String userName = mUserName.getText().toString().trim();
         String userEmail = mUserEmailId.getText().toString().trim();
@@ -115,6 +127,11 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
         return true;
     }
 
+    /**
+     * This function is get called after all validations are successful and perform insertion operation
+     * in to local data base.It is use to insert values liken use name and email id and password.
+     * @return it returns true on successful insertion and returns false if insertion is not done successfully.
+     */
     private boolean callToInsertValue() {
         String userName = mUserName.getText().toString().trim();
         String userEmail = mUserEmailId.getText().toString().trim();

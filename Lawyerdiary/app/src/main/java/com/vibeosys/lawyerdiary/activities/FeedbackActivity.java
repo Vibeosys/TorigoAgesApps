@@ -29,6 +29,9 @@ import java.util.Locale;
 
 import javax.xml.transform.Templates;
 
+/**
+ * Created by Vibeosys software on 27-04-2016.
+ */
 public class FeedbackActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mClientName,mClientFeedback;
@@ -90,6 +93,11 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                 break;
         }
     }
+
+    /**
+     * This function is use to get customer details and customer feedback for the application
+     * and instantiated  inner class which actually defines template.
+     */
     public void callToSendEmail()
     {
         try {
@@ -106,6 +114,11 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
 
         }
     }
+
+    /**
+     * This function is use to validate the user name and feedback.
+     * @return on success it returns true else it returns false.
+     */
     public boolean callToValidation()
     {
         String userName = mClientName.getText().toString().trim();
@@ -133,9 +146,10 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
     }
 
 
-
-
-
+    /**
+     * This class is used define template and it is use to call send email functionality.
+     * This class extends AsyncTask and perform task in background.
+     */
     class MyAsyncClass extends AsyncTask<String, Void, Void> {
 
         ProgressDialog pDialog;

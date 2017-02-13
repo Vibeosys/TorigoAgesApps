@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by shrinivas on 11-10-2016.
+ * Created by Vibeosys software on 11-10-2016.
  */
 public class SessionManager {
 
@@ -14,6 +14,11 @@ public class SessionManager {
     private static Context mContext = null;
     private static PropertyFileReader mPropertyFileReader = null;
 
+    /**
+     * This will returns the instance of SessionManager class.
+     * @param context Context of the calling class.
+     * @return instance of SessionManager class.
+     */
     public static SessionManager getInstance(Context context) {
         if (mSessionManager != null)
             return mSessionManager;
@@ -33,6 +38,10 @@ public class SessionManager {
     }
     private SessionManager() {
     }
+
+    /**
+     * This function is use to initialize the  shared preference.
+     */
     private static void loadProjectSharedPreferences() {
         if (mProjectSharedPref == null) {
             mProjectSharedPref = mContext.getSharedPreferences(PROJECT_PREFERENCES, Context.MODE_PRIVATE);
@@ -40,11 +49,23 @@ public class SessionManager {
         setValuesInSharedPrefs(PropertyTypeConstants.API_ENDPOINT_URI, mPropertyFileReader.getEndPointUri());
 
     }
+
+    /**
+     * This function is use to edit the shared preferences having key and value parameter.
+     * @param sharedPrefKey This is having unique String value.
+     * @param sharedPrefValue This is having string data type value.
+     */
     private static void setValuesInSharedPrefs(String sharedPrefKey, String sharedPrefValue) {
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putString(sharedPrefKey, sharedPrefValue);
         editor.apply();
     }
+
+    /**
+     * This function is use to edit the shared preferences having key and value as integer.
+     * @param sharedPrefKey This is having unique String value.
+     * @param sharedPrefValue This is having integer data type value.
+     */
     private static void setValuesInSharedPrefs(String sharedPrefKey, int sharedPrefValue) {
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putInt(sharedPrefKey, sharedPrefValue);

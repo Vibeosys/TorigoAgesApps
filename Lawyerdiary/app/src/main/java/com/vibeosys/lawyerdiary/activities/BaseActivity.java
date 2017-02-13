@@ -10,11 +10,16 @@ import com.vibeosys.lawyerdiary.database.DbRepository;
 import com.vibeosys.lawyerdiary.utils.SessionManager;
 
 /**
- * Created by akshay on 08-09-2016.
+ * Created by Vibeosys software on 08-09-2016.
  */
 public class BaseActivity extends AppCompatActivity {
-
+    /**
+     * Session Manager class is use for store user information using shared preference.
+     */
     protected static SessionManager mSessionManager = null;
+    /**
+     *  DbRepository class is used for creating data base.
+     */
     protected DbRepository mDbRepository = null;
 
     @Override
@@ -23,6 +28,13 @@ public class BaseActivity extends AppCompatActivity {
         mSessionManager = SessionManager.getInstance(getApplicationContext());
         mDbRepository = new DbRepository(getApplicationContext());
     }
+
+    /**
+     * This function is use to create alert dialog and display message to user
+     *
+     * @param title will be having string parameter which will display current title page.
+     * @param message will be having string parameter which will display actual message to the user.
+     */
     protected void createAlertDialog(String title, String message) {
         new AlertDialog.Builder(this)
                 .setTitle(title)

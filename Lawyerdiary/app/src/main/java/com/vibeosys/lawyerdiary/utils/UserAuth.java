@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.vibeosys.lawyerdiary.activities.LoginActivity;
 
 /**
- * Created by shrinivas on 11-10-2016.
+ * Created by Vibeosys software on 11-10-2016.
  */
 public class UserAuth {
     private static SharedPreferences mProjectSharedPref = null;
@@ -27,6 +27,10 @@ public class UserAuth {
         return true;
     }
 
+    /**
+     * It is use to check whether user is login or not by checking user name is empty or not.
+     * @return it returns true when user is login and returns false when user is not login.
+     */
     public static boolean isUserLoggedIn() {
         String userEmailId = SessionManager.Instance().getUserEmailId();
         String userName = SessionManager.Instance().gerUserName();
@@ -37,6 +41,11 @@ public class UserAuth {
         }
         return true;
     }
+
+    /**
+     * This function is use to clear the user  authentication from SessionManager class.
+     * @return it returns true when it clear the user credentials.
+     */
 
     public static boolean CleanAuthenticationInfo() {
 

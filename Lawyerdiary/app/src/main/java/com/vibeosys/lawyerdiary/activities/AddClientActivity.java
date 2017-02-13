@@ -27,7 +27,11 @@ import com.vibeosys.lawyerdiary.utils.Validator;
 import java.util.Calendar;
 
 /**
- * Created by shrinivas on 27-04-2016.
+ * Created by Vibeosys software on 27-04-2016.
+ */
+
+/**
+ * This activity is use to add the client to local data base.
  */
 public class AddClientActivity extends BaseActivity implements View.OnClickListener {
 
@@ -43,8 +47,7 @@ public class AddClientActivity extends BaseActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_client);
         setTitle(getResources().getString(R.string.str_new_client));
-        if(mSessionManager.getInAppPurchase()!=1)
-        {
+        if (mSessionManager.getInAppPurchase() != 1) {
             mInterstitialAd = new InterstitialAd(this);
             mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
             AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
@@ -79,6 +82,7 @@ public class AddClientActivity extends BaseActivity implements View.OnClickListe
         mBtnCancel.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -105,6 +109,11 @@ public class AddClientActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * This function is used for add new client in to local data base using form field and also perform validation.
+     *
+     * @return latest client id
+     */
     private long addNewClient() {
         long clientId;
         String name = mTxtName.getText().toString();
@@ -167,6 +176,9 @@ public class AddClientActivity extends BaseActivity implements View.OnClickListe
         return clientId;
     }
 
+    /**
+     * This function loads the interstitial advertise from ad mob integration.
+     */
     public void showIntestititalAd() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
