@@ -14,7 +14,11 @@ import com.vibeosys.lawyerdiary.R;
 import com.vibeosys.lawyerdiary.database.LawyerContract;
 
 /**
- * Created by akshay on 13-09-2016.
+ * Created by Vibeosys software on 13-09-2016.
+ */
+
+/**
+ * Show the client details its name,Phone number,email id,address
  */
 public class ClientDetailFragment extends BaseFragment {
 
@@ -45,6 +49,9 @@ public class ClientDetailFragment extends BaseFragment {
         }
     }
 
+    /**
+     * Load the client data and display it
+     */
     private void loadAndDisplayData() {
         String[] projection = new String[]{LawyerContract.Client._ID, LawyerContract.Client.NAME,
                 LawyerContract.Client.PH_NUMBER, LawyerContract.Client.EMAIL,

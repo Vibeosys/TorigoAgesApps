@@ -1,7 +1,11 @@
 package com.vibeosys.lawyerdiary.data;
 
 /**
- * Created by akshay on 12-09-2016.
+ * Created by Vibeosys software on 12-09-2016.
+ */
+
+/**
+ * Case data module which contain the case information like id,name,etc
  */
 public class CaseData {
 

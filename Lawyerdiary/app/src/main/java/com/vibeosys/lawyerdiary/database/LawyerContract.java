@@ -6,7 +6,11 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * Created by akshay on 09-09-2016.
+ * Created by Vibeosys software on 09-09-2016.
+ */
+
+/**
+ * Abstract class that help the database structure put in constant
  */
 public class LawyerContract {
 
@@ -18,9 +22,12 @@ public class LawyerContract {
     public static final String PATH_CASE = "case_data";
     public static final String PATH_DOCUMENT = "document";
     public static final String PATH_REMINDER = "reminder";
-    public static final String PATH_USER_LOGIN="user_login";
+    public static final String PATH_USER_LOGIN = "user_login";
 
 
+    /**
+     * Client table constants its URI,table name,column names
+     */
     public static final class Client implements BaseColumns {
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_CLIENT).build();
@@ -53,6 +60,9 @@ public class LawyerContract {
         }
     }
 
+    /**
+     * Case table constants URI,Table Name,Column names
+     */
     public static final class Case implements BaseColumns {
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_CASE).build();
@@ -82,6 +92,9 @@ public class LawyerContract {
         }
     }
 
+    /**
+     * Document table constants URI,Table Name,Column names
+     */
     public static final class Document implements BaseColumns {
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DOCUMENT).build();
@@ -100,6 +113,9 @@ public class LawyerContract {
         }
     }
 
+    /**
+     * Reminder table constants URI,Table Name,Column names
+     */
     public static final class Reminder implements BaseColumns {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_REMINDER).build();
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
@@ -119,21 +135,24 @@ public class LawyerContract {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
     }
-    public static  final class UserLogin implements BaseColumns
-    {
+
+    /**
+     * User table constants URI,Table Name,Column names
+     */
+    public static final class UserLogin implements BaseColumns {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_USER_LOGIN).build();
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
                 + CONTENT_AUTHORITY + "/" + PATH_USER_LOGIN;
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
                 + CONTENT_AUTHORITY + "/" + PATH_USER_LOGIN;
-        public final static  String TABLE_NAME="user";
-        public final static String  USER_NAME="user_name";
-        public final static String  USER_EMAIL_ID="email_id";
-        public final static String  USER_ID="user_id";
-        public final static String  USER_PASSWORD="user_password";
-        public  static final Uri userLoginUri(long id)
-        {
-            return ContentUris.withAppendedId(CONTENT_URI,id);
+        public final static String TABLE_NAME = "user";
+        public final static String USER_NAME = "user_name";
+        public final static String USER_EMAIL_ID = "email_id";
+        public final static String USER_ID = "user_id";
+        public final static String USER_PASSWORD = "user_password";
+
+        public static final Uri userLoginUri(long id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
     }

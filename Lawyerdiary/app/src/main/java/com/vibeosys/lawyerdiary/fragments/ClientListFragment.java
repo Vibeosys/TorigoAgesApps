@@ -18,7 +18,11 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 import java.util.ArrayList;
 
 /**
- * Created by akshay on 13-09-2016.
+ * Created by Vibeosys software on 13-09-2016.
+ */
+
+/**
+ * Show the saved client list
  */
 public class ClientListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     private ListView clientList;
@@ -51,6 +55,10 @@ public class ClientListFragment extends BaseFragment implements AdapterView.OnIt
         return rootView;
     }
 
+    /**
+     * Load the client data from the database and show it
+     * select all the clients and display it
+     */
     private void loadClientData() {
         ArrayList<Client> clients = new ArrayList<>();
         Cursor clientCursor = getContext().getContentResolver().query(LawyerContract.Client.CONTENT_URI,

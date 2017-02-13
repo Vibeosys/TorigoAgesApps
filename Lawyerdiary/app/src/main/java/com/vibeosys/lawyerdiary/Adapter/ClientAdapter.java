@@ -14,23 +14,41 @@ import com.vibeosys.lawyerdiary.data.Client;
 import java.util.ArrayList;
 
 /**
- * Created by akshay on 12-09-2016.
+ * Created by Vibeosys software on 12-09-2016.
+ */
+
+/**
+ * Client list adapter is use to show the clients
  */
 public class ClientAdapter extends BaseAdapter {
 
     private ArrayList<Client> mData;
     private Context mContext;
 
+    /**
+     * Constructor of the adapter
+     * @param mData Array list of the Client objects
+     * @param mContext application context
+     */
     public ClientAdapter(ArrayList<Client> mData, Context mContext) {
         this.mData = mData;
         this.mContext = mContext;
     }
 
+    /**
+     * Get the client list count
+     * @return integer total number of the clients
+     */
     @Override
     public int getCount() {
         return mData.size();
     }
 
+    /**
+     * Get the Client object of the given position
+     * @param position Integer value
+     * @return Client object of the given position
+     */
     @Override
     public Object getItem(int position) {
         return mData.get(position);
@@ -41,6 +59,13 @@ public class ClientAdapter extends BaseAdapter {
         return position;
     }
 
+    /**
+     * Inflate the view to show the row in the list view
+     * @param position integer that give the position of the item
+     * @param convertView View that to be inflated
+     * @param parent parent view group
+     * @return View is to be showing
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;

@@ -24,7 +24,7 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 import java.util.ArrayList;
 
 /**
- * Created by akshay on 12-09-2016.
+ * Created by Vibeosys software on 12-09-2016.
  */
 public class CaseListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     private ListView listCases;
@@ -57,6 +57,9 @@ public class CaseListFragment extends BaseFragment implements AdapterView.OnItem
 
     }
 
+    /**
+     * Load the list of all cases from the local database show into the list
+     */
     private void loadCaseData() {
         ArrayList<CaseData> caseList = new ArrayList<>();
         Cursor caseCursor = getContext().getContentResolver().query(LawyerContract.Case.CONTENT_URI,
@@ -77,6 +80,14 @@ public class CaseListFragment extends BaseFragment implements AdapterView.OnItem
         listCases.setAdapter(caseAdapter);
     }
 
+    /**
+     * On item click listener call back from the list when the item get selected
+     *
+     * @param parent   Adapter view
+     * @param view     view of the current row
+     * @param position selected position
+     * @param id       item id
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         CaseData caseData = (CaseData) caseAdapter.getItem(position);

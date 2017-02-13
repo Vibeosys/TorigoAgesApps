@@ -28,17 +28,17 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     private EditText mEmailid;
     private int SEND_EMAIL_PERMISSION_CODE;
     GMailSender sender;
-    String mUserPwd,template,messageTxt,mReceiverEmail,mSenderEmail;
+    String mUserPwd, template, messageTxt, mReceiverEmail, mSenderEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        mEmailid = (EditText)findViewById(R.id.emailIdEditText);
-        mForgotPassword =(Button) findViewById(R.id.forgotPassword);
+        mEmailid = (EditText) findViewById(R.id.emailIdEditText);
+        mForgotPassword = (Button) findViewById(R.id.forgotPassword);
         setTitle(R.string.forgotpass_title);
-        mSenderEmail="aaa@email.com";
-        String mSenderPassword="bbbb";
+        mSenderEmail = "vibeosys@email.com";
+        String mSenderPassword = "Hey!vib_615";
         mForgotPassword.setOnClickListener(this);
         //Enter emailid and Pwd
         sender = new GMailSender(mSenderEmail, mSenderPassword);
@@ -53,21 +53,17 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        switch(id)
-        {
+        switch (id) {
             case R.id.forgotPassword:
-               boolean returnVal= callToValidation();
-                if(returnVal == true)
-                {
+                boolean returnVal = callToValidation();
+                if (returnVal == true) {
                     //requestGrantPermission();
                     mUserPwd = mDbRepository.getPassword(mEmailid.getText().toString().trim());
-                    if(!TextUtils.isEmpty(mUserPwd))
-                    {
+                    if (!TextUtils.isEmpty(mUserPwd)) {
                         callTSendEmail();
-                    }
-                    else {
-                        Toast toast =Toast.makeText(getApplicationContext(),"Cannot perform Operation invalid user",Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER,0,0);
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Cannot perform Operation invalid user", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
                 }
@@ -79,37 +75,37 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     private void callTSendEmail() {
 
         try {
-            mReceiverEmail= mEmailid.getText().toString().trim();
+            mReceiverEmail = mEmailid.getText().toString().trim();
             new MyAsyncClass().execute(mReceiverEmail);
 
         } catch (Exception ex) {
-            Log.d(TAG,ex.toString());
+            Log.d(TAG, ex.toString());
 
         }
     }
 
     private boolean callToValidation() {
-        if(mEmailid.getText().toString().length()==0)
-        {
+        if (mEmailid.getText().toString().length() == 0) {
             mEmailid.requestFocus();
             mEmailid.setError("Please enter email id");
             return false;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(mEmailid.getText().toString().trim()).matches())
-        {
+        if (!Patterns.EMAIL_ADDRESS.matcher(mEmailid.getText().toString().trim()).matches()) {
             mEmailid.requestFocus();
             mEmailid.setError("email Id is not in correct formate");
             return false;
         }
         return true;
     }
+
     private void requestGrantPermission() {
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET,
-                Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE},
+                        Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE},
                 SEND_EMAIL_PERMISSION_CODE);
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -142,16 +138,14 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         @Override
         protected Void doInBackground(String... mApi) {
             try {
-                messageTxt= template + mUserPwd;
+                messageTxt = template + mUserPwd;
                 String email = mApi[0];
 
                 // Add subject, Body, your mail Id, and receiver mail Id.
-                sender.sendMail("Forgot password", messageTxt, mSenderEmail,email );
+                sender.sendMail("Forgot password", messageTxt, mSenderEmail, email);
 //sender emailid and receviver emailid
 
-            }
-
-            catch (Exception ex) {
+            } catch (Exception ex) {
 
             }
             return null;
@@ -161,8 +155,8 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             pDialog.cancel();
-            Toast toast=Toast.makeText(getApplicationContext(), "Please check your email...", Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER,0,0);
+            Toast toast = Toast.makeText(getApplicationContext(), "Please check your email...", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }
     }

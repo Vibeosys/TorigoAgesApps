@@ -9,7 +9,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.util.Log;
+/**
+ * Created by Vibeosys software on 09-09-2016.
+ */
 
+/**
+ * The content provider class that can use to fire the queries,fetch the data from the database
+ * Create the joins and the relations of the table.
+ */
 public class LawyerProvider extends ContentProvider {
 
     private DbRepository mDbRepository;
@@ -21,7 +28,7 @@ public class LawyerProvider extends ContentProvider {
     static final int CASE_DETAILS = 201;
     static final int DOCUMENT = 300;
     static final int REMINDER = 400;
-    static  final int USER_LOGIN=500;
+    static final int USER_LOGIN = 500;
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -33,7 +40,7 @@ public class LawyerProvider extends ContentProvider {
         matcher.addURI(authority, LawyerContract.PATH_REMINDER, REMINDER);
         matcher.addURI(authority, LawyerContract.PATH_CLIENT + "/*", CLIENT_MATCH_PH_NO);
         matcher.addURI(authority, LawyerContract.PATH_CASE + "/#", CASE_DETAILS);
-        matcher.addURI(authority,LawyerContract.PATH_USER_LOGIN,USER_LOGIN);
+        matcher.addURI(authority, LawyerContract.PATH_USER_LOGIN, USER_LOGIN);
 
         return matcher;
     }
@@ -82,6 +89,13 @@ public class LawyerProvider extends ContentProvider {
         }
     }
 
+    /**
+     * Insert the row in the application database in local
+     *
+     * @param uri    Uri link of the table
+     * @param values Content Values are the values that want to store in the database
+     * @return Uri
+     */
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         final SQLiteDatabase db = mDbRepository.getWritableDatabase();
@@ -121,19 +135,15 @@ public class LawyerProvider extends ContentProvider {
                     throw new android.database.SQLException("Failed to insert row into " + uri);
                 break;
             }
-            case USER_LOGIN:{
-                long returnId = db.insert(LawyerContract.UserLogin.TABLE_NAME, null ,values);
-                if(returnId >0)
-                {
-                    returnUri =LawyerContract.UserLogin.userLoginUri(returnId);
-                }
-                else if(returnId==-1)
-                {
-                    returnUri =LawyerContract.UserLogin.userLoginUri(returnId);
-                }
-                else
-                {    Log.d("TAG","TAG");
-                    throw new android.database.SQLException("Fail to insert user login into"+uri);
+            case USER_LOGIN: {
+                long returnId = db.insert(LawyerContract.UserLogin.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = LawyerContract.UserLogin.userLoginUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = LawyerContract.UserLogin.userLoginUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert user login into" + uri);
 
                 }
                 break;
@@ -146,6 +156,14 @@ public class LawyerProvider extends ContentProvider {
         return returnUri;
     }
 
+    /**
+     * Delete the records from the database
+     *
+     * @param uri           URI of the table
+     * @param selection     where clause if any put null to delete all the records
+     * @param selectionArgs where clause arguments null if selection is null
+     * @return int row id of the deleted record
+     */
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         final SQLiteDatabase db = mDbRepository.getWritableDatabase();
@@ -165,7 +183,7 @@ public class LawyerProvider extends ContentProvider {
                 rowDeleted = db.delete(LawyerContract.Reminder.TABLE_NAME, selection, selectionArgs);
                 break;
             case USER_LOGIN:
-                rowDeleted = db.delete(LawyerContract.UserLogin.TABLE_NAME,selection,selectionArgs);
+                rowDeleted = db.delete(LawyerContract.UserLogin.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in delete: " + uri);
@@ -183,6 +201,16 @@ public class LawyerProvider extends ContentProvider {
         return false;
     }
 
+    /**
+     * Fetch the records from the database.
+     *
+     * @param uri           Table Uri to identify the table
+     * @param projection    Column names that is to get from the database
+     * @param selection     Where clause to add the condition in the query. to get all the data set it null
+     * @param selectionArgs Where clause arguments as per the selection. set null if selection is null
+     * @param sortOrder     Sort order asc od desc to sort the data
+     * @return Cursor which contains the data in table format
+     */
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
@@ -221,11 +249,10 @@ public class LawyerProvider extends ContentProvider {
                         selectionArgs, null, null, sortOrder);
                 break;
             }
-            case USER_LOGIN:
-            {
+            case USER_LOGIN: {
                 retCursor = mDbRepository.getReadableDatabase().query(
-                        LawyerContract.UserLogin.TABLE_NAME,projection,selection,selectionArgs
-                        ,null,null,sortOrder);
+                        LawyerContract.UserLogin.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
                 break;
             }
             default:
@@ -265,6 +292,15 @@ public class LawyerProvider extends ContentProvider {
                 projection, selection, selectionArgs, null, null, sortOrder);
     }
 
+    /**
+     * Update the case record which is selected
+     *
+     * @param uri           table uri to get the table
+     * @param values        Content values column names and values that want to update
+     * @param selection     Where clause to select the correct record to update
+     * @param selectionArgs where clause arguments values of the where clause
+     * @return int the record id which we update
+     */
     @Override
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
@@ -285,7 +321,7 @@ public class LawyerProvider extends ContentProvider {
                 rowUpdated = db.delete(LawyerContract.Reminder.TABLE_NAME, selection, selectionArgs);
                 break;
             case USER_LOGIN:
-                rowUpdated = db.delete(LawyerContract.UserLogin.TABLE_NAME,selection,selectionArgs);
+                rowUpdated = db.delete(LawyerContract.UserLogin.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in update: " + uri);

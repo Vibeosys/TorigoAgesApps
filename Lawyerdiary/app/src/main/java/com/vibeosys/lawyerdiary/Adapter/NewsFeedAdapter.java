@@ -15,23 +15,43 @@ import com.vibeosys.lawyerdiary.data.NewsFeedData;
 import java.util.ArrayList;
 
 /**
- * Created by akshay on 08-10-2016.
+ * Created by Vibeosys software on 08-10-2016.
+ */
+
+/**
+ * Show the current activities that done by the user
+ * Newsfeed adapter show the current activities like add new Client,add new Event etc.
  */
 public class NewsFeedAdapter extends BaseAdapter {
 
     private ArrayList<NewsFeedData> mData;
     private Context mContext;
 
+    /**
+     * Constructor that can accept the data and show it
+     *
+     * @param mData    List of NewsFeedData
+     * @param mContext application context
+     */
     public NewsFeedAdapter(ArrayList<NewsFeedData> mData, Context mContext) {
         this.mData = mData;
         this.mContext = mContext;
     }
 
+    /**
+     * Total number of activity count
+     * @return integer value give the size of the arraylist
+     */
     @Override
     public int getCount() {
         return mData.size();
     }
 
+    /**
+     * Get the NewsFeedData object the given position
+     * @param position Integer number that give the position of the object
+     * @return News feed data object from the list of given position
+     */
     @Override
     public Object getItem(int position) {
         return mData.get(position);
@@ -42,6 +62,14 @@ public class NewsFeedAdapter extends BaseAdapter {
         return position;
     }
 
+    /**
+     * Inflate the view to show the row in the list view
+     *
+     * @param position    integer that give the position of the item
+     * @param convertView View that to be inflated
+     * @param parent      parent view group
+     * @return View is to be showing
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;

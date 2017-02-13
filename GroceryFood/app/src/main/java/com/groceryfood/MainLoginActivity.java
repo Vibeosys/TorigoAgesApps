@@ -30,6 +30,7 @@ public class MainLoginActivity extends AppCompatActivity implements View.OnClick
         layQuick.setOnClickListener(this);
         layLogin.setOnClickListener(this);
         txtVendorLogin.setOnClickListener(this);
+
     }
 
     @Override

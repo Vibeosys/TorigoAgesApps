@@ -10,7 +10,19 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 import android.util.Log;
 
 /**
- * Created by akshay on 09-09-2016.
+ * Created by Vibeosys software on 09-09-2016.
+ */
+
+/**
+ * Data base class that extend SQLiteOpenHelper
+ * see SQLiteOpenHelper for more intro
+ * <p/>
+ * Database consist of the 5 tables
+ * </br>1. Client table contains Id,name,email,email,ph no., address,date
+ * </br>2. Case table contains Id,case name,client id(FK of the client table), against,situation, date,etc.
+ * </br>3. Document table contains Id, name,client id(FK of the client table),etc.
+ * </br>4. Reminder table contains the id,reminder name,time ,date ,etc.
+ * </br>5. User table the application current user contains name,email,password,etc.
  */
 public class DbRepository extends SQLiteOpenHelper {
 
@@ -60,11 +72,11 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Reminder.COLOUR + " TEXT NOT NULL," +
             LawyerContract.Reminder.CASE_ID + " INTEGER)";
 
-    private String CREATE_USER_TABLE= "CREATE TABLE "+LawyerContract.UserLogin.TABLE_NAME+"("+
-            LawyerContract.UserLogin.USER_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            LawyerContract.UserLogin.USER_NAME+" TEXT NOT NULL,"+
-            LawyerContract.UserLogin.USER_EMAIL_ID+" TEXT NOT NULL UNIQUE,"+
-            LawyerContract.UserLogin.USER_PASSWORD+" TEXT NOT NULL)";
+    private String CREATE_USER_TABLE = "CREATE TABLE " + LawyerContract.UserLogin.TABLE_NAME + "(" +
+            LawyerContract.UserLogin.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            LawyerContract.UserLogin.USER_NAME + " TEXT NOT NULL," +
+            LawyerContract.UserLogin.USER_EMAIL_ID + " TEXT NOT NULL UNIQUE," +
+            LawyerContract.UserLogin.USER_PASSWORD + " TEXT NOT NULL)";
            /* +
             "FOREIGN KEY(" + LawyerContract.Reminder.CASE_ID + ") REFERENCES " +
             LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";*/
@@ -101,10 +113,9 @@ public class DbRepository extends SQLiteOpenHelper {
         }
         try {
             db.execSQL(CREATE_USER_TABLE);
-            Log.d(TAG,"User Table is created ");
-        }catch (SQLiteException e)
-        {
-            Log.e(TAG,"Cannot create table"+e.toString());
+            Log.d(TAG, "User Table is created ");
+        } catch (SQLiteException e) {
+            Log.e(TAG, "Cannot create table" + e.toString());
         }
     }
 

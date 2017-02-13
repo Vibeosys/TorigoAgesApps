@@ -13,7 +13,13 @@ import com.vibeosys.lawyerdiary.activities.CaseDetailsActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
 
 /**
- * Created by akshay on 11-10-2016.
+ * Created by Vibeosys software on 11-10-2016.
+ */
+
+/**
+ * Reminder Receiver give the notification reminder to the user
+ * Use the alarm ring tone extends on WakefulBroadcastReceiver
+ * wake on alarm Notification received
  */
 public class ReminderReceiver extends WakefulBroadcastReceiver {
 

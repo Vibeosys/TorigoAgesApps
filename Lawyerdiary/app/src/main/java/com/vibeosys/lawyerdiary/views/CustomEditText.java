@@ -6,7 +6,11 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 
 /**
- * Created by shrinivas on 28-04-2016.
+ * Created by Vibeosys software on 28-04-2016.
+ */
+
+/**
+ * Custom edit text with the Roboto font
  */
 public class CustomEditText extends EditText {
     public CustomEditText(Context context, AttributeSet attrs) {

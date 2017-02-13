@@ -3,7 +3,11 @@ package com.vibeosys.lawyerdiary.data;
 import java.util.Comparator;
 
 /**
- * Created by akshay on 08-10-2016.
+ * Created by Vibeosys software on 08-10-2016.
+ */
+
+/**
+ * News feed data module that contains the heading,title,date,etc.
  */
 public class NewsFeedData implements Comparable<NewsFeedData> {
     private long _id;

@@ -13,7 +13,12 @@ import com.vibeosys.lawyerdiary.activities.CaseDetailsActivity;
 import com.vibeosys.lawyerdiary.activities.CasesActivity;
 
 /**
- * Created by akshay on 11-10-2016.
+ * Created by Vibeosys software on 11-10-2016.
+ */
+
+/**
+ * Show the reminder notification call by the ReminderReceiver
+ * get the notification and display it on the mobile
  */
 public class ReminderService extends IntentService {
     private NotificationManager alarmNotificationManager;
@@ -27,6 +32,11 @@ public class ReminderService extends IntentService {
         sendNotification(getResources().getString(R.string.app_name) + " Notification");
     }
 
+    /**
+     * Send the notification on the user home mobile screen
+     *
+     * @param msg String message that is to be shown in the notification
+     */
     private void sendNotification(String msg) {
         Log.d("AlarmService", "Preparing to send notification...: " + msg);
         alarmNotificationManager = (NotificationManager) this

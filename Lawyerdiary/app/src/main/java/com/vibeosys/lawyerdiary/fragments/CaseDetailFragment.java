@@ -33,7 +33,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by akshay on 13-09-2016.
+ * Created by Vibeosys software on 13-09-2016.
+ */
+
+/**
+ * Show the case details of the particular case show the name,Client name,Opposition name,
+ * Court location,status,date, etc.
  */
 public class CaseDetailFragment extends BaseFragment implements View.OnClickListener {
 
@@ -55,6 +60,7 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
 
         Bundle arguments = getArguments();
         if (arguments != null) {
+            //case id that is to be show
             _caseId = arguments.getLong(CaseDetailFragment.DETAIL_URI);
             mUri = LawyerContract.Case.buildCaseUri(_caseId);
             txtCaseName = (EditText) rootView.findViewById(R.id.txtCaseName);
@@ -80,6 +86,9 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
 
     }
 
+    /**
+     * Disable all the edit text fields
+     */
     private void disableAll() {
         txtCaseName.setEnabled(false);
         txtClientName.setEnabled(false);
@@ -92,6 +101,10 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
         txtDescription.setEnabled(false);
     }
 
+    /**
+     * Get the record from the database and show it on the screen
+     * use the Content provider to fetch the records
+     */
     private void loadAndDisplayData() {
         String[] projection = new String[]{LawyerContract.Case.TABLE_NAME + "." + LawyerContract.Case._ID,
                 LawyerContract.Case.CASE_NAME, LawyerContract.Client.NAME, LawyerContract.Case.AGAINST,
@@ -134,10 +147,16 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
         loadFileData();
     }
 
+    /**
+     * Fetch the document records of the given case and show on the screen
+     */
     private void loadFileData() {
+        // Column name that to be selected
         String[] projection = new String[]{LawyerContract.Document._ID, LawyerContract.Document.DOCUMENT_NAME,
                 LawyerContract.Document.FILE_PATH};
+        //Where clause where case_id=?
         String selection = LawyerContract.Document.CASE_ID + "=?";
+        //Where clause values provide the case id to get the records
         String[] selectionArgs = new String[]{String.valueOf(_caseId)};
         Cursor documentCursor = null;
         String allFiles = "";
@@ -194,6 +213,9 @@ public class CaseDetailFragment extends BaseFragment implements View.OnClickList
         }
     }
 
+    /**
+     * Update the case data in the local database
+     */
     private void updateCaseDate() {
         View focusView = null;
         boolean cancelFlag = false;

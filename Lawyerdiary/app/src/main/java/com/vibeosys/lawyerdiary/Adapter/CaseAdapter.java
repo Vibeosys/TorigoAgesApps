@@ -14,23 +14,44 @@ import com.vibeosys.lawyerdiary.data.CaseData;
 import java.util.ArrayList;
 
 /**
- * Created by akshay on 12-09-2016.
+ * Created by Vibeosys software on 12-09-2016.
+ */
+
+/**
+ * Case Adapter present the case list save by the user
  */
 public class CaseAdapter extends BaseAdapter {
 
     private ArrayList<CaseData> mData;
     private Context mContext;
 
+    /**
+     * Constructor of the case adapter class
+     *
+     * @param mData    ArrayList of CaseData objects
+     * @param mContext Application context
+     */
     public CaseAdapter(ArrayList<CaseData> mData, Context mContext) {
         this.mData = mData;
         this.mContext = mContext;
     }
 
+    /**
+     * Get the total count of the case data array list
+     *
+     * @return count of the data in integer
+     */
     @Override
     public int getCount() {
         return mData.size();
     }
 
+    /**
+     * Get the current object of given position this function call by the system
+     *
+     * @param position integer position of the current object
+     * @return Object from the case list of the given position
+     */
     @Override
     public Object getItem(int position) {
         return mData.get(position);
@@ -41,6 +62,13 @@ public class CaseAdapter extends BaseAdapter {
         return position;
     }
 
+    /**
+     * Inflate the view to show the row in the list view
+     * @param position integer that give the position of the item
+     * @param convertView View that to be inflated
+     * @param parent parent view group
+     * @return View is to be showing
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
