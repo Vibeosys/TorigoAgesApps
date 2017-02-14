@@ -23,8 +23,9 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
  */
 
 /**
- * This activity is use to register new user.
- * It accepts user name,email id and password while registration.
+ * RegisterUserActivity is use to register new user.
+ * It accepts user name,email id and password while registration and store details in to local
+ * data base.
  */
 public class RegisterUserActivity extends BaseActivity implements View.OnClickListener {
 

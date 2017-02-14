@@ -31,7 +31,8 @@ import java.util.Calendar;
  */
 
 /**
- * This activity is use to add the client details into local data base.
+ * AddClientActivity is use to add the client details into local data base.
+ * This activity also have InterstitialAd from ad mob
  */
 public class AddClientActivity extends BaseActivity implements View.OnClickListener {
 
