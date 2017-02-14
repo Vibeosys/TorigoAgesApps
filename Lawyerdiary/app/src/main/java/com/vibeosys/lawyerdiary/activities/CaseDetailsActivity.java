@@ -15,6 +15,12 @@ import com.vibeosys.lawyerdiary.fragments.CaseDetailFragment;
 /**
  *  Created by Vibeosys software on 27-04-2016.
  */
+
+/**
+ * CaseDetailsActivity is use to display clients case details.
+ * This activity is container for the CaseDetails Fragment.
+ * Fragment is inflated from frame layout of this activity.
+ */
 public class CaseDetailsActivity extends AppCompatActivity {
 
 

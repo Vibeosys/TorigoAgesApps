@@ -56,6 +56,12 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * MainActivity is launching activity of the application.
+ * NewsFeedAdapter is use to display all latest event list to the user.
+ * This activity also uses service connection to check whether user have purchase billing service or not.
+ * It also contain banner advertise from ad mob.
+ */
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -260,7 +266,11 @@ public class MainActivity extends BaseActivity
         super.onDestroy();
     }
 
-
+    /**
+     * retrieveData() function is use to fetch event list from local data base.
+     * This function is having event details like event start date,time ,location and event name.
+     * @return Array list having NewsFeedData class as data type.
+     */
     private ArrayList<NewsFeedData> retrieveData() {
         ArrayList<NewsFeedData> events = new ArrayList<>();
         Cursor eventCursor = getApplicationContext().getContentResolver().query(LawyerContract.Reminder.CONTENT_URI,
@@ -338,6 +348,10 @@ public class MainActivity extends BaseActivity
         return events;
     }
 
+    /**
+     * This function is get called when Session manager is not having user credentials.
+     * It is use to navigate to LoginActivity class.
+     */
     private void callToLogin() {
         Intent loginactivity = new Intent(MainActivity.this, LoginActivity.class);
         /*loginactivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
@@ -348,6 +362,10 @@ public class MainActivity extends BaseActivity
         finish();
 
     }
+
+    /**
+     * isPurchase() function is use to check whether application is billing supported or not.
+     */
     public void isPurchase()
     {
         int isBillingSupported = -1;
@@ -364,6 +382,11 @@ public class MainActivity extends BaseActivity
             getInAppPurchases();
 
     }
+
+    /**
+     * getInAppPurchases() this function is called when application is billing supported.
+     * It is use to store purchase item details in to SessionManager.
+     */
     public void getInAppPurchases() {
         try {
             Bundle purchaseItems = mService.getPurchases(3, getPackageName(), "inapp", null);

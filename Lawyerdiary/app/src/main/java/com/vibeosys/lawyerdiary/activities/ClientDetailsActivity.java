@@ -12,7 +12,8 @@ import com.vibeosys.lawyerdiary.fragments.ClientDetailFragment;
  */
 
 /**
- * This class is use to display client details.
+ * ClientDetailsActivity is use to display client details.
+ * This activity is use inflate ClientDetails fragment.
  */
 public class ClientDetailsActivity extends BaseActivity {
 

@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,13 +24,14 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 
 /**
  * This activity is use to register new user.
+ * It accepts user name,email id and password while registration.
  */
-public class RegisterUser extends BaseActivity implements View.OnClickListener {
+public class RegisterUserActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mUserName, mUserEmailId, mUserPassword, mConfirmPassword;
     private Button mUserRegisterBtn;
     long userRegisterId;
-    private static final String TAG = RegisterUser.class.getSimpleName();
+    private static final String TAG = RegisterUserActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
         mConfirmPassword = (EditText) findViewById(R.id.UserConfPassword);
         mUserRegisterBtn = (Button) findViewById(R.id.registerUser);
         setTitle(getResources().getString(R.string.str_regiseter));
-        mUserRegisterBtn.setOnClickListener(RegisterUser.this);
+        mUserRegisterBtn.setOnClickListener(RegisterUserActivity.this);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class RegisterUser extends BaseActivity implements View.OnClickListener {
                     boolean databaseVal = callToInsertValue();
                     if(databaseVal ==true)
                     {
-                        Intent loginScreen = new Intent(RegisterUser.this,LoginActivity.class);
+                        Intent loginScreen = new Intent(RegisterUserActivity.this,LoginActivity.class);
                         startActivity(loginScreen);
                         finish();
                         Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_user_register_successfully), Toast.LENGTH_LONG);

@@ -53,8 +53,9 @@ import droidninja.filepicker.FilePickerConst;
  */
 
 /**
- * This activity is use to add new case details.
- * It also display Interstitial advertise only if user has not purchased for free advertise.
+ * NewCaseActivity is use to add new case details.
+ * It also display Interstitial advertise only if user has not purchased for free advertise subscription.
+ * This activity also uses AsyncSaveFiles as inner class to save the case documents.
  */
 public class NewCaseActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private static final String TAG = NewCaseActivity.class.getSimpleName();

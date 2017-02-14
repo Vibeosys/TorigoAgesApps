@@ -25,6 +25,9 @@ import java.util.ArrayList;
 
 /**
  * Display the case details in list view.
+ * This class is use to inflate CaseDetails fragment.
+ * This Activity is use to display case list and also use to add new case.
+ * Floating button is use to add new case details i.e.NewCaseActivity.
  */
 public class CasesActivity extends BaseActivity implements CaseListFragment.CallBackItem {
 

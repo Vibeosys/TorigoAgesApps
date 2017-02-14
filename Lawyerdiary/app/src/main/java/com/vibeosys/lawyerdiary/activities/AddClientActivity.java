@@ -31,13 +31,16 @@ import java.util.Calendar;
  */
 
 /**
- * This activity is use to add the client to local data base.
+ * This activity is use to add the client details into local data base.
  */
 public class AddClientActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = AddClientActivity.class.getSimpleName();
     private EditText mTxtName, mTxtPhNo, mTxtEmail, mTxtAddress;
     private Button mBtnCancel, mBtnSave;
+    /**
+     * Validator class is used for validation purpose.This class validate email id and phone number.
+     */
     private Validator validator = new Validator();
     InterstitialAd mInterstitialAd;
     Calendar calendar = Calendar.getInstance();

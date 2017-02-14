@@ -1,16 +1,9 @@
 package com.vibeosys.lawyerdiary.activities;
 
-import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
-import android.net.Uri;
-import android.nfc.Tag;
-import android.os.PatternMatcher;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -29,7 +22,11 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
  * Created by Vibeosys software on 27-04-2016.
  */
 
-
+/**
+ * LoginActivity is used to login by validating user email id and password.
+ * On successful login this activity will navigate to the home screen of the application.
+ * This activity also facilitated  new user to register.
+ */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mUserName, mPassword;
@@ -75,7 +72,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
                 break;
             case R.id.newUser:
-                Intent registerUser = new Intent(LoginActivity.this, RegisterUser.class);
+                Intent registerUser = new Intent(LoginActivity.this, RegisterUserActivity.class);
                 startActivity(registerUser);
                 finish();
                 break;

@@ -35,6 +35,7 @@ import java.util.UUID;
 /**
  * This activity is use to facilitate user to go for advertise free version by using In app purchase
  * functionality.
+ * It uses service connection for in app billing.
  */
 public class RemoveAdsActivity extends BaseActivity implements View.OnClickListener {
 

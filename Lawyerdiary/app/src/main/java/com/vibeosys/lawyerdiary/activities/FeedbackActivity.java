@@ -32,6 +32,11 @@ import javax.xml.transform.Templates;
 /**
  * Created by Vibeosys software on 27-04-2016.
  */
+
+/**
+ * FeedbackActivity is use to send the customers feedback.
+ * This activity is uses MyAsyncClass as inner class to send custom template as feedback.
+ */
 public class FeedbackActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mClientName,mClientFeedback;

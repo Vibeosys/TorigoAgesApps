@@ -41,7 +41,8 @@ import java.util.Locale;
  */
 
 /**
- * This activity is use to add new case event.
+ * NewEventActivity is use to add new case event.
+ * It allows user to add event details  like event date ,time and meeting location.
  */
 public class NewEventActivity extends AppCompatActivity implements View.OnClickListener {
 

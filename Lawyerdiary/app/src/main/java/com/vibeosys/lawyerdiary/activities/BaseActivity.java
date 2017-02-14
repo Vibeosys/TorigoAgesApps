@@ -12,6 +12,12 @@ import com.vibeosys.lawyerdiary.utils.SessionManager;
 /**
  * Created by Vibeosys software on 08-09-2016.
  */
+
+/**
+ * BaseActivity is first immediate super class for all the activity in the project.
+ * BaseActivity itself extends from AppcompatActivity.
+ * This class is used to initialize the instance of SessionManager and DbRepository instance.
+ */
 public class BaseActivity extends AppCompatActivity {
     /**
      * Session Manager class is use for store user information using shared preference.

@@ -19,7 +19,8 @@ import java.util.Date;
  */
 
 /**
- * Event details activity is used to display details of the case like Date, time, location and case title.
+ * EventDetailsActivity is used to display event details of the case like Date, time, location and case title.
+ * This activity also use DateUtils class which helps to get date,time into local time zone format.
  */
 public class EventDetailsActivity extends AppCompatActivity {
 

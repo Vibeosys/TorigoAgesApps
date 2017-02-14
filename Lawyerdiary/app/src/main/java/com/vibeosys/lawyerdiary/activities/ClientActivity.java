@@ -27,7 +27,9 @@ import java.util.ArrayList;
  */
 
 /**
- * Display the store client list.
+ * ClientActivity is use to display the client list from local data base.
+ * This class is use to inflate ClientDetails Fragment which is used to add client details.
+ * click on fab button is use to new client using AddClientActivity.
  */
 public class ClientActivity extends BaseActivity implements ClientListFragment.CallBack {
 
