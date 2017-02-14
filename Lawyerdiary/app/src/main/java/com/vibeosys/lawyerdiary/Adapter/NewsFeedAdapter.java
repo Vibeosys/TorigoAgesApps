@@ -19,8 +19,8 @@ import java.util.ArrayList;
  */
 
 /**
- * Show the current activities that done by the user
- * Newsfeed adapter show the current activities like add new Client,add new Event etc.
+ * Show the current activities that done by the user in the application.
+ * like user add the new client or add reminder it will be show by this adapter
  */
 public class NewsFeedAdapter extends BaseAdapter {
 
@@ -40,6 +40,7 @@ public class NewsFeedAdapter extends BaseAdapter {
 
     /**
      * Total number of activity count
+     *
      * @return integer value give the size of the arraylist
      */
     @Override
@@ -49,6 +50,7 @@ public class NewsFeedAdapter extends BaseAdapter {
 
     /**
      * Get the NewsFeedData object the given position
+     *
      * @param position Integer number that give the position of the object
      * @return News feed data object from the list of given position
      */

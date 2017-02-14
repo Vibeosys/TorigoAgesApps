@@ -55,7 +55,8 @@ import droidninja.filepicker.FilePickerConst;
 /**
  * NewCaseActivity is use to add new case details.
  * It also display Interstitial advertise only if user has not purchased for free advertise subscription.
- * This activity also uses AsyncSaveFiles as inner class to save the case documents.
+ * This activity also uses {@link com.vibeosys.lawyerdiary.activities.NewCaseActivity.AsyncSaveFiles Save Files}
+ * as inner class to save the case documents.
  */
 public class NewCaseActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private static final String TAG = NewCaseActivity.class.getSimpleName();
@@ -80,8 +81,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_case);
         setTitle(getResources().getString(R.string.add_new_case_title));
-        if(mSessionManager.getInAppPurchase()!=1)
-        {
+        if (mSessionManager.getInAppPurchase() != 1) {
             mInterstitialAd = new InterstitialAd(this);
             mInterstitialAd.setAdUnitId(getString(R.string.intestitial_banner_home_footer));
             AdRequest adRequest = new AdRequest.Builder().addTestDevice("1C22DEC8AEF4249E83143364E2E5AC32").build();
@@ -164,7 +164,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     };
 
     /**
-     *  This function is use to set the user selected time.
+     * This function is use to set the user selected time.
      */
     private void updateLabel() {
         txtDate.setText(dateUtils.getLocalDateInReadableFormat(mCaseCalender.getTime()));
@@ -261,6 +261,7 @@ public class NewCaseActivity extends BaseActivity implements View.OnClickListene
     /**
      * This function is use to save case details like case name,client name,case date and time,
      * case location and case description in to locale data base.
+     *
      * @return it returns true on successfully insertion
      * and returns false while case is not added into local data base.
      */

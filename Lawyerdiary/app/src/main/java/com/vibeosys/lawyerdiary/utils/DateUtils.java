@@ -10,34 +10,24 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 /**
- * Created by akshay on 14-09-2016.
+ * Created by Vibeosys software on 14-09-2016.
+ */
+
+/**
+ * Its utility class that give the date in requested format
+ * change the format or to convert time stamp to time or String to date.
  */
 public class DateUtils {
     private static final String TAG = DateUtils.class.getSimpleName();
-    final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    // Date in readable format e.g. 01 Jan 2017
     final SimpleDateFormat dateReadFormat = new SimpleDateFormat("dd MMM yyyy");
+    // Date and time format e.g. 31-o1-2017 15:30:22
     final SimpleDateFormat dateTimeReadFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    // Date and time format e.g. 01 Jan 2017 02:30 PM
     final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd MMM yyyy hh:mm aa");
-    final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+    // Time format e.g. 02:30 PM
     final SimpleDateFormat timeReadFormat = new SimpleDateFormat("hh:mm aa");
-    final SimpleDateFormat SqlFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    public String getGMTCurrentDate() {
-        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-        return dateFormat.format(new java.util.Date());
-    }
-
-    public String getLocalCurrentDate() {
-        return dateFormat.format(new java.util.Date());
-    }
-
-    public String getLocalSQLCurrentDate() {
-        return SqlFormat.format(new java.util.Date());
-    }
-
-    public String getLocalDateInFormat(java.util.Date date) {
-        return dateFormat.format(date);
-    }
 
     public String getLocalDateInReadableFormat(java.util.Date date) {
         return dateReadFormat.format(date);
@@ -55,39 +45,6 @@ public class DateUtils {
         return timeReadFormat.format(date);
     }
 
-    public String getLocalTimeInReadableFormat() {
-        return timeReadFormat.format(new java.util.Date());
-    }
-
-    public String getGMTDateInFormat(Date date) {
-        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-        return dateFormat.format(date);
-    }
-
-    public String getGMTCurrentTime() {
-        timeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-        return timeFormat.format(new java.util.Date());
-    }
-
-    public String getSqlOffsetTime(int hour, int min) {
-        timeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-        long time = new java.util.Date().getTime() - getTimeOffsetAsPerLocal(hour, min);
-        return timeFormat.format(new java.util.Date(time));
-    }
-
-
-    public String getLocalCurrentTime() {
-        return timeFormat.format(new java.util.Date());
-    }
-
-    public String getLocalTimeInFormat(Date date) {
-        return timeFormat.format(date);
-    }
-
-    public String getGMTTimeInFormat(Date date) {
-        return timeFormat.format(date);
-    }
-
     public java.util.Date getFormattedDate(String strDate) {
         java.util.Date date = null;
         try {
@@ -98,10 +55,14 @@ public class DateUtils {
         return date;
     }
 
-    public long getTimeOffsetAsPerLocal(int hours, int mins) {
-        return ((hours * 60 * 60 * 1000) + (mins * 60 * 1000));
-    }
 
+    /**
+     * Convert time string to datetime stamp into long integer
+     * Give the time string in 02:30 PM format only that convert it into the time stamp
+     *
+     * @param time String time in 02:30 PM format
+     * @return long timestamp of the given time
+     */
     public long getLongTime(String time) {
         java.util.Date date = null;
         try {
@@ -116,6 +77,13 @@ public class DateUtils {
         else return 0;
     }
 
+    /**
+     * Convert date string to datetime stamp into long integer
+     * Give the time string in 01 Jan 2017 format only that convert it into the time stamp
+     *
+     * @param time date string is in 01 Jan 2017 format only
+     * @return long timestamp of the given date
+     */
     public long getLongDate(String time) {
         java.util.Date date = null;
         try {
@@ -130,6 +98,13 @@ public class DateUtils {
         else return 0;
     }
 
+    /**
+     * Convert the string to Date(java.util.Date)
+     * Give the date-time in 01 Jan 2017 02:30 PM in this format this will convert it into the Date
+     *
+     * @param strDate String date and time in this 01 Jan 2017 02:30 PM format only
+     * @return java.util.Date the converted date and time
+     */
     public java.util.Date convertTimeToDate(String strDate) {
         DateFormat df2 = new SimpleDateFormat("dd MMM yyyy hh:mm aa", Locale.ENGLISH);
         java.util.Date date = null;

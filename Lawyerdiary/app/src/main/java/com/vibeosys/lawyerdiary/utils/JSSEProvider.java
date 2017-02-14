@@ -4,7 +4,12 @@ import java.security.AccessController;
 import java.security.Provider;
 
 /**
- * Created by shrinivas on 17-10-2016.
+ * Created by Vibeosys software on 17-10-2016.
+ */
+
+/**
+ * JSSE provider give the SSL context to the email sending
+ * Provide the security to the email sending
  */
 public class JSSEProvider extends Provider {
 

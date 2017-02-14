@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Security;
 import java.util.Properties;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 
@@ -18,9 +19,16 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
+/**
+ * Created by Vibeosys software on 17-10-2016.
+ */
 
 /**
- * Created by shrinivas on 17-10-2016.
+ * This class is use to send the mail from the applicaiton
+ * With the details From,To,Message
+ * From - Application mail id
+ * To - user mail id
+ * Message- The message that is to be send to the user
  */
 public class GMailSender extends javax.mail.Authenticator {
 
@@ -33,8 +41,14 @@ public class GMailSender extends javax.mail.Authenticator {
         Security.addProvider(new JSSEProvider());
     }
 
-    public GMailSender(final String user, final String password) {
-        this.user = user;
+    /**
+     * Constructor of the class having sender email and password
+     *
+     * @param email    sender email id
+     * @param password sender password
+     */
+    public GMailSender(final String email, final String password) {
+        this.user = email;
         this.password = password;
 
         Properties props = new Properties();
@@ -51,7 +65,7 @@ public class GMailSender extends javax.mail.Authenticator {
         props.setProperty("mail.smtp.quitwait", "false");
         session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(user, password);
+                return new PasswordAuthentication(email, password);
             }
         });
         session = Session.getDefaultInstance(props, this);
@@ -61,6 +75,15 @@ public class GMailSender extends javax.mail.Authenticator {
         return new PasswordAuthentication(user, password);
     }
 
+    /**
+     * Send the mail to the user
+     *
+     * @param subject    Email subject
+     * @param body       Email body it is in HTML format
+     * @param sender     Sender email
+     * @param recipients Recipients email
+     * @throws Exception Exception if any case is unhandled
+     */
     public synchronized void sendMail(String subject, String body,
                                       String sender, String recipients) throws Exception {
         MimeMessage message = new MimeMessage(session);

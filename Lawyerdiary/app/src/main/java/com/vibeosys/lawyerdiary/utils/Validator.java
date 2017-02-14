@@ -6,7 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by akshay on 10-09-2016.
+ * Created by Vibeosys software on 10-09-2016.
+ */
+
+/**
+ * Util class is use to validate the string and any other fields
+ * validate the email,phone number.
  */
 public class Validator {
 
@@ -21,7 +26,8 @@ public class Validator {
     }
 
     /**
-     * This function validate the phone number for length.
+     * This function validate the phone number return the true
+     * if it matches with phone number criteria O.W. False.
      *
      * @param phone String format phone number.
      * @return on success it returns true else returns false.

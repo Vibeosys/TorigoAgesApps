@@ -16,20 +16,31 @@ import android.util.Log;
 /**
  * Data base class that extend SQLiteOpenHelper
  * see SQLiteOpenHelper for more intro
- * <p/>
+ * <p>
  * Database consist of the 5 tables
  * </br>1. Client table contains Id,name,email,email,ph no., address,date
- * </br>2. Case table contains Id,case name,client id(FK of the client table), against,situation, date,etc.
- * </br>3. Document table contains Id, name,client id(FK of the client table),etc.
- * </br>4. Reminder table contains the id,reminder name,time ,date ,etc.
- * </br>5. User table the application current user contains name,email,password,etc.
+ * </br>2. Case table contains Id,case name,client id(FK of the client table), against,situation, date,
+ * time,court location,description,status,key points.
+ * </br>3. Document table contains Id, name,File path,case id(FK of the client table),last updated date.
+ * </br>4. Reminder table contains the id,reminder name,start date time,end date time,
+ * location,note,colour,case id(FK of the Case table)
+ * </br>5. User table the application current user contains id,name,email,password.
  */
 public class DbRepository extends SQLiteOpenHelper {
 
+    /**
+     * Name of the database
+     */
     public final static String DATABASE_NAME = "LawyerDiary";
+    /**
+     * Database version
+     */
     public final static int DATABASE_VERSION = 1;
 
     private static final String TAG = DbRepository.class.getSimpleName();
+    /**
+     * Create the client table contains Id,name,email,email,ph no., address,date
+     */
     private String CREATE_CLIENT_TABLE = "CREATE TABLE " + LawyerContract.Client.TABLE_NAME + "(" +
             LawyerContract.Client._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LawyerContract.Client.NAME + " TEXT NOT NULL," +
@@ -38,6 +49,10 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Client.ADDRESS + " TEXT," + LawyerContract.Client.IMG + " TEXT," +
             LawyerContract.Client.DATE_TIME + " INTEGER);";
 
+    /**
+     * Create Case details table contains Id,case name,client id(FK of the client table), against,situation, date,
+     * time,court location,description,status,key points
+     */
     private String CREATE_CASE_TABLE = "CREATE TABLE " + LawyerContract.Case.TABLE_NAME + "(" +
             LawyerContract.Case._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LawyerContract.Case.CASE_NAME + " TEXT NOT NULL," +
@@ -53,6 +68,9 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Case.CLIENT_ID + ") REFERENCES " +
             LawyerContract.Client.TABLE_NAME + "(" + LawyerContract.Client._ID + "));";
 
+    /**
+     * Create Document table contains Id, name,File path,case id(FK of the Case table),last updated date.
+     */
     private String CREATE_DOCUMENT_TABLE = "CREATE TABLE " + LawyerContract.Document.TABLE_NAME + "(" +
             LawyerContract.Document._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LawyerContract.Document.DOCUMENT_NAME + " TEXT NOT NULL," +
@@ -62,6 +80,10 @@ public class DbRepository extends SQLiteOpenHelper {
             "FOREIGN KEY(" + LawyerContract.Document.CASE_ID + ") REFERENCES " +
             LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";
 
+    /**
+     * Create Reminder table contains the id,reminder name,start date time,end date time,
+     * location,note,colour,case id(FK of the Case table)
+     */
     private String CREATE_REMINDER_TABLE = "CREATE TABLE " + LawyerContract.Reminder.TABLE_NAME + " (" +
             LawyerContract.Reminder._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LawyerContract.Reminder.REMINDER_NAME + " TEXT NOT NULL," +
@@ -72,6 +94,9 @@ public class DbRepository extends SQLiteOpenHelper {
             LawyerContract.Reminder.COLOUR + " TEXT NOT NULL," +
             LawyerContract.Reminder.CASE_ID + " INTEGER)";
 
+    /**
+     * Create User table contains id,name,email,password.
+     */
     private String CREATE_USER_TABLE = "CREATE TABLE " + LawyerContract.UserLogin.TABLE_NAME + "(" +
             LawyerContract.UserLogin.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LawyerContract.UserLogin.USER_NAME + " TEXT NOT NULL," +
@@ -81,6 +106,11 @@ public class DbRepository extends SQLiteOpenHelper {
             "FOREIGN KEY(" + LawyerContract.Reminder.CASE_ID + ") REFERENCES " +
             LawyerContract.Case.TABLE_NAME + "(" + LawyerContract.Case._ID + "));";*/
 
+    /**
+     * Constructor called when the application is started 1st time
+     *
+     * @param context Application context
+     */
     public DbRepository(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -119,6 +149,14 @@ public class DbRepository extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * On data base upgraded this method is called
+     * called only when the new version is greater than old version
+     *
+     * @param db         Database object {@link SQLiteDatabase Sqlite Database}
+     * @param oldVersion int Old version of the database
+     * @param newVersion int new version of the database
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

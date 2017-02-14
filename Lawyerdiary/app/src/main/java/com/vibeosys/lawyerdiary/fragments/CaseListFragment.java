@@ -26,6 +26,10 @@ import java.util.ArrayList;
 /**
  * Created by Vibeosys software on 12-09-2016.
  */
+
+/**
+ * Fragment show the list of cases that store in the local database
+ */
 public class CaseListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     private ListView listCases;
     private CaseAdapter caseAdapter;
@@ -97,6 +101,11 @@ public class CaseListFragment extends BaseFragment implements AdapterView.OnItem
         mPosition = position;
     }
 
+    /**
+     * Call back when the user selected any Case from the list
+     * Set the selected Case id so we can get all the details from the database
+     * Called from the {@link com.vibeosys.lawyerdiary.activities.CaseDetailsActivity Case details}
+     */
     public interface CallBackItem {
         public void onItemSelected(long selectedCaseId);
     }

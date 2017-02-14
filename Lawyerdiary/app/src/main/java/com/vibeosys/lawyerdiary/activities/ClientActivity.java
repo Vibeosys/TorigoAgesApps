@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 /**
  * Created by Vibeosys software on 26-04-2016.
- *
  */
 
 /**
@@ -70,6 +69,11 @@ public class ClientActivity extends BaseActivity implements ClientListFragment.C
     }
 
 
+    /**
+     * Get the call back when the item is selected by the user
+     *
+     * @param clientId long integer get selected client id
+     */
     @Override
     public void onItemSelected(long clientId) {
         if (mTwoPane) {

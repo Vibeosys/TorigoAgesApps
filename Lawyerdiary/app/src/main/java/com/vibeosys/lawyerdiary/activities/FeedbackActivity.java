@@ -35,16 +35,18 @@ import javax.xml.transform.Templates;
 
 /**
  * FeedbackActivity is use to send the customers feedback.
- * This activity is uses MyAsyncClass as inner class to send custom template as feedback.
+ * This activity is uses {@link com.vibeosys.lawyerdiary.activities.FeedbackActivity.MyAsyncClass Async Class}
+ * as inner class to send custom template as feedback.
  */
 public class FeedbackActivity extends BaseActivity implements View.OnClickListener {
 
-    private EditText mClientName,mClientFeedback;
+    private EditText mClientName, mClientFeedback;
     private Spinner mCountryName;
-    private Button mSubmitBtn,mCancleBtn;
+    private Button mSubmitBtn, mCancleBtn;
     GMailSender sender;
-    private String mSenderEmail,mSenderPassword,mCustomerFeedBack,TAG;
-    private int SEND_EMAIL_PERMISSION_CODE=1001;
+    private String mSenderEmail, mSenderPassword, mCustomerFeedBack, TAG;
+    private int SEND_EMAIL_PERMISSION_CODE = 1001;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,26 +54,26 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         TAG = getClass().getName();
         setTitle(getResources().getString(R.string.str_feedback_title));
         mClientName = (EditText) findViewById(R.id.clientName);
-        mClientFeedback =(EditText) findViewById(R.id.feedback);
+        mClientFeedback = (EditText) findViewById(R.id.feedback);
         mSubmitBtn = (Button) findViewById(R.id.btnSubmit);
         mCountryName = (Spinner) findViewById(R.id.countryName);
         mCancleBtn = (Button) findViewById(R.id.btnCancel);
-        mSenderEmail="sender@gmail.com";
-        mSenderPassword="senderPassword";
-        sender = new GMailSender(mSenderEmail,mSenderPassword);
+        mSenderEmail = "sender@gmail.com";
+        mSenderPassword = "senderPassword";
+        sender = new GMailSender(mSenderEmail, mSenderPassword);
 
         Locale[] locale = Locale.getAvailableLocales();
         ArrayList<String> countries = new ArrayList<String>();
         String country;
-        for( Locale loc : locale ){
+        for (Locale loc : locale) {
             country = loc.getDisplayCountry();
-            if( country.length() > 0 && !countries.contains(country) ){
-                countries.add( country );
+            if (country.length() > 0 && !countries.contains(country)) {
+                countries.add(country);
             }
         }
-        countries.add(0,"--Please select country name--");
+        countries.add(0, "--Please select country name--");
         Collections.sort(countries, String.CASE_INSENSITIVE_ORDER);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, countries);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCountryName.setAdapter(adapter);
         mSubmitBtn.setOnClickListener(FeedbackActivity.this);
@@ -81,18 +83,16 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        switch (id)
-        {
+        switch (id) {
             case R.id.btnSubmit:
                 boolean returnVal = callToValidation();
-                if(returnVal==true)
-                {
+                if (returnVal == true) {
                     //requestGrantPermission();
                     callToSendEmail();
                 }
                 break;
             case R.id.btnCancel:
-                Intent mainActivity =new Intent(getApplicationContext(), MainActivity.class);
+                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(mainActivity);
                 finish();
                 break;
@@ -103,47 +103,41 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
      * This function is use to get customer details and customer feedback for the application
      * and instantiated  inner class which actually defines template.
      */
-    public void callToSendEmail()
-    {
+    public void callToSendEmail() {
         try {
-           // mReceiverEmail= mEmailid.getText().toString().trim();
+            // mReceiverEmail= mEmailid.getText().toString().trim();
 
 
-            mCustomerFeedBack = "Customer Name:"+"\t"+mClientName.getText().toString().trim()+"\n"
-                    +"Country Name:"+"\t"+mCountryName.getSelectedItem().toString()+"\n"+"Feedback:"+"\t"+mClientFeedback.getText().toString().trim();
-            String test="reciver@gmail.com";
+            mCustomerFeedBack = "Customer Name:" + "\t" + mClientName.getText().toString().trim() + "\n"
+                    + "Country Name:" + "\t" + mCountryName.getSelectedItem().toString() + "\n" + "Feedback:" + "\t" + mClientFeedback.getText().toString().trim();
+            String test = "reciver@gmail.com";
             new MyAsyncClass().execute(test);
 
         } catch (Exception ex) {
-            Log.d(TAG,ex.toString());
+            Log.d(TAG, ex.toString());
 
         }
     }
 
     /**
      * This function is use to validate the user name and feedback.
+     *
      * @return on success it returns true else it returns false.
      */
-    public boolean callToValidation()
-    {
+    public boolean callToValidation() {
         String userName = mClientName.getText().toString().trim();
         String userFeedBack = mClientFeedback.getText().toString().trim();
-        if(userName.toString().length()==0)
-        {
+        if (userName.toString().length() == 0) {
             mClientName.requestFocus();
             mClientName.setError(getResources().getString(R.string.str_user_name_val));
             return false;
 
-        }
-        else if(userFeedBack.toString().length()==0)
-        {
+        } else if (userFeedBack.toString().length() == 0) {
             mClientFeedback.requestFocus();
             mClientFeedback.setError(getResources().getString(R.string.str_user_feedback_val));
             return false;
-        }
-        else if(mCountryName.getSelectedItemPosition()==0)
-        {
-            createAlertDialog("Lawyer diary",getResources().getString(R.string.str_select_country));
+        } else if (mCountryName.getSelectedItemPosition() == 0) {
+            createAlertDialog("Lawyer diary", getResources().getString(R.string.str_select_country));
             return false;
         }
 
@@ -158,9 +152,10 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
     class MyAsyncClass extends AsyncTask<String, Void, Void> {
 
         ProgressDialog pDialog;
-        String customerName =mClientName.getText().toString().trim();
+        String customerName = mClientName.getText().toString().trim();
         String customerCountry = mCountryName.getSelectedItem().toString();
         String customerFeedBack = mClientFeedback.getText().toString().trim();
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -176,7 +171,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
             try {
 
 
-                String htmlCode="<html>\n" +
+                String htmlCode = "<html>\n" +
                         "<head>\n" +
                         "<style> \n" +
                         "    @media only screen and (max-width:620px;){\n" +
@@ -209,7 +204,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                         "          <div style=\"width:70px;display:inline-block\">\n" +
                         "              Customer</div>\n" +
                         "              <div style=\"width:15px;display:inline-block;\">:</div>\n" +
-                        "              <div style=\"display:inline-block;\">"+""+customerName+"</div>\n" +
+                        "              <div style=\"display:inline-block;\">" + "" + customerName + "</div>\n" +
                         "          </div> </td>\n" +
                         "     \n" +
                         "    </tr>\n" +
@@ -219,7 +214,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                         "          <div style=\"width:70px;display:inline-block\">\n" +
                         "              Country</div>\n" +
                         "              <div style=\"width:15px;display:inline-block;\">:</div>\n" +
-                        "              <div style=\"display:inline-block;\">"+""+customerCountry+"</div>\n" +
+                        "              <div style=\"display:inline-block;\">" + "" + customerCountry + "</div>\n" +
                         "          </div>\n" +
                         "      </td>\n" +
                         "\n" +
@@ -229,7 +224,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                         "    <div > \n" +
                         "        <div>Message</div>\n" +
                         "        <div><hr style=\"margin-top: 4px;border: 1px solid #efeeee;\"></div>\n" +
-                        "        <div class=\"content\">"+""+customerFeedBack+"</div>\n" +
+                        "        <div class=\"content\">" + "" + customerFeedBack + "</div>\n" +
                         "          </div>\n" +
                         "        </td>\n" +
                         "\n" +
@@ -242,17 +237,14 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                         "</html>";
 
 
-
-              //  messageTxt= template + mUserPwd;
+                //  messageTxt= template + mUserPwd;
                 String email = mApi[0];
 
                 // Add subject, Body, your mail Id, and receiver mail Id.
-                sender.sendMail("Lawyer diary feedback", htmlCode, mSenderEmail,email );
+                sender.sendMail("Lawyer diary feedback", htmlCode, mSenderEmail, email);
 //sender emailid and receviver emailid
 
-            }
-
-            catch (Exception ex) {
+            } catch (Exception ex) {
 
             }
             return null;
@@ -262,8 +254,8 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             pDialog.cancel();
-            Toast toast=Toast.makeText(getApplicationContext(), "Thank you for your feedback", Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER,0,0);
+            Toast toast = Toast.makeText(getApplicationContext(), "Thank you for your feedback", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             finish();
         }

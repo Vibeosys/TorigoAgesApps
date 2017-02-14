@@ -34,6 +34,11 @@ public class ClientListFragment extends BaseFragment implements AdapterView.OnIt
     public ClientListFragment() {
     }
 
+    /**
+     * Call back when the user selected any client from the list
+     * Set the selected client id so we can get all the details from the database
+     * Called from the {@link com.vibeosys.lawyerdiary.activities.ClientDetailsActivity Client details}
+     */
     public interface CallBack {
         public void onItemSelected(long clientId);
     }

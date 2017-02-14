@@ -13,7 +13,7 @@ import com.vibeosys.lawyerdiary.database.LawyerContract;
 import com.vibeosys.lawyerdiary.fragments.CaseDetailFragment;
 
 /**
- *  Created by Vibeosys software on 27-04-2016.
+ * Created by Vibeosys software on 27-04-2016.
  */
 
 /**
@@ -47,7 +47,6 @@ public class CaseDetailsActivity extends AppCompatActivity {
         }
 
     }
-
 
 
 }
