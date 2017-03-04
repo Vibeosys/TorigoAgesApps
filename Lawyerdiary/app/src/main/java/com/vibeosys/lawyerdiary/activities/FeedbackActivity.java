@@ -58,8 +58,8 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         mSubmitBtn = (Button) findViewById(R.id.btnSubmit);
         mCountryName = (Spinner) findViewById(R.id.countryName);
         mCancleBtn = (Button) findViewById(R.id.btnCancel);
-        mSenderEmail = "sender@gmail.com";
-        mSenderPassword = "senderPassword";
+        mSenderEmail = "vibeosys@gmail.com";
+        mSenderPassword = "Hey!vib_615";
         sender = new GMailSender(mSenderEmail, mSenderPassword);
 
         Locale[] locale = Locale.getAvailableLocales();
@@ -110,7 +110,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
 
             mCustomerFeedBack = "Customer Name:" + "\t" + mClientName.getText().toString().trim() + "\n"
                     + "Country Name:" + "\t" + mCountryName.getSelectedItem().toString() + "\n" + "Feedback:" + "\t" + mClientFeedback.getText().toString().trim();
-            String test = "reciver@gmail.com";
+            String test = "info@vibeosys.com";
             new MyAsyncClass().execute(test);
 
         } catch (Exception ex) {

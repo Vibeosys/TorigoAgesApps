@@ -61,6 +61,12 @@ public class CaseListFragment extends BaseFragment implements AdapterView.OnItem
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadCaseData();
+    }
+
     /**
      * Load the list of all cases from the local database show into the list
      */

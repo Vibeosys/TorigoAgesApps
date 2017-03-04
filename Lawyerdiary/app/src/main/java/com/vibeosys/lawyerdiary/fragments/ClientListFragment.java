@@ -60,6 +60,12 @@ public class ClientListFragment extends BaseFragment implements AdapterView.OnIt
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadClientData();
+    }
+
     /**
      * Load the client data from the database and show it
      * select all the clients and display it
