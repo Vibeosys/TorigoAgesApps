@@ -37,8 +37,8 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         mEmailid = (EditText) findViewById(R.id.emailIdEditText);
         mForgotPassword = (Button) findViewById(R.id.forgotPassword);
         setTitle(R.string.forgotpass_title);
-        mSenderEmail = "vibeosys@email.com";
-        String mSenderPassword = "Hey!vib_615";
+        mSenderEmail = "vibeosys@gmail.com";
+        String mSenderPassword = "dummyPassword";
         mForgotPassword.setOnClickListener(this);
         //Enter emailid and Pwd
         sender = new GMailSender(mSenderEmail, mSenderPassword);
