@@ -86,8 +86,6 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent dietPlan = new Intent(getApplicationContext(), DietPlanActivity.class);
                 startActivity(dietPlan);
-
-
             }
         });
         InstructionNotes.setOnClickListener(new View.OnClickListener() {
