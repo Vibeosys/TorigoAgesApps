@@ -10,16 +10,16 @@ public class MyProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_profile);
+        setContentView(R.layout.user_profile);
         //setContentView(R.layout.new_round_dashboard);
-       getSupportActionBar().setTitle("My profile");
+        getSupportActionBar().setTitle("My profile");
 
 
         /*Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.profile_new_test);
         Bitmap circularBitmap = ImageConverter.getRoundedCornerBitmap(bitmap, 100);*/
 
-       // ImageView circularImageView = (ImageView) findViewById(R.id.imageView);
-       // circularImageView.setImageBitmap(circularBitmap);
+        // ImageView circularImageView = (ImageView) findViewById(R.id.imageView);
+        // circularImageView.setImageBitmap(circularBitmap);
 
     }
 

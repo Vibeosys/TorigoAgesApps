@@ -21,11 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         login = (Button) findViewById(R.id.loginbtn);
         getSupportActionBar().setTitle("");
-        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.gym_logo_new);
-        Bitmap circularBitmap = ImageConverter.getRoundedCornerBitmap(bitmap, 100);
-
         ImageView circularImageView = (ImageView) findViewById(R.id.imageButton);
-        circularImageView.setImageBitmap(circularBitmap);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

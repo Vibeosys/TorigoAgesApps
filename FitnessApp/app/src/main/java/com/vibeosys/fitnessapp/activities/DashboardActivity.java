@@ -23,9 +23,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private ListView mDrawerList;
     private ArrayList<NavDrawerItem> navDrawerItems;
-    ImageView worksheet;
-    ImageView diat;
-    ImageView InstructionNotes;
+    ImageView worksheet, diat, InstructionNotes, feedBack;
     ImageView messageChat;
     ImageView purchase;
     DrawerLayout drawerLayout;
@@ -34,18 +32,14 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.dash_board);
-
-        setContentView(R.layout.drawer_layout_main);
-        // setContentView(R.layout.new_round_dashboard);
+        setContentView(R.layout.dash_board);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_drawer);
 
         worksheet = (ImageView) findViewById(R.id.circular_image_view1);
         diat = (ImageView) findViewById(R.id.circular_image_view2);
         InstructionNotes = (ImageView) findViewById(R.id.circular_image_view3);
-        messageChat = (ImageView) findViewById(R.id.circular_image_view4);
-        purchase = (ImageView) findViewById(R.id.circular_image_view5);
+        feedBack = (ImageView) findViewById(R.id.circular_image_view4);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -95,11 +89,10 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(instructions);
             }
         });
-        messageChat.setOnClickListener(new View.OnClickListener() {
+        feedBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent messagech = new Intent(getApplicationContext(), MessageChatActivity.class);
-                startActivity(messagech);
+
             }
         });
     }
@@ -149,7 +142,7 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), ServicesActivity.class));
     }
 
-    public void cartOpen(View v) {
+    /*public void cartOpen(View v) {
         startActivity(new Intent(getApplicationContext(), PurchaseServices.class));
-    }
+    }*/
 }
