@@ -108,7 +108,7 @@ public class FitnessProvider extends ContentProvider {
         switch (match) {
 
             case USER_LOGIN: {
-                retCursor = mDbRepository.getReadableDatabase().query(
+               retCursor = mDbRepository.getReadableDatabase().query(
                         FitnessContract.UserLogin.TABLE_NAME, projection, selection, selectionArgs
                         , null, null, sortOrder);
                 break;
