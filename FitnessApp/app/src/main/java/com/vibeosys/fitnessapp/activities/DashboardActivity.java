@@ -71,7 +71,7 @@ public class DashboardActivity extends AppCompatActivity {
         worksheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent worksheet = new Intent(getApplicationContext(), WorkSheetActivity.class);
+                Intent worksheet = new Intent(getApplicationContext(), SelectWorkoutActivity.class);
                 startActivity(worksheet);
             }
         });

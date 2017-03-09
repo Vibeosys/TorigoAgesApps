@@ -16,13 +16,22 @@ public class FitnessProvider extends ContentProvider {
     private DbRepository mDbRepository;
     private static final UriMatcher sUriMatcher = buildUriMatcher();
 
-    static final int USER_LOGIN = 100;
+    static final int USER = 100;
+    static final int BMI_RANGE = 200;
+    static final int WORKOUT_MASTER = 300;
+    static final int SETS_MASTER = 400;
+    static final int DAILY_WORKOUT = 500;
+    static final int SETS_REPETITION = 600;
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         final String authority = FitnessContract.CONTENT_AUTHORITY;
-
-        matcher.addURI(authority, FitnessContract.PATH_USER_LOGIN, USER_LOGIN);
+        matcher.addURI(authority, FitnessContract.PATH_USER_LOGIN, USER);
+        matcher.addURI(authority, FitnessContract.PATH_BMI_RANGE, BMI_RANGE);
+        matcher.addURI(authority, FitnessContract.PATH_WORKOUT_MASTER, WORKOUT_MASTER);
+        matcher.addURI(authority, FitnessContract.PATH_SETS_MASTER, SETS_MASTER);
+        matcher.addURI(authority, FitnessContract.PATH_DAILY_WORKOUT, DAILY_WORKOUT);
+        matcher.addURI(authority, FitnessContract.PATH_SETS_REPETITION, SETS_REPETITION);
 
         return matcher;
     }
@@ -37,8 +46,18 @@ public class FitnessProvider extends ContentProvider {
 
         switch (math) {
 
-            case USER_LOGIN:
+            case USER:
                 return FitnessContract.UserLogin.CONTENT_TYPE;
+            case BMI_RANGE:
+                return FitnessContract.BMIRange.CONTENT_TYPE;
+            case WORKOUT_MASTER:
+                return FitnessContract.WorkOutMaster.CONTENT_TYPE;
+            case SETS_MASTER:
+                return FitnessContract.SetsMaster.CONTENT_TYPE;
+            case DAILY_WORKOUT:
+                return FitnessContract.DailyWorkout.CONTENT_TYPE;
+            case SETS_REPETITION:
+                return FitnessContract.SetsRepetition.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri in getType: " + uri);
         }
@@ -52,7 +71,7 @@ public class FitnessProvider extends ContentProvider {
 
         Uri returnUri;
         switch (match) {
-            case USER_LOGIN: {
+            case USER: {
                 long returnId = db.insert(FitnessContract.UserLogin.TABLE_NAME, null, values);
                 if (returnId > 0) {
                     returnUri = FitnessContract.UserLogin.userLoginUri(returnId);
@@ -60,8 +79,72 @@ public class FitnessProvider extends ContentProvider {
                     returnUri = FitnessContract.UserLogin.userLoginUri(returnId);
                 } else {
                     Log.d("TAG", "TAG");
-                    throw new android.database.SQLException("Fail to insert user login into" + uri);
+                    throw new android.database.SQLException("Fail to insert user into" + uri);
 
+                }
+                break;
+            }
+            case BMI_RANGE: {
+                long returnId = db.insert(FitnessContract.BMIRange.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.BMIRange.bmiRangeUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.BMIRange.bmiRangeUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert Bmi range into" + uri);
+
+                }
+                break;
+            }
+            case WORKOUT_MASTER: {
+                long returnId = db.insert(FitnessContract.WorkOutMaster.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.WorkOutMaster.workoutMasterUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.WorkOutMaster.workoutMasterUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert Workout master into" + uri);
+
+                }
+                break;
+            }
+            case SETS_MASTER: {
+                long returnId = db.insert(FitnessContract.SetsMaster.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.SetsMaster.setMasterUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.SetsMaster.setMasterUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert Sets master into" + uri);
+
+                }
+                break;
+            }
+            case DAILY_WORKOUT: {
+                long returnId = db.insert(FitnessContract.DailyWorkout.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.DailyWorkout.dailyWorkoutUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.DailyWorkout.dailyWorkoutUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert Daily workout into" + uri);
+
+                }
+                break;
+            }
+            case SETS_REPETITION: {
+                long returnId = db.insert(FitnessContract.SetsRepetition.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.SetsRepetition.setsRepUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.SetsRepetition.setsRepUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert Sets repetition into" + uri);
                 }
                 break;
             }
@@ -81,8 +164,23 @@ public class FitnessProvider extends ContentProvider {
         int rowDeleted;
         switch (match) {
 
-            case USER_LOGIN:
+            case USER:
                 rowDeleted = db.delete(FitnessContract.UserLogin.TABLE_NAME, selection, selectionArgs);
+                break;
+            case BMI_RANGE:
+                rowDeleted = db.delete(FitnessContract.BMIRange.TABLE_NAME, selection, selectionArgs);
+                break;
+            case WORKOUT_MASTER:
+                rowDeleted = db.delete(FitnessContract.WorkOutMaster.TABLE_NAME, selection, selectionArgs);
+                break;
+            case SETS_MASTER:
+                rowDeleted = db.delete(FitnessContract.SetsMaster.TABLE_NAME, selection, selectionArgs);
+                break;
+            case DAILY_WORKOUT:
+                rowDeleted = db.delete(FitnessContract.DailyWorkout.TABLE_NAME, selection, selectionArgs);
+                break;
+            case SETS_REPETITION:
+                rowDeleted = db.delete(FitnessContract.SetsRepetition.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in delete: " + uri);
@@ -107,9 +205,39 @@ public class FitnessProvider extends ContentProvider {
         final int match = sUriMatcher.match(uri);
         switch (match) {
 
-            case USER_LOGIN: {
-               retCursor = mDbRepository.getReadableDatabase().query(
+            case USER: {
+                retCursor = mDbRepository.getReadableDatabase().query(
                         FitnessContract.UserLogin.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
+            case BMI_RANGE: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.BMIRange.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
+            case WORKOUT_MASTER: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.WorkOutMaster.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
+            case SETS_MASTER: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.SetsMaster.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
+            case DAILY_WORKOUT: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.DailyWorkout.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
+            case SETS_REPETITION: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.SetsRepetition.TABLE_NAME, projection, selection, selectionArgs
                         , null, null, sortOrder);
                 break;
             }
@@ -127,8 +255,23 @@ public class FitnessProvider extends ContentProvider {
         final int match = sUriMatcher.match(uri);
         int rowUpdated;
         switch (match) {
-            case USER_LOGIN:
-                rowUpdated = db.delete(FitnessContract.UserLogin.TABLE_NAME, selection, selectionArgs);
+            case USER:
+                rowUpdated = db.update(FitnessContract.UserLogin.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case BMI_RANGE:
+                rowUpdated = db.update(FitnessContract.BMIRange.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case WORKOUT_MASTER:
+                rowUpdated = db.update(FitnessContract.WorkOutMaster.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case SETS_MASTER:
+                rowUpdated = db.update(FitnessContract.SetsMaster.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case DAILY_WORKOUT:
+                rowUpdated = db.update(FitnessContract.DailyWorkout.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case SETS_REPETITION:
+                rowUpdated = db.update(FitnessContract.SetsRepetition.TABLE_NAME, values, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in update: " + uri);

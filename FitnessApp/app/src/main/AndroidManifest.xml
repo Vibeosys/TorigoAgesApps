@@ -32,7 +32,8 @@
         <activity android:name=".activities.MyProfileActivity" />
         <activity android:name=".activities.WorkSheetActivity" />
         <activity android:name=".activities.ServicesActivity" />
-        <!--activity
+        <!--
+            activity
             android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
             android:launchMode="singleTask">
             <intent-filter>
@@ -42,11 +43,28 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data android:scheme="${applicationId}.braintree" />
-            </intent-filter>-->
+            </intent-filter>
+        -->
 
         <activity android:name=".activities.CardActivity" />
         <activity android:name=".activities.PurchaseServices" />
-        <activity android:name=".activities.InviceActivity"></activity>
+        <activity android:name=".activities.InviceActivity" />
+
+        <provider
+            android:name=".database.FitnessProvider"
+            android:authorities="com.vibeosys.fitnessapp"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.SelectWorkoutActivity"
+            android:label="@string/title_activity_select_workout"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.NewCustomWorkoutActivity" />
+        <activity
+            android:name=".activities.SelectSetActivity"
+            android:label="@string/title_activity_select_set"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

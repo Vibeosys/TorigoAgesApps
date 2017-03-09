@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="amber">#FF8F00</color>
+
+    <color name="textlight">#546e7a</color>
+    <color name="textlight30">#4d6b8d9c</color>
+    <color name="primaryText">#ef2f3031</color>
+    <color name="primaryText2">#bf2f3031</color>
+    <color name="accentText">#FF4081</color>
+    <color name="divider_colour">#a8b6b3b1</color>
 </resources>

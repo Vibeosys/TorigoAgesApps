@@ -1,18 +1,23 @@
 package com.vibeosys.fitnessapp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.vibeosys.fitnessapp.activities.DashboardActivity;
-import com.vibeosys.fitnessapp.activities.ImageConverter;
+import com.vibeosys.fitnessapp.database.FitnessContract;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
     Button login;
 
     @Override
@@ -30,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(nextAction);
             }
         });
+
+
     }
 }
 

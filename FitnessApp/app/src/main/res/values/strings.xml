@@ -7,4 +7,12 @@
     <string name="pay_now_btn">PAY NOW</string>
     <string name="total">\u20B9 3795.00</string>
     <string name="tax">\u20B9 300.00</string>
+    <string name="title_activity_select_workout">SelectWorkoutActivity</string>
+    <string name="str_name">Workout Name</string>
+    <string name="str_workout_desc">Description</string>
+    <string name="str_add_workout">Add Workout</string>
+    <string name="str_err_workoutname">Please enter the name</string>
+    <string name="str_err_workdesc">Please enter the description</string>
+    <string name="str_success_add_workout">Workout details added successfully</string>
+    <string name="title_activity_select_set">SelectSetActivity</string>
 </resources>
