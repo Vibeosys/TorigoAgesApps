@@ -15,4 +15,8 @@
     <string name="str_err_workdesc">Please enter the description</string>
     <string name="str_success_add_workout">Workout details added successfully</string>
     <string name="title_activity_select_set">SelectSetActivity</string>
+    <string name="str_set_name">Set Name</string>
+    <string name="str_add_set">Add set</string>
+    <string name="str_err_setname">Please enter the set name</string>
+    <string name="str_err_setdesc">Please enter the description</string>
 </resources>

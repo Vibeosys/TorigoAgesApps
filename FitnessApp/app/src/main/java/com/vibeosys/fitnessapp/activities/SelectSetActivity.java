@@ -1,5 +1,6 @@
 package com.vibeosys.fitnessapp.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -43,8 +44,11 @@ public class SelectSetActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(), NewCustomSetActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putLong(SelectSetActivity.WKM_ID, workoutId);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         final LinearLayoutManager llm = new LinearLayoutManager(this);

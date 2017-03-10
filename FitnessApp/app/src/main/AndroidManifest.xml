@@ -64,7 +64,8 @@
         <activity
             android:name=".activities.SelectSetActivity"
             android:label="@string/title_activity_select_set"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.NewCustomSetActivity"></activity>
     </application>
 
 </manifest>
