@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.vibeosys.fitnessapp.R;
-import com.vibeosys.fitnessapp.data.WorkoutModel;
+import com.vibeosys.fitnessapp.data.WorkoutData;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class SelectWorkoutAdapter extends RecyclerView.Adapter<SelectWorkoutAdapter.ItemViewHolder> {
 
 
-    private static ArrayList<WorkoutModel> data = new ArrayList<>();
+    private static ArrayList<WorkoutData> data = new ArrayList<>();
     private Context context;
     private OnItemSelectedListener onItemSelectedListener;
 
@@ -35,13 +35,13 @@ public class SelectWorkoutAdapter extends RecyclerView.Adapter<SelectWorkoutAdap
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, final int position) {
-        final WorkoutModel workoutModel = data.get(position);
-        holder.tvWorkName.setText(workoutModel.getWkName());
+        final WorkoutData workoutData = data.get(position);
+        holder.tvWorkName.setText(workoutData.getWkName());
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (onItemSelectedListener != null) {
-                    onItemSelectedListener.onItemSelected(workoutModel, position);
+                    onItemSelectedListener.onItemSelected(workoutData, position);
                 }
             }
         });
@@ -65,7 +65,7 @@ public class SelectWorkoutAdapter extends RecyclerView.Adapter<SelectWorkoutAdap
         }
     }
 
-    public void addWorkout(WorkoutModel workout) {
+    public void addWorkout(WorkoutData workout) {
         data.add(workout);
         notifyDataSetChanged();
     }
@@ -75,7 +75,7 @@ public class SelectWorkoutAdapter extends RecyclerView.Adapter<SelectWorkoutAdap
     }
 
     public interface OnItemSelectedListener {
-        void onItemSelected(WorkoutModel workoutModel, int position);
+        void onItemSelected(WorkoutData workoutData, int position);
     }
 
     public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {

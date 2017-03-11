@@ -1,15 +1,20 @@
 package com.vibeosys.fitnessapp.data;
 
+import java.io.Serializable;
+
 /**
  * Created by akshay on 09-03-2017.
  */
-public class SetsModel {
+public class SetsData implements Serializable {
 
     private long setId;
     private String setName;
     private String setDesc;
 
-    public SetsModel(long setId, String setName, String setDesc) {
+    public SetsData() {
+    }
+
+    public SetsData(long setId, String setName, String setDesc) {
         this.setId = setId;
         this.setName = setName;
         this.setDesc = setDesc;

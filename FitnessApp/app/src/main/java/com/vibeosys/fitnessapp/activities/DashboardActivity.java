@@ -11,15 +11,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.vibeosys.fitnessapp.R;
+import com.vibeosys.fitnessapp.utils.DateUtils;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by shrinivas on 21-04-2016.
  */
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends BaseActivity {
 
     private ListView mDrawerList;
     private ArrayList<NavDrawerItem> navDrawerItems;
@@ -28,6 +33,7 @@ public class DashboardActivity extends AppCompatActivity {
     ImageView purchase;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
+    private Calendar mCalender = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +101,40 @@ public class DashboardActivity extends AppCompatActivity {
 
             }
         });
+        try {
+            Date lastWorkOutDate = DateUtils.dateWithoutTime(new Date(appWorkoutData.getWorkoutDate()));
+            Date currentDate = DateUtils.dateWithoutTime(mCalender.getTime());
+            if (appWorkoutData.getWorkoutDate() > 0) {
+                if (currentDate.compareTo(lastWorkOutDate) == 0) {
+                    // Current date
+                    if (appWorkoutData.getWorkoutId() > 0) {
+                        Intent intent = new Intent(getApplicationContext(), SelectSetActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putLong(SelectSetActivity.WKM_ID, appWorkoutData.getWorkoutId());
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        startActivity(new Intent(getApplicationContext(), SelectWorkoutActivity.class));
+                        finish();
+                    }
+                } else if (currentDate.after(lastWorkOutDate)) {
+                    // New date is started
+                    startActivity(new Intent(getApplicationContext(), SelectWorkoutActivity.class));
+                    finish();
+                    Toast.makeText(getApplicationContext(), getString(R.string.str_not_finish_session),
+                            Toast.LENGTH_SHORT).show();
+                } else if (currentDate.before(lastWorkOutDate)) {
+                    // Invalid date
+                    Toast.makeText(getApplicationContext(), getString(R.string.str_invalid_date),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

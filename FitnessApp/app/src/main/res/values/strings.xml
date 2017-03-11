@@ -19,4 +19,15 @@
     <string name="str_add_set">Add set</string>
     <string name="str_err_setname">Please enter the set name</string>
     <string name="str_err_setdesc">Please enter the description</string>
+    <string name="str_invalid_date">Please check the mobile date</string>
+    <string name="str_not_finish_session">You are not close yesterday\'s status</string>
+    <string name="str_confirm_workout_title">Confirm</string>
+    <string name="str_confirm_workout_message">Are you confirm to do this workout for today?</string>
+    <string name="str_finish">Done workout</string>
+    <string name="str_no_of_rep">No. Of repitition</string>
+    <string name="str_set_desc">Sets description</string>
+    <string name="str_done_sets">Done sets</string>
+    <string name="str_rep_not_zero">You should do atleat 1 repetation</string>
+    <string name="str_reach_limit">Please check repetition workout</string>
+    <string name="str_sets_title">Record sets</string>
 </resources>

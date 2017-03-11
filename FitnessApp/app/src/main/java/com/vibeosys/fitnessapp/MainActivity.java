@@ -11,12 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.vibeosys.fitnessapp.activities.BaseActivity;
 import com.vibeosys.fitnessapp.activities.DashboardActivity;
 import com.vibeosys.fitnessapp.database.FitnessContract;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     Button login;
 

@@ -9,8 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.vibeosys.fitnessapp.R;
-import com.vibeosys.fitnessapp.data.SetsModel;
-import com.vibeosys.fitnessapp.data.WorkoutModel;
+import com.vibeosys.fitnessapp.data.SetsData;
 
 import java.util.ArrayList;
 
@@ -20,8 +19,9 @@ import java.util.ArrayList;
 public class SetsAdapter extends RecyclerView.Adapter<SetsAdapter.ItemViewHolder> {
 
 
-    private static ArrayList<SetsModel> data = new ArrayList<>();
+    private static ArrayList<SetsData> data = new ArrayList<>();
     private Context context;
+    private OnItemSelectedListener onItemSelectedListener;
 
     public SetsAdapter(Context context) {
         this.context = context;
@@ -34,9 +34,17 @@ public class SetsAdapter extends RecyclerView.Adapter<SetsAdapter.ItemViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder holder, int position) {
-        SetsModel setsModel = data.get(position);
-        holder.tvSetName.setText(setsModel.getSetName());
+    public void onBindViewHolder(ItemViewHolder holder, final int position) {
+        final SetsData setsData = data.get(position);
+        holder.tvSetName.setText(setsData.getSetName());
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemSelectedListener != null) {
+                    onItemSelectedListener.onItemSelected(setsData, position);
+                }
+            }
+        });
     }
 
     @Override
@@ -47,20 +55,30 @@ public class SetsAdapter extends RecyclerView.Adapter<SetsAdapter.ItemViewHolder
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         protected TextView tvSetName;
         protected RelativeLayout relativeReorder;
+        protected RelativeLayout container;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             tvSetName = (TextView) itemView.findViewById(R.id.txt_set_name);
             relativeReorder = (RelativeLayout) itemView.findViewById(R.id.relativeReorder);
+            container = (RelativeLayout) itemView.findViewById(R.id.container);
         }
     }
 
-    public void addWorkout(SetsModel setsModel) {
-        data.add(setsModel);
+    public void addWorkout(SetsData setsData) {
+        data.add(setsData);
         notifyDataSetChanged();
     }
 
     public void clear() {
         data.clear();
+    }
+
+    public interface OnItemSelectedListener {
+        void onItemSelected(SetsData setsData, int position);
+    }
+
+    public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
+        this.onItemSelectedListener = onItemSelectedListener;
     }
 }

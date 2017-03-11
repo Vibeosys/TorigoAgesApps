@@ -3,13 +3,13 @@ package com.vibeosys.fitnessapp.data;
 /**
  * Created by akshay on 09-03-2017.
  */
-public class WorkoutModel {
+public class WorkoutData {
 
     private long wkId;
     private String wkName;
     private String wkDesc;
 
-    public WorkoutModel(long wkId, String wkName, String wkDesc) {
+    public WorkoutData(long wkId, String wkName, String wkDesc) {
         this.wkId = wkId;
         this.wkName = wkName;
         this.wkDesc = wkDesc;
