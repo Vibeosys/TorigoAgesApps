@@ -10,11 +10,11 @@ public class NoOfSetsData {
     private int noOfRep;
     private long dateTime;
 
-    public NoOfSetsData() {
+    public NoOfSetsData(long workId, long dateTime) {
         this.repId = 0;
-        this.workId = 0;
+        this.workId = workId;
         this.noOfRep = 0;
-        this.dateTime = 0;
+        this.dateTime = dateTime;
     }
 
     public NoOfSetsData(long repId, long workId, int noOfRep, long dateTime) {

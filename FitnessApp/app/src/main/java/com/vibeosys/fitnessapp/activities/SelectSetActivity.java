@@ -1,7 +1,9 @@
 package com.vibeosys.fitnessapp.activities;
 
+import android.app.AlertDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -21,8 +23,11 @@ import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.adapters.SelectWorkoutAdapter;
 import com.vibeosys.fitnessapp.adapters.SetsAdapter;
 import com.vibeosys.fitnessapp.data.SetsData;
+import com.vibeosys.fitnessapp.data.WorkoutData;
 import com.vibeosys.fitnessapp.database.FitnessContract;
+import com.vibeosys.fitnessapp.utils.DateUtils;
 
+import java.text.ParseException;
 import java.util.Calendar;
 
 public class SelectSetActivity extends BaseActivity implements View.OnClickListener,
@@ -121,14 +126,64 @@ public class SelectSetActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onItemSelected(SetsData setsData, int position) {
-        saveWorkOutSet(setsData, position);
+        long currentDate = 0;
+        try {
+            currentDate = DateUtils.dateWithoutTime(Calendar.getInstance().getTime()).getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Cursor dailyWoCursor = getApplicationContext().getContentResolver().query(FitnessContract.DailyWorkout.CONTENT_URI,
+                new String[]{FitnessContract.DailyWorkout.DW_SET_ID
+                }, FitnessContract.DailyWorkout.DW_SET_ID + "=? AND " + FitnessContract.DailyWorkout.DW_DATE_TIME + "=?",
+                new String[]{String.valueOf(setsData.getSetId()), String.valueOf(currentDate)
+                }, null);
 
+        if (dailyWoCursor.getCount() > 0) {
+            dailyWoCursor.moveToFirst();
+            long dailyWoId = dailyWoCursor.getLong(dailyWoCursor.getColumnIndex(FitnessContract.DailyWorkout.DW_SET_ID));
+            confirmationAlertDialog(dailyWoId, setsData);
+        } else {
+            saveWorkOutSet(setsData, position);
+        }
+
+
+    }
+
+    protected void confirmationAlertDialog(final long dailyWoId, final SetsData setsData) {
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.str_confirm_set_title))
+                .setMessage(getString(R.string.str_confirm_set_message))
+                .setCancelable(false)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sharedPrefManager.setSetId(setsData.getSetId());
+                        sharedPrefManager.setDailyWorkId(dailyWoId);
+                        Intent intent = new Intent(getApplicationContext(), SetRepititionActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putLong(SetRepititionActivity.SET_DATA, setsData.getSetId());
+                        bundle.putLong(SetRepititionActivity.DAILY_WORK_ID, dailyWoId);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).create().show();
     }
 
     private void saveWorkOutSet(SetsData setsData, int position) {
         ContentValues clientValues = new ContentValues();
         clientValues.put(FitnessContract.DailyWorkout.DW_SET_ID, setsData.getSetId());
-        clientValues.put(FitnessContract.DailyWorkout.DW_DATE_TIME, "" + Calendar.getInstance().getTime().getTime());
+        try {
+            clientValues.put(FitnessContract.DailyWorkout.DW_DATE_TIME, "" + DateUtils.dateWithoutTime(Calendar.getInstance().getTime()).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         clientValues.put(FitnessContract.DailyWorkout.DW_REPETITION, 0);
         clientValues.put(FitnessContract.DailyWorkout.DW_USER_ID, 1);
         try {

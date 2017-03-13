@@ -2,6 +2,7 @@ package com.vibeosys.fitnessapp.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemViewHolder> {
 
 
+    private static final String TAG = NoOfSetsdapter.class.getSimpleName();
     private static ArrayList<NoOfSetsData> data = new ArrayList<>();
     private Context context;
     private OnButtonClickListener onButtonClickListener;
@@ -40,8 +42,8 @@ public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemView
     @Override
     public void onBindViewHolder(ItemViewHolder holder, final int position) {
         final NoOfSetsData noOfSetsData = data.get(position);
-        holder.edtWeight.setText(0);
-        holder.edtNoOfRep.setText(noOfSetsData.getNoOfRep());
+        holder.edtWeight.setText("" + 0);
+        holder.edtNoOfRep.setText("" + noOfSetsData.getNoOfRep());
         holder.btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,10 +67,12 @@ public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemView
         return data.size();
     }
 
-    public long removeLast() {
-        long id = data.get(data.size()).getRepId();
-        data.remove(data.size());
-        return id;
+
+    public NoOfSetsData removeLastItem() throws ArrayIndexOutOfBoundsException {
+        NoOfSetsData setsData = data.get(data.size() - 1);
+        data.remove(data.size() - 1);
+        notifyDataSetChanged();
+        return setsData;
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {

@@ -30,4 +30,11 @@
     <string name="str_rep_not_zero">You should do atleat 1 repetation</string>
     <string name="str_reach_limit">Please check repetition workout</string>
     <string name="str_sets_title">Record sets</string>
+    <string name="repition_deleted">Your work history is deleted</string>
+    <string name="str_undo">Undo</string>
+    <string name="repition_not_deleted">Work history is not deleted try again</string>
+    <string name="str_rep_not_added">Repetition is not added</string>
+    <string name="str_data_not_updated">Repetition is not updated</string>
+    <string name="str_confirm_set_title">Confirm</string>
+    <string name="str_confirm_set_message">You have already done this set do you open it again?</string>
 </resources>
