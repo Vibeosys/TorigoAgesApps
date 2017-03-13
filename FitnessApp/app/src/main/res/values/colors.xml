@@ -11,4 +11,5 @@
     <color name="primaryText2">#bf2f3031</color>
     <color name="accentText">#FF4081</color>
     <color name="divider_colour">#a8b6b3b1</color>
+    <color name="transLoginText">#ad414143</color>
 </resources>

@@ -11,7 +11,6 @@ public class InviceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invice);
-
         setTitle("Invoice Detail");
     }
 }

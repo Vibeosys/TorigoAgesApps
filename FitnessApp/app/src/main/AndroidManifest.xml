@@ -32,6 +32,10 @@
         <activity android:name=".activities.MyProfileActivity" />
         <activity android:name=".activities.WorkSheetActivity" />
         <activity android:name=".activities.ServicesActivity" />
+        <activity
+            android:name=".activities.RegisterUserActivity"
+            android:parentActivityName=".MainActivity" />
+
         <!--
             activity
             android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
