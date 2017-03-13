@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.adapters.NoOfSetsdapter;
 import com.vibeosys.fitnessapp.data.NoOfSetsData;
+import com.vibeosys.fitnessapp.data.WorkoutCategory;
 import com.vibeosys.fitnessapp.database.FitnessContract;
 import com.vibeosys.fitnessapp.utils.Typefaces;
 
@@ -40,6 +41,7 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
     private static int counter = 0;
     private NoOfSetsdapter adapter;
     private Context context;
+    // private WorkoutCategory category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
         counter = 0;
         context = this;
         setsDataId = bundle.getLong(SET_DATA);
+        WorkoutCategory category = getCategory();
         dailyWorkId = bundle.getLong(DAILY_WORK_ID);
         setTitle(getString(R.string.str_sets_title));
         btnMinus = (Button) findViewById(R.id.btnMinus);
@@ -64,6 +67,7 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
         repetitionRecycler.setLayoutManager(llm);
         adapter = new NoOfSetsdapter(getApplicationContext());
         adapter.setOnButtonClickListener(this);
+        adapter.setCategory(category);
         repetitionRecycler.setAdapter(adapter);
         btnMinus.setOnClickListener(this);
         btnPlus.setOnClickListener(this);
@@ -80,7 +84,8 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
         adapter.clear();
         Cursor setCursor = getApplicationContext().getContentResolver().query(FitnessContract.SetsRepetition.CONTENT_URI,
                 new String[]{FitnessContract.SetsRepetition.REP_ID, FitnessContract.SetsRepetition.REP_DW_ID,
-                        FitnessContract.SetsRepetition.REP_NO_REP, FitnessContract.SetsRepetition.REP_DATE_TIME
+                        FitnessContract.SetsRepetition.REP_NO_REP, FitnessContract.SetsRepetition.REP_DATE_TIME,
+                        FitnessContract.SetsRepetition.REP_MEASURE
                 }, FitnessContract.SetsRepetition.REP_DW_ID + "=?",
                 new String[]{String.valueOf(dailyWorkId)
                 }, null);
@@ -93,8 +98,9 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
                 long dwId = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.SetsRepetition.REP_DW_ID));
                 int repition = setCursor.getInt(setCursor.getColumnIndex(FitnessContract.SetsRepetition.REP_NO_REP));
                 long date = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.SetsRepetition.REP_DATE_TIME));
+                double measures = setCursor.getDouble(setCursor.getColumnIndex(FitnessContract.SetsRepetition.REP_MEASURE));
                 Log.d(TAG, "## " + repId + ", " + dwId + ", " + repition);
-                adapter.addItem(new NoOfSetsData(repId, dwId, repition, date));
+                adapter.addItem(new NoOfSetsData(repId, dwId, repition, date, measures));
             }
             while (setCursor.moveToNext());
         }
@@ -192,6 +198,7 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
         clientValues.put(FitnessContract.SetsRepetition.REP_DW_ID, setsData.getWorkId());
         clientValues.put(FitnessContract.SetsRepetition.REP_NO_REP, setsData.getNoOfRep());
         clientValues.put(FitnessContract.SetsRepetition.REP_DATE_TIME, setsData.getDateTime());
+        clientValues.put(FitnessContract.SetsRepetition.REP_MEASURE, setsData.getMeasures());
         try {
             Uri insertRep = getContentResolver().insert(FitnessContract.SetsRepetition.CONTENT_URI, clientValues);
             repId = ContentUris.parseId(insertRep);
@@ -241,6 +248,9 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
             }
 
             break;
+            case R.id.edtWeight: {
+                long _repId = updateRepData(noOfSetsData);
+            }
         }
 
     }
@@ -251,6 +261,7 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
         clientValues.put(FitnessContract.SetsRepetition.REP_DW_ID, setsData.getWorkId());
         clientValues.put(FitnessContract.SetsRepetition.REP_NO_REP, setsData.getNoOfRep());
         clientValues.put(FitnessContract.SetsRepetition.REP_DATE_TIME, setsData.getDateTime());
+        clientValues.put(FitnessContract.SetsRepetition.REP_MEASURE, setsData.getMeasures());
         try {
             repId = getContentResolver().update(FitnessContract.SetsRepetition.CONTENT_URI, clientValues
                     , FitnessContract.SetsRepetition.REP_ID + "=?", new String[]{String.valueOf(setsData.getRepId())});
@@ -259,4 +270,40 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
         }
         return repId;
     }
+
+    public WorkoutCategory getCategory() {
+        long categoryId = 0;
+        String categoryName = "", categoryUnit = "", categoryMeasures = "";
+        Cursor setCursor = getApplicationContext().getContentResolver().query(FitnessContract.SetsMaster.CONTENT_URI,
+                new String[]{FitnessContract.SetsMaster.SET_CATEGORY_ID},
+                FitnessContract.SetsMaster.SET_ID + "=?", new String[]{String.valueOf(setsDataId)
+                }, null);
+        if (setCursor.getCount() > 0) {
+            setCursor.moveToFirst();
+            categoryId = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.SetsMaster.SET_CATEGORY_ID));
+            if (categoryId > 0) {
+                Cursor categoryCursor = getApplicationContext().getContentResolver().query(FitnessContract.WorkCategory.CONTENT_URI,
+                        new String[]{FitnessContract.WorkCategory.CAT_NAME,
+                                FitnessContract.WorkCategory.CAT_UNIT, FitnessContract.WorkCategory.CAT_MEASURE
+                        }, FitnessContract.WorkCategory.CAT_ID + "=?",
+                        new String[]{String.valueOf(categoryId)
+                        }, null);
+
+                if (categoryCursor.getCount() > 0) {
+                    categoryCursor.moveToFirst();
+                    categoryName = categoryCursor.getString(categoryCursor.getColumnIndex(FitnessContract.WorkCategory.CAT_NAME));
+                    categoryUnit = categoryCursor.getString(categoryCursor.getColumnIndex(FitnessContract.WorkCategory.CAT_UNIT));
+                    categoryMeasures = categoryCursor.getString(categoryCursor.getColumnIndex(FitnessContract.WorkCategory.CAT_MEASURE));
+                } else {
+                    Log.d(TAG, "Category data is not found" + categoryId);
+                }
+            }
+        } else {
+            Log.d(TAG, "## Category not found for " + setsDataId);
+        }
+
+
+        return new WorkoutCategory(categoryId, categoryName, categoryUnit, categoryMeasures);
+    }
+
 }

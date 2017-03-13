@@ -20,6 +20,7 @@ public class FitnessContract {
     public static final String PATH_SETS_MASTER = "sets_master";
     public static final String PATH_DAILY_WORKOUT = "daily_workout";
     public static final String PATH_SETS_REPETITION = "sets_repetition";
+    public static final String PATH_WORK_CATEGORY = "work_category";
 
 
     public static final class UserLogin implements BaseColumns {
@@ -89,6 +90,7 @@ public class FitnessContract {
         public final static String SET_NAME = "set_name";
         public final static String SET_DESC = "set_desc";
         public final static String SET_WKM_ID = "set_wkm_id";
+        public final static String SET_CATEGORY_ID = "set_category_id";
 
         public static final Uri setMasterUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
@@ -125,9 +127,28 @@ public class FitnessContract {
         public final static String REP_ID = "rep_id";
         public final static String REP_DW_ID = "work_id";
         public final static String REP_NO_REP = "no_of_rep";
+        public final static String REP_MEASURE = "rep_measures";
         public final static String REP_DATE_TIME = "rep_date_time";
 
         public static final Uri setsRepUri(long id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+    }
+
+    public static final class WorkCategory implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_WORK_CATEGORY).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_WORK_CATEGORY;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_WORK_CATEGORY;
+        public final static String TABLE_NAME = "WorkCategory";
+        public final static String CAT_ID = "category_id";
+        public final static String CAT_NAME = "category_name";
+        public final static String CAT_UNIT = "category_unit";
+        public final static String CAT_MEASURE = "category_measure";
+
+        public static final Uri categoryUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 

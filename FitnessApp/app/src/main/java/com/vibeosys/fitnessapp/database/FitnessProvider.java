@@ -22,6 +22,7 @@ public class FitnessProvider extends ContentProvider {
     static final int SETS_MASTER = 400;
     static final int DAILY_WORKOUT = 500;
     static final int SETS_REPETITION = 600;
+    static final int WORKOUT_CATEGORY = 700;
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -32,6 +33,7 @@ public class FitnessProvider extends ContentProvider {
         matcher.addURI(authority, FitnessContract.PATH_SETS_MASTER, SETS_MASTER);
         matcher.addURI(authority, FitnessContract.PATH_DAILY_WORKOUT, DAILY_WORKOUT);
         matcher.addURI(authority, FitnessContract.PATH_SETS_REPETITION, SETS_REPETITION);
+        matcher.addURI(authority, FitnessContract.PATH_WORK_CATEGORY, WORKOUT_CATEGORY);
 
         return matcher;
     }
@@ -58,6 +60,8 @@ public class FitnessProvider extends ContentProvider {
                 return FitnessContract.DailyWorkout.CONTENT_TYPE;
             case SETS_REPETITION:
                 return FitnessContract.SetsRepetition.CONTENT_TYPE;
+            case WORKOUT_CATEGORY:
+                return FitnessContract.WorkCategory.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri in getType: " + uri);
         }
@@ -148,6 +152,18 @@ public class FitnessProvider extends ContentProvider {
                 }
                 break;
             }
+            case WORKOUT_CATEGORY: {
+                long returnId = db.insert(FitnessContract.WorkCategory.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.WorkCategory.categoryUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.WorkCategory.categoryUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert category into" + uri);
+                }
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri in insert: " + uri);
         }
@@ -181,6 +197,9 @@ public class FitnessProvider extends ContentProvider {
                 break;
             case SETS_REPETITION:
                 rowDeleted = db.delete(FitnessContract.SetsRepetition.TABLE_NAME, selection, selectionArgs);
+                break;
+            case WORKOUT_CATEGORY:
+                rowDeleted = db.delete(FitnessContract.WorkCategory.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in delete: " + uri);
@@ -241,6 +260,12 @@ public class FitnessProvider extends ContentProvider {
                         , null, null, sortOrder);
                 break;
             }
+            case WORKOUT_CATEGORY: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.WorkCategory.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -272,6 +297,9 @@ public class FitnessProvider extends ContentProvider {
                 break;
             case SETS_REPETITION:
                 rowUpdated = db.update(FitnessContract.SetsRepetition.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case WORKOUT_CATEGORY:
+                rowUpdated = db.update(FitnessContract.WorkCategory.TABLE_NAME, values, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in update: " + uri);

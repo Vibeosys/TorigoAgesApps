@@ -9,19 +9,22 @@ public class NoOfSetsData {
     private long workId;
     private int noOfRep;
     private long dateTime;
+    private double measures;
 
     public NoOfSetsData(long workId, long dateTime) {
         this.repId = 0;
         this.workId = workId;
         this.noOfRep = 0;
         this.dateTime = dateTime;
+        this.measures = 0;
     }
 
-    public NoOfSetsData(long repId, long workId, int noOfRep, long dateTime) {
+    public NoOfSetsData(long repId, long workId, int noOfRep, long dateTime, double measures) {
         this.repId = repId;
         this.workId = workId;
         this.noOfRep = noOfRep;
         this.dateTime = dateTime;
+        this.measures = measures;
     }
 
     public long getRepId() {
@@ -54,5 +57,13 @@ public class NoOfSetsData {
 
     public void setDateTime(long dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public double getMeasures() {
+        return measures;
+    }
+
+    public void setMeasures(double measures) {
+        this.measures = measures;
     }
 }
