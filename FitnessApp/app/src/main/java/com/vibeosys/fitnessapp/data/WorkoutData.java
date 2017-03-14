@@ -6,6 +6,7 @@ package com.vibeosys.fitnessapp.data;
 public class WorkoutData {
 
     private long wkId;
+    private long dwId;
     private String wkName;
     private String wkDesc;
 
@@ -13,6 +14,12 @@ public class WorkoutData {
         this.wkId = wkId;
         this.wkName = wkName;
         this.wkDesc = wkDesc;
+    }
+
+    public WorkoutData(long wkId, long dwId, String wkName) {
+        this.wkId = wkId;
+        this.dwId = dwId;
+        this.wkName = wkName;
     }
 
     public long getWkId() {

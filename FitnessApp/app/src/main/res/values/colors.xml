@@ -9,6 +9,7 @@
     <color name="textlight30">#4d6b8d9c</color>
     <color name="primaryText">#ef2f3031</color>
     <color name="primaryText2">#bf2f3031</color>
+    <color name="secondaryText">#d863666b</color>
     <color name="accentText">#FF4081</color>
     <color name="divider_colour">#a8b6b3b1</color>
     <color name="transLoginText">#ad414143</color>

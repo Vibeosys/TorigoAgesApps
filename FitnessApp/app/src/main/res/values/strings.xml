@@ -37,4 +37,7 @@
     <string name="str_data_not_updated">Repetition is not updated</string>
     <string name="str_confirm_set_title">Confirm</string>
     <string name="str_confirm_set_message">You have already done this set do you open it again?</string>
+    <string name="title_activity_wrokout_report">WrokoutReportActivity</string>
+    <string name="str_repetition">Repetitions</string>
+    <string name="str_no_records_found_for_selected_day">No records found for the day</string>
 </resources>

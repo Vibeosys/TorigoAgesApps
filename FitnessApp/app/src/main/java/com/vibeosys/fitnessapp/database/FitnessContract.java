@@ -18,9 +18,12 @@ public class FitnessContract {
     public static final String PATH_BMI_RANGE = "bmi_range";
     public static final String PATH_WORKOUT_MASTER = "workout_master";
     public static final String PATH_SETS_MASTER = "sets_master";
-    public static final String PATH_DAILY_WORKOUT = "daily_workout";
+    public static final String PATH_DAILY_WORKOUT_SET = "daily_workout_set";
     public static final String PATH_SETS_REPETITION = "sets_repetition";
     public static final String PATH_WORK_CATEGORY = "work_category";
+    public static final String PATH_WORK_HISTORY = "work_history";
+    public static final String PATH_DAILY_WORK = "daily_work";
+    public static final String PATH_SETS_HISTORY = "sets_history";
 
 
     public static final class UserLogin implements BaseColumns {
@@ -98,18 +101,19 @@ public class FitnessContract {
 
     }
 
-    public static final class DailyWorkout implements BaseColumns {
-        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DAILY_WORKOUT).build();
+    public static final class DailyWorkoutSets implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DAILY_WORKOUT_SET).build();
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
-                + CONTENT_AUTHORITY + "/" + PATH_DAILY_WORKOUT;
+                + CONTENT_AUTHORITY + "/" + PATH_DAILY_WORKOUT_SET;
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
-                + CONTENT_AUTHORITY + "/" + PATH_DAILY_WORKOUT;
-        public final static String TABLE_NAME = "DailyWorkout";
+                + CONTENT_AUTHORITY + "/" + PATH_DAILY_WORKOUT_SET;
+        public final static String TABLE_NAME = "DailyWorkoutSets";
         public final static String DW_ID = "dw_id";
         public final static String DW_SET_ID = "dw_set_id";
         public final static String DW_DATE_TIME = "dw_date_time";
         public final static String DW_REPETITION = "dw_repetition";
         public final static String DW_USER_ID = "dw_user_id";
+        public final static String SETS_DAILY_ID = "set_daily_id";
 
         public static final Uri dailyWorkoutUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
@@ -152,5 +156,38 @@ public class FitnessContract {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
+    }
+
+    public static final class DailyWorkout implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DAILY_WORK).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_DAILY_WORK;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_DAILY_WORK;
+        public final static String TABLE_NAME = "DailyWorkout";
+        public final static String DAILY_ID = "daily_id";
+        public final static String WORK_ID = "work_id";
+        public final static String DATE_TIME = "date_time";
+
+        public static final Uri dailyWorkUri(long id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+    }
+
+    public static final class WorkHistory implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_WORK_HISTORY).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_WORK_HISTORY;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_WORK_HISTORY;
+    }
+
+    public static final class SetsHistory implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_SETS_HISTORY).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_SETS_HISTORY;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_SETS_HISTORY;
     }
 }

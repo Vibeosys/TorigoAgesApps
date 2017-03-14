@@ -91,7 +91,7 @@ public class DashboardActivity extends BaseActivity {
         InstructionNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent instructions = new Intent(getApplicationContext(), InstructionsActivity.class);
+                Intent instructions = new Intent(getApplicationContext(), WorkoutReportActivity.class);
                 startActivity(instructions);
             }
         });

@@ -15,17 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".activities.BodyMassIndexActivity" />
+        <activity
+            android:name=".activities.DashboardActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.BodyMassIndexActivity" />
-        <activity
-            android:name=".activities.DashboardActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
         <activity android:name=".activities.DietPlanActivity" />
         <activity android:name=".activities.InstructionsActivity" />
         <activity android:name=".activities.MessageChatActivity" />
@@ -70,7 +72,11 @@
             android:label="@string/title_activity_select_set"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.NewCustomSetActivity" />
-        <activity android:name=".activities.SetRepititionActivity"></activity>
+        <activity android:name=".activities.SetRepititionActivity" />
+        <activity
+            android:name=".activities.WorkoutReportActivity"
+            android:label="@string/title_activity_wrokout_report"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

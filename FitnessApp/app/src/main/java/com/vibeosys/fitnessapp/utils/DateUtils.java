@@ -10,9 +10,14 @@ import java.util.Date;
 public class DateUtils {
 
     final static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    final static SimpleDateFormat dateReadFormat = new SimpleDateFormat("dd MMM yyyy");
 
     public static Date dateWithoutTime(Date date) throws ParseException {
         return dateFormat.parse(dateFormat.format(date));
 
+    }
+
+    public static String getReadDateInFormat(java.util.Date date) {
+        return dateReadFormat.format(date);
     }
 }

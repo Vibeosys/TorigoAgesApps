@@ -9,8 +9,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -20,10 +18,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.vibeosys.fitnessapp.R;
-import com.vibeosys.fitnessapp.adapters.SelectWorkoutAdapter;
 import com.vibeosys.fitnessapp.adapters.SetsAdapter;
 import com.vibeosys.fitnessapp.data.SetsData;
-import com.vibeosys.fitnessapp.data.WorkoutData;
 import com.vibeosys.fitnessapp.database.FitnessContract;
 import com.vibeosys.fitnessapp.utils.DateUtils;
 
@@ -35,9 +31,11 @@ public class SelectSetActivity extends BaseActivity implements View.OnClickListe
 
     private static final String TAG = SelectSetActivity.class.getSimpleName();
     public static final String WKM_ID = "WorkoutId";
+    public static final String DAILY_WORK_ID = "DailyWorkoutId";
     private RecyclerView setsList;
     private SetsAdapter adapter;
     private long workoutId = 0;
+    private long dailyWorkoutId = 0;
     private Bundle bundle = null;
     private Button btnFinish;
 
@@ -52,6 +50,7 @@ public class SelectSetActivity extends BaseActivity implements View.OnClickListe
         bundle = getIntent().getExtras();
         if (bundle != null) {
             workoutId = bundle.getLong(WKM_ID);
+            dailyWorkoutId = bundle.getLong(DAILY_WORK_ID);
         }
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -132,15 +131,15 @@ public class SelectSetActivity extends BaseActivity implements View.OnClickListe
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Cursor dailyWoCursor = getApplicationContext().getContentResolver().query(FitnessContract.DailyWorkout.CONTENT_URI,
-                new String[]{FitnessContract.DailyWorkout.DW_SET_ID
-                }, FitnessContract.DailyWorkout.DW_SET_ID + "=? AND " + FitnessContract.DailyWorkout.DW_DATE_TIME + "=?",
+        Cursor dailyWoCursor = getApplicationContext().getContentResolver().query(FitnessContract.DailyWorkoutSets.CONTENT_URI,
+                new String[]{FitnessContract.DailyWorkoutSets.DW_ID
+                }, FitnessContract.DailyWorkoutSets.DW_SET_ID + "=? AND " + FitnessContract.DailyWorkoutSets.DW_DATE_TIME + "=?",
                 new String[]{String.valueOf(setsData.getSetId()), String.valueOf(currentDate)
                 }, null);
 
         if (dailyWoCursor.getCount() > 0) {
             dailyWoCursor.moveToFirst();
-            long dailyWoId = dailyWoCursor.getLong(dailyWoCursor.getColumnIndex(FitnessContract.DailyWorkout.DW_SET_ID));
+            long dailyWoId = dailyWoCursor.getLong(dailyWoCursor.getColumnIndex(FitnessContract.DailyWorkoutSets.DW_ID));
             confirmationAlertDialog(dailyWoId, setsData);
         } else {
             saveWorkOutSet(setsData, position);
@@ -178,16 +177,17 @@ public class SelectSetActivity extends BaseActivity implements View.OnClickListe
 
     private void saveWorkOutSet(SetsData setsData, int position) {
         ContentValues clientValues = new ContentValues();
-        clientValues.put(FitnessContract.DailyWorkout.DW_SET_ID, setsData.getSetId());
+        clientValues.put(FitnessContract.DailyWorkoutSets.DW_SET_ID, setsData.getSetId());
         try {
-            clientValues.put(FitnessContract.DailyWorkout.DW_DATE_TIME, "" + DateUtils.dateWithoutTime(Calendar.getInstance().getTime()).getTime());
+            clientValues.put(FitnessContract.DailyWorkoutSets.DW_DATE_TIME, "" + DateUtils.dateWithoutTime(Calendar.getInstance().getTime()).getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        clientValues.put(FitnessContract.DailyWorkout.DW_REPETITION, 0);
-        clientValues.put(FitnessContract.DailyWorkout.DW_USER_ID, 1);
+        clientValues.put(FitnessContract.DailyWorkoutSets.DW_REPETITION, 0);
+        clientValues.put(FitnessContract.DailyWorkoutSets.DW_USER_ID, 1);
+        clientValues.put(FitnessContract.DailyWorkoutSets.SETS_DAILY_ID,dailyWorkoutId);
         try {
-            Uri insertCase = getContentResolver().insert(FitnessContract.DailyWorkout.CONTENT_URI, clientValues);
+            Uri insertCase = getContentResolver().insert(FitnessContract.DailyWorkoutSets.CONTENT_URI, clientValues);
             long _dailyWorkId = ContentUris.parseId(insertCase);
             if (_dailyWorkId > 0) {
                 sharedPrefManager.setSetId(setsData.getSetId());
