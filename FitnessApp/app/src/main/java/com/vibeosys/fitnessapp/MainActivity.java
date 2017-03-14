@@ -59,8 +59,7 @@ public class MainActivity extends BaseActivity {
                     String[] args = {mUserEmailId.getText().toString().trim(), mUserPassword.getText().toString().trim()};
                     try {
                         Cursor cursor = getContentResolver().query(FitnessContract.UserLogin.CONTENT_URI, null, "user_email = ? AND user_password = ?", args, null);
-                        Log.e(TAG, cursor.toString());
-                        int jk = cursor.getCount();
+                        int cursorCount = cursor.getCount();
                         if (cursor == null) {
                             Log.e(TAG, cursor.toString());
                         } else if (cursor.getCount() < 1) {
@@ -68,6 +67,17 @@ public class MainActivity extends BaseActivity {
                         }
                         if (cursor.getCount() >= 1) {
                             Toast.makeText(getApplicationContext(), "Valid user", Toast.LENGTH_SHORT).show();
+                            if (cursor.moveToFirst()) {
+                                Log.e(TAG, cursor.toString());
+                                String userName = cursor.getString(cursor.getColumnIndex(FitnessContract.UserLogin.USER_NAME));
+                                String userEmailId = cursor.getString(cursor.getColumnIndex(FitnessContract.UserLogin.USER_EMAIL_ID));
+                                int userAge = cursor.getInt(cursor.getColumnIndex(FitnessContract.UserLogin.USER_AGE));
+                                String userPassword = cursor.getString(cursor.getColumnIndex(FitnessContract.UserLogin.USER_PASSWORD));
+                                double userHeightD = cursor.getDouble(cursor.getColumnIndex(FitnessContract.UserLogin.USER_HEIGHT));
+                                double userWeightD = cursor.getDouble(cursor.getColumnIndex(FitnessContract.UserLogin.USER_WEIGHT));
+                                cursor.close();
+                                Log.e(TAG, cursor.toString());
+                            }
                         }
                     } catch (SQLException e) {
                         Log.e(TAG, e.toString());
