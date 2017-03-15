@@ -23,7 +23,16 @@ public class SharedPrefManager {
         loadProjectSharedPreferences();
         return sharedPrefManager;
     }
-
+    public static SharedPrefManager instance()
+    {
+        if(sharedPrefManager!=null)
+        {
+            return sharedPrefManager;
+        }
+        else {
+            throw new IllegalArgumentException("No instance is yet created");
+        }
+    }
     private static void loadProjectSharedPreferences() {
         if (mProjectSharedPref == null) {
             mProjectSharedPref = mContext.getSharedPreferences(PROJECT_PREFERENCE, Context.MODE_PRIVATE);

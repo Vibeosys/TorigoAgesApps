@@ -26,16 +26,16 @@ import com.vibeosys.fitnessapp.activities.ImageConverter;
 import com.vibeosys.fitnessapp.activities.RegisterUserActivity;
 import com.vibeosys.fitnessapp.data.UserInfo;
 import com.vibeosys.fitnessapp.database.FitnessContract;
+import com.vibeosys.fitnessapp.utils.UserAuth;
 
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private Button login;
-    private ImageView circularImageView;
     private TextView mNewUser;
     private EditText mUserEmailId, mUserPassword;
-    private String[] mSelectionArgs = {""};
+
 
 
     @Override
@@ -51,18 +51,20 @@ public class MainActivity extends BaseActivity {
         mNewUser = (TextView) findViewById(R.id.newUser);
         mUserEmailId = (EditText) findViewById(R.id.editTextusername);
         mUserPassword = (EditText) findViewById(R.id.editTextuserpassword);
+        if (UserAuth.isUserLogin()) {
+            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+            startActivity(intent);
+            finish();
+        }
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent nextAction = new Intent(getApplicationContext(), DashboardActivity.class);
-                startActivity(nextAction);*/
+
                 boolean val = validation();
                 if (val) {
-                    String selectionArg = FitnessContract.UserLogin.USER_EMAIL_ID + " and " + FitnessContract.UserLogin.USER_PASSWORD;
                     String[] args = {mUserEmailId.getText().toString().trim(), mUserPassword.getText().toString().trim()};
                     try {
                         Cursor cursor = getContentResolver().query(FitnessContract.UserLogin.CONTENT_URI, null, "user_email = ? AND user_password = ?", args, null);
-                        int cursorCount = cursor.getCount();
                         if (cursor == null) {
                             Log.e(TAG, cursor.toString());
                         } else if (cursor.getCount() < 1) {
@@ -83,12 +85,9 @@ public class MainActivity extends BaseActivity {
                                 UserInfo userInfo = new UserInfo(userName, userEmailId, userPassword, userAge, userHeight, userWeight);
                                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                 intent.putExtra("UserInfo", userInfo);
-                                sharedPrefManager.setUserName(userName);
-                                sharedPrefManager.setUserEmailId(userEmailId);
-                                sharedPrefManager.setUserAge(userAge);
-                                sharedPrefManager.setUserHeight(userHeight);
-                                sharedPrefManager.setUserWeight(userWeight);
                                 startActivity(intent);
+                                finish();
+                                setSessionManager(userName, userEmailId, userAge, userPassword, userHeight, userWeight);
                             }
                         }
                     } catch (SQLException e) {
@@ -131,6 +130,15 @@ public class MainActivity extends BaseActivity {
             return false;
         }
         return true;
+    }
+
+    private void setSessionManager(String userName, String userEmailId, int userAge,
+                                   String userPassword, double userHeight, double userWeight) {
+        sharedPrefManager.setUserName(userName);
+        sharedPrefManager.setUserEmailId(userEmailId);
+        sharedPrefManager.setUserAge(userAge);
+        sharedPrefManager.setUserHeight(userHeight);
+        sharedPrefManager.setUserWeight(userWeight);
     }
 }
 
