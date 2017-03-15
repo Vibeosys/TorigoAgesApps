@@ -2,6 +2,7 @@ package com.vibeosys.fitnessapp.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 /**
  * Created by akshay on 10-03-2017.
@@ -47,6 +48,12 @@ public class SharedPrefManager {
         editor.apply();
     }
 
+    private static void setValuesInSharedPrefs(String sharedPrefKey, double sharedPrefValue) {
+        SharedPreferences.Editor editor = mProjectSharedPref.edit();
+        editor.putLong(sharedPrefKey, Double.doubleToLongBits(sharedPrefValue));
+        editor.apply();
+    }
+
     public long getWorkId() {
         return mProjectSharedPref.getLong(SharedPrefKeyConstant.WORK_ID, 0);
     }
@@ -77,5 +84,59 @@ public class SharedPrefManager {
 
     public void setDailyWorkId(long dailyWorkId) {
         setValuesInSharedPrefs(SharedPrefKeyConstant.DAYILY_WORK_ID, dailyWorkId);
+    }
+
+    public void setUserName(String userName) {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_NAME_KEY, userName);
+    }
+
+    public String getUserName() {
+        return mProjectSharedPref.getString(SharedPrefKeyConstant.USER_NAME_KEY, "");
+    }
+
+    public void setUserEmailId(String userEmailId) {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_EMAIL_ID, userEmailId);
+    }
+
+    public String getUserEmailId() {
+        return mProjectSharedPref.getString(SharedPrefKeyConstant.USER_EMAIL_ID, "");
+    }
+
+    public void setUserPassword(String userPassword) {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_PASSWORD, userPassword);
+    }
+
+    public String getUserPassword() {
+        return mProjectSharedPref.getString(SharedPrefKeyConstant.USER_PASSWORD, "");
+    }
+
+    public void setUserAge(int userAge) {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_AGE, userAge);
+    }
+
+    public int getUserAge() {
+        int retInt = mProjectSharedPref.getInt(SharedPrefKeyConstant.USER_AGE, 0);
+        Log.d("TAG", "TAG");
+        return retInt;
+    }
+
+    public void setUserHeight(double userHeight) {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_HEIGHT, userHeight);
+    }
+
+    public double getUserHeight() {
+        Long longVal = mProjectSharedPref.getLong(SharedPrefKeyConstant.USER_HEIGHT, 0);
+        double doubleVal = Double.longBitsToDouble(longVal);
+        return doubleVal;
+    }
+
+    public void setUserWeight(double userWeight) {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_WEIGHT, userWeight);
+    }
+
+    public double getUserWeight() {
+        Long longVal = mProjectSharedPref.getLong(SharedPrefKeyConstant.USER_WEIGHT, 0);
+        double doubleVal = Double.longBitsToDouble(longVal);
+        return doubleVal;
     }
 }

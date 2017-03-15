@@ -38,6 +38,7 @@
                     android:hint="User name"
                     android:inputType="textEmailAddress"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />
@@ -52,6 +53,7 @@
                     android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />
@@ -64,8 +66,9 @@
                     android:backgroundTint="@android:color/white"
                     android:drawablePadding="8dp"
                     android:hint="Password"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPassword"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />
@@ -78,8 +81,9 @@
                     android:backgroundTint="@android:color/white"
                     android:drawablePadding="8dp"
                     android:hint="Re enter password"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPassword"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />
@@ -91,9 +95,10 @@
                     android:layout_margin="4dp"
                     android:backgroundTint="@android:color/white"
                     android:drawablePadding="8dp"
-                    android:hint="Please enter your Age"
+                    android:hint="Your Age"
                     android:inputType="number"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />
@@ -105,9 +110,10 @@
                     android:layout_margin="4dp"
                     android:backgroundTint="@android:color/white"
                     android:drawablePadding="8dp"
-                    android:hint="Please enter your height"
+                    android:hint="Your height inches e.g 5.10"
                     android:inputType="numberDecimal"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />
@@ -119,9 +125,10 @@
                     android:layout_margin="4dp"
                     android:backgroundTint="@android:color/white"
                     android:drawablePadding="8dp"
-                    android:hint="Please enter your weight"
+                    android:hint="Your weight in kg. e.g. 65"
                     android:inputType="numberDecimal"
                     android:padding="8dp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textSize="16sp" />

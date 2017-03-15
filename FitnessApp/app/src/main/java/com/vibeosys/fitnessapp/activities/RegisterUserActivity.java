@@ -108,13 +108,13 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
             mUserConfirmPwd.setError("Please re-enter Your Password");
             return false;
         }
-        /*if (!TextUtils.isEmpty(userPwd) && !TextUtils.isEmpty(userConfirmPwd)) {
-            if (!mUserPwd.equals(userConfirmPwd)) {
+        if (!TextUtils.isEmpty(userPwd) && !TextUtils.isEmpty(userConfirmPwd)) {
+            if (!userPwd.equals(userConfirmPwd)) {
                 mUserConfirmPwd.requestFocus();
                 mUserConfirmPwd.setError("Password did not match");
                 return false;
             }
-        }*/
+        }
         if (TextUtils.isEmpty(userAge)) {
             mUserAge.requestFocus();
             mUserAge.setError("Please enter your age");

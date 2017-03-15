@@ -17,22 +17,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_margin="4dp"
-                android:orientation="horizontal">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/circleView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:padding="8dp"
-                    android:src="@drawable/profile_new_test" />
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:layout_weight="1.2"
+                    android:orientation="vertical"
+                    android:padding="4dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@drawable/profile_new_test" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.8"
                     android:orientation="vertical"
                     android:padding="4dp">
 
@@ -50,10 +59,10 @@
                             android:text="Name :" />
 
                         <TextView
-                            android:id="@+id/nameTv"
+                            android:id="@+id/userNameTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="johnson williams"
+                            android:text="Shrinivas Subhash Holgundikar"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
                     </LinearLayout>
 
@@ -72,7 +81,7 @@
                             android:textAppearance="?android:attr/textAppearanceSmall" />
 
                         <TextView
-                            android:id="@+id/ageTv"
+                            android:id="@+id/userAgeTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignTop="@+id/AgeTextView"
@@ -91,13 +100,27 @@
                 android:orientation="vertical"
                 android:padding="6dp">
 
-                <TextView
-                    android:id="@+id/heightTv"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/circleView"
-                    android:text="6.1 inches"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/heightTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6.1"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:id="@+id/inchesTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="4dp"
+                        android:text="inches"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/heightTitle"
@@ -117,14 +140,27 @@
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
-                <TextView
-                    android:id="@+id/weightTv"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/SplitLine_hor1"
-                    android:text="76.3 Kg."
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/weightTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="76.3"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:id="@+id/weightTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="4dp"
+                        android:text="Kg"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/weightTilte"
@@ -144,22 +180,37 @@
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
-                <TextView
-                    android:id="@+id/chestTv"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/SplitLine_hor2"
-                    android:text="34 inches"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bmiTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/SplitLine_hor2"
+                        android:text="34"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:id="@+id/bmiTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="4dp"
+                        android:text="Kg/m"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
 
                 <TextView
-                    android:id="@+id/chestTitle"
+                    android:id="@+id/bmi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/chestTv"
-                    android:text="Chest ."
+                    android:text="BMI ."
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <View
@@ -194,33 +245,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_below="@+id/bloogGroupTitle"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@android:color/darker_gray" />
-
-                <TextView
-                    android:id="@+id/cholesterolTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignTop="@+id/SplitLine_hor4"
-                    android:text="110-129 mg/dL"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/cholesterolTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/cholesterolTv"
-                    android:text="cholesterols"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <View
-                    android:id="@+id/SplitLine_hor5"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/cholesterolTitle"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />

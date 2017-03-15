@@ -12,6 +12,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +24,7 @@ import com.vibeosys.fitnessapp.activities.BaseActivity;
 import com.vibeosys.fitnessapp.activities.DashboardActivity;
 import com.vibeosys.fitnessapp.activities.ImageConverter;
 import com.vibeosys.fitnessapp.activities.RegisterUserActivity;
+import com.vibeosys.fitnessapp.data.UserInfo;
 import com.vibeosys.fitnessapp.database.FitnessContract;
 
 import java.util.ArrayList;
@@ -37,10 +40,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         login = (Button) findViewById(R.id.loginbtn);
-        getSupportActionBar().setTitle("");
         ImageView circularImageView = (ImageView) findViewById(R.id.imageButton);
         Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.gym_logo_new);
         Bitmap circularBitmap = ImageConverter.getRoundedCornerBitmap(bitmap, 100);
@@ -73,10 +76,19 @@ public class MainActivity extends BaseActivity {
                                 String userEmailId = cursor.getString(cursor.getColumnIndex(FitnessContract.UserLogin.USER_EMAIL_ID));
                                 int userAge = cursor.getInt(cursor.getColumnIndex(FitnessContract.UserLogin.USER_AGE));
                                 String userPassword = cursor.getString(cursor.getColumnIndex(FitnessContract.UserLogin.USER_PASSWORD));
-                                double userHeightD = cursor.getDouble(cursor.getColumnIndex(FitnessContract.UserLogin.USER_HEIGHT));
-                                double userWeightD = cursor.getDouble(cursor.getColumnIndex(FitnessContract.UserLogin.USER_WEIGHT));
+                                double userHeight = cursor.getDouble(cursor.getColumnIndex(FitnessContract.UserLogin.USER_HEIGHT));
+                                double userWeight = cursor.getDouble(cursor.getColumnIndex(FitnessContract.UserLogin.USER_WEIGHT));
                                 cursor.close();
                                 Log.e(TAG, cursor.toString());
+                                UserInfo userInfo = new UserInfo(userName, userEmailId, userPassword, userAge, userHeight, userWeight);
+                                Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                                intent.putExtra("UserInfo", userInfo);
+                                sharedPrefManager.setUserName(userName);
+                                sharedPrefManager.setUserEmailId(userEmailId);
+                                sharedPrefManager.setUserAge(userAge);
+                                sharedPrefManager.setUserHeight(userHeight);
+                                sharedPrefManager.setUserWeight(userWeight);
+                                startActivity(intent);
                             }
                         }
                     } catch (SQLException e) {

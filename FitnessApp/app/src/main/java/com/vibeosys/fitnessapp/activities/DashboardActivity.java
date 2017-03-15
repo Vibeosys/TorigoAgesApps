@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.vibeosys.fitnessapp.R;
+import com.vibeosys.fitnessapp.data.UserInfo;
 import com.vibeosys.fitnessapp.utils.DateUtils;
 
 import java.text.ParseException;
@@ -50,7 +51,11 @@ public class DashboardActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Dash board");
-
+        UserInfo userInfo = getIntent().getParcelableExtra("UserInfo");
+        if (userInfo != null) {
+            String UserName = userInfo.getUserName();
+            String userEmailId = userInfo.getUserEmailId();
+        }
         toggle = new ActionBarDrawerToggle
                 (
                         this,
