@@ -2,6 +2,7 @@ package com.vibeosys.fitnessapp.activities;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.vibeosys.fitnessapp.MainActivity;
 import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.database.FitnessContract;
 
@@ -63,6 +65,9 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
                 long user_id = ContentUris.parseId(insertUser);
                 if (user_id > 0) {
                     Toast.makeText(getApplicationContext(), "user Registered successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                 }

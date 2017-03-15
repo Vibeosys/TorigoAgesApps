@@ -163,7 +163,6 @@ public class DashboardActivity extends BaseActivity {
             case 0:
                 Intent i = new Intent(getApplicationContext(), MyProfileActivity.class);
                 startActivity(i);
-                finish();
                 break;
             case 1:
                 Intent bodymass = new Intent(getApplicationContext(), BodyMassIndexActivity.class);
