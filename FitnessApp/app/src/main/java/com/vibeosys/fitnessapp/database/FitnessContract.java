@@ -24,6 +24,7 @@ public class FitnessContract {
     public static final String PATH_WORK_HISTORY = "work_history";
     public static final String PATH_DAILY_WORK = "daily_work";
     public static final String PATH_SETS_HISTORY = "sets_history";
+    public static final String PATH_USERS_BMI = "bmi_users";
 
 
     public static final class UserLogin implements BaseColumns {
@@ -170,6 +171,24 @@ public class FitnessContract {
         public final static String DATE_TIME = "date_time";
 
         public static final Uri dailyWorkUri(long id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+    }
+
+
+    public static final class UsersBmi implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_USERS_BMI).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_USERS_BMI;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_USERS_BMI;
+        public final static String TABLE_NAME = "UsersBmi";
+        public final static String BMI_ID = "bmi_id";
+        public final static String BMI_RANGE = "bmi";
+        public final static String DATE_TIME = "bmi_date_time";
+
+        public static final Uri usersBmiUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
