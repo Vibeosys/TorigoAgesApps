@@ -48,6 +48,7 @@ public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemView
         final NoOfSetsData noOfSetsData = data.get(position);
         holder.info.setText(category.getCategoryMeasure() + " in " + category.getCategoryUnit());
         holder.edtWeight.setText("" + noOfSetsData.getMeasures());
+//        notifyDataSetChanged();
         holder.edtNoOfRep.setText("" + noOfSetsData.getNoOfRep());
         holder.btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +68,7 @@ public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemView
                 }
             }
         });
-        holder.edtWeight.addTextChangedListener(new TextWatcher() {
+        /*holder.edtWeight.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -76,8 +77,8 @@ public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemView
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
+                    noOfSetsData.setMeasures(Double.parseDouble(holder.edtWeight.getText().toString()));
                     if (onButtonClickListener != null) {
-                        noOfSetsData.setMeasures(Double.parseDouble(holder.edtWeight.getText().toString()));
                         onButtonClickListener.onButtonClick(noOfSetsData, position, holder.edtWeight);
                     }
                 } catch (Exception e) {
@@ -87,9 +88,8 @@ public class NoOfSetsdapter extends RecyclerView.Adapter<NoOfSetsdapter.ItemView
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
-        });
+        });*/
     }
 
     @Override

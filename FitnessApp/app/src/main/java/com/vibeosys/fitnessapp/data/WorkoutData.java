@@ -45,4 +45,12 @@ public class WorkoutData {
     public void setWkDesc(String wkDesc) {
         this.wkDesc = wkDesc;
     }
+
+    public long getDwId() {
+        return dwId;
+    }
+
+    public void setDwId(long dwId) {
+        this.dwId = dwId;
+    }
 }

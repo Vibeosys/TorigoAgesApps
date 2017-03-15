@@ -97,7 +97,7 @@ public class SelectWorkoutActivity extends BaseActivity implements
     }
 
 
-    protected void confirmationAlertDialog(final WorkoutData workoutData, long dailyId) {
+    protected void confirmationAlertDialog(final WorkoutData workoutData, final long dailyId) {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.str_confirm_workout_title))
                 .setMessage(getString(R.string.str_confirm_workout_message))
@@ -110,7 +110,7 @@ public class SelectWorkoutActivity extends BaseActivity implements
                         Intent intent = new Intent(getApplicationContext(), SelectSetActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putLong(SelectSetActivity.WKM_ID, workoutData.getWkId());
-                        bundle.putLong(SelectSetActivity.DAILY_WORK_ID, workoutData.getWkId());
+                        bundle.putLong(SelectSetActivity.DAILY_WORK_ID, dailyId);
                         intent.putExtras(bundle);
                         startActivity(intent);
                         finish();

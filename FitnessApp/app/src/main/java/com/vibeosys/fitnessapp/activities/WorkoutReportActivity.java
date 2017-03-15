@@ -89,12 +89,12 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
                 long dailyId = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.DailyWorkout.DAILY_ID));
                 long workId = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.DailyWorkout.WORK_ID));
                 String name = setCursor.getString(setCursor.getColumnIndex(FitnessContract.WorkOutMaster.WKM_NAME));
-                workoutDatas.add(new WorkoutData(dailyId, workId, name));
+                workoutDatas.add(new WorkoutData(workId, dailyId, name));
             }
             while (setCursor.moveToNext());
             for (WorkoutData workoutData : workoutDatas) {
                 adapter.addItem(workoutData);
-                addSetsDetails(workoutData.getWkId());
+                addSetsDetails(workoutData.getDwId());
             }
         } else {
 
