@@ -25,6 +25,7 @@ public class FitnessContract {
     public static final String PATH_DAILY_WORK = "daily_work";
     public static final String PATH_SETS_HISTORY = "sets_history";
     public static final String PATH_USERS_BMI = "bmi_users";
+    public static final String PATH_USR_DIET = "user_diet";
 
 
     public static final class UserLogin implements BaseColumns {
@@ -211,4 +212,23 @@ public class FitnessContract {
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
                 + CONTENT_AUTHORITY + "/" + PATH_SETS_HISTORY;
     }
+
+    public static final class UserDiet implements BaseColumns {
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendEncodedPath(PATH_USR_DIET).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_USR_DIET;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
+                + CONTENT_AUTHORITY + "/" + PATH_USR_DIET;
+        public final static String TABLE_NAME="UserDiet";
+        public final static String BMI_MIN="ud_bmi_min";
+        public final static String BMI_MAX="ud_bmi_max";
+        public final static String USER_DIET="ud_diet";
+        public final static String DIET_PRIORITY="ud_diet_priority";
+        public final static String USER_DIET_CATEGORY_ID="ud_category_id";
+        public static final Uri userDietUri(long id)
+        {
+            return ContentUris.withAppendedId(CONTENT_URI,id);
+        }
+    }
+
 }
