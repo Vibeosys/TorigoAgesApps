@@ -27,6 +27,7 @@ public class FitnessProvider extends ContentProvider {
     static final int WORKOUT_HISTORY = 800;
     static final int SETS_HISTORY = 801;
     static final int DAILY_WORK = 900;
+    static final int USERS_BMI = 101;
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -41,6 +42,7 @@ public class FitnessProvider extends ContentProvider {
         matcher.addURI(authority, FitnessContract.PATH_WORK_HISTORY, WORKOUT_HISTORY);
         matcher.addURI(authority, FitnessContract.PATH_SETS_HISTORY, SETS_HISTORY);
         matcher.addURI(authority, FitnessContract.PATH_DAILY_WORK, DAILY_WORK);
+        matcher.addURI(authority, FitnessContract.PATH_USERS_BMI, USERS_BMI);
 
         return matcher;
     }
@@ -71,6 +73,8 @@ public class FitnessProvider extends ContentProvider {
                 return FitnessContract.WorkCategory.CONTENT_TYPE;
             case DAILY_WORK:
                 return FitnessContract.DailyWorkout.CONTENT_TYPE;
+            case USERS_BMI:
+                return FitnessContract.UsersBmi.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri in getType: " + uri);
         }
@@ -185,6 +189,18 @@ public class FitnessProvider extends ContentProvider {
                 }
                 break;
             }
+            case USERS_BMI: {
+                long returnId = db.insert(FitnessContract.UsersBmi.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.UsersBmi.usersBmiUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.UsersBmi.usersBmiUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert Users Bmi into" + uri);
+                }
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri in insert: " + uri);
         }
@@ -224,6 +240,9 @@ public class FitnessProvider extends ContentProvider {
                 break;
             case DAILY_WORK:
                 rowDeleted = db.delete(FitnessContract.DailyWorkout.TABLE_NAME, selection, selectionArgs);
+                break;
+            case USERS_BMI:
+                rowDeleted = db.delete(FitnessContract.UsersBmi.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in delete: " + uri);
@@ -296,6 +315,12 @@ public class FitnessProvider extends ContentProvider {
                         , null, null, sortOrder);
                 break;
             }
+            case USERS_BMI: {
+                retCursor = mDbRepository.getReadableDatabase().query(
+                        FitnessContract.UsersBmi.TABLE_NAME, projection, selection, selectionArgs
+                        , null, null, sortOrder);
+                break;
+            }
             case WORKOUT_HISTORY: {
                 return historyQueryBuilder.query(mDbRepository.getReadableDatabase(),
                         projection,
@@ -353,6 +378,9 @@ public class FitnessProvider extends ContentProvider {
                 break;
             case DAILY_WORK:
                 rowUpdated = db.update(FitnessContract.DailyWorkout.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case USERS_BMI:
+                rowUpdated = db.update(FitnessContract.UsersBmi.TABLE_NAME, values, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in update: " + uri);

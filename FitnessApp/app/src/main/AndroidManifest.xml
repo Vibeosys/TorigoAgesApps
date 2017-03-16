@@ -28,9 +28,7 @@
         <activity
             android:name=".activities.DashboardActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activities.DietPlanActivity"
             android:screenOrientation="portrait" />
@@ -85,7 +83,8 @@
         <activity
             android:name=".activities.WorkoutReportActivity"
             android:label="@string/title_activity_wrokout_report"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.MonthlyBMIActivity"></activity>
     </application>
 
 </manifest>

@@ -165,7 +165,7 @@ public class DashboardActivity extends BaseActivity {
                 startActivity(i);
                 break;
             case 1:
-                Intent bodymass = new Intent(getApplicationContext(), BodyMassIndexActivity.class);
+                Intent bodymass = new Intent(getApplicationContext(), MonthlyBMIActivity.class);
                 startActivity(bodymass);
                 finish();
                 break;

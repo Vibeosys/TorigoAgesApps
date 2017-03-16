@@ -186,6 +186,8 @@ public class FitnessContract {
         public final static String TABLE_NAME = "UsersBmi";
         public final static String BMI_ID = "bmi_id";
         public final static String BMI_RANGE = "bmi";
+        public final static String BMI_WEIGHT = "weight";
+        public final static String BMI_HEIGHT = "height";
         public final static String DATE_TIME = "bmi_date_time";
 
         public static final Uri usersBmiUri(long id) {

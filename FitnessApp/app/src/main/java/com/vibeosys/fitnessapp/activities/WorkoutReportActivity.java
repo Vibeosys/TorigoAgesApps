@@ -15,7 +15,7 @@ import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.adapters.WorkHistoryAdapter;
 import com.vibeosys.fitnessapp.data.HistorySetsData;
 import com.vibeosys.fitnessapp.data.NoOfSetsData;
-import com.vibeosys.fitnessapp.data.SetsData;
+import com.vibeosys.fitnessapp.data.WorkoutCategory;
 import com.vibeosys.fitnessapp.data.WorkoutData;
 import com.vibeosys.fitnessapp.database.FitnessContract;
 import com.vibeosys.fitnessapp.utils.DateUtils;
@@ -26,6 +26,7 @@ import java.util.Calendar;
 
 public class WorkoutReportActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = WorkoutReportActivity.class.getSimpleName();
     private RecyclerView historyList;
     private WorkHistoryAdapter adapter;
     private static int daysCounter = 0;
@@ -127,12 +128,14 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
                 long setId = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.DailyWorkoutSets.DW_SET_ID));
                 int repetition = setCursor.getInt(setCursor.getColumnIndex(FitnessContract.DailyWorkoutSets.DW_REPETITION));
                 String name = setCursor.getString(setCursor.getColumnIndex(FitnessContract.SetsMaster.SET_NAME));
-                historyData.add(new HistorySetsData(setsDailyId, name, repetition));
+                historyData.add(new HistorySetsData(setsDailyId, name, repetition, setId));
 
             }
             while (setCursor.moveToNext());
             for (HistorySetsData historySets : historyData) {
-                ArrayList<NoOfSetsData> repetitionData = getRepetitionData(historySets.getSetId());
+                ArrayList<NoOfSetsData> repetitionData = getRepetitionData(historySets.getDailySetId());
+                WorkoutCategory category = getCategory(historySets.getSetId());
+                historySets.setCategory(category);
                 historySets.setRepetitionData(repetitionData);
                 adapter.addItem(historySets);
             }
@@ -180,4 +183,40 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
                 break;
         }
     }
+
+    public WorkoutCategory getCategory(long setsDataId) {
+        long categoryId = 0;
+        String categoryName = "", categoryUnit = "", categoryMeasures = "";
+        Cursor setCursor = getApplicationContext().getContentResolver().query(FitnessContract.SetsMaster.CONTENT_URI,
+                new String[]{FitnessContract.SetsMaster.SET_CATEGORY_ID},
+                FitnessContract.SetsMaster.SET_ID + "=?", new String[]{String.valueOf(setsDataId)
+                }, null);
+        if (setCursor.getCount() > 0) {
+            setCursor.moveToFirst();
+            categoryId = setCursor.getLong(setCursor.getColumnIndex(FitnessContract.SetsMaster.SET_CATEGORY_ID));
+            if (categoryId > 0) {
+                Cursor categoryCursor = getApplicationContext().getContentResolver().query(FitnessContract.WorkCategory.CONTENT_URI,
+                        new String[]{FitnessContract.WorkCategory.CAT_NAME,
+                                FitnessContract.WorkCategory.CAT_UNIT, FitnessContract.WorkCategory.CAT_MEASURE
+                        }, FitnessContract.WorkCategory.CAT_ID + "=?",
+                        new String[]{String.valueOf(categoryId)
+                        }, null);
+
+                if (categoryCursor.getCount() > 0) {
+                    categoryCursor.moveToFirst();
+                    categoryName = categoryCursor.getString(categoryCursor.getColumnIndex(FitnessContract.WorkCategory.CAT_NAME));
+                    categoryUnit = categoryCursor.getString(categoryCursor.getColumnIndex(FitnessContract.WorkCategory.CAT_UNIT));
+                    categoryMeasures = categoryCursor.getString(categoryCursor.getColumnIndex(FitnessContract.WorkCategory.CAT_MEASURE));
+                } else {
+                    Log.d(TAG, "Category data is not found" + categoryId);
+                }
+            }
+        } else {
+            Log.d(TAG, "## Category not found for " + setsDataId);
+        }
+
+
+        return new WorkoutCategory(categoryId, categoryName, categoryUnit, categoryMeasures);
+    }
+
 }

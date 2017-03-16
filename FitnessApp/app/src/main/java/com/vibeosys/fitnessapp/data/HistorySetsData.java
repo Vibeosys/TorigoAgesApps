@@ -7,24 +7,26 @@ import java.util.ArrayList;
  */
 public class HistorySetsData {
     private long setId;
+    private long dailySetId;
     private String setName;
     private String setDesc;
     private int repetition;
-    ArrayList<NoOfSetsData> repetitionData;
+    private ArrayList<NoOfSetsData> repetitionData;
+    private WorkoutCategory category;
 
-
-    public HistorySetsData(long setId, String setName, int repetition) {
-        this.setId = setId;
+    public HistorySetsData(long dailySetId, String setName, int repetition, long setId) {
+        this.dailySetId = dailySetId;
         this.setName = setName;
         this.repetition = repetition;
-    }
-
-    public long getSetId() {
-        return setId;
-    }
-
-    public void setSetId(long setId) {
         this.setId = setId;
+    }
+
+    public long getDailySetId() {
+        return dailySetId;
+    }
+
+    public void setDailySetId(long dailySetId) {
+        this.dailySetId = dailySetId;
     }
 
     public String getSetName() {
@@ -57,6 +59,22 @@ public class HistorySetsData {
 
     public void setRepetition(int repetition) {
         this.repetition = repetition;
+    }
+
+    public WorkoutCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(WorkoutCategory category) {
+        this.category = category;
+    }
+
+    public long getSetId() {
+        return setId;
+    }
+
+    public void setSetId(long setId) {
+        this.setId = setId;
     }
 }
 

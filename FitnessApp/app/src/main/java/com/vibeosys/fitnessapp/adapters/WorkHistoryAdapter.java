@@ -87,7 +87,7 @@ public class WorkHistoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 TextView txtUnit = (TextView) row.findViewById(R.id.txt_unit);
                 TextView repetition = (TextView) row.findViewById(R.id.txt_no_of_rep);
                 txtMeasure.setText(String.format("%.2f", noOfSetsData.getMeasures()));
-                //txtUnit.setText(String.valueOf(noOfSetsData.get()));
+                txtUnit.setText(String.valueOf(historySetsData.getCategory().getCategoryUnit()));
                 repetition.setText("" + noOfSetsData.getNoOfRep());
                 setViewHolder.layRepetition.addView(row);
             }
