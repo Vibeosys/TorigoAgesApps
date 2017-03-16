@@ -43,7 +43,7 @@
                 android:enabled="true"
                 android:gravity="center"
                 android:hint="0"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -62,8 +62,9 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:background="@drawable/border_black"
-                android:enabled="false"
+                android:enabled="true"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:hint="0" />
         </LinearLayout>
 

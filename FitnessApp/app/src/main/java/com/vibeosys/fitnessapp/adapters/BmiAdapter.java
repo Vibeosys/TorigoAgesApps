@@ -38,8 +38,8 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ItemViewHolder> 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, final int position) {
         final BmiData bmiData = data.get(position);
-        holder.tvBmi.setText("" + bmiData.getBmi());
-        holder.tvWeight.setText("" + bmiData.getWeight());
+        holder.tvBmi.setText(String.format("%.2f", bmiData.getBmi()));
+        holder.tvWeight.setText(String.format("%.2f", bmiData.getWeight()));
         holder.tvDate.setText(DateUtils.getReadDateInFormat(new Date(bmiData.getDateTime())));
     }
 

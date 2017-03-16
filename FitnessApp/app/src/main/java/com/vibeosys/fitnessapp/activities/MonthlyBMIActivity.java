@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,12 +23,13 @@ import com.vibeosys.fitnessapp.utils.BmiCalculation;
 
 import java.util.Calendar;
 
-public class MonthlyBMIActivity extends AppCompatActivity {
+public class MonthlyBMIActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = MonthlyBMIActivity.class.getSimpleName();
     private RecyclerView bmiList;
     private BmiAdapter adapter;
     private EditText edtWeight, edtHeight;
+    private Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,13 @@ public class MonthlyBMIActivity extends AppCompatActivity {
         bmiList = (RecyclerView) findViewById(R.id.bmi_list);
         edtWeight = (EditText) findViewById(R.id.edtWeight);
         edtHeight = (EditText) findViewById(R.id.edtHeight);
+        btnSave = (Button) findViewById(R.id.btnSave);
         final LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         bmiList.setLayoutManager(llm);
         adapter = new BmiAdapter(getApplicationContext());
         bmiList.setAdapter(adapter);
+        btnSave.setOnClickListener(this);
     }
 
     @Override
@@ -93,7 +98,7 @@ public class MonthlyBMIActivity extends AppCompatActivity {
             clientValues.put(FitnessContract.UsersBmi.BMI_HEIGHT, height);
             clientValues.put(FitnessContract.UsersBmi.DATE_TIME, Calendar.getInstance().getTime().getTime());
             try {
-                Uri insertSet = getContentResolver().insert(FitnessContract.SetsMaster.CONTENT_URI, clientValues);
+                Uri insertSet = getContentResolver().insert(FitnessContract.UsersBmi.CONTENT_URI, clientValues);
                 long _setId = ContentUris.parseId(insertSet);
                 if (_setId > 0) {
                     Toast.makeText(getApplicationContext(), getString(R.string.
@@ -104,5 +109,15 @@ public class MonthlyBMIActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.btnSave:
+                insertBmi();
+                break;
+        }
     }
 }
