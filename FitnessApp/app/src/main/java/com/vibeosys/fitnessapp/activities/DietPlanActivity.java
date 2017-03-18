@@ -12,14 +12,17 @@ import android.widget.Toast;
 
 import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.database.FitnessContract;
+import com.vibeosys.fitnessapp.utils.BmiCalculation;
 
 /**
  * Created by shrinivas on 25-04-2016.
  */
-public class DietPlanActivity extends AppCompatActivity {
+public class DietPlanActivity extends BaseActivity {
     private Context context;
     private static final String TAG = DietPlanActivity.class.getSimpleName();
     private WebView webView;
+    private double heightInMeter, userWeight;
+    private double mBmi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,16 @@ public class DietPlanActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView_diet);
         // webView.loadUrl("file:///android_res/raw/normal.html");
         context = DietPlanActivity.this;
-        String args[] = {"22", "22"};
+        try {
+            heightInMeter = (sharedPrefManager.getUserHeight() / 3.2808);
+            userWeight = sharedPrefManager.getUserWeight();
+            mBmi = BmiCalculation.calculateBMI(heightInMeter, userWeight);
+
+        } catch (Exception e) {
+            e.toString();
+        }
+
+        String args[] = {"" + mBmi, "" + mBmi};
         try {
             Cursor cursor = getContentResolver().query(FitnessContract.UserDiet.CONTENT_URI, null,
                     "ud_bmi_max >= ? AND ud_bmi_min <= ?", args, null);
