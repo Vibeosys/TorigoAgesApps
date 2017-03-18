@@ -1,5 +1,6 @@
 package com.vibeosys.fitnessapp.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -219,4 +222,21 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
         return new WorkoutCategory(categoryId, categoryName, categoryUnit, categoryMeasures);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.work_report_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.graphs_data) {
+            startActivity(new Intent(getApplicationContext(), WorkoutGraphActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

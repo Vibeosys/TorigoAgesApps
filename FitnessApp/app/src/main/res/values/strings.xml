@@ -43,4 +43,5 @@
     <string name="str_kg_per_meter">Kg/m3</string>
     <string name="str_err_height_wrong">Please enter correct height</string>
     <string name="str_err_weight_wrong">Please enter correct weight</string>
+    <string name="str_no_records_found">No records are found</string>
 </resources>

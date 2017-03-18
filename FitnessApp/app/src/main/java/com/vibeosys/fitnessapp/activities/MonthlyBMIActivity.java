@@ -107,6 +107,7 @@ public class MonthlyBMIActivity extends BaseActivity implements View.OnClickList
             } catch (SQLException e) {
                 Log.e(TAG, "Set is not added " + e.toString());
             }
+            loadData();
         }
 
     }

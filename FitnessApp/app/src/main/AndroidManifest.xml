@@ -86,6 +86,7 @@
             android:label="@string/title_activity_wrokout_report"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.MonthlyBMIActivity"></activity>
+        <activity android:name=".activities.WorkoutGraphActivity"></activity>
     </application>
 
 </manifest>
