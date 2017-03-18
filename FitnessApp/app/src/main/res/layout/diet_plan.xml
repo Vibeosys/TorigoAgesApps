@@ -12,8 +12,7 @@
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/diat_image" />
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/diat_day_title"

@@ -31,6 +31,7 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activities.DietPlanActivity"
+            android:parentActivityName=".activities.DashboardActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activities.InstructionsActivity" />
         <activity android:name=".activities.MessageChatActivity" />
