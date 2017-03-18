@@ -1,0 +1,76 @@
+<style>
+    * {
+    padding: 0;
+    margin: 8px 0px 0px 0px;
+    }
+    .fit {
+    max-width: 100%;
+    max-height: 100%;
+    }
+    .center {
+    display: block;
+    margin: auto;
+    }
+</style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" language="JavaScript">
+function set_body_height()
+{
+    var wh = $(window).height();
+    $('body').attr('style', 'height:' + wh + 'px;');
+}
+$(document).ready(function() {
+    set_body_height();
+    $(window).bind('resize', function() { set_body_height(); });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<p>
+    <img id="the_pic" class="center fit" src="file:///android_res/raw/diat_image.jpg"/>
+</p>
+
+<hr color="#000000">
+<p>
+<center><strong>Normal BMI</strong></center></p>
+<hr color="#000000">
+
+<p style="padding: 15px 15px 15px 15px ">
+    <strong><b> <u>Breakfast :</u></b></strong> 1 cup of milk,1 apple and 1-2 glass of water
+</p>
+
+
+<p style="padding: 0px 15px 15px 15px ">
+    <strong> <b> <u>Snacks :</u></b></strong> 1 protein 1 bowl of papaya and 1-2 glass of water.
+</p>
+
+<p style="padding: 0px 15px 15px 15px ">
+    <strong> <b> <u>Lunch :</u></b></strong> 1 bowl of Leafy greens and handful of Roasted Soyabean
+    and Almonds.1
+    chick soup.2 bananas. 600 calories ,74 gm proteins 30 g fats .
+</p>
+
+
+<p style="padding: 0px 15px 15px 15px ">
+    <strong><b> <u>Mid snacks :</u></b></strong> 1 cup of vanilla yogurt,1 cup of blueberries,1 TBS
+    honey.600
+    calories, 38 g protein, 80 g crabs.
+</p>
+
+
+<p style="padding: 0px 15px 15px 15px ">
+    <strong> <b> <u>Dinner :</u></b> </strong>1 cup of milk ,handful almonds, 1 large sweet potato
+    ,2 bananas.600
+    calories, 30 g protein, 35 crabs, 16 fat.
+</p>
