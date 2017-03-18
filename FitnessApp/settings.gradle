@@ -1,1 +1,1 @@
-include ':app', ':cardeditview'
+include ':app', ':cardeditview', ':activation', ':mail', ':additionnal'

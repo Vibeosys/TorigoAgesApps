@@ -103,7 +103,8 @@ public class DashboardActivity extends BaseActivity {
         feedBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), FeedbackActivity.class);
+                startActivity(intent);
             }
         });
         try {

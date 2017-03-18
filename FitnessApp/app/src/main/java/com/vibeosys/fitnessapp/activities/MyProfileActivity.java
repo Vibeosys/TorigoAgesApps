@@ -2,6 +2,7 @@ package com.vibeosys.fitnessapp.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.widget.TextView;
 
 import com.vibeosys.fitnessapp.R;
@@ -11,7 +12,7 @@ import java.text.DecimalFormat;
 
 public class MyProfileActivity extends BaseActivity {
 
-    private TextView mUserName, mUserAge, mUserHeight, mUserWeight, mUserBMI;
+    private TextView mUserName, mUserAge, mUserHeight, mUserWeight, mUserBMI, mBMIUnit;
     private double heightInMeter, userWeight;
     private double mBmi;
 
@@ -25,7 +26,9 @@ public class MyProfileActivity extends BaseActivity {
         mUserAge = (TextView) findViewById(R.id.userAgeTv);
         mUserHeight = (TextView) findViewById(R.id.heightTv);
         mUserWeight = (TextView) findViewById(R.id.weightTv);
-        mUserBMI = (TextView) findViewById(R.id.bmiTitle);
+        mUserBMI = (TextView) findViewById(R.id.bmiTv);
+        mBMIUnit = (TextView) findViewById(R.id.bmiTitle);
+        mBMIUnit.setText(Html.fromHtml("Kg/m<sup>2</sup>"));
         try {
             heightInMeter = (sharedPrefManager.getUserHeight() / 3.2808);
             userWeight = sharedPrefManager.getUserWeight();

@@ -44,4 +44,10 @@
     <string name="str_err_height_wrong">Please enter correct height</string>
     <string name="str_err_weight_wrong">Please enter correct weight</string>
     <string name="str_no_records_found">No records are found</string>
+    <string name="client_name">Your name</string>
+    <string name="str_feedback">Your feedback</string>
+    <string name="str_feedback_title">Feedback</string>
+    <string name="str_user_name_val">Please enter your name</string>
+    <string name="str_user_feedback_val">Please enter your feedback</string>
+    <string name="str_select_country">Please select your country</string>
 </resources>
