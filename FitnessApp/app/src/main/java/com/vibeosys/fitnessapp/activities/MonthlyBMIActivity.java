@@ -2,6 +2,7 @@ package com.vibeosys.fitnessapp.activities;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.net.Uri;
@@ -10,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -120,5 +123,23 @@ public class MonthlyBMIActivity extends BaseActivity implements View.OnClickList
                 insertBmi();
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.monthly_bmi_report, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.graphs_data) {
+            startActivity(new Intent(getApplicationContext(), BmiGraphReport.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
