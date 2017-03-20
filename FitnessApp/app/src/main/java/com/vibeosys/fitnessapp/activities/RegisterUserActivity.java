@@ -42,40 +42,45 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.registerBtn:
+                boolean val = validateUser();
+                if (val == true) {
+                    String userName = mUserName.getText().toString().trim();
+                    String userEmailId = mUserEmailId.getText().toString().trim();
+                    String userPwd = mUserPwd.getText().toString().trim();
+                    String userConfirmPwd = mUserConfirmPwd.getText().toString().trim();
+                    String userAge = mUserAge.getText().toString().trim();
+                    String userHeight = mUserHeight.getText().toString().trim();
+                    String userWeight = mUserWeight.getText().toString().trim();
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(FitnessContract.UserLogin.USER_NAME, userName);
+                    contentValues.put(FitnessContract.UserLogin.USER_EMAIL_ID, userEmailId);
+                    contentValues.put(FitnessContract.UserLogin.USER_PASSWORD, userPwd);
+                    contentValues.put(FitnessContract.UserLogin.USER_AGE, userAge);
+                    contentValues.put(FitnessContract.UserLogin.USER_HEIGHT, userHeight);
+                    contentValues.put(FitnessContract.UserLogin.USER_WEIGHT, userWeight);
+                    try {
+                        Uri insertUser = getContentResolver().insert(FitnessContract.UserLogin.CONTENT_URI, contentValues);
+                        long user_id = ContentUris.parseId(insertUser);
+                        if (user_id > 0) {
+                            Toast.makeText(getApplicationContext(), "user Registered successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                        }
 
-        boolean val = validateUser();
-        if (val == true) {
-            String userName = mUserName.getText().toString().trim();
-            String userEmailId = mUserEmailId.getText().toString().trim();
-            String userPwd = mUserPwd.getText().toString().trim();
-            String userConfirmPwd = mUserConfirmPwd.getText().toString().trim();
-            String userAge = mUserAge.getText().toString().trim();
-            String userHeight = mUserHeight.getText().toString().trim();
-            String userWeight = mUserWeight.getText().toString().trim();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(FitnessContract.UserLogin.USER_NAME, userName);
-            contentValues.put(FitnessContract.UserLogin.USER_EMAIL_ID, userEmailId);
-            contentValues.put(FitnessContract.UserLogin.USER_PASSWORD, userPwd);
-            contentValues.put(FitnessContract.UserLogin.USER_AGE, userAge);
-            contentValues.put(FitnessContract.UserLogin.USER_HEIGHT, userHeight);
-            contentValues.put(FitnessContract.UserLogin.USER_WEIGHT, userWeight);
-            try {
-                Uri insertUser = getContentResolver().insert(FitnessContract.UserLogin.CONTENT_URI, contentValues);
-                long user_id = ContentUris.parseId(insertUser);
-                if (user_id > 0) {
-                    Toast.makeText(getApplicationContext(), "user Registered successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                    } catch (SQLiteException e) {
+                        Log.e(TAG, "User Registration Page " + e.toString());
+                    }
                 }
-
-            } catch (SQLiteException e) {
-                Log.e(TAG, "User Registration Page " + e.toString());
-            }
+                break;
         }
+
 
     }
 

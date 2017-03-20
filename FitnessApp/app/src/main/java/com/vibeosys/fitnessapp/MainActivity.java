@@ -78,7 +78,6 @@ public class MainActivity extends BaseActivity {
                             openAlertDialog();
                         }
                         if (cursor.getCount() >= 1) {
-                            Toast.makeText(getApplicationContext(), "Valid user", Toast.LENGTH_SHORT).show();
                             if (cursor.moveToFirst()) {
                                 Log.e(TAG, cursor.toString());
                                 String userName = cursor.getString(cursor.getColumnIndex(FitnessContract.UserLogin.USER_NAME));

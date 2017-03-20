@@ -15,4 +15,6 @@ public class SharedPrefKeyConstant {
     public static final String USER_AGE = "user.Age";
     public static final String USER_HEIGHT = "user.height";
     public static final String USER_WEIGHT = "user.weight";
+    public static final String USER_BLOOD_GROUP="user.blood.group";
+    public static final String USER_IMAGE_URI="user.image.uri";
 }

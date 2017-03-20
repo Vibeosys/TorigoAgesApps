@@ -148,4 +148,20 @@ public class SharedPrefManager {
         double doubleVal = Double.longBitsToDouble(longVal);
         return doubleVal;
     }
+    public void setUserBloodGroup(String bloodGroup)
+    {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_BLOOD_GROUP,bloodGroup);
+    }
+    public String getUserBloodGroup()
+    {
+        return mProjectSharedPref.getString(SharedPrefKeyConstant.USER_BLOOD_GROUP,"");
+    }
+    public void setUserImageString(String imageUri)
+    {
+        setValuesInSharedPrefs(SharedPrefKeyConstant.USER_IMAGE_URI,imageUri);
+    }
+    public String getUserImageString()
+    {
+        return mProjectSharedPref.getString(SharedPrefKeyConstant.USER_IMAGE_URI,"");
+    }
 }

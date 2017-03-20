@@ -30,66 +30,11 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/circleView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:padding="8dp"
                         android:src="@drawable/avatar_profile" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.8"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/nameTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/circleView"
-                            android:layout_centerHorizontal="true"
-                            android:text="Name :" />
-
-                        <TextView
-                            android:id="@+id/userNameTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="johnson williams"
-                            android:textAppearance="?android:attr/textAppearanceMedium" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/AgeTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignStart="@+id/nameTitle"
-                            android:layout_below="@+id/nameTitle"
-                            android:text="Age :"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/userAgeTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/AgeTextView"
-                            android:layout_toEndOf="@+id/nameTitle"
-                            android:paddingLeft="4dp"
-                            android:text="29"
-                            android:textAppearance="?android:attr/textAppearanceMedium" />
-                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -103,22 +48,93 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <EditText
+                            android:id="@+id/userNameTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawableRight="@drawable/ic_create_black_24dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/nameTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/circleView"
+                            android:layout_centerHorizontal="true"
+                            android:text="Name" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/heightTitle"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <EditText
+                            android:id="@+id/userAgeTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/AgeTextView"
+                            android:layout_toEndOf="@+id/nameTitle"
+                            android:background="@android:color/transparent"
+                            android:drawableRight="@drawable/ic_create_black_24dp"
+                            android:inputType="number"
+                            android:paddingLeft="4dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/AgeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/nameTitle"
+                            android:layout_below="@+id/nameTitle"
+                            android:text="Age"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/heightTitle"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@android:color/darker_gray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/heightTv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="6.1"
+                        android:background="@android:color/transparent"
+                        android:drawableRight="@drawable/ic_create_black_24dp"
+                        android:inputType="numberDecimal"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                    <TextView
-                        android:id="@+id/inchesTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="4dp"
-                        android:text="inches"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
 
@@ -128,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/heightTv"
-                    android:text="Height ."
+                    android:text="Height in inches"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <View
@@ -145,20 +161,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/weightTv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="76.3"
+                        android:background="@android:color/transparent"
+                        android:drawableRight="@drawable/ic_create_black_24dp"
+                        android:inputType="numberDecimal"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                    <TextView
-                        android:id="@+id/weightTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="4dp"
-                        android:text="Kg"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
 
@@ -168,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/weightTv"
-                    android:text="Weight ."
+                    android:text="Weight in k.g. ."
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <View
@@ -222,12 +233,15 @@
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
-                <TextView
+                <EditText
                     android:id="@+id/bloodGroupsTv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignTop="@+id/SplitLine_hor3"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@drawable/ic_create_black_24dp"
+                    android:inputType="text"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
@@ -248,14 +262,34 @@
                     android:layout_marginTop="4dp"
                     android:background="@android:color/darker_gray" />
 
-                <Button
-                    android:id="@+id/edit_profile"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
-                    android:background="@color/amber"
-                    android:text="Edit"
-                    android:textColor="@android:color/white" />
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/darker_gray"
+                        android:padding="4dp"
+                        android:text="Cancel"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="@color/amber"
+                        android:padding="4dp"
+                        android:text="Save"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
