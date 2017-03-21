@@ -13,9 +13,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.vibeosys.fitnessapp.MainActivity;
 import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.data.UserInfo;
 import com.vibeosys.fitnessapp.utils.DateUtils;
+import com.vibeosys.fitnessapp.utils.UserAuth;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -179,6 +181,14 @@ public class DashboardActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (toggle.onOptionsItemSelected(item)) {
             return true;
+        }
+        switch (item.getItemId()) {
+            case R.id.signoutChef:
+                UserAuth.clearUserAuthentication();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
