@@ -18,15 +18,11 @@
 -keep class android.support.v7.** { *; }
 -keep interface android.support.v7.** { *; }
 -keep interface android.support.v4.** { *; }
--keep class com.vibeosys.fitnessapp.FeedbackActivity
--keep class com.vibeosys.fitnessapp.WorkoutReportActivity
--keepclasseswithmembernames class com.vibeosys.fitnessapp.WorkoutReportActivity
--keepclasseswithmembernames class com.vibeosys.fitnessapp.WorkoutGraphActivity
--keepclasseswithmembernames class com.vibeosys.fitnessapp.utils.JSSEProvider
--keepclasseswithmembernames class com.vibeosys.fitnessapp.utils.GMailSender
--keepclasseswithmembernames class com.vibeosys.fitnessapp.** { *;}
--dontwarn android.support.v7.**
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-   public *;
-}
+-keep class android.support.v4.** { *; }
+-keep class com.github.lecho.** { *; }
+-keep class org.apache.**{*;}
+-keep class com.sun.mail.**
+-dontwarn org.apache.**
+-dontwarn com.sun.mail.**
+-dontwarn java.awt.**,javax.security.**,java.beans.**
 -keepattributes Signature
