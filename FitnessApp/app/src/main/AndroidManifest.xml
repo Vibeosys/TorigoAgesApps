@@ -89,7 +89,9 @@
             android:label="@string/title_activity_select_set"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.NewCustomSetActivity" />
-        <activity android:name=".activities.SetRepititionActivity" />
+        <activity
+            android:name=".activities.SetRepititionActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.WorkoutReportActivity"
             android:label="@string/title_activity_wrokout_report"

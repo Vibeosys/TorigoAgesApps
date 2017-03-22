@@ -132,6 +132,8 @@ public class SetRepititionActivity extends BaseActivity implements View.OnClickL
                                     public void onClick(View view) {
                                         adapter.addItem(setsData);
                                         insertIntoDb(setsData);
+                                        counter = counter + 1;
+                                        edtNoOfRep.setText("" + counter);
 
                                     }
                                 });

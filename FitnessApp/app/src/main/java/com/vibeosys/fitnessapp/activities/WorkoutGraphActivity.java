@@ -35,7 +35,7 @@ public class WorkoutGraphActivity extends AppCompatActivity {
     private PieChartData data;
     private ArrayList<WorkoutGraphData> graphDatas;
     private boolean hasLabels = false;
-    private boolean hasLabelsOutside = false;
+    private boolean hasLabelsOutside = true;
     private boolean hasCenterCircle = false;
     private boolean hasCenterText1 = false;
     private boolean hasCenterText2 = false;
@@ -63,7 +63,13 @@ public class WorkoutGraphActivity extends AppCompatActivity {
 
     private void generateGraph() {
         int numValues = graphDatas.size();
+        chart.setValueSelectionEnabled(hasLabelForSelected);
 
+        if (hasLabelsOutside) {
+            chart.setCircleFillRatio(0.7f);
+        } else {
+            chart.setCircleFillRatio(1.0f);
+        }
         List<SliceValue> values = new ArrayList<SliceValue>();
         for (int i = 0; i < graphDatas.size(); ++i) {
             SliceValue sliceValue = new SliceValue(graphDatas.get(i).getRepetition(), ChartUtils.pickColor());
@@ -103,6 +109,7 @@ public class WorkoutGraphActivity extends AppCompatActivity {
         }
 
         chart.setPieChartData(data);
+
     }
 
     private void loadData() {

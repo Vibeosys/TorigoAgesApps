@@ -94,7 +94,7 @@
                         android:id="@+id/instructionNotesTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Instruction Notes" />
+                        android:text="Workout Report" />
 
                 </LinearLayout>
 
