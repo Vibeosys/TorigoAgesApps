@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.vibeosys.fitnessapp.MainActivity;
 import com.vibeosys.fitnessapp.R;
 import com.vibeosys.fitnessapp.data.UserInfo;
+import com.vibeosys.fitnessapp.database.FitnessContract;
 import com.vibeosys.fitnessapp.utils.DateUtils;
 import com.vibeosys.fitnessapp.utils.UserAuth;
 
@@ -149,7 +150,7 @@ public class DashboardActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.actionbar, menu);
-        menu.findItem(R.id.signoutChef).setVisible(true);
+        menu.findItem(R.id.signOut).setVisible(true);
         return true;
     }
 
@@ -183,14 +184,30 @@ public class DashboardActivity extends BaseActivity {
             return true;
         }
         switch (item.getItemId()) {
-            case R.id.signoutChef:
-                UserAuth.clearUserAuthentication();
+            case R.id.signOut:
+                clearData();
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void clearData() {
+        UserAuth.clearUserAuthentication();
+        sharedPrefManager.setLastDate(0);
+        sharedPrefManager.setWorkId(0);
+        sharedPrefManager.setSetId(0);
+        sharedPrefManager.setDailyWorkId(0);
+        int userWorkoutAdvice = getContentResolver().delete(FitnessContract.UserWorkoutAdvice.CONTENT_URI, null, null);
+        int delete = getContentResolver().delete(FitnessContract.DailyWorkout.CONTENT_URI, null, null);
+        int dailyWorkoutSets = getContentResolver().delete(FitnessContract.DailyWorkoutSets.CONTENT_URI, null, null);
+        int setsRepetition = getContentResolver().delete(FitnessContract.SetsRepetition.CONTENT_URI, null, null);
+        int userDiet = getContentResolver().delete(FitnessContract.UserDiet.CONTENT_URI, null, null);
+        int usersBmi = getContentResolver().delete(FitnessContract.UsersBmi.CONTENT_URI, null, null);
+
     }
 
     public void serviceOpen(View v) {
