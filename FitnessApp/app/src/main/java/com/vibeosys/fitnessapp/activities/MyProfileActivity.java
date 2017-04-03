@@ -1,8 +1,13 @@
 package com.vibeosys.fitnessapp.activities;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -13,12 +18,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vibeosys.fitnessapp.R;
+import com.vibeosys.fitnessapp.data.WorkoutData;
+import com.vibeosys.fitnessapp.database.FitnessContract;
 import com.vibeosys.fitnessapp.utils.BmiCalculation;
+import com.vibeosys.fitnessapp.utils.DateUtils;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 
 public class MyProfileActivity extends BaseActivity {
 
+    private static final String TAG = MyProfileActivity.class.getSimpleName();
     private TextView mUserName, mUserAge, mUserHeight, mUserWeight, mUserBMI, mBMIUnit, mUserBloodGroup;
     private double heightInMeter, userWeight;
     private double mBmi;
@@ -46,7 +59,6 @@ public class MyProfileActivity extends BaseActivity {
             heightInMeter = (sharedPrefManager.getUserHeight() / 3.2808);
             userWeight = sharedPrefManager.getUserWeight();
             mBmi = BmiCalculation.calculateBMI(heightInMeter, userWeight);
-
         } catch (Exception e) {
             e.toString();
         }
@@ -62,15 +74,13 @@ public class MyProfileActivity extends BaseActivity {
 
         // ImageView circularImageView = (ImageView) findViewById(R.id.imageView);
         // circularImageView.setImageBitmap(circularBitmap);
-        try
-        {
+        try {
             imgDecodableString = sharedPrefManager.getUserImageString();
             Bitmap mBitmapString = BitmapFactory.decodeFile(imgDecodableString);
             mImageView.setImageBitmap(mBitmapString);
 
-        }catch (Exception e)
-        {
-            Log.d("Profile",e.toString())   ;
+        } catch (Exception e) {
+            Log.d("Profile", e.toString());
         }
         mEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,5 +91,6 @@ public class MyProfileActivity extends BaseActivity {
             }
         });
     }
+
 
 }

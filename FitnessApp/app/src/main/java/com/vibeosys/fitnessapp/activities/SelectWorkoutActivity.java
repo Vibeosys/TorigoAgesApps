@@ -67,7 +67,7 @@ public class SelectWorkoutActivity extends BaseActivity implements
 
     private void loadData() {
         adapter.clear();
-        Cursor clientCursor = getApplicationContext().getContentResolver().query(FitnessContract.WorkOutMaster.CONTENT_URI,
+        Cursor clientCursor = getApplicationContext().getContentResolver().query(FitnessContract.UserWorkoutAdvice.CONTENT_URI,
                 new String[]{FitnessContract.WorkOutMaster.WKM_ID, FitnessContract.WorkOutMaster.WKM_NAME,
                         FitnessContract.WorkOutMaster.WKM_DESC
                 }, null, null, null);

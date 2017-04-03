@@ -29,6 +29,7 @@ public class FitnessProvider extends ContentProvider {
     static final int DAILY_WORK = 900;
     static final int USERS_BMI = 101;
     static final int USER_DIET = 501;
+    static final int USER_WORKOUT_ADVICE = 102;
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -45,6 +46,7 @@ public class FitnessProvider extends ContentProvider {
         matcher.addURI(authority, FitnessContract.PATH_DAILY_WORK, DAILY_WORK);
         matcher.addURI(authority, FitnessContract.PATH_USERS_BMI, USERS_BMI);
         matcher.addURI(authority, FitnessContract.PATH_USR_DIET, USER_DIET);
+        matcher.addURI(authority, FitnessContract.PATH_USR_WORKOUT_ADVICE, USER_WORKOUT_ADVICE);
 
         return matcher;
     }
@@ -79,6 +81,8 @@ public class FitnessProvider extends ContentProvider {
                 return FitnessContract.UsersBmi.CONTENT_TYPE;
             case USER_DIET:
                 return FitnessContract.UserDiet.CONTENT_TYPE;
+            case USER_WORKOUT_ADVICE:
+                return FitnessContract.UserWorkoutAdvice.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri in getType: " + uri);
         }
@@ -217,6 +221,18 @@ public class FitnessProvider extends ContentProvider {
                 }
             }
             break;
+            case USER_WORKOUT_ADVICE: {
+                long returnId = db.insert(FitnessContract.UserWorkoutAdvice.TABLE_NAME, null, values);
+                if (returnId > 0) {
+                    returnUri = FitnessContract.UserWorkoutAdvice.userWorkoutUri(returnId);
+                } else if (returnId == -1) {
+                    returnUri = FitnessContract.UserWorkoutAdvice.userWorkoutUri(returnId);
+                } else {
+                    Log.d("TAG", "TAG");
+                    throw new android.database.SQLException("Fail to insert user workout advice data into" + uri);
+                }
+            }
+            break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in insert: " + uri);
         }
@@ -262,6 +278,9 @@ public class FitnessProvider extends ContentProvider {
                 break;
             case USER_DIET:
                 rowDeleted = db.delete(FitnessContract.UserDiet.TABLE_NAME, selection, selectionArgs);
+                break;
+            case USER_WORKOUT_ADVICE:
+                rowDeleted = db.delete(FitnessContract.UserWorkoutAdvice.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in delete: " + uri);
@@ -365,6 +384,16 @@ public class FitnessProvider extends ContentProvider {
                         projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             }
+            case USER_WORKOUT_ADVICE: {
+                return userWorkoutAdviceBuilder.query(mDbRepository.getReadableDatabase(),
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -409,6 +438,9 @@ public class FitnessProvider extends ContentProvider {
             case USER_DIET:
                 rowUpdated = db.update(FitnessContract.UserDiet.TABLE_NAME, values, selection, selectionArgs);
                 break;
+            case USER_WORKOUT_ADVICE:
+                rowUpdated = db.update(FitnessContract.UserWorkoutAdvice.TABLE_NAME, values, selection, selectionArgs);
+                break;
             default:
                 throw new UnsupportedOperationException("Unknown uri in update: " + uri);
         }
@@ -449,5 +481,15 @@ public class FitnessProvider extends ContentProvider {
                         "." + FitnessContract.DailyWorkoutSets.DW_SET_ID +
                         " = " + FitnessContract.SetsMaster.TABLE_NAME +
                         "." + FitnessContract.SetsMaster.SET_ID);
+    }
+
+    private static final SQLiteQueryBuilder userWorkoutAdviceBuilder;
+
+    static {
+        userWorkoutAdviceBuilder = new SQLiteQueryBuilder();
+        userWorkoutAdviceBuilder.setTables(FitnessContract.UserWorkoutAdvice.TABLE_NAME + " LEFT JOIN " +
+                FitnessContract.WorkOutMaster.TABLE_NAME + " ON " + FitnessContract.UserWorkoutAdvice.TABLE_NAME + "."
+                + FitnessContract.UserWorkoutAdvice.WORK_ID + " = " + FitnessContract.WorkOutMaster.TABLE_NAME
+                + "." + FitnessContract.WorkOutMaster.WKM_ID);
     }
 }

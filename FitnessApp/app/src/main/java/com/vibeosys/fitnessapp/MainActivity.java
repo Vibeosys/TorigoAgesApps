@@ -2,6 +2,8 @@ package com.vibeosys.fitnessapp;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +32,7 @@ import com.vibeosys.fitnessapp.activities.ImageConverter;
 import com.vibeosys.fitnessapp.activities.RegisterUserActivity;
 import com.vibeosys.fitnessapp.data.UserInfo;
 import com.vibeosys.fitnessapp.database.FitnessContract;
+import com.vibeosys.fitnessapp.utils.BmiCalculation;
 import com.vibeosys.fitnessapp.utils.UserAuth;
 
 import java.util.ArrayList;
@@ -89,11 +92,12 @@ public class MainActivity extends BaseActivity {
                                 cursor.close();
                                 Log.e(TAG, cursor.toString());
                                 UserInfo userInfo = new UserInfo(userName, userEmailId, userPassword, userAge, userHeight, userWeight);
+                                setSessionManager(userInfo);
                                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                 intent.putExtra("UserInfo", userInfo);
                                 startActivity(intent);
                                 finish();
-                                setSessionManager(userInfo);
+
                             }
                         }
                     } catch (SQLException e) {
@@ -142,6 +146,10 @@ public class MainActivity extends BaseActivity {
         sharedPrefManager.setUserAge(userInfo.getUserAge());
         sharedPrefManager.setUserHeight(userInfo.getUserHeight());
         sharedPrefManager.setUserWeight(userInfo.getUserWeight());
+        double heightInMeter = (sharedPrefManager.getUserHeight() / 3.2808);
+        double userWeight = sharedPrefManager.getUserWeight();
+        double mBmi = BmiCalculation.calculateBMI(heightInMeter, userWeight);
+        updateTheAdvice(mBmi);
     }
 
     private void openAlertDialog() {
@@ -157,5 +165,38 @@ public class MainActivity extends BaseActivity {
                 .show();
 
     }
+
+    private void updateTheAdvice(double mBmi) {
+        int delete = getContentResolver().delete(FitnessContract.UserWorkoutAdvice.CONTENT_URI, null, null);
+        ArrayList<Long> workIds = new ArrayList<>();
+        Cursor workOutMaster = getApplicationContext().getContentResolver().query(FitnessContract.WorkOutMaster.CONTENT_URI,
+                new String[]{FitnessContract.WorkOutMaster.WKM_ID
+                }, FitnessContract.WorkOutMaster.BMI_MAX + " >=? AND " + FitnessContract.WorkOutMaster.BMI_MIN + " <= ?",
+                new String[]{String.valueOf(mBmi), String.valueOf(mBmi)}, null);
+
+        if (workOutMaster.getCount() > 0) {
+            workOutMaster.moveToFirst();
+            do {
+                long workId = workOutMaster.getLong(workOutMaster.getColumnIndex(FitnessContract.WorkOutMaster.WKM_ID));
+                if (!workIds.contains(workId))
+                    workIds.add(workId);
+            }
+            while (workOutMaster.moveToNext());
+        }
+        for (long workId : workIds) {
+            ContentValues clientValues = new ContentValues();
+            clientValues.put(FitnessContract.UserWorkoutAdvice.WORK_ID, workId);
+            try {
+                Uri insertCase = getContentResolver().insert(FitnessContract.UserWorkoutAdvice.CONTENT_URI, clientValues);
+                long _dailyWorkId = ContentUris.parseId(insertCase);
+                if (_dailyWorkId > 0) {
+
+                }
+            } catch (SQLException e) {
+                Log.e(TAG, "Daily Workout is not added " + e.toString());
+            }
+        }
+    }
+
 }
 

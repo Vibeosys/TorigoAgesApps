@@ -8,4 +8,5 @@ public class BmiCalculation {
     public static double calculateBMI(double height, double weight) {
         return weight / (height * height);
     }
+
 }
