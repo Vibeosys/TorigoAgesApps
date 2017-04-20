@@ -3,6 +3,7 @@ package com.vibeosys.fitnessapp.activities;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,6 +37,7 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
     private Calendar calendar = Calendar.getInstance();
     private ImageView imgLeft, imgRight;
     private TextView txtNoRecords, txtDate;
+    private FloatingActionButton mFloatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
         imgRight = (ImageView) findViewById(R.id.img_right);
         txtNoRecords = (TextView) findViewById(R.id.txt_no_records_for_today);
         txtDate = (TextView) findViewById(R.id.txtDate);
+        mFloatBtn = (FloatingActionButton) findViewById(R.id.fab);
         final LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         historyList.setLayoutManager(llm);
@@ -56,6 +59,7 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
         historyList.setAdapter(adapter);
         imgLeft.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        mFloatBtn.setOnClickListener(this);
     }
 
     @Override
@@ -71,8 +75,10 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
         calendar.add(Calendar.DATE, daysCounter);
         if (daysCounter == 0) {
             txtDate.setText("Today");
+            mFloatBtn.setVisibility(View.VISIBLE);
         } else {
             txtDate.setText(DateUtils.getReadDateInFormat(calendar.getTime()));
+            mFloatBtn.setVisibility(View.GONE);
         }
         try {
             currentDate = DateUtils.dateWithoutTime(calendar.getTime()).getTime();
@@ -184,6 +190,10 @@ public class WorkoutReportActivity extends AppCompatActivity implements View.OnC
                 daysCounter = daysCounter + 1;
                 loadData();
                 break;
+            case R.id.fab:
+                Intent selectWorkOut = new Intent(getApplicationContext(), SelectWorkoutActivity.class);
+                startActivity(selectWorkOut);
+                finish();
         }
     }
 

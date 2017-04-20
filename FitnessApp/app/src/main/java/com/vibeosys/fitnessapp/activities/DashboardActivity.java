@@ -85,8 +85,8 @@ public class DashboardActivity extends BaseActivity {
         worksheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent worksheet = new Intent(getApplicationContext(), SelectWorkoutActivity.class);
-                startActivity(worksheet);
+                Intent workOutRep = new Intent(getApplicationContext(), WorkoutReportActivity.class);
+                startActivity(workOutRep);
             }
         });
         diat.setOnClickListener(new View.OnClickListener() {
