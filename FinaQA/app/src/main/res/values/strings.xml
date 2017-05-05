@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FinaQA</string>
+    <string name="skip">SKIP</string>
+    <string name="next">NEXT</string>
 </resources>
