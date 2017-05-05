@@ -79,6 +79,7 @@ public class CarouselActivity extends AppCompatActivity {
         if (dots.length > 0)
             dots[currentPage].setTextColor(colorsActive[currentPage]);
     }
+
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -90,7 +91,8 @@ public class CarouselActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // launchHomeScreen();
-                Intent skip = new Intent(CarouselActivity.this, MainActivity.class);
+                //Intent skip = new Intent(CarouselActivity.this, MainActivity.class);
+                Intent skip = new Intent(CarouselActivity.this, LoginActivity.class);
                 startActivity(skip);
                 finish();
             }
@@ -106,13 +108,15 @@ public class CarouselActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    Intent skip = new Intent(CarouselActivity.this, MainActivity.class);
+                    // Intent skip = new Intent(CarouselActivity.this, MainActivity.class);
+                    Intent skip = new Intent(CarouselActivity.this, LoginActivity.class);
                     startActivity(skip);
                     finish();
                 }
             }
         });
     }
+
     private int getItem(int i) {
         return viewPager.getCurrentItem() + i;
     }
@@ -129,7 +133,7 @@ public class CarouselActivity extends AppCompatActivity {
                 // last page. make button text to GOT IT
                 btnNext.setText("GO");
                 btnSkip.setVisibility(View.GONE);
-            } else  {
+            } else {
                 // btnSkip.setVisibility(View.GONE);
                 // still pages are leftif(position!=0)
                 btnNext.setText(getString(R.string.next));
@@ -151,9 +155,6 @@ public class CarouselActivity extends AppCompatActivity {
     /**
      * Making notification bar transparent
      */
-
-
-
 
 
     public class MyViewPagerAdapter extends PagerAdapter {

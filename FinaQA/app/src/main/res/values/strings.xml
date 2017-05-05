@@ -2,4 +2,9 @@
     <string name="app_name">FinaQA</string>
     <string name="skip">SKIP</string>
     <string name="next">NEXT</string>
+    <string name="str_consultant_login">Consultant Login</string>
+    <string name="str_get_started">Get</string>
+    <string name="str_customer_login">Customer</string>
+    <string name="str_started">Started</string>
+    <string name="str_login">Login</string>
 </resources>
