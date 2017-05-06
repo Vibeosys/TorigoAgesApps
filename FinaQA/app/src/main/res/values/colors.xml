@@ -41,4 +41,7 @@
     <color name="primaryText2">#bf2f3031</color>
     <color name="drawer_background">#df252626</color>
     <color name="color_overLay">#73f4e9e9</color>
+
+    <!-- View Pager!-->
+    <color name="black_color">#000000</color>
 </resources>
