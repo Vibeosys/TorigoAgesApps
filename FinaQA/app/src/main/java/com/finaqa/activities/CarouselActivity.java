@@ -33,7 +33,7 @@ public class CarouselActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private Button btnSkip, btnNext;
+    private Button btnSkip, btnGetStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class CarouselActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
-        btnNext = (Button) findViewById(R.id.btn_next);
+        btnGetStarted = (Button) findViewById(R.id.btn_get_started);
 
         layouts = new int[]{
                 R.layout.welcome_slide1,
@@ -98,13 +98,13 @@ public class CarouselActivity extends AppCompatActivity {
             }
         });
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
+        btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // checking for last page
                 // if last page home screen will be launched
                 int current = getItem(+1);
-                if (current < layouts.length) {
+                /*if (current < layouts.length) {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
@@ -112,7 +112,10 @@ public class CarouselActivity extends AppCompatActivity {
                     Intent skip = new Intent(CarouselActivity.this, LoginActivity.class);
                     startActivity(skip);
                     finish();
-                }
+                }*/
+                Intent skip = new Intent(CarouselActivity.this, LoginActivity.class);
+                startActivity(skip);
+                finish();
             }
         });
     }
@@ -131,12 +134,12 @@ public class CarouselActivity extends AppCompatActivity {
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 // last page. make button text to GOT IT
-                btnNext.setText("GO");
+                btnGetStarted.setText(R.string.get_started);
                 btnSkip.setVisibility(View.GONE);
             } else {
                 // btnSkip.setVisibility(View.GONE);
                 // still pages are leftif(position!=0)
-                btnNext.setText(getString(R.string.next));
+                btnGetStarted.setText(getString(R.string.get_started));
                 btnSkip.setVisibility(View.VISIBLE);
             }
         }

@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@android:color/white"
     tools:context="com.finaqa.activities.CarouselActivity">
 
@@ -19,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:background="@null"
         android:text="@string/skip"
-        android:textColor="@color/color_skip" />
+        android:textColor="@color/color_skip"
+        />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
@@ -30,18 +27,18 @@
         android:id="@+id/layoutDots"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dots_height"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btn_get_started"
         android:layout_marginBottom="@dimen/dots_margin_bottom"
         android:gravity="center"
         android:orientation="horizontal"></LinearLayout>
 
     <Button
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_get_started"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="@null"
-        android:text="@string/next"
-        android:textColor="@color/colorAccent" />
+        android:background="@color/colorPrimary"
+        android:text="@string/get_started"
+        android:textColor="@android:color/white" />
 </RelativeLayout>
