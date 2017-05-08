@@ -19,4 +19,10 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/black_color</item>
     </style>
+    <!-- dialog style!-->
+
+    <style name="CustomDialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
 </resources>

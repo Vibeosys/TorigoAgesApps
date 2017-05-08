@@ -44,4 +44,15 @@
 
     <!-- View Pager!-->
     <color name="black_color">#000000</color>
+
+
+    <!-- Answer screen !-->
+    <color name="queries_color">#773eb8</color>
+    <color name="consulting_free_pay">#513669</color>
+    <color name="finance_advice">#9a6bd1</color>
+    <color name="planning_expert_meeting">#694387</color>
+
+    <color name="show_details_btn">#d1d1d1</color>
+    <color name="feedback_color">#e62222</color>
+    <color name="colorRating">#ffcc00</color>
 </resources>

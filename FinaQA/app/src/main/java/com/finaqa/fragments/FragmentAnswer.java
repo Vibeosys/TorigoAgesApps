@@ -1,12 +1,15 @@
 package com.finaqa.fragments;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.finaqa.MainActivity;
 import com.finaqa.R;
 
 /**
@@ -14,6 +17,7 @@ import com.finaqa.R;
  */
 public class FragmentAnswer extends Fragment {
 
+    private TextView mFeedBack;
 
     public FragmentAnswer() {
         // Required empty public constructor
@@ -23,8 +27,23 @@ public class FragmentAnswer extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_fragment_answer, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_answer, container, false);
+        mFeedBack = (TextView) view.findViewById(R.id.feedBack);
+        mFeedBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
+        return view;
+    }
+
+    private void openDialog() {
+        final Dialog dialog = new Dialog(getContext(), R.style.CustomDialog); // Context, this, etc.
+        dialog.setContentView(R.layout.feedback_dialog);
+        dialog.setTitle(R.string.dialog_title);
+        dialog.show();
     }
 
 }
