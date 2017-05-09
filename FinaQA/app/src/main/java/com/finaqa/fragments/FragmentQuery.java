@@ -4,6 +4,7 @@ package com.finaqa.fragments;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.finaqa.R;
 public class FragmentQuery extends Fragment implements View.OnClickListener {
 
     private LinearLayout mQueriesAndAnswer, mConsultingFreeAndPay, mFinancialAdvice, mPlanning;
+    private static String QUERY = "query_string";
 
     public FragmentQuery() {
         // Required empty public constructor
@@ -44,10 +46,14 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
         int id = view.getId();
         switch (id) {
             case R.id.layoutQuery:
+                Quries_and_answer quries_and_answer = new Quries_and_answer();
+                FragmentManager fm = getFragmentManager();
                 /*android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_container, someFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();*/
+                transaction.replace(R.id.containerId, quries_and_answer, QUERY).commit();*/
+                fm.beginTransaction().replace(R.id.containerId,quries_and_answer,QUERY).commit();
+
+                break;
+            default:
                 break;
         }
 
