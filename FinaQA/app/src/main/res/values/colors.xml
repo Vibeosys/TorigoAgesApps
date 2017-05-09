@@ -55,4 +55,10 @@
     <color name="show_details_btn">#d1d1d1</color>
     <color name="feedback_color">#e62222</color>
     <color name="colorRating">#ffcc00</color>
+
+    <!--Bottom strip color !-->
+    <color name="bottom_strip_color">#643596</color>
+
+    <!--payment screen!-->
+    <color name="paid_button">#27AE60</color>
 </resources>
