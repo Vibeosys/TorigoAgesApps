@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
+            android:focusable="false"
             android:hint="Type a message"
             android:textColorHint="@android:color/white" />
 
