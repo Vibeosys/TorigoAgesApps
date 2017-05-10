@@ -19,6 +19,7 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
 
     private LinearLayout mQueriesAndAnswer, mConsultingFreeAndPay, mFinancialAdvice, mPlanning;
     private static String QUERY = "query_string";
+    private static String CONSULTANT_FREE_PAY = "free_pay";
 
     public FragmentQuery() {
         // Required empty public constructor
@@ -48,11 +49,13 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
             case R.id.layoutQuery:
                 Quries_and_answer quries_and_answer = new Quries_and_answer();
                 FragmentManager fm = getFragmentManager();
-                /*android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.containerId, quries_and_answer, QUERY).commit();*/
-                fm.beginTransaction().replace(R.id.containerId,quries_and_answer,QUERY).commit();
+                fm.beginTransaction().replace(R.id.containerId, quries_and_answer, QUERY).commit();
 
                 break;
+            case R.id.layoutConsultant:
+                Consulting_free_pay consulting_free_pay = new Consulting_free_pay();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.containerId, consulting_free_pay, CONSULTANT_FREE_PAY).commit();
             default:
                 break;
         }
