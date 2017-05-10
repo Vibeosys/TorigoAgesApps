@@ -33,6 +33,7 @@ public class Quries_and_answer extends Fragment {
         // Inflate the layout for this fragment
         mCategorySpinner = (Spinner) view.findViewById(R.id.category);
         List<String> categories = new ArrayList<String>();
+        categories.add("--Please select category--");
         categories.add("Finance");
         categories.add("Stock market");
         categories.add("Automobile");

@@ -20,12 +20,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.finaqa.customeview.AbelTextViewFont
+                <com.finaqa.customeview.RobotoBoldTextView
                     android:id="@+id/partyTitleTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
                     android:layout_margin="2dp"
+                    android:padding="4dp"
                     android:text="Question"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
@@ -48,12 +48,12 @@
                     android:layout_height="1dp"
                     android:background="#e2e0e0" />
 
-                <com.finaqa.customeview.AbelTextViewFont
+                <com.finaqa.customeview.RobotoBoldTextView
                     android:id="@+id/categoryTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
                     android:layout_margin="2dp"
+                    android:padding="4dp"
                     android:text="Category"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
@@ -62,19 +62,19 @@
                 <Spinner
                     android:id="@+id/category"
                     android:layout_width="match_parent"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"></Spinner>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"></Spinner>
 
                 <View
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
                     android:background="#e2e0e0" />
 
-                <com.finaqa.customeview.AbelTextViewFont
+                <com.finaqa.customeview.RobotoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
                     android:layout_margin="2dp"
+                    android:padding="4dp"
                     android:text="Expected Resolution"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
@@ -83,11 +83,11 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:background="@android:color/transparent"
                     android:hint="Enter your resolution"
                     android:padding="4dp"
                     android:singleLine="true"
-                    android:layout_margin="2dp"
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
@@ -96,44 +96,51 @@
                     android:layout_height="1dp"
                     android:background="#e2e0e0" />
 
-                <com.finaqa.customeview.AbelTextViewFont
+                <com.finaqa.customeview.RobotoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
                     android:layout_margin="2dp"
+                    android:padding="4dp"
                     android:text="Coupon code"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:id="@+id/bottom_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
                     android:orientation="horizontal">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="3dp"
+                        android:layout_margin="2dp"
                         android:layout_weight="1"
-                        android:focusable="false"
-                        android:hint="Enter your coupon code" />
+                        android:background="@android:color/transparent"
+                        android:hint="Enter your coupon code"
+                        android:padding="4dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
 
-                    <Button
-                        android:layout_width="34dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="3dp" />
-
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/ic_coupon_code_24" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#e2e0e0" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
                     android:background="@color/dot_dark_screen1"
                     android:text="Pay"
-                    android:layout_marginTop="8dp"
                     android:textColor="@android:color/white" />
             </LinearLayout>
         </ScrollView>
