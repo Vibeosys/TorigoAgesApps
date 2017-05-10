@@ -61,4 +61,8 @@
 
     <!--payment screen!-->
     <color name="paid_button">#27AE60</color>
+    <!--Login screen!-->
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="loginTransparnt">#9e000000</color>
 </resources>
