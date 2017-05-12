@@ -11,13 +11,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment for query</string>
     <string name="str_query_answer">Quries Answer</string>
-    <string name="str_consulting_free_pay"><![CDATA[Consulting free & pay]]></string>
+    <string name="str_consulting_free_pay">Consulting free &amp; paid</string>
     <string name="str_finance_advice">Financial advice</string>
-    <string name="str_planning_expert">Planning expert meeting</string>
+    <string name="str_planning_expert">Expert meeting</string>
     <string name="str_about_us">About us</string>
     <string name="str_contact_us">Contact us</string>
     <string name="str_profile">Profile</string>
     <string name="str_change_password">Change password</string>
     <string name="dialog_title">Feedback</string>
     <string name="rupee_symbol">\u20B9</string>
+    <string name="finace_term"><![CDATA[complete solution of tax laws & insurance]]></string>
 </resources>
