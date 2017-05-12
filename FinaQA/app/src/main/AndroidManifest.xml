@@ -17,8 +17,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.CustomerLogin" />
-        <activity android:name=".activities.RegisterUserActivity"></activity>
+        <activity
+            android:name=".activities.CustomerLogin"
+            android:parentActivityName=".activities.LoginActivity" />
+        <activity
+            android:name=".activities.RegisterUserActivity"
+            android:parentActivityName=".activities.LoginActivity" />
+        <activity android:name=".activities.ConsultantRegistration" />
+        <activity
+            android:name=".activities.ConsultantLogin"
+            android:parentActivityName=".activities.LoginActivity"></activity>
     </application>
 
 </manifest>

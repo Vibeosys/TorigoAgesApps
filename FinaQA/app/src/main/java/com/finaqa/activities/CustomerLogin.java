@@ -16,6 +16,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_login);
         mNewUserLayout = (LinearLayout) findViewById(R.id.newUser);
+        setTitle("User Login");
         mNewUserLayout.setOnClickListener(this);
     }
 

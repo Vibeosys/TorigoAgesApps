@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int id = view.getId();
         switch (id) {
             case R.id.consultantLogin:
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ConsultantLogin.class);
                 startActivity(intent);
                 break;
             case R.id.getStarted:
