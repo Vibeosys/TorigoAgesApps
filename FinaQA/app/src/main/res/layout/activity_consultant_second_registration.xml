@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_login_consultant"
-    tools:context="com.finaqa.activities.ConsultantRegistration">
+    tools:context="com.finaqa.activities.ConsultantSecondRegistration">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,8 +58,8 @@
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_user_name_24"
-                            android:hint="User name"
+                            android:drawableStart="@drawable/ic_date_time_white_24"
+                            android:hint="Practicing year"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -70,7 +70,6 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <View
-                        android:id="@+id/SplitLine_hor0"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginEnd="8dp"
@@ -78,7 +77,7 @@
                         android:background="@android:color/white" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_userEmailIdEditText"
+                        android:id="@+id/input_degreeHoldText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -87,15 +86,15 @@
                         app:hintTextAppearance="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/userEmailIdEditText"
+                            android:id="@+id/degreeHoldEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_email_white_24dp"
-                            android:hint="Email id"
+                            android:drawableStart="@drawable/ic_graduation_cap_24"
+                            android:hint="Degree hold"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -106,7 +105,6 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <View
-                        android:id="@+id/SplitLine_hor1"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginEnd="8dp"
@@ -114,7 +112,7 @@
                         android:background="@android:color/white" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_passwordEditText"
+                        android:id="@+id/input_collageText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -123,16 +121,16 @@
                         app:hintTextAppearance="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/passwordEditText"
+                            android:id="@+id/collageEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_lock_outline_white_24dp"
-                            android:hint="password"
-                            android:inputType="textPassword"
+                            android:drawableStart="@drawable/ic_collage_24"
+                            android:hint="Collage name"
+                            android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
                             android:textColor="@android:color/white"
@@ -148,34 +146,31 @@
                         android:layout_marginStart="8dp"
                         android:background="@android:color/white" />
 
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_confirmpasswordEditText"
-                        android:layout_width="match_parent"
+                    <RadioGroup
+                        android:id="@+id/radioSex"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:textColor="@android:color/white"
-                        android:textColorHint="@android:color/white"
-                        app:hintTextAppearance="@style/TextLabel">
+                        android:padding="4dp">
 
-                        <EditText
-                            android:id="@+id/confirmpasswordEditText"
-                            android:layout_width="match_parent"
+                        <RadioButton
+                            android:id="@+id/radioMale"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginTop="4dp"
-                            android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_lock_outline_white_24dp"
-                            android:hint="Re enter password"
-                            android:inputType="textPassword"
-                            android:paddingStart="8dp"
-                            android:singleLine="true"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/white"
-                            android:textSize="16sp" />
+                            android:checked="true"
+                            android:text="Employee"
+                            android:textColor="@android:color/white" />
 
-                    </android.support.design.widget.TextInputLayout>
+                        <RadioButton
+                            android:id="@+id/radioFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Self employee"
+                            android:textColor="@android:color/white" />
+
+                    </RadioGroup>
+
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -191,9 +186,9 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/white_boarder"
-                        android:text="Next"
                         android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_36dp"
                         android:drawablePadding="12dp"
+                        android:text="Next"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
