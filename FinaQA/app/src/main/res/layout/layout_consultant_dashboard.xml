@@ -7,7 +7,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/homeLay"
+        android:id="@+id/queryLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/searchLay"
+        android:id="@+id/historyLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/hostLay"
+        android:id="@+id/PaymentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -88,7 +88,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/moreLay"
+        android:id="@+id/ConsultantMoreLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
