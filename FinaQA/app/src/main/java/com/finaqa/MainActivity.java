@@ -47,10 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSearchLay.setOnClickListener(this);
         mHostLay.setOnClickListener(this);
         mMoreLay.setOnClickListener(this);
-        //  getSupportActionBar().hide();
-       /* mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(new DashBoardAdapter(getSupportFragmentManager()));*/
-
+       
     }
 
     private void setUpFragment(int i) {
