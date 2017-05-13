@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_login_consultant"
-    tools:context="com.finaqa.activities.ConsultantSecondRegistration">
+    tools:context="com.finaqa.activities.ConsultantThirdRegistration">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,8 +58,8 @@
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_date_time_white_24"
-                            android:hint="Practicing year"
+                            android:drawableStart="@drawable/ic_expensive_24"
+                            android:hint="Amount"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -77,7 +77,7 @@
                         android:background="@android:color/white" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_degreeHoldText"
+                        android:id="@+id/input_countryEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -86,15 +86,15 @@
                         app:hintTextAppearance="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/degreeHoldEditText"
+                            android:id="@+id/countryEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_graduation_cap_24"
-                            android:hint="Degree hold"
+                            android:drawableStart="@drawable/ic_cross_flag_24"
+                            android:hint="Country"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -112,7 +112,7 @@
                         android:background="@android:color/white" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_collageText"
+                        android:id="@+id/input_stateEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -121,15 +121,15 @@
                         app:hintTextAppearance="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/collageEditText"
+                            android:id="@+id/stateEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_collage_24"
-                            android:hint="Collage name"
+                            android:drawableStart="@drawable/ic_flag_filled_24"
+                            android:hint="State"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -146,29 +146,33 @@
                         android:layout_marginStart="8dp"
                         android:background="@android:color/white" />
 
-                    <RadioGroup
-                        android:id="@+id/radioSex"
-                        android:layout_width="wrap_content"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_cityEditText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="4dp">
+                        android:layout_gravity="bottom"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:hintTextAppearance="@style/TextLabel">
 
-                        <RadioButton
-                            android:id="@+id/radioMale"
-                            android:layout_width="wrap_content"
+                        <EditText
+                            android:id="@+id/cityEditText"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="Employee"
-                            android:textColor="@android:color/white" />
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:color/transparent"
+                            android:drawablePadding="10dp"
+                            android:drawableStart="@drawable/ic_city_24"
+                            android:hint="City"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="8dp"
+                            android:singleLine="true"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="16sp" />
 
-                        <RadioButton
-                            android:id="@+id/radioFemale"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Self employee"
-                            android:textColor="@android:color/white" />
-
-                    </RadioGroup>
-
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -178,7 +182,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/consult_second"
+                        android:id="@+id/consult_first"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
@@ -186,9 +190,8 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/white_boarder"
-                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_36dp"
                         android:drawablePadding="12dp"
-                        android:text="Next"
+                        android:text="Register"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 

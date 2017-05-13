@@ -27,7 +27,8 @@
         <activity
             android:name=".activities.ConsultantLogin"
             android:parentActivityName=".activities.LoginActivity" />
-        <activity android:name=".activities.ConsultantSecondRegistration"></activity>
+        <activity android:name=".activities.ConsultantSecondRegistration" />
+        <activity android:name=".activities.ConsultantThirdRegistration"></activity>
     </application>
 
 </manifest>
