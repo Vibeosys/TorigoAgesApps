@@ -200,7 +200,7 @@
                                 android:visibility="invisible" />
 
                             <com.finaqa.customeview.AbelTextViewFont
-                                android:id="@+id/feedBack1"
+                                android:id="@+id/feedBack21"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
@@ -257,7 +257,7 @@
                                 android:padding="8dp">
 
                                 <TextView
-                                    android:id="@+id/textView1"
+                                    android:id="@+id/textView111"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Lorem ipsum dolor sit amet?"
@@ -265,7 +265,7 @@
                                     android:textSize="18sp" />
 
                                 <TextView
-                                    android:id="@+id/more"
+                                    android:id="@+id/more11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/more_text"
@@ -305,7 +305,7 @@
                                     android:textSize="18sp" />
 
                                 <TextView
-                                    android:id="@+id/more1"
+                                    android:id="@+id/more11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/more_text"
@@ -403,7 +403,7 @@
                                 android:visibility="invisible" />
 
                             <com.finaqa.customeview.AbelTextViewFont
-                                android:id="@+id/feedBack"
+                                android:id="@+id/feedBack11"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"

@@ -30,7 +30,7 @@ public class ConsultantQueryFragment extends Fragment {
         // Inflate the layout for this fragment
         more1 = (TextView) view.findViewById(R.id.more);
         more2 = (TextView) view.findViewById(R.id.more1);
-        more3 = (TextView) view.findViewById(R.id.feedBack1);
+        more3 = (TextView) view.findViewById(R.id.feedBack21);
         more1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
