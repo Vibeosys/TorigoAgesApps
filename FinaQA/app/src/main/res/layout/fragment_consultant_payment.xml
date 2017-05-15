@@ -260,7 +260,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
-                                            android:text="2500"
+                                            android:text="1400"
                                             android:textColor="@android:color/black"
                                             android:textSize="18sp" />
                                     </LinearLayout>
@@ -284,7 +284,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
-                                            android:text="24-May-2017"
+                                            android:text="02-May-2017"
                                             android:textColor="@android:color/black"
                                             android:textSize="18sp" />
                                     </LinearLayout>
