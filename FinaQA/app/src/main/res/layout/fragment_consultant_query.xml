@@ -35,6 +35,87 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_question_24"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/textView1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lorem ipsum dolor sit amet?"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/more"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/more_text"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_answer_24"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis ?"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/more1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/more_text"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:padding="4dp">
 
@@ -96,95 +177,33 @@
                             android:layout_margin="8dp"
                             android:background="@android:color/black" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="4dp"
-                                android:text="Question:"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/textView1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-
-                                <TextView
-                                    android:id="@+id/more"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="4dp"
-                                android:text="Answer:"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis ?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-
-                                <TextView
-                                    android:id="@+id/more1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:padding="8dp">
 
                             <com.finaqa.customeview.AbelTextViewFont
                                 android:id="@+id/feedBack1"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+                                android:layout_gravity="end"
+                                android:layout_weight="1"
+                                android:background="@color/feedback_color"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="Reply"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:visibility="invisible" />
+
+                            <com.finaqa.customeview.AbelTextViewFont
+                                android:id="@+id/feedBack1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
                                 android:layout_weight="1"
                                 android:background="@color/feedback_color"
                                 android:gravity="center"
@@ -216,6 +235,86 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_question_24"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/textView1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lorem ipsum dolor sit amet?"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/more"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/more_text"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_answer_24"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis ?"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/more1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/more_text"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@android:color/holo_blue_dark"
+                                    android:textSize="14sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -281,87 +380,27 @@
                             android:layout_margin="8dp"
                             android:background="@android:color/black" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="4dp"
-                                android:text="Question:"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/textView"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:padding="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="4dp"
-                                android:text="Answer:"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis ?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:padding="8dp">
+
+                            <com.finaqa.customeview.AbelTextViewFont
+                                android:id="@+id/feedBack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@color/feedback_color"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="Reply"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:visibility="invisible" />
 
                             <com.finaqa.customeview.AbelTextViewFont
                                 android:id="@+id/feedBack"
