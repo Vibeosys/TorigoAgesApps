@@ -53,9 +53,9 @@ public class ConsultantQueryFragment extends Fragment {
     }
 
     private void openDialog() {
-        final Dialog dialog = new Dialog(getContext(), R.style.CustomDialog); // Context, this, etc.
-        dialog.setContentView(R.layout.feedback_dialog);
-        dialog.setTitle(R.string.dialog_title);
+        final Dialog dialog = new Dialog(getActivity()); // Context, this, etc.
+        dialog.setContentView(R.layout.consultant_reply_query_dialog);
+        dialog.setTitle(R.string.dialog_title_reply);
         dialog.show();
     }
 }

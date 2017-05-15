@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_skip"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:hint="Type a message"
+            android:textColorHint="@android:color/white" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:src="@drawable/ic_send_black_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_layout"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Question:"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu sententiae consectetuer usu. Ex vis enim corrumpit appellantur, te qui exerci electram postulant ?"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Answer:"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu sententiae consectetuer usu. Ex vis enim corrumpit appellantur, te qui exerci electram postulant ?"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
