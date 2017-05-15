@@ -116,7 +116,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/textView"
+                                    android:id="@+id/textView1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Lorem ipsum dolor sit amet?"
@@ -124,6 +124,7 @@
                                     android:textSize="18sp" />
 
                                 <TextView
+                                    android:id="@+id/more"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/more_text"
@@ -162,6 +163,7 @@
                                     android:textSize="18sp" />
 
                                 <TextView
+                                    android:id="@+id/more1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/more_text"
@@ -179,7 +181,7 @@
                             android:padding="8dp">
 
                             <com.finaqa.customeview.AbelTextViewFont
-                                android:id="@+id/feedBack"
+                                android:id="@+id/feedBack1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -240,7 +242,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
-                                    android:text="Mitchell Marsh"
+                                    android:text="Mitchel Marsh"
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp" />
 
