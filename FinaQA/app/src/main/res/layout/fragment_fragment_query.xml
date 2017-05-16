@@ -9,15 +9,18 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/containerId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/loginTransparnt">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/loginTransparnt">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/loginTransparnt"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -25,7 +28,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/queries_color"
+                    android:background="@color/logo_expert"
+
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -41,8 +45,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".5"
                         android:layout_gravity="top"
+                        android:layout_weight=".5"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -90,7 +94,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/consulting_free_pay"
+
+                    android:background="@color/logo_consult_"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -105,8 +110,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".5"
                         android:layout_gravity="center"
+                        android:layout_weight=".5"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -114,7 +119,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/consulting_free_pay"
                             android:orientation="horizontal">
 
                             <com.finaqa.customeview.AbelTextViewFont
@@ -154,7 +158,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/finance_advice"
+                    android:background="@color/logo_query_answer"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -178,7 +182,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/finance_advice"
                             android:orientation="horizontal">
 
                             <com.finaqa.customeview.AbelTextViewFont
@@ -218,7 +221,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/planning_expert_meeting"
+
+                    android:background="@color/logo_financel"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -241,7 +245,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/planning_expert_meeting"
                             android:orientation="horizontal">
 
                             <com.finaqa.customeview.AbelTextViewFont
