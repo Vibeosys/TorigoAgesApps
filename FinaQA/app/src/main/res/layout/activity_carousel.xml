@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="@color/colorPrimary"
+        android:background="@color/new_logo_color_1"
         android:text="@string/get_started"
         android:textColor="@android:color/white" />
 </RelativeLayout>

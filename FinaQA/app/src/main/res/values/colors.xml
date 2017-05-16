@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#EB0023</color>
+    <!-- <color name="colorPrimary">#3F51B5</color>
+       <color name="colorPrimaryDark">#303F9F</color>!-->
+    <color name="colorPrimaryDark">#EB0023</color>
     <color name="colorAccent">#FF4081</color>
 
     <!-- Screens background color-->
@@ -65,4 +67,11 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="loginTransparnt">#9e000000</color>
+
+    <color name="new_logo_color_1">#FF0033</color>
+    <color name="logo_prime_color">#EB0023</color>
+    <color name="logo_dark_color">#CC0033</color>
+    <color name="logo_very_faint_color">#CC0066</color>
+    <color name="logo_first_color">#CC0066</color>
+    <color name="logo_last_color">#FF00CC</color>
 </resources>

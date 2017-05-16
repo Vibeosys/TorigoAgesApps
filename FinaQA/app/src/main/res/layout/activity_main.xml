@@ -21,64 +21,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
-
-            <!--<View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gridBorder" />-->
             <include layout="@layout/bottom_layout_dashboard"></include>
-            <!-- <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:background="@android:color/white"
-                 android:orientation="horizontal">
-
-
-             </LinearLayout>-->
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
 
 
-    <!--<?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/parent_test"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/parentLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.support.v4.view.ViewPager
-
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:id="@+id/pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <android.support.v4.view.PagerTabStrip
-                        android:id="@+id/pager_title_strip"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_gravity="top"
-                        android:background="#FFFFFF"
-                        android:elevation="2dp"
-                        android:gravity="center"
-                        android:textAppearance="@style/PagerTabStripText" />
-
-                </android.support.v4.view.ViewPager>
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </FrameLayout>!-->
 
