@@ -29,7 +29,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/logo_expert"
-
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -94,7 +93,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-
                     android:background="@color/logo_consult_"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
