@@ -4,6 +4,7 @@ package com.finaqa.fragments;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +54,11 @@ public class ConsultantQueryFragment extends Fragment {
     }
 
     private void openDialog() {
-        final Dialog dialog = new Dialog(getActivity()); // Context, this, etc.
+        /*final Dialog dialog = new Dialog(getActivity()); // Context, this, etc.
         dialog.setContentView(R.layout.consultant_reply_query_dialog);
         dialog.setTitle(R.string.dialog_title_reply);
-        dialog.show();
+        dialog.show();*/
+        Fragment_chat fragment_chat = new Fragment_chat();
+        getFragmentManager().beginTransaction().replace(R.id.getChatContainer, fragment_chat, "CONSTANT").commit();
     }
 }
