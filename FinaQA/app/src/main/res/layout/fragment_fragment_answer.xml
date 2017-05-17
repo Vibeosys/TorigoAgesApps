@@ -105,36 +105,49 @@
                                     android:textSize="18sp" />
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:background="#e2e0e0" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:padding="8dp">
 
-                                <com.finaqa.customeview.AbelTextViewFont
+                                <Button
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:background="@drawable/border_gray"
+                                    android:background="@android:color/transparent"
+                                    android:drawableStart="@drawable/ic_reply_black_24dp"
                                     android:gravity="center"
                                     android:padding="4dp"
                                     android:text="Replay"
                                     android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="normal" />
 
-                                <com.finaqa.customeview.AbelTextViewFont
+                                <Button
                                     android:id="@+id/feedBack"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:background="@color/feedback_color"
-                                    android:gravity="center"
+                                    android:background="@android:color/transparent"
+                                    android:drawablePadding="4dp"
+                                    android:drawableStart="@drawable/ic_feedback_black_24dp"
+                                    android:gravity="center|center_vertical"
                                     android:padding="4dp"
                                     android:text="feedback"
-                                    android:textColor="@android:color/white"
                                     android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="normal" />
                             </LinearLayout>
+
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="#e2e0e0" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
