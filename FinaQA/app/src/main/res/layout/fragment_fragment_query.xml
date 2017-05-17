@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/loginTransparnt">
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -28,7 +28,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/logo_expert"
+                    android:background="@color/gray_1"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -93,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/logo_consult_"
+                    android:background="@color/gray_2"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -156,7 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/logo_query_answer"
+                    android:background="@color/gray_3"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -220,7 +220,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
 
-                    android:background="@color/logo_financel"
+                    android:background="@color/gray_4"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
                     android:padding="8dp">

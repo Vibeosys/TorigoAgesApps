@@ -3,108 +3,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/loginTransparnt">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/loginTransparnt"
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/layoutAboutUs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/queries_color"
-            android:gravity="center|center_vertical"
-            android:orientation="horizontal">
+            android:background="@color/loginTransparnt"
+            android:orientation="vertical">
 
-            <com.finaqa.customeview.AbelTextViewFont
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="@string/str_about_us"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+            <LinearLayout
+                android:id="@+id/layoutAboutUs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/gray_1"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
+
+                <com.finaqa.customeview.AbelTextViewFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/str_about_us"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutContactus"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/consulting_free_pay"
-            android:gravity="center|center_vertical"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/layoutContactus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/gray_2"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
 
-            <com.finaqa.customeview.AbelTextViewFont
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="@string/str_contact_us"
-                android:textColor="@android:color/white"
-                android:textSize="32sp" />
+                <com.finaqa.customeview.AbelTextViewFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/str_contact_us"
+                    android:textColor="@android:color/white"
+                    android:textSize="32sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutProfile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/finance_advice"
-            android:gravity="center|center_vertical"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/layoutProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/gray_3"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
 
-            <com.finaqa.customeview.AbelTextViewFont
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="@string/str_profile"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                <com.finaqa.customeview.AbelTextViewFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/str_profile"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutChangePassword"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/planning_expert_meeting"
-            android:gravity="center|center_vertical"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/layoutChangePassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/gray_4"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
 
-            <com.finaqa.customeview.AbelTextViewFont
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="@string/str_change_password"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                <com.finaqa.customeview.AbelTextViewFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/str_change_password"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

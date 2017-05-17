@@ -78,4 +78,8 @@
     <color name="logo_consult_">#d8d61813</color>
     <color name="logo_financel">#8ef44336</color>
     <color name="logo_expert">#d6ef5350</color>
+    <color name="gray_1">#ebe6e6e6</color>
+    <color name="gray_2">#CCCCCC</color>
+    <color name="gray_3">#B3B3B3</color>
+    <color name="gray_4">#999999</color>
 </resources>
