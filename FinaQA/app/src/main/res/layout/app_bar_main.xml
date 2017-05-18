@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.finaqa.MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBar"
@@ -18,40 +20,25 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_gravity="center|center_vertical"
-                android:gravity="center"
                 android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_gravity="center|center_vertical"
-                    android:gravity="center"
                     android:src="@drawable/ic_white_logo" />
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
 
-        <LinearLayout
-            android:id="@+id/parentLayout"
+        <include
+            layout="@layout/activity_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/appBar"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:id="@+id/fragment_frame_lay"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <include layout="@layout/bottom_layout_dashboard"></include>
-        </LinearLayout>
-    </RelativeLayout>
-</RelativeLayout>
+            android:layout_below="@+id/appBar" />
+    </LinearLayout>
 
 
-
-
+</android.support.design.widget.CoordinatorLayout>
