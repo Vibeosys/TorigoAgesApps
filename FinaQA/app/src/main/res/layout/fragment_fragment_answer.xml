@@ -74,18 +74,33 @@
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="july 22,2017"
+                                        android:textColor="@android:color/darker_gray"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
                                 android:orientation="horizontal">
 
                                 <TextView
@@ -96,13 +111,28 @@
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten?"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="end"
+                                        android:gravity="end"
+                                        android:text="Read more.."
+                                        android:textColor="@android:color/holo_blue_bright"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <View
@@ -186,13 +216,27 @@
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="july 22,2017"
+                                        android:textColor="@android:color/darker_gray"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <LinearLayout
@@ -208,13 +252,28 @@
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten?"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="end"
+                                        android:gravity="end"
+                                        android:text="Read more.."
+                                        android:textColor="@android:color/holo_blue_bright"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <View
