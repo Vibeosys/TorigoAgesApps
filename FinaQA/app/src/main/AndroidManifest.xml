@@ -39,7 +39,15 @@
         <activity
             android:name=".activities.ConsultantMainActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.ContactUsActivity"
+            android:label="@string/title_activity_contact_us"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.AboutUsActivity"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
