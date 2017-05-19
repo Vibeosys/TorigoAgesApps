@@ -33,4 +33,8 @@
     <string name="str_forgot_msg">You will receive your credentials,if your email id matches with registered email id</string>
     <string name="str_btn_send_email">click here to get your password</string>
     <string name="forgot_password">Forgot password</string>
+    <string name="str_bank_name">Bank name</string>
+    <string name="str_acc_no">Account no.</string>
+    <string name="str_ifcs_code">IFSC code</string>
+    <string name="bank_details_title">Bank details</string>
 </resources>
