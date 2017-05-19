@@ -17,7 +17,7 @@ import com.finaqa.R;
  */
 public class ConsultantQueryFragment extends Fragment {
 
-    private TextView more1, more2, more3;
+    private TextView more2, more3;
 
     public ConsultantQueryFragment() {
         // Required empty public constructor
@@ -29,15 +29,15 @@ public class ConsultantQueryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_consultant_query, container, false);
         // Inflate the layout for this fragment
-        more1 = (TextView) view.findViewById(R.id.more);
+        //more1 = (TextView) view.findViewById(R.id.more);
         more2 = (TextView) view.findViewById(R.id.more1);
         more3 = (TextView) view.findViewById(R.id.feedBack21);
-        more1.setOnClickListener(new View.OnClickListener() {
+        /*more1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDialog();
             }
-        });
+        });*/
         more2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -36,57 +36,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:padding="8dp"
-                                android:src="@drawable/ic_question_24"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="8dp">
-
-                                <TextView
-                                    android:id="@+id/textView1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/more"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:padding="8dp"
-                                android:src="@drawable/ic_answer_24"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -98,28 +49,55 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis ?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:text="FINANCIAL PLANNING"
+                                    android:textColor="@color/blue_color"
+                                    android:textSize="18sp"
+                                    android:textStyle="normal" />
 
                                 <TextView
-                                    android:id="@+id/more1"
+                                    android:id="@+id/textView1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
+                                    android:padding="4dp"
+                                    android:text="What is deferred tax liability and why might one be created ?"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
                             </LinearLayout>
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:padding="4dp">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_date_time_24" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="4dp"
+                                    android:text="July 22,2017"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -142,50 +120,51 @@
                                     android:padding="4dp"
                                     android:text="Thomas Brax"
                                     android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="14sp" />
 
 
                             </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:src="@drawable/ic_date_time_24" />
-
+                                android:orientation="vertical"
+                                android:padding="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="24-May-2017"
-                                    android:textColor="@android:color/black"
+                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet"
+                                    android:textColor="@android:color/secondary_text_light"
                                     android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/more1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:text="Read more.."
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/blue_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
                             </LinearLayout>
                         </LinearLayout>
-
-                        <View
-                            android:id="@+id/SplitLine_hor1"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="8dp"
-                            android:background="@android:color/black" />
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:layout_margin="8dp"
-                            android:gravity="end"
+                            android:gravity="start"
                             android:orientation="horizontal"
                             android:padding="8dp">
 
@@ -195,10 +174,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@color/feedback_color"
-                                android:drawableEnd="@drawable/ic_reply_24"
                                 android:gravity="center"
                                 android:padding="8dp"
-                                android:text="Reply"
+                                android:text="Answer It"
+                                android:textAllCaps="false"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp"
                                 android:textStyle="normal" />
@@ -229,57 +208,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:padding="8dp"
-                                android:src="@drawable/ic_question_24"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="8dp">
-
-                                <TextView
-                                    android:id="@+id/textView111"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/more111"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:padding="8dp"
-                                android:src="@drawable/ic_answer_24"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="14sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -291,19 +221,21 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis ?"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:text="FINANCIAL PLANNING"
+                                    android:textColor="@color/blue_color"
+                                    android:textSize="18sp"
+                                    android:textStyle="normal" />
 
                                 <TextView
-                                    android:id="@+id/more11"
+                                    android:id="@+id/textView1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/more_text"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="14sp"
-                                    android:textStyle="italic" />
+                                    android:padding="4dp"
+                                    android:text="What is deferred tax liability and why might one be created ?"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
                             </LinearLayout>
                         </LinearLayout>
 
@@ -312,6 +244,32 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:padding="4dp">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_date_time_24" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="4dp"
+                                    android:text="July 22,2017"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -332,65 +290,66 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
-                                    android:text="Mitchel Marsh"
+                                    android:text="Thomas Brax"
                                     android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="14sp" />
 
 
                             </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:src="@drawable/ic_date_time_24" />
-
+                                android:orientation="vertical"
+                                android:padding="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="19-Jan-2017"
-                                    android:textColor="@android:color/black"
+                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet"
+                                    android:textColor="@android:color/secondary_text_light"
                                     android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/more122"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:text="Read more.."
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/blue_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
                             </LinearLayout>
                         </LinearLayout>
-
-                        <View
-                            android:id="@+id/SplitLine_hor"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="8dp"
-                            android:background="@android:color/black" />
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:layout_margin="8dp"
-                            android:gravity="end"
+                            android:gravity="start"
                             android:orientation="horizontal"
                             android:padding="8dp">
 
 
                             <Button
-                                android:id="@+id/feedBack211"
+                                android:id="@+id/feedBack2122"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@color/feedback_color"
-                                android:drawableEnd="@drawable/ic_reply_24"
                                 android:gravity="center"
                                 android:padding="8dp"
-                                android:text="Reply"
+                                android:text="Answer It"
+                                android:textAllCaps="false"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp"
                                 android:textStyle="normal" />
