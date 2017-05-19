@@ -43,10 +43,18 @@
         <activity
             android:name=".activities.ContactUsActivity"
             android:label="@string/title_activity_contact_us"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".activities.ConsultantMainActivity" />
         <activity
             android:name=".activities.AboutUsActivity"
             android:label="@string/title_activity_about_us"
+            android:parentActivityName=".activities.ConsultantMainActivity" />
+        <activity
+            android:name=".activities.AboutUsActivitySecond"
+            android:label="@string/title_activity_contact_us"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.ContactUsActivitySecond"
+            android:label="@string/title_activity_contact_us"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

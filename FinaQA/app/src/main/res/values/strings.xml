@@ -23,6 +23,6 @@
     <string name="finace_term"><![CDATA[complete solution of tax laws & insurance]]></string>
     <string name="more_text"><u>more..</u></string>
     <string name="dialog_title_reply">Reply</string>
-    <string name="title_activity_contact_us">ContactUsActivity</string>
-    <string name="title_activity_about_us">AboutUsActivity</string>
+    <string name="title_activity_contact_us">Contact us</string>
+    <string name="title_activity_about_us">About us</string>
 </resources>
