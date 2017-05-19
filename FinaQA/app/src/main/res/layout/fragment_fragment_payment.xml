@@ -43,11 +43,11 @@
                                 android:orientation="horizontal"
                                 android:padding="4dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
                                     android:padding="4dp"
-                                    android:text="Question:"
+                                    android:src="@drawable/ic_quora_img"
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
@@ -55,35 +55,13 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis...."
+                                    android:text="What is deferred tax liability and why might one be created ?"
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Charges for:"
-                                    android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Consultation and meeting"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -102,7 +80,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_payment_24" />
+                                        android:src="@drawable/ic_new_money_96" />
 
 
                                     <TextView
@@ -149,6 +127,28 @@
 
 
                             </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Charges for:"
+                                    android:textColor="@color/blue_color"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Consultation and meeting"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -191,7 +191,7 @@
                                         android:background="@color/feedback_color"
                                         android:gravity="center"
                                         android:padding="4dp"
-                                        android:text="PAYMENT"
+                                        android:text="Pay now"
                                         android:textColor="@android:color/white"
                                         android:textSize="18sp"
                                         android:textStyle="bold" />
@@ -229,11 +229,11 @@
                                 android:orientation="horizontal"
                                 android:padding="4dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
                                     android:padding="4dp"
-                                    android:text="Question:"
+                                    android:src="@drawable/ic_quora_img"
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
@@ -241,35 +241,12 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis...."
+                                    android:text="What is deferred tax liability and why might one be created ?"
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Charges for:"
-                                    android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Consultation"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-                            </LinearLayout>
 
 
                             <LinearLayout
@@ -289,7 +266,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_payment_24" />
+                                        android:src="@drawable/ic_new_money_96" />
 
 
                                     <TextView
@@ -305,7 +282,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="4dp"
-                                        android:text="200"
+                                        android:text="2500"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
                                 </LinearLayout>
@@ -329,12 +306,34 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="4dp"
-                                        android:text="20-May-2017"
+                                        android:text="24-May-2017"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
                                 </LinearLayout>
 
 
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Charges for:"
+                                    android:textColor="@color/blue_color"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Consultation and meeting"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -359,7 +358,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="4dp"
-                                        android:text="Paid"
+                                        android:text="pending"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
                                 </LinearLayout>
@@ -371,14 +370,14 @@
                                     android:orientation="horizontal">
 
                                     <com.finaqa.customeview.AbelTextViewFont
-                                        android:id="@+id/feedBack1"
+                                        android:id="@+id/feedBack"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:background="@color/paid_button"
+                                        android:background="@color/feedback_color"
                                         android:gravity="center"
                                         android:padding="4dp"
-                                        android:text="DONE"
+                                        android:text="Pay now"
                                         android:textColor="@android:color/white"
                                         android:textSize="18sp"
                                         android:textStyle="bold" />

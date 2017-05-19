@@ -5,30 +5,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/bottom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/color_skip"
-        android:orientation="horizontal">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:focusable="false"
-            android:hint="Type a message"
-            android:textColorHint="@android:color/white" />
-
-        <ImageView
-            android:layout_width="34dp"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:src="@drawable/ic_send_black_24dp" />
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_layout"
@@ -66,31 +42,31 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
                                     android:padding="4dp"
-                                    android:text="Question:"
+                                    android:src="@drawable/ic_quora_img"
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="4dp"
-                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
+                                        android:text="What is deferred tax liability and why might one be created ?"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="4dp"
                                         android:text="july 22,2017"
                                         android:textColor="@android:color/darker_gray"
                                         android:textSize="14sp" />
@@ -107,9 +83,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Answer:"
+                                    android:text="Anss"
                                     android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp" />
+                                    android:textSize="14sp"
+                                    android:visibility="invisible" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -120,7 +97,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="4dp"
-                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten?"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten..."
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
 
@@ -130,7 +107,7 @@
                                         android:layout_gravity="end"
                                         android:gravity="end"
                                         android:text="Read more.."
-                                        android:textColor="@android:color/holo_blue_bright"
+                                        android:textColor="@color/blue_color"
                                         android:textSize="14sp" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -146,18 +123,6 @@
                                 android:orientation="horizontal"
                                 android:padding="8dp">
 
-                                <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="4dp"
-                                    android:layout_weight="1"
-                                    android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_reply_black_24dp"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Replay"
-                                    android:textSize="16sp"
-                                    android:textStyle="normal" />
 
                                 <Button
                                     android:id="@+id/feedBack"
@@ -167,10 +132,23 @@
                                     android:layout_margin="4dp"
                                     android:layout_weight="1"
                                     android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_feedback_black_24dp"
+                                    android:drawableEnd="@drawable/ic_feedback_black_24dp"
                                     android:gravity="center|center_vertical"
                                     android:padding="8dp"
                                     android:text="feedback"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal" />
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="4dp"
+                                    android:layout_weight="1"
+                                    android:background="@android:color/transparent"
+                                    android:drawableEnd="@drawable/ic_arrow_24"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="Replay"
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
                             </LinearLayout>
@@ -191,7 +169,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/card_view2"
+                        android:id="@+id/card_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -208,31 +186,31 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
                                     android:padding="4dp"
-                                    android:text="Question:"
+                                    android:src="@drawable/ic_quora_img"
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="4dp"
-                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis"
+                                        android:text="What is deferred tax liability and why might one be created ?"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="4dp"
                                         android:text="july 22,2017"
                                         android:textColor="@android:color/darker_gray"
                                         android:textSize="14sp" />
@@ -242,15 +220,17 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
                                 android:orientation="horizontal">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
-                                    android:text="Answer:"
+                                    android:text="Anss"
                                     android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp" />
+                                    android:textSize="14sp"
+                                    android:visibility="invisible" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -261,7 +241,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="4dp"
-                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten?"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten .."
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
 
@@ -271,7 +251,7 @@
                                         android:layout_gravity="end"
                                         android:gravity="end"
                                         android:text="Read more.."
-                                        android:textColor="@android:color/holo_blue_bright"
+                                        android:textColor="@color/blue_color"
                                         android:textSize="14sp" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -287,31 +267,32 @@
                                 android:orientation="horizontal"
                                 android:padding="8dp">
 
-                                <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="4dp"
-                                    android:layout_weight="1"
-                                    android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_reply_black_24dp"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Replay"
-                                    android:textSize="16sp"
-                                    android:textStyle="normal" />
 
                                 <Button
-                                    android:id="@+id/feedBack1"
+                                    android:id="@+id/feedBack"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_vertical"
                                     android:layout_margin="4dp"
                                     android:layout_weight="1"
                                     android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_feedback_black_24dp"
+                                    android:drawableEnd="@drawable/ic_feedback_black_24dp"
                                     android:gravity="center|center_vertical"
                                     android:padding="8dp"
                                     android:text="feedback"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal" />
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="4dp"
+                                    android:layout_weight="1"
+                                    android:background="@android:color/transparent"
+                                    android:drawableEnd="@drawable/ic_arrow_24"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="Replay"
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
                             </LinearLayout>
@@ -324,6 +305,8 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
+
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
