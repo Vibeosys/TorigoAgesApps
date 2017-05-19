@@ -30,4 +30,7 @@
     <string name="str_user_password">password</string>
     <string name="str_btn_save">save</string>
     <string name="myProfile">My profile</string>
+    <string name="str_forgot_msg">You will receive your credentials,if your email id matches with registered email id</string>
+    <string name="str_btn_send_email">click here to get your password</string>
+    <string name="forgot_password">Forgot password</string>
 </resources>

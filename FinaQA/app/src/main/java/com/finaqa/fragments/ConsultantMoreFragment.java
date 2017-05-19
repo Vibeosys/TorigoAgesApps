@@ -13,12 +13,13 @@ import android.widget.LinearLayout;
 import com.finaqa.R;
 import com.finaqa.activities.AboutUsActivity;
 import com.finaqa.activities.ContactUsActivity;
+import com.finaqa.activities.ForgotPasswordActivity;
 import com.finaqa.activities.MyProfileActivity;
 
 
 public class ConsultantMoreFragment extends Fragment implements View.OnClickListener {
 
-    private LinearLayout mContactUs, mAboutUs,mProfile;
+    private LinearLayout mContactUs, mAboutUs, mProfile, mForgotPassword;
 
     public ConsultantMoreFragment() {
         // Required empty public constructor
@@ -31,10 +32,12 @@ public class ConsultantMoreFragment extends Fragment implements View.OnClickList
         // Inflate the layout for this fragment
         mContactUs = (LinearLayout) view.findViewById(R.id.layout_contactUs);
         mAboutUs = (LinearLayout) view.findViewById(R.id.about_us);
-        mProfile  = (LinearLayout) view.findViewById(R.id.layout_profile);
+        mProfile = (LinearLayout) view.findViewById(R.id.layout_profile);
+        mForgotPassword = (LinearLayout) view.findViewById(R.id.layout_forgotpassword);
         mContactUs.setOnClickListener(this);
         mAboutUs.setOnClickListener(this);
         mProfile.setOnClickListener(this);
+        mForgotPassword.setOnClickListener(this);
         return view;
     }
 
@@ -51,8 +54,12 @@ public class ConsultantMoreFragment extends Fragment implements View.OnClickList
                 startActivity(intent1);
                 break;
             case R.id.layout_profile:
-                Intent intent2= new Intent(getContext().getApplicationContext(), MyProfileActivity.class);
+                Intent intent2 = new Intent(getContext().getApplicationContext(), MyProfileActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.layout_forgotpassword:
+                Intent intent3 = new Intent(getContext().getApplicationContext(), ForgotPasswordActivity.class);
+                startActivity(intent3);
                 break;
         }
     }

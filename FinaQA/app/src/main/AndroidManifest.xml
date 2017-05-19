@@ -59,6 +59,10 @@
         <activity
             android:name=".activities.MyProfileActivity"
             android:label="@string/myProfile"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
+            android:label="@string/forgot_password"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 
