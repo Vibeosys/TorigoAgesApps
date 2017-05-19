@@ -25,4 +25,9 @@
     <string name="dialog_title_reply">Reply</string>
     <string name="title_activity_contact_us">Contact us</string>
     <string name="title_activity_about_us">About us</string>
+    <string name="str_first_name">Name</string>
+    <string name="str_email_hint">email id</string>
+    <string name="str_user_password">password</string>
+    <string name="str_btn_save">save</string>
+    <string name="myProfile">My profile</string>
 </resources>

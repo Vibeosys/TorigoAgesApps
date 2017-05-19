@@ -55,6 +55,10 @@
         <activity
             android:name=".activities.ContactUsActivitySecond"
             android:label="@string/title_activity_contact_us"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.MyProfileActivity"
+            android:label="@string/myProfile"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 
