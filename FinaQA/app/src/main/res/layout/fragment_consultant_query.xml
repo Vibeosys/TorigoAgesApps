@@ -131,7 +131,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -168,7 +167,6 @@
                             android:orientation="horizontal"
                             android:padding="8dp">
 
-
                             <Button
                                 android:id="@+id/feedBack21"
                                 android:layout_width="wrap_content"
@@ -193,7 +191,6 @@
                 android:padding="4dp">
 
                 <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/card_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -209,7 +206,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -227,7 +223,6 @@
                                     android:textStyle="normal" />
 
                                 <TextView
-                                    android:id="@+id/textView1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
@@ -235,7 +230,6 @@
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
-
                             </LinearLayout>
                         </LinearLayout>
 
@@ -244,7 +238,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:padding="4dp">
-
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -259,7 +252,6 @@
                                     android:layout_gravity="center"
                                     android:padding="4dp"
                                     android:src="@drawable/ic_date_time_24" />
-
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -284,7 +276,6 @@
                                     android:padding="4dp"
                                     android:src="@drawable/ic_user_24" />
 
-
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -293,8 +284,6 @@
                                     android:text="Thomas Brax"
                                     android:textColor="@android:color/black"
                                     android:textSize="14sp" />
-
-
                             </LinearLayout>
                         </LinearLayout>
 
@@ -302,7 +291,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -340,7 +328,6 @@
                             android:orientation="horizontal"
                             android:padding="8dp">
 
-
                             <Button
                                 android:id="@+id/feedBack2122"
                                 android:layout_width="wrap_content"
@@ -359,6 +346,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </FrameLayout>
