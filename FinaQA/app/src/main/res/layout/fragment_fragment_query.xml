@@ -60,7 +60,7 @@
                                 android:layout_marginLeft="14dp"
                                 android:layout_weight="0.2"
                                 android:text="@string/str_query_answer"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="24sp" />
 
 
@@ -68,7 +68,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -81,7 +81,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
                                 android:text="get best solution for your question"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -125,14 +125,14 @@
                                 android:layout_marginLeft="14dp"
                                 android:layout_weight="0.2"
                                 android:text="@string/str_consulting_free_pay"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="24sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -145,7 +145,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
                                 android:text="get advice from our expertise"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -188,14 +188,14 @@
                                 android:layout_marginLeft="14dp"
                                 android:layout_weight="0.2"
                                 android:text="@string/str_finance_advice"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="24sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -208,7 +208,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
                                 android:text="@string/finace_term"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -251,15 +251,14 @@
                                 android:layout_marginLeft="14dp"
                                 android:layout_weight="0.2"
                                 android:text="@string/str_planning_expert"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="24sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -272,7 +271,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
                                 android:text="have one to one discussion with our experts"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
