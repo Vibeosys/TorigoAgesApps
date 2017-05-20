@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_screen_background"
+    android:background="@android:color/white"
     tools:context="com.finaqa.activities.LoginActivity">
     <!--<ImageView
         android:layout_width="match_parent"
@@ -11,8 +11,7 @@
         android:src="@drawable/login_screen_background" />-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_overLay">
+        android:layout_height="match_parent">
 
 
         <FrameLayout
@@ -44,6 +43,20 @@
                     android:background="@color/drawer_background" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleViewImage"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_logog_512" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,7 +69,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/color_overLay"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -90,7 +102,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/color_overLay"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
