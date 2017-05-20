@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_login_consultant"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:background="@color/loginTransparnt"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,25 +32,26 @@
                         android:orientation="vertical"
                         android:padding="4dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="@string/str_bank_name"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="@android:color/white" />
 
                         <EditText
                             android:id="@+id/userName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
-                            android:hint="Swiss bank corporation"
+                            android:hint="Enter bank name"
                             android:padding="4dp"
                             android:singleLine="true"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/white" />
+                            android:textColor="@android:color/darker_gray"
+                            android:textColorHint="@android:color/darker_gray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:text="@string/str_bank_name"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@android:color/black" />
 
 
                         <View
@@ -60,7 +59,7 @@
                             android:layout_height="1dp"
                             android:layout_marginBottom="4dp"
                             android:layout_marginTop="4dp"
-                            android:background="@android:color/white" />
+                            android:background="@android:color/darker_gray" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -68,6 +67,19 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="4dp">
+
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="Enter bank account number"
+                            android:inputType="number"
+                            android:padding="4dp"
+                            android:singleLine="true"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@android:color/darker_gray"
+                            android:textColorHint="@android:color/darker_gray" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -75,19 +87,7 @@
                             android:padding="4dp"
                             android:text="@string/str_acc_no"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="@android:color/white" />
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:hint="101039430"
-                            android:inputType="number"
-                            android:padding="4dp"
-                            android:singleLine="true"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/white" />
+                            android:textColor="@android:color/black" />
 
 
                         <View
@@ -95,7 +95,7 @@
                             android:layout_height="1dp"
                             android:layout_marginBottom="4dp"
                             android:layout_marginTop="4dp"
-                            android:background="@android:color/white" />
+                            android:background="@android:color/darker_gray" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -104,24 +104,25 @@
                         android:orientation="vertical"
                         android:padding="4dp">
 
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="Enter ifsc code"
+                            android:padding="4dp"
+                            android:singleLine="true"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@android:color/darker_gray"
+                            android:textColorHint="@android:color/darker_gray" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
                             android:text="@string/str_ifcs_code"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="@android:color/white" />
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:hint="Enter your ifsc code"
-                            android:padding="4dp"
-                            android:singleLine="true"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/white" />
+                            android:textColor="@android:color/black" />
 
 
                         <View
@@ -129,7 +130,7 @@
                             android:layout_height="1dp"
                             android:layout_marginBottom="4dp"
                             android:layout_marginTop="4dp"
-                            android:background="@android:color/white" />
+                            android:background="@android:color/darker_gray" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -142,8 +143,9 @@
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
+                            android:background="@color/colorPrimary"
                             android:text="Save"
+                            android:textAllCaps="false"
                             android:textColor="@android:color/white" />
 
                     </LinearLayout>
