@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="1dp"
-            android:src="@drawable/ic_question_answer_white_24dp" />
+            android:src="@drawable/ic_q_a_24" />
 
         <com.finaqa.customeview.AbelTextViewFont
             android:id="@+id/txtGame"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="1dp"
-            android:src="@drawable/ic_order_history_24" />
+            android:src="@drawable/ic_white_history_24" />
 
         <com.finaqa.customeview.AbelTextViewFont
             android:id="@+id/txtCocktails"

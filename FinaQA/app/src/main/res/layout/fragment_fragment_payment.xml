@@ -62,7 +62,6 @@
                             </LinearLayout>
 
 
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -113,7 +112,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_date_time_24" />
+                                        android:src="@drawable/ic_calendar_24" />
 
 
                                     <TextView
@@ -127,6 +126,7 @@
 
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -248,7 +248,6 @@
                             </LinearLayout>
 
 
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -299,7 +298,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_date_time_24" />
+                                        android:src="@drawable/ic_calendar_24" />
 
 
                                     <TextView
@@ -313,6 +312,7 @@
 
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
