@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_login_consultant"
+    android:background="@drawable/ic_new_consult_login"
     tools:context="com.finaqa.activities.CustomerLogin">
 
     <LinearLayout
@@ -124,7 +124,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/white_boarder"
-                        android:text="Login as Consultant"
+                        android:text="Login to your account"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
@@ -141,7 +141,7 @@
                     android:text="Forgot your password?"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_login_consultant"
+    android:background="@drawable/ic_new_consult_login"
     tools:context="com.finaqa.activities.ConsultantRegistration">
 
     <LinearLayout
@@ -34,7 +34,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/white_boarder"
                     android:focusable="true"
                     android:orientation="vertical"
                     android:padding="8dp"
@@ -57,9 +56,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_user_name_24"
-                            android:hint="User name"
+                            android:hint="Name"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -93,9 +90,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_email_white_24dp"
-                            android:hint="Email id"
+                            android:hint="Practising year"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -129,10 +124,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_lock_outline_white_24dp"
-                            android:hint="password"
-                            android:inputType="textPassword"
+                            android:hint="Degree hold"
                             android:paddingStart="8dp"
                             android:singleLine="true"
                             android:textColor="@android:color/white"
@@ -164,10 +156,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_lock_outline_white_24dp"
-                            android:hint="Re enter password"
-                            android:inputType="textPassword"
+                            android:hint="Employee status"
                             android:paddingStart="8dp"
                             android:singleLine="true"
                             android:textColor="@android:color/white"
@@ -175,7 +164,46 @@
                             android:textSize="16sp" />
 
                     </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@android:color/white" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:hintTextAppearance="@style/TextLabel">
+
+                        <EditText
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:color/transparent"
+                            android:hint="Collage"
+                            android:paddingStart="8dp"
+                            android:singleLine="true"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="16sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@android:color/white" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -192,9 +220,6 @@
                         android:layout_marginTop="16dp"
                         android:background="@drawable/white_boarder"
                         android:text="Next"
-                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_36dp"
-                        android:drawablePadding="12dp"
-                        android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>

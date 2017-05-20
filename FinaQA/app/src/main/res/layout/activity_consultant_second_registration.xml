@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_login_consultant"
+    android:background="@drawable/ic_new_consult_login"
     tools:context="com.finaqa.activities.ConsultantSecondRegistration">
 
     <LinearLayout
@@ -34,7 +34,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/white_boarder"
                     android:focusable="true"
                     android:orientation="vertical"
                     android:padding="8dp"
@@ -57,9 +56,9 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_date_time_white_24"
-                            android:hint="Practicing year"
+
+
+                            android:hint="Amount"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -92,9 +91,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_graduation_cap_24"
-                            android:hint="Degree hold"
+                            android:hint="Country"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -127,9 +124,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_collage_24"
-                            android:hint="Collage name"
+                            android:hint="State"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -146,29 +141,36 @@
                         android:layout_marginStart="8dp"
                         android:background="@android:color/white" />
 
-                    <RadioGroup
-                        android:id="@+id/radioSex"
-                        android:layout_width="wrap_content"
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="4dp">
+                        android:layout_gravity="bottom"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:hintTextAppearance="@style/TextLabel">
 
-                        <RadioButton
-                            android:id="@+id/radioMale"
-                            android:layout_width="wrap_content"
+                        <EditText
+
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="Employee"
-                            android:textColor="@android:color/white" />
-
-                        <RadioButton
-                            android:id="@+id/radioFemale"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Self employee"
-                            android:textColor="@android:color/white" />
-
-                    </RadioGroup>
-
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:color/transparent"
+                            android:hint="City"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="8dp"
+                            android:singleLine="true"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@android:color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -186,10 +188,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/white_boarder"
-                        android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_36dp"
-                        android:drawablePadding="12dp"
                         android:text="Next"
-                        android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_login_background_screen"
+    android:background="@drawable/ic_new_login_back"
     tools:context="com.finaqa.activities.RegisterUserActivity">
 
     <LinearLayout
@@ -68,41 +68,6 @@
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <View
-                        android:id="@+id/SplitLine_hor0"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@android:color/white" />
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_emailIdEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:textColor="@android:color/white"
-                        android:textColorHint="@android:color/white"
-                        app:hintTextAppearance="@style/TextLabel">
-
-                        <EditText
-                            android:id="@+id/emailIdEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginTop="4dp"
-                            android:background="@android:color/transparent"
-                            android:drawablePadding="10dp"
-                            android:drawableStart="@drawable/ic_email_white_24dp"
-                            android:hint="email id"
-                            android:inputType="textEmailAddress"
-                            android:paddingStart="8dp"
-                            android:singleLine="true"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/white"
-                            android:textSize="16sp" />
-
-                    </android.support.design.widget.TextInputLayout>
 
                     <View
                         android:id="@+id/SplitLine_hor1"
@@ -165,7 +130,7 @@
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
                             android:drawableStart="@drawable/ic_lock_outline_white_24dp"
-                            android:hint="Re enter password"
+                            android:hint="Confirm password"
                             android:inputType="textPassword"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -176,6 +141,42 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@android:color/white" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_emailIdEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:hintTextAppearance="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/emailIdEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:color/transparent"
+                            android:drawablePadding="10dp"
+                            android:drawableStart="@drawable/ic_email_white_24dp"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="8dp"
+                            android:singleLine="true"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="16sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/SplitLine_hor0"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginEnd="8dp"
@@ -200,7 +201,7 @@
                             android:background="@android:color/transparent"
                             android:drawablePadding="10dp"
                             android:drawableStart="@drawable/ic_phone_white_24dp"
-                            android:hint="phone no."
+                            android:hint="phone"
                             android:inputType="number"
                             android:paddingStart="8dp"
                             android:singleLine="true"
@@ -227,7 +228,6 @@
                         android:layout_marginTop="16dp"
                         android:background="@drawable/white_boarder"
                         android:text="Register"
-                        android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>
