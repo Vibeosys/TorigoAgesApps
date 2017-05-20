@@ -53,7 +53,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="start"
+                        android:paddingStart="14dp"
                         android:text="About us"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
@@ -95,7 +96,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="start"
+                        android:paddingStart="14dp"
                         android:text="Contact us"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
@@ -148,7 +150,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="My profile"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
@@ -190,7 +193,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="Change password"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
@@ -232,7 +236,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="Bank details"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
@@ -273,7 +278,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="Logout"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
