@@ -45,7 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="top"
-                        android:layout_weight=".5"
+                        android:layout_weight="0.4"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -92,7 +92,7 @@
                     android:id="@+id/layoutConsultingVertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:background="@color/gray_2"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
@@ -109,7 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight=".5"
+                        android:layout_weight=".4"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -155,7 +155,7 @@
                     android:id="@+id/layoutFinanceVertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:background="@color/gray_3"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal"
@@ -172,7 +172,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".5"
+                        android:layout_weight=".4"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -218,7 +218,7 @@
                     android:id="@+id/layoutMeetingVertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
 
                     android:background="@color/gray_4"
                     android:gravity="center|center_vertical"
@@ -235,7 +235,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".5"
+                        android:layout_weight=".4"
                         android:orientation="vertical">
 
                         <LinearLayout
