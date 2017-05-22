@@ -41,9 +41,8 @@
                             android:hint="Enter bank name"
                             android:padding="4dp"
                             android:singleLine="true"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/darker_gray"
-                            android:textColorHint="@android:color/darker_gray" />
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textColorHint="@android:color/secondary_text_light" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -78,8 +77,8 @@
                             android:padding="4dp"
                             android:singleLine="true"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/darker_gray"
-                            android:textColorHint="@android:color/darker_gray" />
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textColorHint="@android:color/secondary_text_light" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -113,8 +112,8 @@
                             android:padding="4dp"
                             android:singleLine="true"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/darker_gray"
-                            android:textColorHint="@android:color/darker_gray" />
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textColorHint="@android:color/secondary_text_light" />
 
                         <TextView
                             android:layout_width="wrap_content"

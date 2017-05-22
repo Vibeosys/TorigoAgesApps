@@ -59,6 +59,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:padding="2dp"
                                         android:text="What is deferred tax liability and why might one be created ?"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp"
@@ -67,9 +68,11 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:padding="2dp"
                                         android:text="july 22,2017"
-                                        android:textColor="@android:color/darker_gray"
-                                        android:textSize="14sp" />
+                                        android:textColor="@android:color/secondary_text_light"
+                                        android:textSize="14sp"
+                                        android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -96,7 +99,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="4dp"
+                                        android:padding="6dp"
                                         android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten..."
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />
@@ -200,6 +203,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:padding="2dp"
                                         android:text="What is deferred tax liability and why might one be created ?"
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp"
@@ -208,9 +212,11 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:padding="2dp"
                                         android:text="july 22,2017"
-                                        android:textColor="@android:color/darker_gray"
-                                        android:textSize="14sp" />
+                                        android:textColor="@android:color/secondary_text_light"
+                                        android:textSize="14sp"
+                                        android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -237,7 +243,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="4dp"
+                                        android:padding="6dp"
                                         android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten .."
                                         android:textColor="@android:color/black"
                                         android:textSize="18sp" />

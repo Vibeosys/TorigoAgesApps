@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/drawable_message_from"
                 android:padding="8dp"
-                android:text="Hi! I want some information about some tax consultation"
+                android:text="Hi! What is deferred tax liability and might one be created ? also i need some information for tax saver mutual fund."
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20 April 2017"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/secondary_text_light" />
         </LinearLayout>
 
         <LinearLayout
@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20 April 2017"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/secondary_text_light" />
         </LinearLayout>
 
         <LinearLayout
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20 April 2017"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/secondary_text_light" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
