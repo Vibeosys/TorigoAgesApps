@@ -16,6 +16,7 @@ import com.finaqa.fragments.FragmentAnswer;
 import com.finaqa.fragments.FragmentMore;
 import com.finaqa.fragments.FragmentPayment;
 import com.finaqa.fragments.FragmentQuery;
+import com.finaqa.fragments.GridFragment;
 
 import java.util.ArrayList;
 
@@ -55,9 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setUpFragment(int i) {
         switch (i) {
             case R.id.homeLay:
-                FragmentAnswer fragmentAnswer = new FragmentAnswer();
+                /*FragmentAnswer fragmentAnswer = new FragmentAnswer();
                 getSupportFragmentManager().beginTransaction().
-                        replace(R.id.fragment_frame_lay, fragmentAnswer, HOME_FRAGMENT).commit();
+                        replace(R.id.fragment_frame_lay, fragmentAnswer, HOME_FRAGMENT).commit();*/
+                GridFragment gridFragment = new GridFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_frame_lay, gridFragment, HOME_FRAGMENT).commit();
                 break;
             case R.id.searchLay:
                 FragmentPayment fragmentPayment = new FragmentPayment();
