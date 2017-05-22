@@ -8,17 +8,19 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.finaqa.R;
+import com.finaqa.fragments.ConsultantDashBoard;
 import com.finaqa.fragments.ConsultantHistoryFragment;
 import com.finaqa.fragments.ConsultantMoreFragment;
 import com.finaqa.fragments.ConsultantPaymentFragment;
 import com.finaqa.fragments.ConsultantQueryFragment;
 
 public class ConsultantMainActivity extends AppCompatActivity implements View.OnClickListener {
-    private LinearLayout mQueryLayout, mHistoryLayout, mPaymentLayout, mMoreLay;
+    private LinearLayout mQueryLayout, mHistoryLayout, mPaymentLayout, mMoreLay, mDashBoard;
     private static final String HOME_FRAGMENT = "home";
     private static final String SEARCH_FRAGMENT = "search";
     private static final String HOST_FRAGMENT = "host";
     private static final String USER_PROFILE = "viewProfile";
+    private static final String CONSULT_DASHBOARD = "consultDash";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,16 @@ public class ConsultantMainActivity extends AppCompatActivity implements View.On
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_consultant_main);
         mQueryLayout = (LinearLayout) findViewById(R.id.queryLayout);
-        mHistoryLayout = (LinearLayout) findViewById(R.id.historyLayout);
+       /* mHistoryLayout = (LinearLayout) findViewById(R.id.historyLayout);*/
         mPaymentLayout = (LinearLayout) findViewById(R.id.PaymentLayout);
         mMoreLay = (LinearLayout) findViewById(R.id.ConsultantMoreLayout);
-        setUpFragment(R.id.queryLayout);
+        mDashBoard = (LinearLayout) findViewById(R.id.dashBoardLayout);
+        setUpFragment(R.id.dashBoardLayout);
         mQueryLayout.setOnClickListener(this);
-        mHistoryLayout.setOnClickListener(this);
+/*        mHistoryLayout.setOnClickListener(this);*/
         mPaymentLayout.setOnClickListener(this);
         mMoreLay.setOnClickListener(this);
+        mDashBoard.setOnClickListener(this);
     }
 
     @Override
@@ -50,10 +54,10 @@ public class ConsultantMainActivity extends AppCompatActivity implements View.On
                 ConsultantQueryFragment consultantQueryFragment = new ConsultantQueryFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_fragment, consultantQueryFragment, HOME_FRAGMENT).commit();
                 break;
-            case R.id.historyLayout:
+            /*case R.id.historyLayout:
                 ConsultantHistoryFragment consultantHistoryFragment = new ConsultantHistoryFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_fragment, consultantHistoryFragment, SEARCH_FRAGMENT).commit();
-                break;
+                break;*/
             case R.id.PaymentLayout:
                 ConsultantPaymentFragment consultantPaymentFragment = new ConsultantPaymentFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_fragment, consultantPaymentFragment, HOST_FRAGMENT).commit();
@@ -61,6 +65,10 @@ public class ConsultantMainActivity extends AppCompatActivity implements View.On
             case R.id.ConsultantMoreLayout:
                 ConsultantMoreFragment consultantMoreFragment = new ConsultantMoreFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_fragment, consultantMoreFragment, USER_PROFILE).commit();
+                break;
+            case R.id.dashBoardLayout:
+                ConsultantDashBoard consultantDashBoard = new ConsultantDashBoard();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_fragment, consultantDashBoard, CONSULT_DASHBOARD).commit();
                 break;
         }
     }

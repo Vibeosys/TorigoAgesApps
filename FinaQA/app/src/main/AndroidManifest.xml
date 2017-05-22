@@ -67,7 +67,11 @@
         <activity
             android:name=".activities.BankDetailsActivity"
             android:label="@string/bank_details_title"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.HistoryActivity"
+            android:label="@string/history"
+            android:parentActivityName=".activities.ConsultantMainActivity"></activity>
     </application>
 
 </manifest>

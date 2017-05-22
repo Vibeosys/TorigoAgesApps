@@ -6,6 +6,34 @@
     android:background="@color/logo_prime_color"
     android:orientation="horizontal">
 
+
+
+    <LinearLayout
+        android:id="@+id/dashBoardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <ImageView
+            android:id="@+id/imgCocktails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/ic_home_24" />
+
+        <com.finaqa.customeview.AbelTextViewFont
+            android:id="@+id/txtCocktails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="2dp"
+            android:text="Dash board"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/queryLayout"
         android:layout_width="match_parent"
@@ -32,34 +60,6 @@
             android:textColor="@android:color/white"
             android:textSize="12sp" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/historyLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="6dp">
-
-        <ImageView
-            android:id="@+id/imgCocktails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:src="@drawable/ic_white_history_24" />
-
-        <com.finaqa.customeview.AbelTextViewFont
-            android:id="@+id/txtCocktails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:padding="2dp"
-            android:text="History"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/PaymentLayout"
         android:layout_width="match_parent"

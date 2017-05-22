@@ -15,12 +15,13 @@ import com.finaqa.activities.AboutUsActivity;
 import com.finaqa.activities.BankDetailsActivity;
 import com.finaqa.activities.ContactUsActivity;
 import com.finaqa.activities.ForgotPasswordActivity;
+import com.finaqa.activities.HistoryActivity;
 import com.finaqa.activities.MyProfileActivity;
 
 
 public class ConsultantMoreFragment extends Fragment implements View.OnClickListener {
 
-    private LinearLayout mContactUs, mAboutUs, mProfile, mForgotPassword, mBankDetails;
+    private LinearLayout mContactUs, mAboutUs, mProfile, mForgotPassword, mBankDetails, mHistroy;
 
     public ConsultantMoreFragment() {
         // Required empty public constructor
@@ -36,11 +37,13 @@ public class ConsultantMoreFragment extends Fragment implements View.OnClickList
         mProfile = (LinearLayout) view.findViewById(R.id.layout_profile);
         mForgotPassword = (LinearLayout) view.findViewById(R.id.layout_forgotpassword);
         mBankDetails = (LinearLayout) view.findViewById(R.id.layout_banking_details);
+        mHistroy = (LinearLayout) view.findViewById(R.id.history);
         mContactUs.setOnClickListener(this);
         mAboutUs.setOnClickListener(this);
         mProfile.setOnClickListener(this);
         mForgotPassword.setOnClickListener(this);
         mBankDetails.setOnClickListener(this);
+        mHistroy.setOnClickListener(this);
         return view;
     }
 
@@ -67,6 +70,10 @@ public class ConsultantMoreFragment extends Fragment implements View.OnClickList
             case R.id.layout_banking_details:
                 Intent intent4 = new Intent(getContext().getApplicationContext(), BankDetailsActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.history:
+                Intent intent5 = new Intent(getContext().getApplicationContext(), HistoryActivity.class);
+                startActivity(intent5);
                 break;
         }
     }
