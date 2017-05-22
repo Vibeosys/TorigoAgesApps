@@ -31,8 +31,8 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_query, container, false);
         // Inflate the layout for this fragment
-        mQueriesAndAnswer = (LinearLayout) view.findViewById(R.id.layoutQuery);
-        mConsultingFreeAndPay = (LinearLayout) view.findViewById(R.id.layoutConsultant);
+        mQueriesAndAnswer = (LinearLayout) view.findViewById(R.id.layoutQueryVertical);
+        mConsultingFreeAndPay = (LinearLayout) view.findViewById(R.id.layoutConsultingVertical);
         mFinancialAdvice = (LinearLayout) view.findViewById(R.id.layoutFinancial);
         mPlanning = (LinearLayout) view.findViewById(R.id.layoutPlanning);
         mQueriesAndAnswer.setOnClickListener(this);
@@ -46,13 +46,13 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.layoutQuery:
+            case R.id.layoutQueryVertical:
                 Quries_and_answer quries_and_answer = new Quries_and_answer();
                 FragmentManager fm = getFragmentManager();
                 fm.beginTransaction().replace(R.id.containerId, quries_and_answer, QUERY).commit();
 
                 break;
-            case R.id.layoutConsultant:
+            case R.id.layoutConsultingVertical:
                 Consulting_free_pay consulting_free_pay = new Consulting_free_pay();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.containerId, consulting_free_pay, CONSULTANT_FREE_PAY).commit();

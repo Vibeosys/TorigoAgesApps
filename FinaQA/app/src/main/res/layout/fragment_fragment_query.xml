@@ -1,284 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerId"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/loginTransparnt">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/containerId"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/loginTransparnt">
+        android:background="@color/loginTransparnt"
+        android:orientation="vertical">
 
-        <ScrollView
+        <LinearLayout
+            android:id="@+id/layoutQueryVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/loginTransparnt">
+            android:layout_weight="1"
+            android:background="@color/gray_1"
+            android:gravity="center|center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:fitsSystemWindows="true"
+                android:src="@drawable/ic_queries_100" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/loginTransparnt"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="0.4"
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/layoutQueryVertical"
+                    android:id="@+id/layoutQuery"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.finaqa.customeview.AbelTextViewFont
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/str_query_answer"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.finaqa.customeview.AbelTextViewFont
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:text="get best solution for your question"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutConsultingVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/gray_2"
+            android:gravity="center|center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:fitsSystemWindows="true"
+                android:src="@drawable/ic_experties_100" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layoutConsultant"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/gray_1"
-                    android:gravity="center|center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:orientation="horizontal">
 
-                    <ImageButton
+                    <com.finaqa.customeview.AbelTextViewFont
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_queries_100" />
+                        android:layout_marginLeft="14dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/str_consulting_free_pay"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_weight="0.4"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/layoutQuery"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:layout_weight="0.2"
-                                android:text="@string/str_query_answer"
-                                android:textColor="@android:color/black"
-                                android:textSize="24sp" />
-
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:text="get best solution for your question"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
+                        android:layout_weight="0.5"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layoutConsultingVertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:background="@color/gray_2"
-                    android:gravity="center|center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:orientation="horizontal">
 
-                    <ImageButton
+                    <com.finaqa.customeview.AbelTextViewFont
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_experties_100" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight=".4"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/layoutConsultant"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:layout_weight="0.2"
-                                android:text="@string/str_consulting_free_pay"
-                                android:textColor="@android:color/black"
-                                android:textSize="24sp" />
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:text="get advice from our expertise"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutFinanceVertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:background="@color/gray_3"
-                    android:gravity="center|center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_money_100" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".4"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/layoutFinancial"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:layout_weight="0.2"
-                                android:text="@string/str_finance_advice"
-                                android:textColor="@android:color/black"
-                                android:textSize="24sp" />
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:text="@string/finace_term"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutMeetingVertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-
-                    android:background="@color/gray_4"
-                    android:gravity="center|center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_expert_meeting_100" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".4"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/layoutPlanning"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:layout_weight="0.2"
-                                android:text="@string/str_planning_expert"
-                                android:textColor="@android:color/black"
-                                android:textSize="24sp" />
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <com.finaqa.customeview.AbelTextViewFont
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="14dp"
-                                android:text="have one to one discussion with our experts"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-                    </LinearLayout>
+                        android:layout_marginLeft="14dp"
+                        android:text="get advice from our expertise"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutFinanceVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/gray_3"
+            android:gravity="center|center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:fitsSystemWindows="true"
+                android:src="@drawable/ic_money_100" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layoutFinancial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.finaqa.customeview.AbelTextViewFont
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/str_finance_advice"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.finaqa.customeview.AbelTextViewFont
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:text="@string/finace_term"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutMeetingVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/gray_4"
+            android:gravity="center|center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:fitsSystemWindows="true"
+                android:src="@drawable/ic_expert_meeting_100" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layoutPlanning"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.finaqa.customeview.AbelTextViewFont
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/str_planning_expert"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.finaqa.customeview.AbelTextViewFont
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:text="have one to one discussion with our experts"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
 
 
