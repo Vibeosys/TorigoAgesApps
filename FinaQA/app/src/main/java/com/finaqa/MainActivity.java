@@ -27,11 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String HOME_FRAGMENT = "home";
     private static final String SEARCH_FRAGMENT = "search";
     private static final String HOST_FRAGMENT = "host";
-    private static final String MORE_FRAGMENT = "more";
-    private static final String USER_FRAGMENT = "user";
     private static final String USER_PROFILE = "viewProfile";
-    private static final String PURCHASE_FRAGMENT = "purchase";
-    private static final String USER_LIST_FRAGEMNT = "user_list";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

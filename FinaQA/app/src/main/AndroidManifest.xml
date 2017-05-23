@@ -71,7 +71,9 @@
         <activity
             android:name=".activities.HistoryActivity"
             android:label="@string/history"
-            android:parentActivityName=".activities.ConsultantMainActivity"></activity>
+            android:parentActivityName=".activities.ConsultantMainActivity" />
+        <activity android:name=".activities.FinancialAdviceActivity" />
+        <activity android:name=".activities.FinancialAssetActivity"></activity>
     </application>
 
 </manifest>

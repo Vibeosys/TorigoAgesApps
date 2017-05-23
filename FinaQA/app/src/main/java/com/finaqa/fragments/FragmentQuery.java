@@ -2,6 +2,7 @@ package com.finaqa.fragments;
 
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.finaqa.R;
+import com.finaqa.activities.FinancialAdviceActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +22,7 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
     private LinearLayout mQueriesAndAnswer, mConsultingFreeAndPay, mFinancialAdvice, mPlanning;
     private static String QUERY = "query_string";
     private static String CONSULTANT_FREE_PAY = "free_pay";
+    private static String FINANCE_ADVICE = "finance_advice";
 
     public FragmentQuery() {
         // Required empty public constructor
@@ -33,7 +36,7 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         mQueriesAndAnswer = (LinearLayout) view.findViewById(R.id.layoutQueryVertical);
         mConsultingFreeAndPay = (LinearLayout) view.findViewById(R.id.layoutConsultingVertical);
-        mFinancialAdvice = (LinearLayout) view.findViewById(R.id.layoutFinancial);
+        mFinancialAdvice = (LinearLayout) view.findViewById(R.id.layoutFinanceVertical);
         mPlanning = (LinearLayout) view.findViewById(R.id.layoutPlanning);
         mQueriesAndAnswer.setOnClickListener(this);
         mConsultingFreeAndPay.setOnClickListener(this);
@@ -56,6 +59,14 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
                 Consulting_free_pay consulting_free_pay = new Consulting_free_pay();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.containerId, consulting_free_pay, CONSULTANT_FREE_PAY).commit();
+                break;
+            case R.id.layoutFinanceVertical:
+               /* FinancialAdviceFragment financialAdviceFragment = new FinancialAdviceFragment();
+                FragmentManager fragmentManager1 = getFragmentManager();
+                fragmentManager1.beginTransaction().replace(R.id.containerId, financialAdviceFragment, FINANCE_ADVICE).commit();*/
+                Intent intent = new Intent(getContext().getApplicationContext(), FinancialAdviceActivity.class);
+                startActivity(intent);
+                break;
             default:
                 break;
         }

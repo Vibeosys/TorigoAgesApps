@@ -31,7 +31,7 @@ public class GridFragment extends Fragment {
         GridView androidGridView;
 
         String[] gridViewString = {"Planning", "Finance planning", "Taxation planning", "Planning", "Taxation planning", "Finance planning"};
-        int[] gridViewImageId = {R.drawable.ic_two_test,
+        int[] gridViewImageId = {R.drawable.ic_login_background_screen,
                 R.drawable.ic_test_one, R.drawable.ic_login_consultant,
                 R.drawable.ic_two_test, R.drawable.ic_test_one, R.drawable.ic_two_test
         };

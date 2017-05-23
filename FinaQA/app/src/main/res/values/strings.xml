@@ -10,7 +10,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment for query</string>
-    <string name="str_query_answer">Quries Answer</string>
+    <string name="str_query_answer">Queries</string>
     <string name="str_consulting_free_pay">Consulting free &amp; paid</string>
     <string name="str_finance_advice">Financial advice</string>
     <string name="str_planning_expert">Expert meeting</string>
@@ -38,4 +38,6 @@
     <string name="str_ifcs_code">IFSC code</string>
     <string name="bank_details_title">Bank details</string>
     <string name="history">History</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>
