@@ -73,7 +73,8 @@
             android:label="@string/history"
             android:parentActivityName=".activities.ConsultantMainActivity" />
         <activity android:name=".activities.FinancialAdviceActivity" />
-        <activity android:name=".activities.FinancialAssetActivity"></activity>
+        <activity android:name=".activities.FinancialAssetActivity" />
+        <activity android:name=".activities.FinancialAdviceLoan"></activity>
     </application>
 
 </manifest>
