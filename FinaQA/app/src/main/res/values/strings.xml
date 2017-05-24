@@ -41,4 +41,8 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="Rs">\u20B9</string>
+    <string name="assetsLabel">Assets</string>
+    <string name="totalLoan">Total loan</string>
+    <string name="adviceLabel">Advice</string>
+    <string name="labelAdvie">User info</string>
 </resources>

@@ -172,7 +172,7 @@
                 android:background="@android:color/black" />
 
             <Button
-                android:id="@+id/next"
+                android:id="@+id/nextToTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="29dp"
