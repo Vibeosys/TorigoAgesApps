@@ -181,10 +181,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:id="@+id/payNowLayout"
                                     android:orientation="horizontal">
 
                                     <com.finaqa.customeview.AbelTextViewFont
-                                        android:id="@+id/feedBack"
+                                        android:id="@+id/payNow"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -370,7 +371,7 @@
                                     android:orientation="horizontal">
 
                                     <com.finaqa.customeview.AbelTextViewFont
-                                        android:id="@+id/feedBack"
+                                        android:id="@+id/feedBack1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
