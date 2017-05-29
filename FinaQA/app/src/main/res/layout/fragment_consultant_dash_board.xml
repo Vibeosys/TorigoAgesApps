@@ -75,14 +75,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="horizontal">
+                                android:gravity="start"
+                                android:orientation="horizontal"
+                                android:padding="8dp">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:padding="4dp"
                                     android:src="@drawable/ic_date_time_24" />
 
 
@@ -96,29 +96,6 @@
                                     android:textSize="14sp" />
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:src="@drawable/ic_expired_24" />
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:text="July 23,2017"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
@@ -128,16 +105,16 @@
                             android:orientation="horizontal"
                             android:padding="4dp">
 
-                            <Button
+                            <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="4dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="@android:color/darker_gray"
+                                android:gravity="center"
                                 android:padding="4dp"
-                                android:text="Reject"
-                                android:textAllCaps="false"
-                                android:textColor="@android:color/white" />
+                                android:text="@string/reject_under_line"
+                                android:textColor="@color/blue_color"
+                                android:textStyle="italic" />
+                            -->
 
                             <Button
                                 android:layout_width="match_parent"
@@ -217,14 +194,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="horizontal">
+                                android:gravity="start"
+                                android:orientation="horizontal"
+                                android:padding="8dp">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:padding="4dp"
                                     android:src="@drawable/ic_date_time_24" />
 
 
@@ -238,29 +215,6 @@
                                     android:textSize="14sp" />
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:src="@drawable/ic_expired_24" />
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:text="July 23,2017"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
@@ -270,16 +224,15 @@
                             android:orientation="horizontal"
                             android:padding="4dp">
 
-                            <Button
+                            <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="4dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="@android:color/darker_gray"
+                                android:gravity="center"
                                 android:padding="4dp"
-                                android:text="Reject"
-                                android:textAllCaps="false"
-                                android:textColor="@android:color/white" />
+                                android:text="@string/reject_under_line"
+                                android:textColor="@color/blue_color"
+                                android:textStyle="italic" />
 
                             <Button
                                 android:layout_width="match_parent"

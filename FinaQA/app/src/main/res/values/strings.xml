@@ -46,4 +46,5 @@
     <string name="adviceLabel">Advice</string>
     <string name="labelAdvie">User info</string>
     <string name="payment_details">Payment</string>
+    <string name="reject_under_line"><u>Reject</u></string>
 </resources>

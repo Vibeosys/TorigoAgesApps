@@ -163,7 +163,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:layout_margin="8dp"
-                            android:gravity="start"
+                            android:layout_weight="1"
+                            android:gravity="end"
                             android:orientation="horizontal"
                             android:padding="8dp">
 
@@ -173,7 +174,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/feedback_color"
                                 android:gravity="center"
-                                android:padding="8dp"
+                                android:paddingEnd="18dp"
+                                android:paddingStart="18dp"
                                 android:text="Answer It"
                                 android:textAllCaps="false"
                                 android:textColor="@android:color/white"
@@ -324,7 +326,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:layout_margin="8dp"
-                            android:gravity="start"
+                            android:gravity="end"
                             android:orientation="horizontal"
                             android:padding="8dp">
 
@@ -334,7 +336,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/feedback_color"
                                 android:gravity="center"
-                                android:padding="8dp"
+                                android:paddingEnd="18dp"
+                                android:paddingStart="18dp"
                                 android:text="Answer It"
                                 android:textAllCaps="false"
                                 android:textColor="@android:color/white"
