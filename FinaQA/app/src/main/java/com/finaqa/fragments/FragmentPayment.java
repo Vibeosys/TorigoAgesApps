@@ -2,6 +2,7 @@ package com.finaqa.fragments;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.finaqa.R;
+import com.finaqa.activities.ConfirmPayment;
 import com.finaqa.customeview.AbelTextViewFont;
 
 /**
@@ -43,10 +45,8 @@ public class FragmentPayment extends Fragment {
     }
 
     private void opendialog() {
-        final Dialog dialog = new Dialog(getActivity().getApplicationContext()); // Context, this, etc.
-        dialog.setContentView(R.layout.confirm_payment);
-        dialog.setTitle(R.string.dialog_title_reply);
-        dialog.show();
+        Intent intent = new Intent(getActivity().getApplicationContext(), ConfirmPayment.class);
+        startActivity(intent);
 
     }
 }

@@ -34,7 +34,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
                 android:layout_weight="0.4"
                 android:orientation="vertical">
 
@@ -42,6 +41,8 @@
                     android:id="@+id/layoutQuery"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <com.finaqa.customeview.AbelTextViewFont

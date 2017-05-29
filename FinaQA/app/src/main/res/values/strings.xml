@@ -45,4 +45,5 @@
     <string name="totalLoan">Total loan</string>
     <string name="adviceLabel">Advice</string>
     <string name="labelAdvie">User info</string>
+    <string name="payment_details">Payment</string>
 </resources>

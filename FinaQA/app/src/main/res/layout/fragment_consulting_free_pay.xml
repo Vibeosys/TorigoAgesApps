@@ -149,7 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="21dp"
-                    android:background="@color/dot_dark_screen1"
+                    android:background="@color/colorPrimary"
                     android:text="Pay"
                     android:textColor="@android:color/white" />
             </LinearLayout>

@@ -87,7 +87,11 @@
         <activity
             android:name=".activities.TotalLoanActivity"
             android:label="@string/totalLoan"
-            android:parentActivityName=".activities.FinancialAdviceLoan"></activity>
+            android:parentActivityName=".activities.FinancialAdviceLoan" />
+        <activity
+            android:name=".activities.ConfirmPayment"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/payment_details"></activity>
     </application>
 
 </manifest>

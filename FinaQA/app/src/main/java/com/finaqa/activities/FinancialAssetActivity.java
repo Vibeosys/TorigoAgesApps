@@ -23,7 +23,6 @@ public class FinancialAssetActivity extends AppCompatActivity {
 
     private Button mButton;
     private ImageView mLiquid;
-    ToolTipRelativeLayout toolTipRelativeLayout;
     ToolTip toolTip;
 
     @Override
@@ -32,7 +31,7 @@ public class FinancialAssetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_financial_asset);
         mButton = (Button) findViewById(R.id.next);
         mLiquid = (ImageView) findViewById(R.id.liquidImageView);
-        toolTipRelativeLayout = (ToolTipRelativeLayout) findViewById(R.id.activity_main_tooltipRelativeLayout1);
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,22 +39,7 @@ public class FinancialAssetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        toolTipRelativeLayout = (ToolTipRelativeLayout) findViewById(R.id.activity_main_tooltipRelativeLayout1);
 
-
-        mLiquid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toolTip = new ToolTip()
-                        .withText("A beautiful View")
-                        .withColor(Color.RED)
-                        .withShadow()
-                        .withAnimationType(ToolTip.AnimationType.FROM_MASTER_VIEW);
-                toolTipRelativeLayout.showToolTipForView(toolTip, findViewById(R.id.liquidImageView));
-
-            }
-
-        });
     }
 
 
