@@ -3,16 +3,9 @@
     android:id="@+id/android_custom_gridview_layout"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:background="@color/loginTransparntforgird"
+    android:background="@drawable/style_back_gradient"
     android:gravity="center_horizontal"
     android:orientation="vertical">
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/loginTransparntforgird"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -25,14 +18,12 @@
                 android:id="@+id/android_gridview_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/loginTransparntforgird"
                 android:fitsSystemWindows="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_two_test" />
 
 
         </RelativeLayout>
-    </RelativeLayout>
 
     <TextView
         android:id="@+id/android_gridview_text"
