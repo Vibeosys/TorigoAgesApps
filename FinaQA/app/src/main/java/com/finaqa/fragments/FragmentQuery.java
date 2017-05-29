@@ -19,7 +19,7 @@ import com.finaqa.activities.FinancialAdviceActivity;
  */
 public class FragmentQuery extends Fragment implements View.OnClickListener {
 
-    private LinearLayout mQueriesAndAnswer, mConsultingFreeAndPay, mFinancialAdvice, mPlanning;
+    private LinearLayout mQueriesAndAnswer, mConsultingFreeAndPay, mFinancialAdvice;
     private static String QUERY = "query_string";
     private static String CONSULTANT_FREE_PAY = "free_pay";
     private static String FINANCE_ADVICE = "finance_advice";
@@ -37,11 +37,9 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
         mQueriesAndAnswer = (LinearLayout) view.findViewById(R.id.layoutQueryVertical);
         mConsultingFreeAndPay = (LinearLayout) view.findViewById(R.id.layoutConsultingVertical);
         mFinancialAdvice = (LinearLayout) view.findViewById(R.id.layoutFinanceVertical);
-        mPlanning = (LinearLayout) view.findViewById(R.id.layoutPlanning);
         mQueriesAndAnswer.setOnClickListener(this);
         mConsultingFreeAndPay.setOnClickListener(this);
         mFinancialAdvice.setOnClickListener(this);
-        mPlanning.setOnClickListener(this);
         return view;
     }
 

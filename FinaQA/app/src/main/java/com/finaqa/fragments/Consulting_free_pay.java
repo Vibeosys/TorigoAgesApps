@@ -34,7 +34,7 @@ public class Consulting_free_pay extends Fragment {
         mCategory = (Spinner) view.findViewById(R.id.category_consultant);
         mSubCategory = (Spinner) view.findViewById(R.id.sub_cateogory);
         List<String> categories = new ArrayList<String>();
-        categories.add("--Please select category--");
+
         categories.add("Finance");
         categories.add("Stock market");
         categories.add("Automobile");
@@ -44,7 +44,6 @@ public class Consulting_free_pay extends Fragment {
         categories.add("Personal");
         categories.add("Travel");
         List<String> subCategories = new ArrayList<String>();
-        subCategories.add("--Please select sub category--");
         subCategories.add("Loan");
         subCategories.add("Share bazaar");
         subCategories.add("mutual funds");

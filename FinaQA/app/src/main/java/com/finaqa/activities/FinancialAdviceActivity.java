@@ -15,7 +15,7 @@ import java.util.List;
 
 public class FinancialAdviceActivity extends AppCompatActivity {
 
-    private Spinner mSpinner;
+    private Spinner mSpinner, mDepend;
     private Button mNext;
 
     @Override
@@ -23,9 +23,9 @@ public class FinancialAdviceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_advice);
         mSpinner = (Spinner) findViewById(R.id.spinner2);
+        mDepend = (Spinner) findViewById(R.id.spinner3);
         mNext = (Button) findViewById(R.id.next);
         List<String> list = new ArrayList<String>();
-        list.add("--Please select occupation--");
         list.add("Salaried");
         list.add("Freelance");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
@@ -39,5 +39,13 @@ public class FinancialAdviceActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        List<String> mDependent = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            mDependent.add("" + i);
+        }
+        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, mDependent);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mDepend.setAdapter(dataAdapter1);
     }
 }
