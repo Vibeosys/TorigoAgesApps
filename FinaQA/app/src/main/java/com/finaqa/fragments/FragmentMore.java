@@ -29,7 +29,7 @@ public class FragmentMore extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_consultant_more, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment_more, container, false);
         // Inflate the layout for this fragment
         mContactUs = (LinearLayout) view.findViewById(R.id.layout_contactUs);
         mAboutUs = (LinearLayout) view.findViewById(R.id.about_us);

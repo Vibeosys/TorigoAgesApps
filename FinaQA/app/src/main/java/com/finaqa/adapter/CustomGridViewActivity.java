@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.finaqa.R;
 
 /**
@@ -17,6 +20,7 @@ public class CustomGridViewActivity extends BaseAdapter {
     private Context mContext;
     private final String[] gridViewString;
     private final int[] gridViewImageId;
+    private ImageLoader mImageLoader;
 
     public CustomGridViewActivity(Context context, String[] gridViewString, int[] gridViewImageId) {
         mContext = context;
@@ -49,8 +53,8 @@ public class CustomGridViewActivity extends BaseAdapter {
 
             gridViewAndroid = new View(mContext);
             gridViewAndroid = inflater.inflate(R.layout.gridview_layout, parent, false);
-            TextView textViewAndroid = (TextView) gridViewAndroid.findViewById(R.id.android_gridview_text);
-            ImageView imageViewAndroid = (ImageView) gridViewAndroid.findViewById(R.id.android_gridview_image);
+            TextView textViewAndroid = (TextView) gridViewAndroid.findViewById(R.id.offerText);
+            ImageView imageViewAndroid = (ImageView) gridViewAndroid.findViewById(R.id.imgProduct);
             textViewAndroid.setText(gridViewString[i]);
             imageViewAndroid.setImageResource(gridViewImageId[i]);
         } else {

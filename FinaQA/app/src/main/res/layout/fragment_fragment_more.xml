@@ -37,12 +37,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="6dp"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/about_us"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
                     android:background="@color/white"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal">
@@ -52,7 +54,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="start"
+                        android:paddingStart="14dp"
                         android:text="About us"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
@@ -78,12 +81,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="6dp"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/layout_contactUs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
                     android:background="@color/white"
                     android:gravity="center|center_vertical"
                     android:orientation="horizontal">
@@ -93,7 +98,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="start"
+                        android:paddingStart="14dp"
                         android:text="Contact us"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
@@ -108,7 +114,59 @@
 
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_2"
+            android:gravity="start"
+            android:orientation="horizontal">
 
+            <com.finaqa.customeview.AbelTextViewFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:padding="4dp"
+                android:text="History"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
+
+                <com.finaqa.customeview.AbelTextViewFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
+                    android:text="Payment history"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="2dp"
+                    android:gravity="end"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,12 +188,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="6dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/layout_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:background="@color/white"
                 android:gravity="center|center_vertical"
                 android:orientation="horizontal">
@@ -145,7 +205,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="My profile"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
@@ -171,12 +232,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="6dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/layout_forgotpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:background="@color/white"
                 android:gravity="center|center_vertical"
                 android:orientation="horizontal">
@@ -186,7 +249,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="Change password"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
@@ -209,15 +273,17 @@
                 android:background="@color/gray_4" />
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="6dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:background="@color/white"
                 android:gravity="center|center_vertical"
                 android:orientation="horizontal">
@@ -227,48 +293,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Bank details"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_margin="2dp"
-                    android:gravity="end"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:background="@color/gray_4" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center|center_vertical"
-                android:orientation="horizontal">
-
-                <com.finaqa.customeview.AbelTextViewFont
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:paddingStart="14dp"
                     android:text="Logout"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
