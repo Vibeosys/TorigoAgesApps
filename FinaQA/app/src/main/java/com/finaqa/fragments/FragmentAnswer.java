@@ -18,7 +18,7 @@ import com.finaqa.R;
  */
 public class FragmentAnswer extends Fragment {
 
-    private TextView mFeedBack;
+    private TextView mFeedBack, mReadMore;
     private LinearLayout mReplyLayout;
     private String CHAT_FRAGMENT = "chat";
 
@@ -32,6 +32,7 @@ public class FragmentAnswer extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_answer, container, false);
         mReplyLayout = (LinearLayout) view.findViewById(R.id.replyTv);
+        mReadMore = (TextView) view.findViewById(R.id.readMore);
         // Inflate the layout for this fragment
        /* mFeedBack = (TextView) view.findViewById(R.id.feedBack);
         mFeedBack.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +42,14 @@ public class FragmentAnswer extends Fragment {
             }
         });*/
         mReplyLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment_chat fragment_chat = new Fragment_chat();
+                getFragmentManager().beginTransaction().
+                        replace(R.id.fragment_frame_lay, fragment_chat, CHAT_FRAGMENT).commit();
+            }
+        });
+        mReadMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment_chat fragment_chat = new Fragment_chat();

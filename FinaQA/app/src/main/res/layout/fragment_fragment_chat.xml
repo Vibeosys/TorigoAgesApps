@@ -41,94 +41,129 @@
         android:layout_above="@+id/bottom_layout"
         android:background="#e2e0e0" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/divider"
-        android:layout_margin="4dp"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/divider">
 
         <LinearLayout
-            android:id="@+id/bubble_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:gravity="left"
-            android:orientation="vertical"
-            android:padding="4dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/divider"
+            android:layout_margin="4dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/message_text"
+            <LinearLayout
+                android:id="@+id/bubble_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/drawable_message_from"
-                android:padding="8dp"
-                android:text="Hi! What is deferred tax liability and might one be created ? also i need some information for tax saver mutual fund."
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:layout_margin="6dp"
+                android:gravity="left"
+                android:orientation="vertical"
+                android:padding="4dp">
 
-            <TextView
+                <TextView
+                    android:id="@+id/message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/drawable_message_from"
+                    android:padding="8dp"
+                    android:text="Hi! What is deferred tax liability and might one be created ? also i need some information for tax saver mutual fund."
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 April 2017"
+                    android:textColor="@android:color/secondary_text_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bubble_layout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20 April 2017"
-                android:textColor="@android:color/secondary_text_light" />
+                android:layout_gravity="end"
+                android:layout_margin="6dp"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/message_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/drawable_message_you"
+                    android:padding="8dp"
+                    android:text="Hi! will you send me some details"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 April 2017"
+                    android:textColor="@android:color/secondary_text_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bubble_layout11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="left"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/message_text11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/drawable_message_from"
+                    android:padding="8dp"
+                    android:text="Ok.. i will send you."
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 April 2017"
+                    android:textColor="@android:color/secondary_text_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bubble_layout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="6dp"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/message_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/drawable_message_you"
+                    android:padding="8dp"
+                    android:text="Annual_report.pdf"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 April 2017"
+                    android:textColor="@android:color/secondary_text_light" />
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/bubble_layout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="6dp"
-            android:gravity="right"
-            android:orientation="vertical"
-            android:padding="2dp">
-
-            <TextView
-                android:id="@+id/message_text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/drawable_message_you"
-                android:padding="8dp"
-                android:text="Hi! will you send me some details"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20 April 2017"
-                android:textColor="@android:color/secondary_text_light" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/bubble_layout11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:gravity="left"
-            android:orientation="vertical"
-            android:padding="4dp">
-
-            <TextView
-                android:id="@+id/message_text11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/drawable_message_from"
-                android:padding="8dp"
-                android:text="Ok.. i will send you."
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20 April 2017"
-                android:textColor="@android:color/secondary_text_light" />
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
