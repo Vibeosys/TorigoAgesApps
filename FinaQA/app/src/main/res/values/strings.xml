@@ -10,9 +10,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment for query</string>
-    <string name="str_query_answer">Queries</string>
+    <string name="str_query_answer">Questions and Answers</string>
     <string name="str_consulting_free_pay">Consulting free &amp; paid</string>
-    <string name="str_finance_advice">Financial advice</string>
+    <string name="str_finance_advice">Financial Health Check</string>
     <string name="str_planning_expert">Expert meeting</string>
     <string name="str_about_us">Company information</string>
     <string name="str_contact_us">Contact us</string>

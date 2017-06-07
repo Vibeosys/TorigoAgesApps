@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import com.finaqa.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConsultantRegistration extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,7 +23,9 @@ public class ConsultantRegistration extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultant_registration);
         mNextButton = (Button) findViewById(R.id.consult_first);
+
         mNextButton.setOnClickListener(this);
+
 
     }
 

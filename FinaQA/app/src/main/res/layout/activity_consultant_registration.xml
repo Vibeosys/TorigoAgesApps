@@ -50,13 +50,47 @@
                         app:hintTextAppearance="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/userNameEditText"
+                            android:id="@+id/user"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="4dp"
                             android:background="@android:color/transparent"
                             android:hint="Name"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="8dp"
+                            android:singleLine="true"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="16sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/SplitLine_hor0"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@android:color/white" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_userNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:hintTextAppearance="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/userNameEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:color/transparent"
+                            android:hint="Email id"
                             android:inputType="textEmailAddress"
                             android:paddingStart="8dp"
                             android:singleLine="true"
