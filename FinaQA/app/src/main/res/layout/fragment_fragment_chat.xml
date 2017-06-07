@@ -10,8 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/color_skip"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:src="@drawable/ic_attachment_black_24dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -20,7 +25,7 @@
             android:layout_weight="1"
             android:focusable="false"
             android:hint="Type a message"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/darker_gray" />
 
         <ImageView
             android:layout_width="34dp"
@@ -29,10 +34,17 @@
             android:src="@drawable/ic_send_black_24dp" />
     </LinearLayout>
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/bottom_layout"
+        android:background="#e2e0e0" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_layout"
+        android:layout_above="@+id/divider"
         android:layout_margin="4dp"
         android:gravity="bottom"
         android:orientation="vertical">

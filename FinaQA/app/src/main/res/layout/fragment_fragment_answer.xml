@@ -42,13 +42,13 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <ImageView
-                                    android:layout_width="45dp"
-                                    android:layout_height="45dp"
-                                    android:padding="4dp"
-                                    android:src="@drawable/ic_quora_img"
-                                    android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp" />
+                                <!-- <ImageView
+                                     android:layout_width="45dp"
+                                     android:layout_height="45dp"
+                                     android:padding="4dp"
+                                     android:src="@drawable/ic_quora_img"
+                                     android:textColor="@android:color/darker_gray"
+                                     android:textSize="14sp" />-->
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -62,16 +62,16 @@
                                         android:padding="2dp"
                                         android:text="What is deferred tax liability and why might one be created ?"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp"
+                                        android:textSize="16sp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="2dp"
-                                        android:text="july 22,2017"
+                                        android:text="JULY 22,2017"
                                         android:textColor="@android:color/secondary_text_light"
-                                        android:textSize="14sp"
+                                        android:textSize="12sp"
                                         android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -79,17 +79,9 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="4dp"
+                                android:layout_margin="2dp"
                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Anss"
-                                    android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp"
-                                    android:visibility="invisible" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -99,10 +91,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="6dp"
+                                        android:padding="4dp"
                                         android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten..."
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -121,45 +113,41 @@
                                 android:background="#e2e0e0" />
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/replyTv"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="start"
                                 android:orientation="horizontal"
-                                android:padding="8dp">
+                                android:paddingEnd="4dp"
+                                android:paddingStart="4dp">
 
-                                <Button
+                                <!--<Button
                                     android:id="@+id/feedBack"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_vertical"
-                                    android:layout_margin="4dp"
                                     android:layout_weight="1"
                                     android:background="@android:color/transparent"
                                     android:drawableEnd="@drawable/ic_feedback_black_24dp"
                                     android:gravity="center|center_vertical"
-                                    android:padding="8dp"
+                                    android:padding="4dp"
                                     android:text="feedback"
-                                    android:textSize="16sp"
+                                    android:textSize="12sp"
                                     android:textStyle="normal" />
-
-                                <Button
+-->
+                                <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="4dp"
-                                    android:layout_weight="1"
+                                    android:layout_gravity="end"
                                     android:background="@android:color/transparent"
                                     android:drawableEnd="@drawable/ic_arrow_24"
                                     android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Replay"
-                                    android:textSize="16sp"
+                                    android:padding="6dp"
+                                    android:text="REPLY"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp"
                                     android:textStyle="normal" />
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="fill_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="#e2e0e0" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
@@ -185,14 +173,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="45dp"
-                                    android:layout_height="45dp"
-                                    android:padding="4dp"
-                                    android:src="@drawable/ic_quora_img"
-                                    android:textColor="@android:color/darker_gray"
-                                    android:textSize="14sp" />
+                                <!--
+                                                                <ImageView
+                                                                    android:layout_width="45dp"
+                                                                    android:layout_height="45dp"
+                                                                    android:padding="4dp"
+                                                                    android:src="@drawable/ic_quora_img"
+                                                                    android:textColor="@android:color/darker_gray"
+                                                                    android:textSize="14sp" />-->
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -206,16 +194,16 @@
                                         android:padding="2dp"
                                         android:text="What is deferred tax liability and why might one be created ?"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp"
+                                        android:textSize="16sp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="2dp"
-                                        android:text="july 22,2017"
+                                        android:text="JULY 22,2017"
                                         android:textColor="@android:color/secondary_text_light"
-                                        android:textSize="14sp"
+                                        android:textSize="12sp"
                                         android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -223,17 +211,17 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="4dp"
+                                android:layout_margin="2dp"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <!--<TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
                                     android:text="Anss"
                                     android:textColor="@android:color/darker_gray"
                                     android:textSize="14sp"
-                                    android:visibility="invisible" />
+                                    android:visibility="invisible" />-->
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -243,10 +231,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="6dp"
+                                        android:padding="4dp"
                                         android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten .."
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -267,42 +255,187 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:orientation="horizontal"
-                                android:padding="8dp">
+                                android:paddingEnd="4dp"
+                                android:paddingStart="4dp">
 
-                                <Button
+                                <!--<Button
+
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_vertical"
-                                    android:layout_margin="4dp"
                                     android:layout_weight="1"
                                     android:background="@android:color/transparent"
                                     android:drawableEnd="@drawable/ic_feedback_black_24dp"
                                     android:gravity="center|center_vertical"
-                                    android:padding="8dp"
+                                    android:padding="4dp"
                                     android:text="feedback"
-                                    android:textSize="16sp"
-                                    android:textStyle="normal" />
+                                    android:textSize="12sp"
+                                    android:textStyle="normal" />-->
 
-                                <Button
+                                <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="4dp"
-                                    android:layout_weight="1"
                                     android:background="@android:color/transparent"
                                     android:drawableEnd="@drawable/ic_arrow_24"
                                     android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Replay"
-                                    android:textSize="16sp"
+                                    android:padding="6dp"
+                                    android:text="REPLY"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp"
                                     android:textStyle="normal" />
+                            </LinearLayout>
+
+                            <!--<View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="#e2e0e0" />-->
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:padding="8dp"
+                        card_view:cardCornerRadius="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <!--
+                                                                <ImageView
+                                                                    android:layout_width="45dp"
+                                                                    android:layout_height="45dp"
+                                                                    android:padding="4dp"
+                                                                    android:src="@drawable/ic_quora_img"
+                                                                    android:textColor="@android:color/darker_gray"
+                                                                    android:textSize="14sp" />-->
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="What is deferred tax liability and why might one be created ?"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="JULY 22,2017"
+                                        android:textColor="@android:color/secondary_text_light"
+                                        android:textSize="12sp"
+                                        android:textStyle="normal" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="2dp"
+                                android:orientation="horizontal">
+
+                                <!--<TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:text="Anss"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="14sp"
+                                    android:visibility="invisible" />-->
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="4dp"
+                                        android:text="Lorem ipsum dolor sit amet, probatus adolescens at vis, eu senten .."
+                                        android:textColor="@android:color/black"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="end"
+                                        android:gravity="end"
+                                        android:text="Read more.."
+                                        android:textColor="@color/blue_color"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <View
                                 android:layout_width="fill_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginBottom="10dp"
                                 android:background="#e2e0e0" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:orientation="horizontal"
+                                android:paddingEnd="4dp"
+                                android:paddingStart="4dp">
+
+                                <!--<Button
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center|center_vertical"
+                                    android:layout_weight="1"
+                                    android:background="@android:color/transparent"
+                                    android:drawableEnd="@drawable/ic_feedback_black_24dp"
+                                    android:gravity="center|center_vertical"
+                                    android:padding="4dp"
+                                    android:text="feedback"
+                                    android:textSize="12sp"
+                                    android:textStyle="normal" />-->
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:drawableEnd="@drawable/ic_arrow_24"
+                                    android:gravity="center"
+                                    android:padding="6dp"
+                                    android:text="REPLY"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+
+                            <!-- <View
+                                 android:layout_width="fill_parent"
+                                 android:layout_height="1dp"
+                                 android:layout_marginBottom="10dp"
+                                 android:background="#e2e0e0" />-->
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
