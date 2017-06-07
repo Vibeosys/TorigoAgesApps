@@ -57,7 +57,7 @@
                                     android:padding="4dp"
                                     android:text="What is deferred tax liability and why might one be created ?"
                                     android:textColor="@android:color/black"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
@@ -89,7 +89,7 @@
                                         android:padding="4dp"
                                         android:text="@string/rupee_symbol"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
                                         android:padding="4dp"
                                         android:text="2500"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -121,7 +121,7 @@
                                         android:padding="4dp"
                                         android:text="24/05/2017"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
                                 </LinearLayout>
 
 
@@ -133,21 +133,21 @@
                                 android:orientation="horizontal"
                                 android:padding="4dp">
 
-                               <!-- <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:text="Charges for:"
-                                    android:textColor="@color/blue_color"
-                                    android:textSize="14sp" />
--->
+                                <!-- <TextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:padding="4dp"
+                                     android:text="Charges for:"
+                                     android:textColor="@color/blue_color"
+                                     android:textSize="14sp" />
+ -->
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
                                     android:text="Consultation and meeting"
                                     android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -174,14 +174,14 @@
                                         android:padding="4dp"
                                         android:text="PENDING"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/payNowLayout"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:id="@+id/payNowLayout"
                                     android:orientation="horizontal">
 
                                     <com.finaqa.customeview.AbelTextViewFont
@@ -194,7 +194,7 @@
                                         android:padding="4dp"
                                         android:text="Pay now"
                                         android:textColor="@android:color/white"
-                                        android:textSize="18sp"
+                                        android:textSize="14sp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -244,7 +244,7 @@
                                     android:padding="4dp"
                                     android:text="What is deferred tax liability and why might one be created ?"
                                     android:textColor="@android:color/black"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
@@ -276,7 +276,7 @@
                                         android:padding="4dp"
                                         android:text="@string/rupee_symbol"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -284,7 +284,7 @@
                                         android:padding="4dp"
                                         android:text="2500"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -308,7 +308,7 @@
                                         android:padding="4dp"
                                         android:text="24/05/2017"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
                                 </LinearLayout>
 
 
@@ -334,7 +334,7 @@
                                     android:padding="4dp"
                                     android:text="Consultation and meeting"
                                     android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -361,7 +361,7 @@
                                         android:padding="4dp"
                                         android:text="PAID"
                                         android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
+                                        android:textSize="14sp" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -380,7 +380,7 @@
                                         android:padding="4dp"
                                         android:text="Paid"
                                         android:textColor="@android:color/white"
-                                        android:textSize="18sp"
+                                        android:textSize="14sp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
