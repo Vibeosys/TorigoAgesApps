@@ -85,4 +85,5 @@
     <color name="blue_color">#0208b6</color>
     <color name="loginTransparnt123">#000000</color>
     <color name="over_layer">#a82e2b28</color>
+    <color name="spinnerTransparnt123">#ab1a1a1a</color>
 </resources>
