@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:padding="6dp"
+    android:background="@drawable/bottom_line">
 
 
     <CheckBox
@@ -10,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:buttonTint="@android:color/white"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -21,6 +23,6 @@
         android:padding="4dp"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

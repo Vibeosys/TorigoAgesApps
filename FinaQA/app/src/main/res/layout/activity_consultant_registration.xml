@@ -10,14 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:background="@color/loginTransparnt"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -26,22 +21,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:focusable="true"
                     android:orientation="vertical"
-                    android:padding="8dp"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp">
+                    android:padding="8dp">
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_userNameEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -54,7 +43,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:layout_marginTop="4dp"
+
                             android:background="@android:color/transparent"
                             android:hint="Name"
                             android:inputType="textEmailAddress"
@@ -67,7 +56,7 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <View
-                        android:id="@+id/SplitLine_hor0"
+
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginEnd="8dp"
@@ -215,7 +204,6 @@
                         app:hintTextAppearance="@style/TextLabel">
 
                         <EditText
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
@@ -227,7 +215,6 @@
                             android:textColor="@android:color/white"
                             android:textColorHint="@android:color/white"
                             android:textSize="16sp" />
-
                     </android.support.design.widget.TextInputLayout>
 
                     <View
@@ -259,7 +246,6 @@
                             android:textColor="@android:color/white"
                             android:textColorHint="@android:color/white"
                             android:textSize="16sp" />
-
                     </android.support.design.widget.TextInputLayout>
 
                     <View
@@ -269,27 +255,10 @@
                         android:layout_marginStart="8dp"
                         android:background="@android:color/white" />
 
-                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radio_pirates"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/male"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp" />
-
-                        <RadioButton
-                            android:id="@+id/radio_ninjas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/female"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp" />
-                    </RadioGroup>
+                    <Spinner
+                        android:id="@+id/genderSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></Spinner>
 
                     <View
                         android:layout_width="match_parent"
@@ -297,7 +266,6 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
                         android:background="@android:color/white" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -317,9 +285,9 @@
                         android:background="@drawable/white_boarder"
                         android:text="Next"
                         android:textColor="@android:color/white" />
-
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
 </RelativeLayout>

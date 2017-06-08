@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.finaqa.R;
+import com.finaqa.adapter.SpinnerSimpleAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class ConsultantRegistration extends AppCompatActivity implements View.On
     private Button mNextButton;
     private EditText mDateOfBirth;
     private Calendar myCalendar;
+    private Spinner mGender;
+    private ArrayList<String> mGenderList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +35,15 @@ public class ConsultantRegistration extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_consultant_registration);
         mNextButton = (Button) findViewById(R.id.consult_first);
         mDateOfBirth = (EditText) findViewById(R.id.dateOfBirth);
+        mGender = (Spinner) findViewById(R.id.genderSpinner);
         myCalendar = Calendar.getInstance();
+        mGenderList = new ArrayList<>();
+        mGenderList.add("Male");
+        mGenderList.add("Female");
         mNextButton.setOnClickListener(this);
         mDateOfBirth.setOnClickListener(this);
+        SpinnerSimpleAdapter dataAdapter = new SpinnerSimpleAdapter(ConsultantRegistration.this, mGenderList);
+        mGender.setAdapter(dataAdapter);
 
     }
 
