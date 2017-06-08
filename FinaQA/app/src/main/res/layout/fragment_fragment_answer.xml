@@ -65,14 +65,30 @@
                                         android:textSize="16sp"
                                         android:textStyle="bold" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:padding="2dp"
-                                        android:text="JULY 22,2017"
-                                        android:textColor="@android:color/secondary_text_light"
-                                        android:textSize="12sp"
-                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:padding="1dp"
+                                            android:src="@drawable/ic_access_time_black_18dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="2dp"
+                                            android:text="JULY 22,2017"
+                                            android:textColor="@android:color/secondary_text_light"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </LinearLayout>
+
+
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -145,7 +161,7 @@
                                     android:gravity="center"
                                     android:padding="6dp"
                                     android:text="REPLY"
-                                    android:textColor="@android:color/black"
+                                    android:textColor="@android:color/holo_red_dark"
                                     android:textSize="14sp"
                                     android:textStyle="normal" />
                             </LinearLayout>
@@ -198,14 +214,28 @@
                                         android:textSize="16sp"
                                         android:textStyle="bold" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:padding="2dp"
-                                        android:text="JULY 22,2017"
-                                        android:textColor="@android:color/secondary_text_light"
-                                        android:textSize="12sp"
-                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:padding="1dp"
+                                            android:src="@drawable/ic_access_time_black_18dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="2dp"
+                                            android:text="JULY 22,2017"
+                                            android:textColor="@android:color/secondary_text_light"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -283,7 +313,7 @@
                                     android:gravity="center"
                                     android:padding="6dp"
                                     android:text="REPLY"
-                                    android:textColor="@android:color/black"
+                                    android:textColor="@android:color/holo_red_dark"
                                     android:textSize="14sp"
                                     android:textStyle="normal" />
                             </LinearLayout>
@@ -342,14 +372,28 @@
                                         android:textSize="16sp"
                                         android:textStyle="bold" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:padding="2dp"
-                                        android:text="JULY 22,2017"
-                                        android:textColor="@android:color/secondary_text_light"
-                                        android:textSize="12sp"
-                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:padding="1dp"
+                                            android:src="@drawable/ic_access_time_black_18dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="2dp"
+                                            android:text="JULY 22,2017"
+                                            android:textColor="@android:color/secondary_text_light"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -427,7 +471,7 @@
                                     android:gravity="center"
                                     android:padding="6dp"
                                     android:text="REPLY"
-                                    android:textColor="@android:color/black"
+                                    android:textColor="@android:color/holo_red_dark"
                                     android:textSize="14sp"
                                     android:textStyle="normal" />
                             </LinearLayout>

@@ -38,8 +38,6 @@
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
-
-
                     <ImageView
                         android:id="@+id/liquidImageView"
                         android:layout_width="0dp"

@@ -23,7 +23,7 @@ public class FinancialAssetActivity extends AppCompatActivity {
 
     private Button mButton;
     private ImageView mLiquid;
-    ToolTip toolTip;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class FinancialAssetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_financial_asset);
         mButton = (Button) findViewById(R.id.next);
         mLiquid = (ImageView) findViewById(R.id.liquidImageView);
-
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,6 +38,7 @@ public class FinancialAssetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 
