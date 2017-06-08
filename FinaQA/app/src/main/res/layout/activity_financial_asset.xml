@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@android:color/white"
     tools:context="com.finaqa.activities.FinancialAssetActivity">
 
     <ScrollView
@@ -25,6 +25,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/tooltipView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -38,6 +39,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
+
                     <ImageView
                         android:id="@+id/liquidImageView"
                         android:layout_width="0dp"
@@ -247,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="29dp"
-                    android:background="@drawable/border_gray"
+                    android:background="@drawable/border_red"
                     android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
                     android:padding="2dp"
                     android:text="Next" />

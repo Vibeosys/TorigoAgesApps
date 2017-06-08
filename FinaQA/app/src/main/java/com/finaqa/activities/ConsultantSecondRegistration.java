@@ -16,6 +16,7 @@ public class ConsultantSecondRegistration extends AppCompatActivity implements V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultant_second_registration);
+        setTitle("Consultant Login");
         mNextBtn = (Button) findViewById(R.id.consult_second);
         mNextBtn.setOnClickListener(this);
     }

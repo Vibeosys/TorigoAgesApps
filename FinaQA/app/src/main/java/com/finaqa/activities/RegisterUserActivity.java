@@ -30,6 +30,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
+        setTitle("Customer registration");
         mAge = (EditText) findViewById(R.id.age);
         mGender = (Spinner) findViewById(R.id.genderSpinner);
         myCalendar = Calendar.getInstance();

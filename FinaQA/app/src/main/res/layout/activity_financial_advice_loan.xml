@@ -177,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="29dp"
-                android:background="@drawable/border_gray"
+                android:background="@drawable/border_red"
                 android:padding="2dp"
                 android:text="Save" />
         </LinearLayout>

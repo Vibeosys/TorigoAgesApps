@@ -6,24 +6,22 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.finaqa.R;
-import com.nhaarman.supertooltips.ToolTip;
-import com.nhaarman.supertooltips.ToolTipRelativeLayout;
+
 
 public class FinancialAssetActivity extends AppCompatActivity {
 
     private Button mButton;
     private ImageView mLiquid;
-
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +29,9 @@ public class FinancialAssetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_financial_asset);
         mButton = (Button) findViewById(R.id.next);
         mLiquid = (ImageView) findViewById(R.id.liquidImageView);
+        linearLayout = (LinearLayout) findViewById(R.id.tooltipView);
+
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,8 +39,6 @@ public class FinancialAssetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
 
