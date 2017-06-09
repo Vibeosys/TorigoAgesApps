@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e2e0e0"
     android:padding="8dp"
     tools:context="com.finaqa.fragments.ConsultantPaymentFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
         android:orientation="vertical">
 
         <ScrollView
@@ -24,100 +24,99 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:padding="8dp"
-                    android:orientation="vertical">
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text="Total Amount"
+                                android:textColor="@color/blue_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="8dp">
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="0.5"
-                                    android:text="Total Amount"
-                                    android:textColor="@color/blue_color"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingEnd="2dp"
+                                    android:paddingStart="2dp"
+                                    android:text="@string/rupee_symbol"
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="0.5"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:paddingEnd="2dp"
-                                        android:paddingStart="2dp"
-                                        android:text="@string/rupee_symbol"
-                                        android:textSize="16sp"
-                                        android:textStyle="normal" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:paddingEnd="2dp"
-                                        android:paddingStart="2dp"
-                                        android:text="1500"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="16sp"
-                                        android:textStyle="normal" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="8dp">
-
                                 <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="0.5"
-                                    android:text="Amount pending"
-                                    android:textColor="@color/blue_color"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingEnd="2dp"
+                                    android:paddingStart="2dp"
+                                    android:text="1500"
+                                    android:textColor="@android:color/black"
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="0.5"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:paddingEnd="2dp"
-                                        android:paddingStart="2dp"
-                                        android:text="@string/rupee_symbol"
-                                        android:textSize="16sp"
-                                        android:textStyle="normal" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:paddingEnd="2dp"
-                                        android:paddingStart="2dp"
-                                        android:text="3500"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="16sp"
-                                        android:textStyle="normal" />
-                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text="Amount pending"
+                                android:textColor="@color/blue_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingEnd="2dp"
+                                    android:paddingStart="2dp"
+                                    android:text="@string/rupee_symbol"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingEnd="2dp"
+                                    android:paddingStart="2dp"
+                                    android:text="3500"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 

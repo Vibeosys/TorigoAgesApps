@@ -86,4 +86,12 @@
     <color name="loginTransparnt123">#000000</color>
     <color name="over_layer">#a82e2b28</color>
     <color name="spinnerTransparnt123">#ab1a1a1a</color>
+    <color name="findPartyTabBack">#773eb8</color>
+
+
+
+    <color name="navBarHeader">#a373d9</color>
+    <color name="editProfTabBack">#9a6bd1</color>
+    <color name="splashbackground">#694387</color>
+    <color name="hostTabBack">#513669</color>
 </resources>
