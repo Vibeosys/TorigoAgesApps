@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f2f0f0"
     tools:context="com.finaqa.fragments.ConsultantHistoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -112,11 +113,12 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
+                                    android:src="@drawable/ic_queries_icon_36"
                                     android:text="Charges for:"
                                     android:textAppearance="@android:style/TextAppearance.Small"
                                     android:textColor="@color/blue_color"
@@ -134,19 +136,6 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="4dp">
-
-                        </LinearLayout>
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -159,45 +148,6 @@
                             android:orientation="horizontal"
                             android:padding="4dp">
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:text="Last replied"
-                                    android:textAppearance="@android:style/TextAppearance.Small"
-                                    android:textColor="@color/blue_color"
-                                    android:textSize="16sp" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_horizontal"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        android:padding="4dp"
-                                        android:src="@drawable/ic_date_time_24" />
-
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:padding="4dp"
-                                        android:text="21 May-2017"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
-                                </LinearLayout>
-                            </LinearLayout>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -303,11 +253,12 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
+                                    android:src="@drawable/ic_queries_icon_36"
                                     android:text="Charges for:"
                                     android:textAppearance="@android:style/TextAppearance.Small"
                                     android:textColor="@color/blue_color"
@@ -321,7 +272,6 @@
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp" />
                             </LinearLayout>
-
                         </LinearLayout>
                     </LinearLayout>
 
@@ -344,53 +294,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="4dp">
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="4dp"
-                                    android:text="Last replied"
-                                    android:textAppearance="@android:style/TextAppearance.Small"
-                                    android:textColor="@color/blue_color"
-                                    android:textSize="16sp" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_horizontal"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        android:padding="4dp"
-                                        android:src="@drawable/ic_date_time_24" />
-
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:padding="4dp"
-                                        android:text="21 May-2017"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="18sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>

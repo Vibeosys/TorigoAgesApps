@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f2f0f0"
     android:orientation="vertical">
 
     <LinearLayout
@@ -35,7 +36,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:padding="6dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -94,9 +96,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:padding="4dp"
                                         android:text="2500"
-                                        android:textColor="@android:color/black"
+                                        android:textColor="@android:color/secondary_text_light"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -118,9 +121,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:padding="4dp"
                                         android:text="24/05/2017"
-                                        android:textColor="@android:color/black"
+                                        android:textColor="@android:color/secondary_text_light"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -171,6 +175,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:padding="4dp"
                                         android:text="PENDING"
                                         android:textColor="@android:color/black"
@@ -191,10 +196,10 @@
                                         android:layout_weight="1"
                                         android:background="@color/feedback_color"
                                         android:gravity="center"
-                                        android:padding="4dp"
+                                        android:padding="8dp"
                                         android:text="Pay now"
                                         android:textColor="@android:color/white"
-                                        android:textSize="14sp"
+                                        android:textSize="16sp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -222,7 +227,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:padding="6dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -281,9 +287,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:padding="4dp"
                                         android:text="2500"
-                                        android:textColor="@android:color/black"
+                                        android:textColor="@android:color/secondary_text_light"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -305,9 +312,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:padding="4dp"
                                         android:text="24/05/2017"
-                                        android:textColor="@android:color/black"
+                                        android:textColor="@android:color/secondary_text_light"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -358,13 +366,14 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:padding="4dp"
                                         android:text="PAID"
                                         android:textColor="@android:color/black"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
-                                <LinearLayout
+                                <!--<LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -382,7 +391,7 @@
                                         android:textColor="@android:color/white"
                                         android:textSize="14sp"
                                         android:textStyle="bold" />
-                                </LinearLayout>
+                                </LinearLayout>-->
 
 
                             </LinearLayout>

@@ -31,7 +31,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="4dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -125,9 +126,10 @@
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimary"
                                 android:padding="4dp"
-                                android:text="Accept request"
+                                android:text="Accept"
                                 android:textAllCaps="false"
-                                android:textColor="@android:color/white" />
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -154,6 +156,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:padding="4dp">
@@ -169,6 +172,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:paddingStart="8dp"
                                 android:text="Meeting"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp"
@@ -184,7 +188,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:padding="4dp">
+                            android:padding="8dp">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -239,7 +243,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:padding="4dp">
+                            android:padding="8dp">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -295,7 +299,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="4dp"
                             android:orientation="horizontal">
 
                             <Button
@@ -308,7 +315,8 @@
                                 android:padding="4dp"
                                 android:text="Schedule"
                                 android:textAllCaps="false"
-                                android:textColor="@android:color/white" />
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
 
                             <Button
                                 android:layout_width="match_parent"
@@ -317,9 +325,10 @@
                                 android:layout_weight="0.5"
                                 android:background="@color/colorPrimary"
                                 android:padding="4dp"
-                                android:text="Accept request"
+                                android:text="Accept"
                                 android:textAllCaps="false"
-                                android:textColor="@android:color/white" />
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -342,7 +351,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="4dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -437,9 +447,10 @@
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimary"
                                 android:padding="4dp"
-                                android:text="Accept request"
+                                android:text="Accept"
                                 android:textAllCaps="false"
-                                android:textColor="@android:color/white" />
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>

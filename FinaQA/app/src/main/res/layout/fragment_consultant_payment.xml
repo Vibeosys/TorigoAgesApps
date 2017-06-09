@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e2e0e0"
+    android:background="#f2f0f0"
     android:padding="8dp"
     tools:context="com.finaqa.fragments.ConsultantPaymentFragment">
 
@@ -31,7 +31,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="6dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -44,7 +45,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
                                 android:text="Total Amount"
-                                android:textColor="@color/blue_color"
+                                android:textColor="@color/gray_3"
                                 android:textSize="16sp"
                                 android:textStyle="normal" />
 
@@ -70,7 +71,7 @@
                                     android:paddingStart="2dp"
                                     android:text="1500"
                                     android:textColor="@android:color/black"
-                                    android:textSize="16sp"
+                                    android:textSize="20sp"
                                     android:textStyle="normal" />
                             </LinearLayout>
                         </LinearLayout>
@@ -86,7 +87,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
                                 android:text="Amount pending"
-                                android:textColor="@color/blue_color"
+                                android:textColor="@color/gray_3"
                                 android:textSize="16sp"
                                 android:textStyle="normal" />
 
@@ -112,22 +113,66 @@
                                     android:paddingStart="2dp"
                                     android:text="3500"
                                     android:textColor="@android:color/black"
-                                    android:textSize="16sp"
+                                    android:textSize="20sp"
                                     android:textStyle="normal" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text=""
+                                android:textColor="@color/blue_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingEnd="2dp"
+                                    android:paddingStart="2dp"
+                                    android:text="@string/rupee_symbol"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal"
+                                    android:visibility="gone" />
 
                                 <TextView
                                     android:id="@+id/withdraw"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:paddingEnd="2dp"
-                                    android:paddingStart="16dp"
+                                    android:layout_gravity="start"
+                                    android:gravity="start"
+                                    android:padding="4dp"
+
                                     android:text="withdraw"
+                                    android:textAllCaps="true"
                                     android:textColor="@android:color/holo_blue_dark"
-                                    android:textSize="16sp"
-                                    android:textStyle="italic" />
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
                         </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -148,7 +193,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_margin="2dp"
+                            android:orientation="vertical"
+                            android:padding="6dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -204,10 +251,11 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
                                             android:padding="4dp"
                                             android:text="24-May-2017"
                                             android:textColor="@android:color/black"
-                                            android:textSize="18sp" />
+                                            android:textSize="14sp" />
                                     </LinearLayout>
                                 </LinearLayout>
 
@@ -216,6 +264,7 @@
                             <View
                                 android:layout_width="fill_parent"
                                 android:layout_height="1dp"
+                                android:layout_marginBottom="8dp"
                                 android:background="@android:color/darker_gray" />
 
                             <LinearLayout
@@ -235,11 +284,12 @@
                                         android:layout_weight="1"
                                         android:orientation="horizontal">
 
-                                        <TextView
+                                        <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:padding="4dp"
+                                            android:src="@drawable/ic_queries_icon_36"
                                             android:text="Charges for:"
                                             android:textAppearance="@android:style/TextAppearance.Small"
                                             android:textColor="@color/blue_color"
@@ -265,6 +315,7 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="8dp"
                                     android:orientation="horizontal"
                                     android:padding="4dp">
 
@@ -274,11 +325,12 @@
                                         android:layout_weight="1"
                                         android:orientation="horizontal">
 
-                                        <TextView
+                                        <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:padding="4dp"
+                                            android:src="@drawable/ic_user_24"
                                             android:text="Query by:"
                                             android:textAppearance="@android:style/TextAppearance.Small"
                                             android:textColor="@color/blue_color"
@@ -315,7 +367,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_margin="2dp"
+                            android:orientation="vertical"
+                            android:padding="6dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -371,10 +425,11 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
                                             android:padding="4dp"
                                             android:text="24-May-2017"
                                             android:textColor="@android:color/black"
-                                            android:textSize="18sp" />
+                                            android:textSize="14sp" />
                                     </LinearLayout>
                                 </LinearLayout>
 
@@ -383,6 +438,7 @@
                             <View
                                 android:layout_width="fill_parent"
                                 android:layout_height="1dp"
+                                android:layout_marginBottom="8dp"
                                 android:background="@android:color/darker_gray" />
 
                             <LinearLayout
@@ -402,11 +458,12 @@
                                         android:layout_weight="1"
                                         android:orientation="horizontal">
 
-                                        <TextView
+                                        <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:padding="4dp"
+                                            android:src="@drawable/ic_queries_icon_36"
                                             android:text="Charges for:"
                                             android:textAppearance="@android:style/TextAppearance.Small"
                                             android:textColor="@color/blue_color"
@@ -432,6 +489,7 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="8dp"
                                     android:orientation="horizontal"
                                     android:padding="4dp">
 
@@ -441,11 +499,12 @@
                                         android:layout_weight="1"
                                         android:orientation="horizontal">
 
-                                        <TextView
+                                        <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:padding="4dp"
+                                            android:src="@drawable/ic_user_24"
                                             android:text="Query by:"
                                             android:textAppearance="@android:style/TextAppearance.Small"
                                             android:textColor="@color/blue_color"

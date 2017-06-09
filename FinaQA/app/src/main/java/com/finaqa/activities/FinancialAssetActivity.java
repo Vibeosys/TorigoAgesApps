@@ -30,6 +30,16 @@ public class FinancialAssetActivity extends AppCompatActivity {
         mButton = (Button) findViewById(R.id.next);
         mLiquid = (ImageView) findViewById(R.id.liquidImageView);
         linearLayout = (LinearLayout) findViewById(R.id.tooltipView);
+        mLiquid.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View view) {
+                                           final Dialog dialog = new Dialog(getApplicationContext(), R.style.CustomDialog); // Context, this, etc.
+                                           dialog.setContentView(R.layout.feedback_dialog);
+                                           dialog.setTitle(R.string.dialog_title);
+                                           dialog.show();
+                                       }
+                                   }
+        );
 
 
         mButton.setOnClickListener(new View.OnClickListener() {

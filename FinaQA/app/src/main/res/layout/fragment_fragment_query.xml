@@ -4,13 +4,13 @@
     android:id="@+id/containerId"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/loginTransparnt">
+    android:background="@android:color/white">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/loginTransparnt"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/first_blue"
+            android:background="@android:color/white"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -29,7 +29,7 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:fitsSystemWindows="true"
-                android:src="@drawable/ic_queries_100" />
+                android:src="@drawable/ic_query_24" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                         android:layout_marginLeft="14dp"
                         android:layout_weight="0.2"
                         android:text="@string/str_query_answer"
-                        android:textColor="#ffff00"
+                        android:textColor="@android:color/black"
                         android:textSize="24sp" />
 
 
@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_right_yellow_24" />
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -72,18 +72,25 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:text="get best solution for your question"
-                        android:textColor="#ffff00"
+                        android:textColor="@android:color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginStart="75dp"
+            android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:id="@+id/layoutConsultingVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/second_blue"
+            android:background="@android:color/white"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -94,7 +101,7 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:fitsSystemWindows="true"
-                android:src="@drawable/ic_experties_100" />
+                android:src="@drawable/ic_consulting_black_100" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,14 +123,14 @@
                         android:layout_marginLeft="14dp"
                         android:layout_weight="0.2"
                         android:text="@string/str_consulting_free_pay"
-                        android:textColor="#ffff00"
+                        android:textColor="@android:color/black"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_right_yellow_24" />
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -136,18 +143,25 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:text="get advice from our expertise"
-                        android:textColor="#ffff00"
+                        android:textColor="@android:color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginStart="75dp"
+            android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:id="@+id/layoutFinanceVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/third_blue"
+            android:background="@android:color/white"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -158,7 +172,7 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:fitsSystemWindows="true"
-                android:src="@drawable/ic_money_100" />
+                android:src="@drawable/ic_money_black_100" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -179,14 +193,14 @@
                         android:layout_marginLeft="14dp"
                         android:layout_weight="0.2"
                         android:text="@string/str_finance_advice"
-                        android:textColor="#ffff00"
+                        android:textColor="@android:color/black"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_right_yellow_24" />
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -199,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:text="@string/finace_term"
-                        android:textColor="#ffff00"
+                        android:textColor="@android:color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
