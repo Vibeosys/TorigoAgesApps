@@ -89,9 +89,8 @@
     <color name="findPartyTabBack">#773eb8</color>
 
 
+    <color name="layer_third_">#d8d61813</color>
+    <color name="layer_second" >#ccf44336</color>
+    <color name="layer_first">#d6ef5350</color>
 
-    <color name="navBarHeader">#a373d9</color>
-    <color name="editProfTabBack">#9a6bd1</color>
-    <color name="splashbackground">#694387</color>
-    <color name="hostTabBack">#513669</color>
 </resources>

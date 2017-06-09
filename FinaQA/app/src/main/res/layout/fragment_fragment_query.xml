@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/navBarHeader"
+            android:background="@color/layer_first"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/splashbackground"
+            android:background="@color/layer_second"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/hostTabBack"
+            android:background="@color/layer_third_"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
