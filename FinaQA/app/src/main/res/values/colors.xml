@@ -93,4 +93,8 @@
     <color name="layer_second" >#ccf44336</color>
     <color name="layer_first">#d6ef5350</color>
 
+    <color name="first_blue">#5F64F6</color>
+    <color name="second_blue">#5155D5</color>
+    <color name="third_blue">#4548BF</color>
+
 </resources>

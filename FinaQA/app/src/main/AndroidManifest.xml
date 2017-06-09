@@ -90,8 +90,11 @@
             android:parentActivityName=".activities.FinancialAdviceLoan" />
         <activity
             android:name=".activities.ConfirmPayment"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/payment_details"></activity>
+            android:label="@string/payment_details"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.WithdrawAmount"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

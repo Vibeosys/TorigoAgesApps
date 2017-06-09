@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/layer_first"
+            android:background="@color/first_blue"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -51,7 +51,7 @@
                         android:layout_marginLeft="14dp"
                         android:layout_weight="0.2"
                         android:text="@string/str_query_answer"
-                        android:textColor="@android:color/white"
+                        android:textColor="#ffff00"
                         android:textSize="24sp" />
 
 
@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                        android:src="@drawable/ic_right_yellow_24" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -72,11 +72,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:text="get best solution for your question"
-                        android:textColor="@android:color/white"
+                        android:textColor="#ffff00"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -84,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/layer_second"
+            android:background="@color/second_blue"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -117,14 +116,14 @@
                         android:layout_marginLeft="14dp"
                         android:layout_weight="0.2"
                         android:text="@string/str_consulting_free_pay"
-                        android:textColor="@android:color/white"
+                        android:textColor="#ffff00"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                        android:src="@drawable/ic_right_yellow_24" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -137,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:text="get advice from our expertise"
-                        android:textColor="@android:color/white"
+                        android:textColor="#ffff00"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -148,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/layer_third_"
+            android:background="@color/third_blue"
             android:gravity="center|center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -180,14 +179,14 @@
                         android:layout_marginLeft="14dp"
                         android:layout_weight="0.2"
                         android:text="@string/str_finance_advice"
-                        android:textColor="@android:color/white"
+                        android:textColor="#ffff00"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_keyboard_arrow_right_white_36dp" />
+                        android:src="@drawable/ic_right_yellow_24" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -200,7 +199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:text="@string/finace_term"
-                        android:textColor="@android:color/white"
+                        android:textColor="#ffff00"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
