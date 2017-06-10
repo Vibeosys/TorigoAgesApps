@@ -41,10 +41,10 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="Rs">\u20B9</string>
-    <string name="assetsLabel">Assets</string>
-    <string name="totalLoan">Total loan</string>
-    <string name="adviceLabel">Advice</string>
-    <string name="labelAdvie">User info</string>
+    <string name="assetsLabel">Health check</string>
+    <string name="totalLoan">Health check report</string>
+    <string name="adviceLabel">Health check continue</string>
+    <string name="labelAdvie">Financial health check</string>
     <string name="payment_details">Payment</string>
     <string name="reject_under_line"><u>Reject</u></string>
 </resources>
