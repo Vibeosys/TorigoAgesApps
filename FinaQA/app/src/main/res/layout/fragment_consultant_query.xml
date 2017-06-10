@@ -88,7 +88,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
-                                    android:src="@drawable/ic_date_time_24" />
+                                    android:src="@drawable/ic_calendar_18" />
 
 
                                 <TextView
@@ -112,7 +112,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
-                                    android:src="@drawable/ic_user_24" />
+                                    android:src="@drawable/ic_user_icon_24" />
 
 
                                 <TextView
@@ -256,7 +256,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
-                                    android:src="@drawable/ic_date_time_24" />
+                                    android:src="@drawable/ic_calendar_18" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -279,7 +279,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:padding="4dp"
-                                    android:src="@drawable/ic_user_24" />
+                                    android:src="@drawable/ic_user_icon_24" />
 
                                 <TextView
                                     android:layout_width="wrap_content"

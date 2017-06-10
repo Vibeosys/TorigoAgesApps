@@ -80,7 +80,7 @@
                                             android:layout_gravity="center"
                                             android:gravity="center"
                                             android:padding="1dp"
-                                            android:src="@drawable/ic_access_time_black_18dp" />
+                                            android:src="@drawable/ic_calendar_18" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -245,7 +245,7 @@
                                         android:layout_gravity="center"
                                         android:gravity="center"
                                         android:padding="1dp"
-                                        android:src="@drawable/ic_user_24" />
+                                        android:src="@drawable/ic_user_icon_24" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -435,7 +435,7 @@
                                             android:layout_gravity="center"
                                             android:gravity="center"
                                             android:padding="1dp"
-                                            android:src="@drawable/ic_access_time_black_18dp" />
+                                            android:src="@drawable/ic_calendar_18" />
 
                                         <TextView
                                             android:layout_width="wrap_content"

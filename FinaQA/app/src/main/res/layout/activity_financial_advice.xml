@@ -56,7 +56,8 @@
                     android:gravity="start|center"
                     android:text="Dependent"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinner3"
@@ -82,7 +83,8 @@
                     android:gravity="start|center"
                     android:text="Occupation"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinner2"

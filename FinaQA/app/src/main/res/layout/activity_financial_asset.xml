@@ -58,7 +58,7 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter your liquid assets"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter your equity assests"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -150,7 +150,7 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter your debt asests"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter your real estate assests"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -242,7 +242,7 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter your precious Metals"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"

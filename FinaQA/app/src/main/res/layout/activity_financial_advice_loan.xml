@@ -22,8 +22,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                         android:layout_height="wrap_content"
                         android:text="Select your loan type"
                         android:textColor="@android:color/black"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -70,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="Today out standing balance(Rs)"
                     android:textColor="@android:color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -81,7 +82,7 @@
                     android:drawableEnd="@drawable/ic_rupee_24"
                     android:hint="Enter your out standing balance"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <View
@@ -92,8 +93,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,6 +109,7 @@
                         android:layout_height="wrap_content"
                         android:text="Rate of interest "
                         android:textColor="@android:color/black"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -119,7 +121,7 @@
                         android:drawableEnd="@drawable/ic_percentage_24"
                         android:hint="Loan interest"
                         android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -135,6 +137,7 @@
                         android:layout_height="wrap_content"
                         android:text="Tenure"
                         android:textColor="@android:color/black"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Spinner
@@ -162,6 +165,7 @@
                     android:layout_height="wrap_content"
                     android:text="EMI in Rs"
                     android:textColor="@android:color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -172,7 +176,7 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter your EMI"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <View

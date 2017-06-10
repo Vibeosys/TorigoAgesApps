@@ -28,7 +28,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:drawableStart="@drawable/ic_rupee_24"
+                    android:drawableStart="@drawable/ic_rupee_icon_18"
                     android:hint="1200"
                     android:padding="4dp"
                     android:singleLine="true"
@@ -133,6 +133,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@android:color/black" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -115,7 +115,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_calendar_24" />
+                                        android:src="@drawable/ic_calendar_18" />
 
 
                                     <TextView
@@ -306,7 +306,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:padding="4dp"
-                                        android:src="@drawable/ic_calendar_24" />
+                                        android:src="@drawable/ic_calendar_18" />
 
 
                                     <TextView

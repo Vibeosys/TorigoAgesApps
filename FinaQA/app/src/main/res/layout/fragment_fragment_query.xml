@@ -29,7 +29,7 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:fitsSystemWindows="true"
-                android:src="@drawable/ic_query_24" />
+                android:src="@drawable/ic_question_answer_100" />
 
             <LinearLayout
                 android:layout_width="match_parent"
