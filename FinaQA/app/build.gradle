@@ -33,4 +33,6 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.1'
     //volley library
     compile 'com.android.volley:volley:1.0.0'
+    // toolt tip
+    compile 'com.github.douglasjunior:android-simple-tooltip:0.2.0'
 }

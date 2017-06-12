@@ -114,6 +114,7 @@
 
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,6 +132,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -167,6 +169,7 @@
                     android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -299,22 +302,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_margin="2dp"
-                    android:gravity="end"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:background="@color/gray_4" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

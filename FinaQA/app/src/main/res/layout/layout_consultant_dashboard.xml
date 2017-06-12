@@ -7,7 +7,6 @@
     android:orientation="horizontal">
 
 
-
     <LinearLayout
         android:id="@+id/dashBoardLayout"
         android:layout_width="match_parent"
@@ -30,10 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:padding="2dp"
-            android:text="Dash board"
+            android:text="Home"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/queryLayout"
         android:layout_width="match_parent"
@@ -56,10 +56,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:padding="2dp"
-            android:text="Query"
+            android:text="Queries"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/PaymentLayout"
         android:layout_width="match_parent"
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:padding="2dp"
-            android:text="Payment"
+            android:text="Payments"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
     </LinearLayout>
