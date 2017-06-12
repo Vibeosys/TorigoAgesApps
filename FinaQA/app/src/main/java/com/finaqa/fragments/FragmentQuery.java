@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.finaqa.R;
 import com.finaqa.activities.FinancialAdviceActivity;
+import com.finaqa.activities.FinancialAssetActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,7 +63,7 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
                /* FinancialAdviceFragment financialAdviceFragment = new FinancialAdviceFragment();
                 FragmentManager fragmentManager1 = getFragmentManager();
                 fragmentManager1.beginTransaction().replace(R.id.containerId, financialAdviceFragment, FINANCE_ADVICE).commit();*/
-                Intent intent = new Intent(getContext().getApplicationContext(), FinancialAdviceActivity.class);
+                Intent intent = new Intent(getContext().getApplicationContext(), FinancialAssetActivity.class);
                 startActivity(intent);
                 break;
             default:

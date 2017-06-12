@@ -83,7 +83,7 @@
         <activity
             android:name=".activities.FinancialAdviceLoan"
             android:label="@string/assetsLabel"
-            android:parentActivityName=".activities.FinancialAssetActivity" />
+            android:parentActivityName=".activities.ConsultantMainActivity" />
         <activity
             android:name=".activities.TotalLoanActivity"
             android:label="@string/totalLoan"

@@ -23,7 +23,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     private EditText mAge;
     private Calendar myCalendar;
-    private Spinner mGender;
+    private Spinner mGender, mOccupation;
     private ArrayList<String> mGenderList;
 
     @Override
@@ -33,10 +33,17 @@ public class RegisterUserActivity extends AppCompatActivity {
         setTitle("Customer registration");
         mAge = (EditText) findViewById(R.id.age);
         mGender = (Spinner) findViewById(R.id.genderSpinner);
+        mOccupation = (Spinner) findViewById(R.id.occupation);
         myCalendar = Calendar.getInstance();
         mGenderList = new ArrayList<>();
         mGenderList.add("Male");
         mGenderList.add("Female");
+
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Salaried");
+        list.add("Freelance");
+        SpinnerSimpleAdapter occup = new SpinnerSimpleAdapter(RegisterUserActivity.this, list);
+        mOccupation.setAdapter(occup);
 
         SpinnerSimpleAdapter dataAdapter = new SpinnerSimpleAdapter(RegisterUserActivity.this, mGenderList);
         mGender.setAdapter(dataAdapter);
