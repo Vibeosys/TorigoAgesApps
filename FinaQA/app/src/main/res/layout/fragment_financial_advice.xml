@@ -117,7 +117,7 @@
                 android:padding="2dp"
                 android:weightSum="2">
 
-                <TextView
+                <com.finaqa.customeview.RobotoBoldTextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
@@ -142,7 +142,7 @@
                 android:padding="2dp"
                 android:weightSum="2">
 
-                <TextView
+                <com.finaqa.customeview.RobotoBoldTextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"

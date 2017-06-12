@@ -32,7 +32,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
+                    <com.finaqa.customeview.RobotoBoldTextView
                         android:id="@+id/label123"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
+                    <com.finaqa.customeview.RobotoBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
@@ -127,7 +127,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
+                    <com.finaqa.customeview.RobotoBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
@@ -173,7 +173,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
+                    <com.finaqa.customeview.RobotoBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
@@ -219,7 +219,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
+                    <com.finaqa.customeview.RobotoBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"

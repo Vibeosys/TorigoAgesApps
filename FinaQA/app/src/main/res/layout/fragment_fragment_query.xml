@@ -45,7 +45,7 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <com.finaqa.customeview.AbelTextViewFont
+                    <com.finaqa.customeview.RobotoRegularTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
@@ -67,7 +67,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <com.finaqa.customeview.AbelTextViewFont
+                    <com.finaqa.customeview.RobotoRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
@@ -117,7 +117,7 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
-                    <com.finaqa.customeview.AbelTextViewFont
+                    <com.finaqa.customeview.RobotoRegularTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
@@ -138,7 +138,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <com.finaqa.customeview.AbelTextViewFont
+                    <com.finaqa.customeview.RobotoRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
@@ -187,7 +187,7 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
-                    <com.finaqa.customeview.AbelTextViewFont
+                    <com.finaqa.customeview.RobotoRegularTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
@@ -208,7 +208,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <com.finaqa.customeview.AbelTextViewFont
+                    <com.finaqa.customeview.RobotoRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"

@@ -44,7 +44,7 @@
                             android:textColor="@android:color/secondary_text_light"
                             android:textColorHint="@android:color/secondary_text_light" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
@@ -80,7 +80,7 @@
                             android:textColor="@android:color/secondary_text_light"
                             android:textColorHint="@android:color/secondary_text_light" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
@@ -115,7 +115,7 @@
                             android:textColor="@android:color/secondary_text_light"
                             android:textColorHint="@android:color/secondary_text_light" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"

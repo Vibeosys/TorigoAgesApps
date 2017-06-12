@@ -33,6 +33,7 @@ public class ConsultantRegistration extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultant_registration);
+        setTitle("Consultant registration");
         mNextButton = (Button) findViewById(R.id.consult_first);
         mDateOfBirth = (EditText) findViewById(R.id.dateOfBirth);
         mGender = (Spinner) findViewById(R.id.genderSpinner);

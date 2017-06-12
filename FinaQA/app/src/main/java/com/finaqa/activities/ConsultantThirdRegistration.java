@@ -19,7 +19,7 @@ public class ConsultantThirdRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultant_third_registration);
-        setTitle("Consultant Login");
+        setTitle("Consultant registration");
         mCategory = (Spinner) findViewById(R.id.categoryMain);
         mSubCategory = (Spinner) findViewById(R.id.categorySub);
         ArrayList<String> categories = new ArrayList<String>();

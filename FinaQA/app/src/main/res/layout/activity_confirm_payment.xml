@@ -29,7 +29,7 @@
                     android:orientation="vertical"
                     android:padding="4dp">
 
-                    <TextView
+                    <com.finaqa.customeview.RobotoBoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -52,7 +52,7 @@
                         android:orientation="vertical"
                         android:padding="2dp">
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -62,7 +62,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -79,7 +79,7 @@
                         android:orientation="vertical"
                         android:padding="2dp">
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -89,7 +89,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -106,7 +106,7 @@
                         android:orientation="vertical"
                         android:padding="2dp">
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -116,7 +116,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -133,7 +133,7 @@
                         android:orientation="vertical"
                         android:padding="2dp">
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -143,7 +143,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -170,7 +170,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -188,7 +188,7 @@
                         android:padding="2dp">
 
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -198,7 +198,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

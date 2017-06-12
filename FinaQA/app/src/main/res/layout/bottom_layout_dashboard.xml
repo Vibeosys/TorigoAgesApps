@@ -22,7 +22,7 @@
             android:padding="1dp"
             android:src="@drawable/ic_q_a_24" />
 
-        <com.finaqa.customeview.AbelTextViewFont
+        <com.finaqa.customeview.RobotoRegularTextView
             android:id="@+id/txtGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             android:padding="1dp"
             android:src="@drawable/ic_payment_white_24dp" />
 
-        <com.finaqa.customeview.AbelTextViewFont
+        <com.finaqa.customeview.RobotoRegularTextView
             android:id="@+id/txtCocktails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             android:padding="1dp"
             android:src="@drawable/ic_questions_24" />
 
-        <com.finaqa.customeview.AbelTextViewFont
+        <com.finaqa.customeview.RobotoRegularTextView
             android:id="@+id/txtCures"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             android:padding="1dp"
             android:src="@drawable/ic_more_horiz_white_24dp" />
 
-        <com.finaqa.customeview.AbelTextViewFont
+        <com.finaqa.customeview.RobotoRegularTextView
             android:id="@+id/txtSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

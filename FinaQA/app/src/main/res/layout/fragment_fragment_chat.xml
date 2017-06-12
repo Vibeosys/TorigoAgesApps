@@ -63,7 +63,7 @@
                 android:orientation="vertical"
                 android:padding="4dp">
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:id="@+id/message_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 April 2017"
@@ -91,7 +91,7 @@
                 android:orientation="vertical"
                 android:padding="2dp">
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:id="@+id/message_text1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 April 2017"
@@ -118,7 +118,7 @@
                 android:orientation="vertical"
                 android:padding="4dp">
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:id="@+id/message_text11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 April 2017"
@@ -146,7 +146,7 @@
                 android:orientation="vertical"
                 android:padding="2dp">
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:id="@+id/message_text3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
                     android:textSize="16sp"
                     android:textStyle="italic" />
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 April 2017"

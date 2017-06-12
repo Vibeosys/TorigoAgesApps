@@ -41,7 +41,7 @@
                             android:textColor="@android:color/darker_gray"
                             android:textSize="14sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
@@ -76,7 +76,7 @@
                                     android:src="@drawable/ic_payment_24" />
 
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -85,7 +85,7 @@
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
@@ -124,7 +124,7 @@
                                     android:textColor="@color/blue_color"
                                     android:textSize="16sp" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
@@ -181,7 +181,7 @@
                             android:textColor="@android:color/darker_gray"
                             android:textSize="14sp" />
 
-                        <TextView
+                        <com.finaqa.customeview.RobotoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
@@ -216,7 +216,7 @@
                                     android:src="@drawable/ic_payment_24" />
 
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -225,7 +225,7 @@
                                     android:textColor="@android:color/black"
                                     android:textSize="18sp" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
@@ -264,7 +264,7 @@
                                     android:textColor="@color/blue_color"
                                     android:textSize="16sp" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"

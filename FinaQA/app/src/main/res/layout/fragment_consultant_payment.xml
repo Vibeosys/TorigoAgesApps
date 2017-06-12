@@ -40,7 +40,7 @@
                             android:orientation="horizontal"
                             android:padding="8dp">
 
-                            <TextView
+                            <com.finaqa.customeview.RobotoRegularTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
@@ -55,7 +55,7 @@
                                 android:layout_weight="0.5"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingEnd="2dp"
@@ -64,7 +64,7 @@
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingEnd="2dp"
@@ -82,7 +82,7 @@
                             android:orientation="horizontal"
                             android:padding="8dp">
 
-                            <TextView
+                            <com.finaqa.customeview.RobotoRegularTextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
@@ -97,7 +97,7 @@
                                 android:layout_weight="0.5"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingEnd="2dp"
@@ -106,7 +106,7 @@
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoRegularTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingEnd="2dp"
@@ -157,7 +157,7 @@
                                     android:textStyle="normal"
                                     android:visibility="gone" />
 
-                                <TextView
+                                <com.finaqa.customeview.RobotoBoldTextView
                                     android:id="@+id/withdraw"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                                         android:orientation="horizontal">
 
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -224,7 +224,7 @@
                                             android:textColor="@android:color/black"
                                             android:textSize="18sp" />
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
@@ -248,7 +248,7 @@
                                             android:src="@drawable/ic_calendar_18" />
 
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -295,7 +295,7 @@
                                             android:textColor="@color/blue_color"
                                             android:textSize="16sp" />
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
@@ -336,7 +336,7 @@
                                             android:textColor="@color/blue_color"
                                             android:textSize="16sp" />
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
@@ -389,7 +389,7 @@
                                         android:orientation="horizontal">
 
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -398,7 +398,7 @@
                                             android:textColor="@android:color/black"
                                             android:textSize="18sp" />
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
@@ -422,7 +422,7 @@
                                             android:src="@drawable/ic_calendar_18" />
 
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -469,7 +469,7 @@
                                             android:textColor="@color/blue_color"
                                             android:textSize="16sp" />
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"
@@ -510,7 +510,7 @@
                                             android:textColor="@color/blue_color"
                                             android:textSize="16sp" />
 
-                                        <TextView
+                                        <com.finaqa.customeview.RobotoRegularTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:padding="4dp"

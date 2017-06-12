@@ -130,7 +130,7 @@
 
                 </LinearLayout>
 
-                <TextView
+                <com.finaqa.customeview.RobotoRegularTextView
                     android:id="@+id/forgotPw"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <TextView
+        <com.finaqa.customeview.RobotoRegularTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -166,7 +166,7 @@
             android:textSize="16sp"
             android:textStyle="normal" />
 
-        <TextView
+        <com.finaqa.customeview.RobotoRegularTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
