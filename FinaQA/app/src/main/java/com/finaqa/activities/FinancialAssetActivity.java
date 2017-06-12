@@ -40,6 +40,7 @@ public class FinancialAssetActivity extends AppCompatActivity {
         mButton = (Button) findViewById(R.id.next);
         mDepend = (Spinner) findViewById(R.id.spinner2);
         mTooltip = (TextView) findViewById(R.id.label123);
+        linearLayout = (LinearLayout) findViewById(R.id.MasterView);
         mLiquid = (ImageView) findViewById(R.id.liquidImageView);
         mLiquid2 = (ImageView) findViewById(R.id.tooltip2);
         mLiquid3 = (ImageView) findViewById(R.id.tooltip3);
@@ -60,7 +61,7 @@ public class FinancialAssetActivity extends AppCompatActivity {
                                        @Override
                                        public void onClick(View view) {
                                            new SimpleTooltip.Builder(FinancialAssetActivity.this)
-                                                   .anchorView(mTooltip)
+                                                   .anchorView(linearLayout)
                                                    .text("Cash Assets - (Total of:-Saving A/c, Current a/c, Fixed Deposit (term<1yr), Recurring Deposit)")
                                                    .gravity(Gravity.END)
                                                    .animated(true)
