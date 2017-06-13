@@ -41,8 +41,7 @@
                     android:paddingStart="8dp">
 
 
-
-                    <android.support.design.widget.TextInputLayout
+                    <!--android.support.design.widget.TextInputLayout
                         android:id="@+id/input_degreeHoldText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -66,7 +65,12 @@
                             android:textColorHint="@android:color/white"
                             android:textSize="16sp" />
 
-                    </android.support.design.widget.TextInputLayout>
+                    </android.support.design.widget.TextInputLayout>-->
+                    <Spinner
+                        android:id="@+id/countrySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"></Spinner>
 
                     <View
                         android:layout_width="match_parent"
@@ -75,17 +79,8 @@
                         android:layout_marginStart="8dp"
                         android:background="@android:color/white" />
 
-                    <android.support.design.widget.TextInputLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:textColor="@android:color/white"
-                        android:textColorHint="@android:color/white"
-                        app:hintTextAppearance="@style/TextLabel">
-
                         <EditText
-
+                            android:id="@+id/cityEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
@@ -97,8 +92,15 @@
                             android:singleLine="true"
                             android:textColor="@android:color/white"
                             android:textColorHint="@android:color/white"
-                            android:textSize="16sp" />
-                    </android.support.design.widget.TextInputLayout>
+                            android:textSize="16sp"
+                            android:visibility="gone" />
+
+                    <Spinner
+                        android:id="@+id/citySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"></Spinner>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"

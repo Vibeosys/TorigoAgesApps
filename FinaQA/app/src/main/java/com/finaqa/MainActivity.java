@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.finaqa.adapter.DashBoardAdapter;
+import com.finaqa.database.DbRepository;
 import com.finaqa.fragments.FragmentAnswer;
 import com.finaqa.fragments.FragmentMore;
 import com.finaqa.fragments.FragmentPayment;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 /*FragmentAnswer fragmentAnswer = new FragmentAnswer();
                 getSupportFragmentManager().beginTransaction().
                         replace(R.id.fragment_frame_lay, fragmentAnswer, HOME_FRAGMENT).commit();*/
+
                 GridFragment gridFragment = new GridFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_frame_lay, gridFragment, HOME_FRAGMENT).commit();
                 break;
