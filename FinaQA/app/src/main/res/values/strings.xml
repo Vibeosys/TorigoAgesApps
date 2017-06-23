@@ -47,4 +47,8 @@
     <string name="labelAdvie">Financial health check</string>
     <string name="payment_details">Payment</string>
     <string name="reject_under_line"><u>Reject</u></string>
+    <string name="question_answer">Question and answer</string>
+    <string name="timeHorzon">Time Horizon</string>
+    <string name="longtermGoals">Long term goals</string>
+    <string name="shortTermRisk">Short term Risk</string>
 </resources>

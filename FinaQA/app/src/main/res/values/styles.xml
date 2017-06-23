@@ -42,5 +42,8 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="whiteColorCheckBox">
+        <item name="colorAccent">#fff</item>
+    </style>
 
 </resources>

@@ -97,7 +97,23 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activities.WithdrawAmount"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.QuriesAndAnswerActivity"
+            android:label="@string/question_answer"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.RiskProfileActivity"
+            android:label="@string/timeHorzon"
+            android:parentActivityName=".activities.RiskProfileActivity" />
+        <activity
+            android:name=".activities.LongTermGoalActivity"
+            android:label="@string/longtermGoals"
+            android:parentActivityName=".activities.RiskProfileActivity" />
+        <activity
+            android:name=".activities.ShortTermRiskActivity"
+            android:label="@string/shortTermRisk"
+            android:parentActivityName=".activities.LongTermGoalActivity"></activity>
     </application>
 
 </manifest>

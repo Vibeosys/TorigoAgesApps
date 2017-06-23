@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import com.finaqa.R;
 import com.finaqa.activities.FinancialAdviceActivity;
 import com.finaqa.activities.FinancialAssetActivity;
+import com.finaqa.activities.QuriesAndAnswerActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,9 +50,11 @@ public class FragmentQuery extends Fragment implements View.OnClickListener {
         int id = view.getId();
         switch (id) {
             case R.id.layoutQueryVertical:
-                Quries_and_answer quries_and_answer = new Quries_and_answer();
+                /*Quries_and_answer quries_and_answer = new Quries_and_answer();
                 FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.containerId, quries_and_answer, QUERY).commit();
+                fm.beginTransaction().replace(R.id.containerId, quries_and_answer, QUERY).commit();*/
+                Intent questionAnswer = new Intent(getActivity().getApplicationContext(), QuriesAndAnswerActivity.class);
+                startActivity(questionAnswer);
 
                 break;
             case R.id.layoutConsultingVertical:
