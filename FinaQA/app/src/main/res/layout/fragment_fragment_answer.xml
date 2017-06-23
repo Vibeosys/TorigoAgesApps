@@ -133,48 +133,96 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="1dp"
                                 android:background="#e2e0e0" />
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:orientation="horizontal">
+                               <LinearLayout
+                                   android:id="@+id/closeTV"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_gravity="end"
+                                   android:layout_weight="1"
+                                   android:orientation="horizontal"
+                                   android:paddingEnd="4dp"
+                                   android:paddingStart="4dp">
 
-                            <LinearLayout
-                                android:id="@+id/replyTv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                android:orientation="horizontal"
-                                android:paddingEnd="4dp"
-                                android:paddingStart="4dp">
+                                   <!--<Button
+                                       android:id="@+id/feedBack"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center|center_vertical"
+                                       android:layout_weight="1"
+                                       android:background="@android:color/transparent"
+                                       android:drawableEnd="@drawable/ic_feedback_black_24dp"
+                                       android:gravity="center|center_vertical"
+                                       android:padding="4dp"
+                                       android:text="feedback"
+                                       android:textSize="12sp"
+                                       android:textStyle="normal" />
+   -->
+                                   <com.finaqa.customeview.RobotoRegularTextView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="end"
+                                       android:background="@android:color/transparent"
+                                       android:gravity="center"
+                                       android:padding="8dp"
+                                       android:text="CLOSE"
+                                       android:textColor="@color/gray_3"
+                                       android:textSize="21sp"
+                                       android:textStyle="normal" />
 
-                                <!--<Button
-                                    android:id="@+id/feedBack"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center|center_vertical"
-                                    android:layout_weight="1"
-                                    android:background="@android:color/transparent"
-                                    android:drawableEnd="@drawable/ic_feedback_black_24dp"
-                                    android:gravity="center|center_vertical"
-                                    android:padding="4dp"
-                                    android:text="feedback"
-                                    android:textSize="12sp"
-                                    android:textStyle="normal" />
--->
-                                <com.finaqa.customeview.RobotoRegularTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="end"
-                                    android:background="@android:color/transparent"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="REPLY"
-                                    android:textColor="@android:color/holo_red_dark"
-                                    android:textSize="21sp"
-                                    android:textStyle="normal" />
+                                   <ImageView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center"
+                                       android:src="@drawable/ic_delete_gray_24" />
+                               </LinearLayout>
+                               <LinearLayout
+                                   android:id="@+id/replyTv"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:gravity="center"
+                                   android:layout_weight="1"
+                                   android:orientation="horizontal"
+                                   android:paddingEnd="4dp"
+                                   android:paddingStart="4dp">
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/ic_arrow_24" />
-                            </LinearLayout>
+                                   <!--<Button
+                                       android:id="@+id/feedBack"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center|center_vertical"
+                                       android:layout_weight="1"
+                                       android:background="@android:color/transparent"
+                                       android:drawableEnd="@drawable/ic_feedback_black_24dp"
+                                       android:gravity="center|center_vertical"
+                                       android:padding="4dp"
+                                       android:text="feedback"
+                                       android:textSize="12sp"
+                                       android:textStyle="normal" />
+   -->
+                                   <com.finaqa.customeview.RobotoRegularTextView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="end"
+                                       android:background="@android:color/transparent"
+                                       android:gravity="center"
+                                       android:padding="8dp"
+                                       android:text="REPLY"
+                                       android:textColor="@android:color/holo_red_dark"
+                                       android:textSize="21sp"
+                                       android:textStyle="normal" />
+
+                                   <ImageView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center"
+                                       android:src="@drawable/ic_arrow_24" />
+                               </LinearLayout>
+                           </LinearLayout>
+
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>

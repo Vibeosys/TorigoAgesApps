@@ -113,7 +113,10 @@
         <activity
             android:name=".activities.ShortTermRiskActivity"
             android:label="@string/shortTermRisk"
-            android:parentActivityName=".activities.LongTermGoalActivity"></activity>
+            android:parentActivityName=".activities.LongTermGoalActivity" />
+        <activity
+            android:name=".activities.FeedbackActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
