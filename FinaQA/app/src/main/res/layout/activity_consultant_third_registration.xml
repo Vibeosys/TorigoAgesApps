@@ -157,7 +157,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/holo_blue_bright"
                             android:textSize="14sp"
-                            android:text=" Terms and condition"/>
+                            android:text=" Terms and conditions"/>
                     </LinearLayout>
                 </LinearLayout>
 
