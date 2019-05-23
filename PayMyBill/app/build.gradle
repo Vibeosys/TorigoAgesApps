@@ -1,19 +1,19 @@
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
     defaultConfig {
         applicationId "com.vibeosys.paymybill"
-        minSdkVersion 18
-        targetSdkVersion 25
-        versionCode 3
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 14
         versionName "1.0"
-        multiDexEnabled true
-    }
-    dexOptions {
-        incremental true
-        javaMaxHeapSize "4g"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
     buildTypes {
         release {
@@ -21,23 +21,49 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
+
+    lintOptions {
+        abortOnError false
+    }
+    defaultConfig {
+        multiDexEnabled true
     }
 }
-repositories {
-    mavenCentral()
-}
+
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    // compile 'io.realm:realm-android:0.87.4'
+    //circular IV
+    testImplementation 'junit:junit:4.12'
+    androidTestCompile 'com.android.support:support-annotations:26.1.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     compile 'com.mcxiaoke.volley:library:1.0.19'
-    compile 'com.google.android.gms:play-services:9.2.0'
+
     compile 'com.android.support:multidex:1.0.0'
     compile 'de.hdodenhof:circleimageview:1.2.1'
+    compile 'com.facebook.android:audience-network-sdk:4.8.2'
+
     compile 'com.facebook.android:audience-network-sdk:4.+'
-    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-    compile 'com.google.android.gms:play-services-auth:9.2.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.8.2'
+
+    compile 'com.google.android.gms:play-services-auth:10.0.1'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
+    compile 'com.google.android.gms:play-services-plus:10.0.1'
+    compile 'com.google.android.gms:play-services-plus:10.0.1'
+    compile 'com.google.android.gms:play-services-fitness:10.0.1'
+    compile 'com.google.android.gms:play-services-identity:10.0.1'
+    compile 'com.google.android.gms:play-services-base:10.0.1'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
+
+    //compile 'dk.nodes.filepicker:filepicker:2.0.+'              // for file picker
+
 }
 apply plugin: 'com.google.gms.google-services'

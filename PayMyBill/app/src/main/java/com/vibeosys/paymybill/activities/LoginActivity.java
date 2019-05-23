@@ -59,7 +59,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.*;
 import com.google.android.gms.*;
 import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.fitness.data.Application;
 import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
